@@ -1,17 +1,19 @@
-<!-- <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script> -->
+ <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
 <script type='text/javascript' src='js/jquery.marquee.min.js'></script>
 <script type="text/javascript" src="js/jquery.carouFredSel.js"></script>
 <script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
 <script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script>
 <!--<script type="text/javascript" src="js/jquery.masonry.min.js"></script>-->
 <script type="text/javascript" src="js/jquery.idTabs.min.js"></script>
-<!-- <script type="text/javascript" src="js/script218.js"></script>-->
-<!--<script type="text/javascript" src="images/fancybox/jquery.fancybox.js"></script>-->
+ <script type="text/javascript" src="js/script218.js"></script>
+<script type="text/javascript" src="images/fancybox/jquery.fancybox.js"></script>
 <!-- <script type="text/javascript" language="javascript" src="js/flexcroll.js"></script>-->
 <!--<script src="js/galleria-1.2.8.min.js"></script>-->
 <!--<script type="text/javascript" src="js/jquery.unleash.js"></script>-->
 <script type="text/javascript" src="js/wow.min.js"></script>
 <script type="text/javascript" src="js/noty.js" defer="defer" async></script>
+<script type="text/javascript" src="js/jquery.mmenu.all.js"></script>
+<script type="text/javascript" src="js/owl.carousel.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         new WOW().init();

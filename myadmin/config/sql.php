@@ -6,9 +6,9 @@
 	if($_SERVER['HTTP_HOST'] != 'localhost') error_reporting(0);
 
 	$db_localhost 		 		= "localhost";
-	$db_user 			 		= "webdemo5_thoang";
-	$db_pass 			 		= '2021_thienhoanggroup123!';
-	$db_data 			 		= "webdemo5_thoang";
+	$db_user 			 		= "root";
+	$db_pass 			 		= '';
+	$db_data 			 		= "test1";
 	$_SESSION['sub_demo'] 		= "2021_thienhoanggroup/";
 	$check_fl_domain 			= "webdemo5.pavietnam.vn";
 	$cache_file   				= "on";

@@ -607,7 +607,7 @@ a.-hover:hover::after, .o-link.-hover:hover::after {
 }
 
 strong {
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .js-parallax {

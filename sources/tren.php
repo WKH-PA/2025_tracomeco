@@ -8,6 +8,20 @@
 <meta name="format-detection" content="telephone=no" />
 <base href="<?=$fullpath ?>/" />
 <?php include("seo.php"); ?>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="css/font.css" rel="stylesheet" type="text/css" />
+    <link href="css/grid.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/style_responsive.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- icons -->
+    <link href="Font-Awesome-640/css/all.css" rel="stylesheet" type="text/css" />
+    <!---css menu mobile--->
+    <link rel="stylesheet" type="text/css" href="css/jquery.mmenu.all.css">
+    <link href="css/animate.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" type="text/css" href="images/fancybox/jquery.fancybox.css"/>
+
 <script src="https://kit.fontawesome.com/170a63e521.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" type="text/css" href="menu_mb/css.css"/>
 <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
