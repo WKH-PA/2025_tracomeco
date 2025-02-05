@@ -1,254 +1,296 @@
 <?php include _source . "banner_top.php"; ?>
-<?php $ndkhac = LAYTEXT_rieng(82); ?>
-<div class="dv-home-gioithieu" id="dv-home-gioithieu">
-    <div class="pagewrap">
-        <div class="vc_col-sm-6">
-            <div class="article_heading">
-                <p class="heading_primary">
-                    <?= $ndkhac['p1_' . $lang] ?>
-                </p>
-                <h3 class="heading_secondary">
-                    <?= $ndkhac['tenbaiviet_' . $lang] ?>
-                </h3>
-            </div>
-            <div class="showText">
-                <?= $ndkhac['noidung_' . $lang] ?>
-            </div>
-            <p class="read_more"><a class="wow fadeInUp" <?= full_href($ndkhac) ?>><?= $glo_lang['xem_them'] ?> <i
-                        class="fa fa-caret-right"></i></a></p>
-        </div>
-        <div class="vc_col-sm-6">
-            <div class="image-3d-effect">
-                <!--                <div class="side left"></div>-->
-                <!--                <div class="side right"></div>-->
-                <div class="images">
-                    <div class="front-image" style="background-image: url(<?= full_src($ndkhac, "") ?>)"></div>
-                    <div class="back-image" style="background-image: url(<?= full_src($ndkhac, "", "icon_hover") ?>)">
-                    </div>
+<section class="tracomeco_home_gioithieu p-t-60 p-b-60">
+    <div class="container-fluid">
+        <div class="row v-center">
+            <?php
+            $ndkhac = LAYTEXT_rieng(82);
+            $imggioithieu = LAY_baiviet_chitiet(25);
+            ?>
+            <div class="col-xl-3 col-img">
+                <div class="home_dichvu_hinh">
+                    <img src="datafiles/<?php echo $imggioithieu[2]['icon']; ?>" alt="<?php echo $imggioithieu[2]['tenbaiviet_vi']; ?>"/>
                 </div>
             </div>
-            <script>
-                $(function () {
-                });
-            </script>
+            <div class="col-xl-3 col-img">
+                <div class="home_dichvu_hinh p-b-20">
+                    <img src="datafiles/<?php echo $imggioithieu[1]['icon']; ?>" alt="<?php echo $imggioithieu[1]['tenbaiviet_vi']; ?>"/>
+                </div>
+                <div class="home_dichvu_hinh">
+                    <img src="datafiles/<?php echo $imggioithieu[0]['icon']; ?>" alt="<?php echo $imggioithieu[0]['tenbaiviet_vi']; ?>"/>
+                </div>
+            </div>
+
+            <div class="col-xl-6 col-txt">
+                <div class="home_dichvu_text wow animate__fadeInRight">
+                    <h2><?= $glo_lang['gioi_thieu'] ?></h2>
+                    <h3><?= $ndkhac['p1_'. $lang] ?></h3>
+                    <p class="short-desc"><?= $ndkhac['noidung_'. $lang] ?></p>
+                    <p class="read-more">
+                        <a href="index.php?page=gioithieu" title="Xem chi tiết">Xem chi tiết <i class="fa-light fa-arrow-up-right-from-square"></i></a>
+                    </p>
+                </div>
+            </div>
+
         </div>
-        <div class="clr"></div>
+
+    </div>
+</section>
+
+<section class="tracomeco_home_linhvuc p-t-60 p-b-60">
+    <div class="container-fluid">
+        <div class="tracomeco_title_main">
+            <h2 class="text-uppercase wow animate__flipInX">Lĩnh vực hoạt động</h2>
+        </div>
+        <div class="row">
+            <?$danhmuc_menu = GET_danhmuc_menu("4", $lang);?>
+            <?php foreach ($danhmuc_menu as $danhmuc) : ?>
+                <div class="col-xl-4">
+                    <div class="linhvuc_col">
+                        <img src="delete/linhvuc/linhvuc-1.jpg" alt="Lĩnh vực">
+                        <div class="col_tieude wow animate__fadeInUp">
+                            <span>01</span>
+                            <h3>
+                                <a href="index.php?page=linhvuc">
+                                    <?= !empty($danhmuc['tenbaiviet_danhmuc']) ? htmlspecialchars($danhmuc['tenbaiviet_danhmuc']) : 'Tên danh mục không có' ?>
+                                </a>
+                            </h3>
+                        </div>
+                        <div class="col_icon">
+                            <i class="fa-light fa-car"></i>
+                        </div>
+                        <ul class="list-item">
+                            <li class="item-activity font18">
+                                <?= $danhmuc['tenbaiviet']  ?>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+
+
+        </div>
+    </div>
+</section>
+
+
+
+<section class="tracomeco_home_khach_hang p-t-60 p-b-60">
+    <div class="container-fluid">
+        <div class="tracomeco_title_main">
+            <h2 class="text-uppercase wow animate__flipInX">Khách hàng nói về tracomeco</h2>
+        </div>
+        <div class="home_khach_hang swiper myCamnhan">
+            <div class="swiper-wrapper">
+                <div class="khach_hang_box swiper-slide">
+                    <h3>Chất lượng phục vụ</h3>
+                    <p class="rate flex" style="margin:0">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                    </p>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit...</p>
+                    <p class="name-kh">Anh Nguyễn Minh Hiếu</p>
+                </div>
+                <div class="khach_hang_box swiper-slide">
+                    <h3>Dịch vụ cảng</h3>
+                    <p class="rate flex" style="margin:0">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                    </p>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit...</p>
+                    <p class="name-kh">Anh Trần Minh Ân</p>
+                </div>
+                <div class="khach_hang_box swiper-slide">
+                    <h3>Cơ khí & Công nghiệp hỗ trợ</h3>
+                    <p class="rate flex" style="margin:0">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                    </p>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit...</p>
+                    <p class="name-kh">Chị Nguyễn Thị Mỹ Linh</p>
+                </div>
+                <div class="khach_hang_box swiper-slide">
+                    <h3>Hỗ trợ tuyệt vời</h3>
+                    <p class="rate flex" style="margin:0">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                    </p>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit...</p>
+                    <p class="name-kh">Chị Nguyễn Thị Mỹ Linh</p>
+                </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </div>
+</section>
+
+
+<div class="pa_home_banner">
+    <div class="swiper myBanner">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" data-swiper-slide-index="0">
+                <a href="index.php?page=thu-vien-anh-va-video"><img src="delete/banner/banner-4.jpg"></a>
+                <a href="index.php?page=thu-vien-anh-va-video" class="button_slide wow animate__backInRight">Xem thêm <i class="fa-light fa-arrow-up-right-from-square"></i></a>
+            </div>
+            <div class="swiper-slide" data-swiper-slide-index="1">
+                <a href="index.php?page=thu-vien-anh-va-video"><img src="delete/banner/banner-5.jpg"></a>
+                <a href="index.php?page=thu-vien-anh-va-video" class="button_slide wow animate__backInRight">Xem thêm <i class="fa-light fa-arrow-up-right-from-square"></i></a>
+            </div>
+            <div class="swiper-slide" data-swiper-slide-index="2">
+                <a href="index.php?page=thu-vien-anh-va-video"><img src="delete/banner/banner-2.jpg"></a>
+                <a href="index.php?page=thu-vien-anh-va-video" class="button_slide wow animate__backInRight">Xem thêm <i class="fa-light fa-arrow-up-right-from-square"></i></a>
+            </div>
+            <div class="swiper-slide" data-swiper-slide-index="3">
+                <a href="index.php?page=thu-vien-anh-va-video"><img src="delete/banner/banner-3.jpg"></a>
+                <a href="index.php?page=thu-vien-anh-va-video" class="button_slide wow animate__backInRight">Xem thêm <i class="fa-light fa-arrow-up-right-from-square"></i></a>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
     </div>
 </div>
-<?php $gioithieu_home = LAY_baiviet(1, 1, "`p2` = 1");
-if (!empty($gioithieu_home)) {
-    $gioithieu_home = reset($gioithieu_home);
-    $step_gioithieu = LAY_step(1);
-    $step_gioithieu = reset($step_gioithieu);
-    $bv_chitiet_gioithieu = DB_fet("*", "#_baiviet_chitiet", "`showhi` = 1 and id_parent =" . $gioithieu_home['id'] . "", "`catasort` DESC, `id` DESC", "", 1);
-    ?>
-    <div class="dv-home-tamnhin">
-        <div class="pagewrap">
-            <div class="article_heading">
-                <h3 class="heading_secondary">
-                    <?= $gioithieu_home['tenbaiviet_' . $lang] ?>
-                </h3>
-            </div>
-            <div class="our_product_id">
-                <?php foreach ($bv_chitiet_gioithieu as $rows) { ?>
-                    <ul class="">
-                        <li><img class="lazy" <?= full_src_lazy($rows, "") ?> alt="<?= $rows['tenbaiviet_' . $lang] ?>">
-                        </li>
-                        <h3>
-                            <?= $rows['tenbaiviet_' . $lang] ?>
-                        </h3>
-                        <div class="showText2 limit-row-4" style="text-align: center;">
-                            <?= strip_tags($rows['noidung_' . $lang]) ?>
-                        </div>
-                        <p class="read_more"><a class="wow fadeInUp c-scroll-js" <?= full_href($step_gioithieu, "#dv_" . $gioithieu_home['id']) ?>><?= $glo_lang['xem_them'] ?>
-                                <i class="fa fa-caret-right"></i></a></p>
-                    </ul>
-                <?php } ?>
-                <div class="clr"></div>
-            </div>
-        </div>
-    </div>
-    <script>
-        window.addEventListener("hashchange", function () {
-            window.scrollTo(window.scrollX, window.scrollY - 100);
-        });
-    </script>
-<?php } ?>
-<?php
-$dichvu = LAY_baiviet(3, 4, "`opt2` = 1");
-if (!empty($dichvu)) {
-    ?>
-    <div class="dv-home-dichvu">
-        <div class="pagewrap">
-            <div class="article_heading">
-                <p class="heading_primary">
-                    <?= $glo_lang['dich_vu'] ?>
-                </p>
-                <h3 class="heading_secondary">
-                    <?= $glo_lang['mota_dich_vu'] ?>
-                </h3>
-            </div>
-            <div id="pro_tabs">
-                <ul class="listtabs">
-                    <?php
-                    //$i = 1;
-                    foreach ($dichvu as $rows) { ?>
-                        <li>
-                            <a href="#tab<?= $rows['id'] ?>" onclick="return false;" <?= $rows['id'] == 1 ? 'class="selected"' : '' ?>>
-                                <div class="media-body">
-                                    <h3>
-                                        <?= $rows['tenbaiviet_' . $lang] ?>
-                                    </h3>
-                                    <p>
-                                        <?= strip_tags($rows['mota_' . $lang]) ?>
-                                    </p>
+
+
+<section class="tracomeco_home_tin_tuc p-t-60 p-b-60">
+    <div class="container-fluid" style="position:relative;">
+        <div class="row">
+
+            <div class="col-xl-8">
+                <div class="home_tin_tuc_main">
+                    <div class="tracomeco_title_main" style="text-align: left;">
+                        <h2 class="m-b-30 wow animate__flipInX">TIN TỨC - SỰ KIỆN</h2>
+                    </div>
+                    <div class="slide_tin_tuc">
+                        <div class="block_tin_tuc row">
+                            <div class="col-md-8">
+                                <div class="post_item lg">
+                                    <div class="post_img">
+                                        <a href="index.php?page=tintuc_view"><img src="delete/tintuc/tintuc-1.jpg"></a>
+                                    </div>
+                                    <div class="post_info">
+                                        <h3><a href="index.php?page=tintuc_view">Thông báo Nghị Quyết số 01/2024-NQ-ĐHĐCĐ</a></h3>
+                                        <p class="dated"><i class="fa-regular fa-calendar-days"></i> 08/01/2025</p>
+                                        <p style="margin-bottom: 0">Công ty Cổ phần Cơ khí Xây dựng Giao thông - Tracomeco - thông báo về việc ban hành Nghị quyết Đại Hội Đồng Cổ Đông - Nhiệm kỳ V (2024-2028).</p>
+                                    </div>
                                 </div>
-                            </a>
-                        </li>
-                    <?php //$i++;
-                    } ?>
-                    <div class="clr"></div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="post_item">
+                                    <div class="post_img">
+                                        <a href="index.php?page=tintuc_view"><img src="delete/tintuc/tintuc-2.jpg"></a>
+                                    </div>
+                                    <div class="post_info">
+                                        <h3><a href="index.php?page=tintuc_view">Thông báo Đại Hội Cổ Đông nhiệm kỳ V (2024 - 2028) - Dự thảo</a></h3>
+                                        <p class="dated"><i class="fa-regular fa-calendar-days"></i> 08/01/2025</p>
+                                    </div>
+                                </div>
+                                <div class="post_item">
+                                    <div class="post_img">
+                                        <a href="index.php?page=tintuc_view"><img src="delete/tintuc/tintuc-3.jpg"></a>
+                                    </div>
+                                    <div class="post_info">
+                                        <h3><a href="index.php?page=tintuc_view">Báo cáo Đại Hội Cổ Đông Thường Niên Năm 2023</a></h3>
+                                        <p class="dated"><i class="fa-regular fa-calendar-days"></i> 08/01/2025</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4">
+                <div class="home_tin_tuc_side">
+                    <h2>Tin tuyển dụng</h2>
+                    <div class="post_item wow animate__fadeInDown">
+                        <div class="post_info">
+                            <h3><a href="index.php?page=tintuc_view">Phó Tổng Giám Đốc (Phụ Trách Nghiệp Vụ Quản Trị Cơ Bản)</a></h3>
+                            <p class="dated"><i class="fa-regular fa-calendar-days"></i> 08/01/2025</p>
+                        </div>
+                    </div>
+                    <div class="post_item wow animate__fadeInDown">
+                        <div class="post_info">
+                            <h3><a href="index.php?page=tintuc_view">Trưởng Nhóm Quản Lý Quy Trình Công Nghệ Hệ Thống</a></h3>
+                            <p class="dated"><i class="fa-regular fa-calendar-days"></i> 08/01/2025</p>
+                        </div>
+                    </div>
+                    <div class="post_item wow animate__fadeInDown">
+                        <div class="post_info">
+                            <h3><a href="index.php?page=tintuc_view">Phó Tổng Giám Đốc (Phụ Trách Nghiệp Vụ Quản Trị Cơ Bản)</a></h3>
+                            <p class="dated"><i class="fa-regular fa-calendar-days"></i> 08/01/2025</p>
+                        </div>
+                    </div>
+                    <div class="post_item wow animate__fadeInDown">
+                        <div class="post_info">
+                            <h3><a href="index.php?page=tintuc_view">Trưởng Nhóm Quản Lý Quy Trình Công Nghệ Hệ Thống</a></h3>
+                            <p class="dated m-b-0"><i class="fa-regular fa-calendar-days"></i> 08/01/2025</p>
+                        </div>
+                    </div>
+                    <div class="post_item wow animate__fadeInDown">
+                        <div class="post_info">
+                            <h3><a href="index.php?page=tintuc_view">Trưởng Nhóm Quản Lý Quy Trình Công Nghệ Hệ Thống</a></h3>
+                            <p class="dated m-b-0"><i class="fa-regular fa-calendar-days"></i> 08/01/2025</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+</section>
+
+
+<section class="pa_boxcontent p-t-60 p-b-60">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="swiper myPartner">
+                <ul class="swiper-wrapper">
+                    <li class="swiper-slide">
+                        <a href="https://www.sieuthimaychu.vn/" target="_blank" title="Đối tác siêu siêu nhỏ" class="logo_bottom">
+                            <img src="https://support.pavietnam.vn/datafile/banner/2023_05/433254-15143415-f-logo-ssn.png" alt="Đối tác siêu siêu nhỏ" title="Đối tác siêu siêu nhỏ">
+                        </a>
+                    </li>
+                    <li class="swiper-slide">
+                        <a href="https://www.bang.vn/" target="_blank" title="Đối tác bang.vn" class="logo_bottom">
+                            <img src="https://support.pavietnam.vn/datafile/banner/2023_05/433254-15143356-f-logo-bang.png" alt="Đối tác bang.vn" title="Đối tác bang.vn">
+                        </a>
+                    </li>
+                    <li class="swiper-slide">
+                        <a href="https://thonet-vander.vn/" target="_blank" title="Đối tác Thoner" class="logo_bottom">
+                            <img src="https://support.pavietnam.vn/datafile/banner/2023_05/433254-15143334-f-logo-thonet.png" alt="Đối tác Thoner" title="Đối tác Thoner">
+                        </a>
+                    </li>
+                    <li class="swiper-slide">
+                        <a href="javascript:void(0)" target="_self" title="Đối tác google partner" class="logo_bottom">
+                            <img src="https://support.pavietnam.vn/datafile/banner/2023_06/649401-08133424-google-partner-logo-2ba563bac5-seeklogo.com.png" alt="Đối tác google partner" title="Đối tác google partner">
+                        </a>
+                    </li>
+                    <li class="swiper-slide">
+                        <a href="https://www.vnnic.vn/" target="_blank" title="Đối tác VNNIC" class="logo_bottom">
+                            <img src="https://support.pavietnam.vn/datafile/banner/2023_05/433254-15143214-f-logo-vnnic.png" alt="Đối tác VNNIC" title="Đối tác VNNIC">
+                        </a>
+                    </li>
+                    <li class="swiper-slide">
+                        <a href="https://www.icann.org/" target="_blank" title="Đối tác icann" class="logo_bottom">
+                            <img src="https://support.pavietnam.vn/datafile/banner/2023_12/649401-16115527-photo-2018-01-26-02-16-31.jpg" alt="Đối tác icann" title="Đối tác icann">
+                        </a>
+                    </li>
+                    <li class="swiper-slide">
+                        <a href="https://cpanel.net/" target="_blank" title="Đối tác cPanel" class="logo_bottom">
+                            <img src="https://support.pavietnam.vn/datafile/banner/2023_05/433254-15143128-f-logo-cpanel-seeklogo.png" alt="Đối tác cPanel" title="Đối tác cPanel">
+                        </a>
+                    </li>
                 </ul>
             </div>
-            <!--            <div class="dv-home-gt">-->
-            <!--                -->
-            <?php //$data = array("1","1","1","1","1","1") ?>
-            <!--                <div class="tab-content owl-auto owl-carousel owl-theme owl-custome" data0="-->
-            <? //=$data[0] ?><!--" data1="-->
-            <? //=$data[1] ?><!--" data2="-->
-            <? //=$data[2] ?><!--" data3="-->
-            <? //=$data[3] ?><!--" data4="-->
-            <? //=$data[4] ?><!--" data5="-->
-            <? //=$data[5] ?><!--" is_slidespeed="5000" is_autoplay="1">-->
-            <!--                    -->
-            <?php
-            //                    $i = 1;
-//                    foreach ($dichvu as $rows) { ?>
-            <!--                        <div class="tab-item" >-->
-            <!--                            <div class="form-intro"><img class="lazy" -->
-            <? //= full_src_lazy($rows, "") ?>
-            <!--                                                         alt="-->
-            <? //= $rows['tenbaiviet_' . $lang] ?><!--"></div>-->
-            <!--                        </div>-->
-            <!--                        -->
-            <?php //$i++;
-//                    } ?>
-            <!--                </div>-->
-            <!--                <div class="clr"></div>-->
-            <!--            </div>-->
-            <div class="dv-home-gt">
-                <div class="tab-content">
-                    <?php
-                    //$i = 1;
-                    foreach ($dichvu as $rows) { ?>
-                        <div class="tab-item" id="tab<?= $rows['id'] ?>">
-                            <div class="form-intro"><img class="lazy" <?= full_src_lazy($rows, "") ?>
-                                    alt="<?= $rows['tenbaiviet_' . $lang] ?>"></div>
-                        </div>
-                    <?php //$i++;
-                    } ?>
-                </div>
-                <div class="clr"></div>
-            </div>
-            <script type="text/javascript">
-                $(function () {
-                    $("#pro_tabs ul").idTabs("!mouseover");
-                });
-            </script>
-            <div class="clr"></div>
         </div>
     </div>
-<?php } ?>
-
-<?php
-$tin_moi = LAY_baiviet(5, 3, "`opt1` = 1");
-if (!empty($tin_moi)) {
-    ?>
-    <div class="dv-home-tintuc">
-        <div class="pagewrap">
-            <div class="article_heading">
-                <p class="heading_primary">
-                    <?= $glo_lang['tin_moi_nhat'] ?>
-                </p>
-                <h3 class="heading_secondary">
-                    <?= $glo_lang['tin_tuc_su_kien'] ?>
-                </h3>
-            </div>
-            <div class="tt_page tt_page_top tt_page_top_home flex">
-                <?php
-                $i = 1;
-                foreach ($tin_moi as $rows) { ?>
-                    <div class="new_id_bs">
-                        <li><a <?= full_href($rows) ?>>
-                                <?php if ($i == 1 || $rows['icon_hover'] == "") { ?>
-                                    <img class="lazy" <?= full_src_lazy($rows, "") ?> alt="<?= $rows['tenbaiviet_' . $lang] ?>">
-                                <?php } else { ?>
-                                    <img class="lazy" <?= full_src_lazy($rows, "", "icon_hover") ?>
-                                        alt="<?= $rows['tenbaiviet_' . $lang] ?>">
-                                <?php } ?>
-                            </a></li>
-                        <ul>
-                            <h3><a <?= full_href($rows) ?>><?= $rows['tenbaiviet_' . $lang] ?></a>
-                            </h3>
-                            <p><i class="fa fa-calendar"></i>
-                                <?= date("d/m/Y", $rows['ngaydang']) ?>
-                            </p>
-                        </ul>
-                        <div class="clr"></div>
-                    </div>
-                    <?php $i++;
-                } ?>
-            </div>
-            <div class="clr"></div>
-        </div>
-    </div>
-<?php } ?>
-<?php
-$tuyendung = LAY_baiviet(6, 3);
-if (!empty($tuyendung)) {
-    ?>
-    <div class="dv-home-tuyendung">
-        <div class="pagewrap">
-            <div class="col-md-12">
-                <?php foreach ($tuyendung as $rows) { ?>
-                    <div class="col-md-4">
-                        <h4 class="text-color"><a <?= full_href($rows) ?> class="text-color"><?= $glo_lang['tuyen_dung'] ?></a></h4>
-                        <h2 class="text-l"><a class="white" <?= full_href($rows) ?>><?= $rows['tenbaiviet_' . $lang] ?></a>
-                        </h2>
-                        <p class="m-0">
-                            <?= $rows['mota_' . $lang] ?>
-                        </p>
-                    </div>
-                <?php } ?>
-                <div class="clr"></div>
-            </div>
-        </div>
-    </div>
-<?php } ?>
-<?php
-$doitac = LAY_banner_new("`id_parent` = 29");
-if (!empty($doitac)) {
-    ?>
-    <div class="dv-home-doitac">
-        <div class="pagewrap">
-            <div class="article_heading">
-                <h4 class="heading_secondary">
-                    <?= $glo_lang['doi_tac_cua_chung_toi'] ?>
-                </h4>
-            </div>
-            <?php $data = array("3", "4", "5", "6", "7", "8") ?>
-            <div class="logo_doitac owl-auto owl-carousel owl-theme owl-custome" id="images_slide" data0="<?= $data[0] ?>"
-                data1="<?= $data[1] ?>" data2="<?= $data[2] ?>" data3="<?= $data[3] ?>" data4="<?= $data[4] ?>"
-                data5="<?= $data[5] ?>" is_slidespeed="1000" is_navigation="1" is_autoplay="1">
-                <?php foreach ($doitac as $rows) { ?>
-                    <ul>
-                        <li><a target="<?= $rows['blank'] ?>" <?= full_href($rows) ?>>
-                                <img class="lazy" <?= full_src_lazy($rows) ?> alt="<?= $rows['tenbaiviet_' . $lang] ?>" /></a></li>
-                    </ul>
-                <?php } ?>
-            </div>
-            <div class="clr"></div>
-        </div>
-        <div class="clr"></div>
-    </div>
-<?php } ?>
+</section>

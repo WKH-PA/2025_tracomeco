@@ -1687,6 +1687,41 @@
 		
 		return $list_mb_1;
 	}
+	// Get danh muc menu theo id
+	function GET_danhmuc_menu($id_menu, $lang = 'vi')
+	{
+		if (!$id_menu) return [];
+
+		// Lấy thông tin menu
+		$menu = DB_fet_rd("id, step", "#_menu", "id = $id_menu", "", "1", "id");
+		if (!$menu) return [];
+
+		// Lấy step từ menu
+		$step_id = isset($menu[$id_menu]['step']) ? $menu[$id_menu]['step'] : 0;
+
+		// Lấy danh mục theo step và showhi = 1
+		$tb_danhmuc = DB_fet_rd("id, tenbaiviet_$lang, icon, icon_hover", "#_danhmuc", "step = $step_id AND showhi = 1", "`catasort` ASC, `id` DESC", "", "id");
+		if (!$tb_danhmuc) return [];
+
+		return array_map(function($dm) use ($lang) {
+			// Lấy bài viết của danh mục
+			$tb_listbv = DB_fet_rd("*", "`#_baiviet`", "`id_parent` = '" . $dm['id'] . "' AND showhi = 1", "`catasort` DESC, `id` DESC", "", "id");
+			$tenbaiviet = '';
+			if (!empty($tb_listbv)) {
+				// Giả sử chỉ lấy bài viết đầu tiên trong danh sách (nếu có)
+				$first_baiviet = reset($tb_listbv);
+				$tenbaiviet = $first_baiviet['tenbaiviet_' . $lang];
+			}
+			return [
+				'tenbaiviet_danhmuc' => $dm['tenbaiviet_' . $lang],
+				'icon' => !empty($dm['icon']) ? full_src($dm, '') : '',
+				'icon_hover' => !empty($dm['icon_hover']) ? full_src_muti($dm, '', 'icon_hover') : '',
+				'tenbaiviet' => $tenbaiviet // Lấy tên bài viết đầu tiên từ danh mục
+			];
+		}, $tb_danhmuc);
+
+	}
+
 
 	function GET_gia($gia, $giakm, $dvt = '', $lienhe = '', $class_gia = '', $class_km = '', $name_gia = '', $name_km  = '', $ismuti = 0, $idbv = 0){
 		global $baiviet_gia, $lang;

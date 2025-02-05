@@ -1,1 +1,0 @@
-[{"id":"71","bang":"baiviet","slug":"test kinh doanh-71","id_bang":"49","step":"9"}]
