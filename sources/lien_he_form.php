@@ -35,17 +35,16 @@
                    data-msso="<?= $glo_lang['chua_nhap_dia_chi_email'] ?>"
                    data-msso1="<?= $glo_lang['dia_chi_email_khong_hop_le'] ?>"/>
         </li>
-
-    </div>
-    <div class="right">
-        <!-- <li class="local">
+        <li class="local">
             <input type="hidden" name="s_address_s" value="<?= base64_encode($glo_lang['dia_chi']) ?>">
             <input name="s_address" id="s_address" type="text" placeholder="<?= $glo_lang['dia_chi'] ?>"
                    value="<?= !empty($_POST['s_address']) ? $_POST['s_address'] : @$diachi ?>"
                    onFocus="if (this.value == '<?= $glo_lang['dia_chi'] ?>'){this.value='';}"
                    onBlur="if (this.value == '') {this.value='<?= $glo_lang['dia_chi'] ?>';}"/>
-        </li> -->
+        </li>
 
+    </div>
+    <div class="right">
         <li class="subject">
             <input type="hidden" name="s_title_s" value="<?= base64_encode($glo_lang['tieu_de']) ?>">
             <input name="s_title" id="s_title" type="text" placeholder="<?= $glo_lang['tieu_de'] ?>"
@@ -53,6 +52,13 @@
                    onFocus="if (this.value == '<?= $glo_lang['tieu_de'] ?>'){this.value='';}"
                    onBlur="if (this.value == '') {this.value='<?= $glo_lang['tieu_de'] ?>';}"
                    data-name="<?= $glo_lang['tieu_de'] ?>" data-msso="<?= $glo_lang['nhap_tieu_de'] ?>"/>
+        </li>
+        <li class="mess" style="margin-bottom: 13px;">
+            <input type="hidden" name="s_message_s" value="<?= base64_encode($glo_lang['noi_dung_lien_he']) ?>">
+            <textarea class="cls_data_check_form" data-rong="1" name="s_message" id="s_message" cols="" rows=""
+                      placeholder="<?= $glo_lang['noi_dung_lien_he'] ?>  (*)"
+                      data-msso="<?= $glo_lang['nhap_noi_dung'] ?>"><?= !empty($_POST['s_message']) ? $_POST['s_message'] : '' ?></textarea>
+            <div class="clr"></div>
         </li>
         <li class="code">
             <span style="line-height: 0;padding-right: 0;"><img src="<?= $full_url . "/load-capcha/" ?>"
@@ -70,18 +76,14 @@
         </li>
 
     </div>
-    <li class="mess">
-        <input type="hidden" name="s_message_s" value="<?= base64_encode($glo_lang['noi_dung_lien_he']) ?>">
-        <textarea class="cls_data_check_form" data-rong="1" name="s_message" id="s_message" cols="" rows=""
-                  placeholder="<?= $glo_lang['noi_dung_lien_he'] ?>  (*)"
-                  data-msso="<?= $glo_lang['nhap_noi_dung'] ?>"><?= !empty($_POST['s_message']) ? $_POST['s_message'] : '' ?></textarea>
-        <div class="clr"></div>
-    </li>
-    <p class="require_pc" style="color:red;"><?= $glo_lang['thong_tin_bat_buoc'] ?></p>
+
+<!--    <p class="require_pc" style="color:red;">--><?//= $glo_lang['thong_tin_bat_buoc'] ?><!--</p>-->
     <a onclick="return CHECK_send_lienhe('<?= $full_url ?>/','#formnamecontact2', '.cls_data_check_form')"
        style="cursor:pointer" class="button"><?= $glo_lang['gui'] ?> <img src="images/loading2.gif"
                                                                           class="ajax_img_loading"></a>
     <a onclick="RefreshFormMailContact(formnamecontact2)" style="cursor:pointer"
        class="button"><?= $glo_lang['lam_lai'] ?></a>
     <div class="clr"></div>
+
+
 </form>

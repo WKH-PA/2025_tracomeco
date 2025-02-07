@@ -4,12 +4,15 @@ if ((!empty($thongtin_step) && $thongtin_step['num_view'] == 0) || empty($thongt
 else $numview = $thongtin_step['num_view'];
 
 $key = isset($_GET['key']) ? str_replace("+", " ", strip_tags($_GET['key'])) : '';
+$year = isset($_GET['year']) ? str_replace("+", " ", strip_tags($_GET['year'])) : '';
+
 $is_search = isset($_GET['key']) ? true : false;
+$is_search_year = isset($_GET['year']) ? true : false;
 
 $lay_all_kx = "";
 $name_titile = !empty($arr_running['tenbaiviet_' . $lang]) ? SHOW_text($arr_running['tenbaiviet_' . $lang]) : "";
 if ($is_search) {
-    $slug_step = "1,3,4";
+    $slug_step = "3,4,12";
     $name_titile = $glo_lang['tim_kiem'];
     // $thongtin_step = DB_que("SELECT * FROM `#_step` WHERE `id` = '6' LIMIT 1");
     // $thongtin_step = mysqli_fetch_assoc($thongtin_step);
@@ -25,12 +28,11 @@ if ($is_search) {
     $wh .= " AND (`tenbaiviet_vi` LIKE '%" . $key . "%' OR `tenbaiviet_en` LIKE '%" . $key . "%')";
 }
 
-// //check tieu thuyet
-if ($slug_step == 1) {
-    $wh .= " AND `id_baiviet` = 0";
+// //check year
+if ($is_search_year) {
+    $wh .= " AND YEAR(`ngaydang`) = $year";
 }
 //
-
 include _source . "phantrang_kietxuat.php";
 // include _source."phantrang_danhmuc.php";
 
@@ -46,66 +48,93 @@ include _source."box-header.php";
 
 // full_src($thongtin_step, '')
 ?>
+<div class="page_conten_page p-t-60 p-b-60">
+    <div class="container-fluid">
+        <div class="tt_page_top flex">
+            <div class="col_conten_left">
+                <div class="filter-search-sharehoder non-field">
+                    <form class="form-search flex">
+                        <div class="search">
+                            <input type="text" autocomplete="false" class="form-control form-control-sm" placeholder="Nhập nội dung cần tìm..." value="" name="key">
+                            <button class="btn btn-secondary" type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                        <select class="select-year font18" name="year">
+                            <option value="all">Tất cả</option>
+                            <?php
+                            $currentYear = date("Y");
+                            $startYear = 2000;
+                            for ($year = $currentYear; $year >= $startYear; $year--) {
+                                echo "<option value=\"$year\">$year</option>";
+                            }
+                            ?>
+                        </select>
+                    </form>
+                </div>
+                <div class="list-info">
+                    <?php
+                    if ($nd_total == 0) {
+                        echo "<tr><td colspan='3'><div class='dv-notfull'>" . $glo_lang['khong_tim_thay_du_lieu_nao'] . "</div></td></tr>";
+                    } else {
+                        foreach ($nd_kietxuat as $rows) {
+                            $day = date("d", $rows['ngaydang']);
+                            $month_year = date("m/Y", $rows['ngaydang']);
 
-<div class="pagewrap page_conten_page">
-    <div class="showText">
-        <table class="tbl_down table-responsive" cellpadding="0" cellspacing="0">
-            <tbody>
-            <tr class="title">
-                <th width="15%"><?= $glo_lang['stt'] ?></th>
-                <th><?= $glo_lang['ten_file'] ?></th>
-                <th class="text-center"><?= $glo_lang['tai_ve'] ?></th>
-                <th><?=$glo_lang['ngay_thang_nam']?></th>
-                <th><?=$glo_lang['mota']?></th>
-            </tr>
-            <?php
-            if ($nd_total == 0) {
-                echo "<tr><td colspan='3'><div class='dv-notfull'>" . $glo_lang['khong_tim_thay_du_lieu_nao'] . "</div></td></tr>";
-            } else {
-            $i = 0;
-            foreach ($nd_kietxuat as $rows) {
-            $i++;
-            // $icon = '<i class="fa fa-file-excel-o"></i>';
-            // $link = "";
-            // if($rows['dowload'] != ""){
-            //   $link = $fullpath."/datafiles/files/".$rows['dowload'];
-            //   $ex = explode(".",$rows['dowload']);
-            //   $ex = end($ex);
-            //   if($ex == "pdf") $icon = '<i class="fa fa-file-pdf-o"></i>';
-            //   else if($ex == "doc" || $ex == "docx") $icon = '<i class="fa fa-file-word-o"></i>';
-            // }
+                            $icon = '<i class="fa fa-file-excel-o"></i>';
+                            $link = "";
+                            $target = "";
 
-            $link = "";
-            $target = "";
+                            if ($rows['dowload_text'] != "") {
+                                $link = $rows['dowload_text'];
+                                $target = "target='_blank'";
+                            } else if ($rows['dowload'] != "") {
+                                $link = $fullpath . "/datafiles/files/" . $rows['dowload'];
+                                $target = "download";
+                            }
+                            ?>
+                            <div class="info-item flex">
+                                <div class="info-left">
+                                    <p class="date-day"><?= $month_year ?></p>
+                                    <p class="date-year fon16 text-center"><?= $day ?></p>
+                                </div>
+                                <div class="info-right">
+                                    <h3>
+                                        <!-- Mở file khi nhấn vào tên -->
+                                        <a href="<?= $link ?>" target="_blank">
+                                            <?= SHOW_text($rows['tenbaiviet_' . $lang]) ?>
+                                        </a>
+                                    </h3>
+                                    <p>1 Files</p>
+                                </div>
+                                <div class="download">
+                                    <!-- Bấm vào đây để tải file xuống -->
+                                    <a href="<?= $link ?>" download class="post download">
+                                        <i class="fal fa-arrow-to-bottom text-dark font28"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <?php
+                        }
+                    }
+                    ?>
+                </div>
+            </div>
+            <div class="col_conten_right">
+                <?php include _source . "right_conten.php"; ?>
+            </div>
+        </div>
 
-            if ($rows['dowload_text'] != "") {
-                $link = $rows['dowload_text'];
-                $target = "target='_blank'";
-                $ex = explode(".", $rows['dowload_text']);
-                $ex = end($ex);
-            } else if ($rows['dowload'] != "") {
-                $link = $fullpath . "/datafiles/files/" . $rows['dowload'];
-                $target = "download";
-                $ex = explode(".", $rows['dowload']);
-                $ex = end($ex);
-            }
-            ?>
-            <tr>
-                <td data-title="<?=$glo_lang['stt']?>" class="text-center"><?= ($pzer - 1) * $numview + $i ?></td>
-                <td data-title="<?= $glo_lang['ten_file'] ?>"><?= SHOW_text($rows['tenbaiviet_' . $lang]) ?></td>
-                <td data-title="<?= $glo_lang['tai_ve'] ?>" class="text-center"><a target="_blank"
-                            href="<?= $link ?>" <?= $target ?>><?= $glo_lang['tai_ve'] ?></a></td>
-                <td data-title="<?= $glo_lang['ngay_thang_nam'] ?>"><?=date("d/m/Y",$rows['ngaydang'])?></td>
-                <td data-title="<?= $glo_lang['mota'] ?>"><?=strip_tags($rows['mota_'.$lang])?></td>
-            </tr>
-            <?php }
-            } ?>
-            </tbody>
-        </table>
+        <div class="clr"></div>
         <div class="nums no_box">
             <?= PHANTRANG($pzer, $sotrang, $full_url . "/" . $motty, $_SERVER['QUERY_STRING']) ?>
             <div class="clr"></div>
         </div>
     </div>
-    <?php include _source . "fb_sharelink.php"; ?>
 </div>
+<?php include _source . "fb_sharelink.php"; ?>
+
+
+
+
+

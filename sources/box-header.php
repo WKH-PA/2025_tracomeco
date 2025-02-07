@@ -143,22 +143,34 @@ if ($motty == "san-pham-noi-bat") {
 ?>
 <?php if ($motty != "404") { ?>
     <!--<div class="banner_detail" style="background-image: url('<?= $images_background ?>');">-->
+<!--    <div class="banner_detail">-->
+<!--        <div class="bannerimg">-->
+<!--        <img style="width: 100%;height: 400px;object-fit: cover;" src="--><?//=$images_background?><!--">-->
+<!--        </div>-->
+<!--        <div class="content-page-title">-->
+<!--            <h3 class="title">--><?//= $nametitle ?><!--</h3>-->
+<!--        </div>-->
+<!--        <div class="clr"></div>-->
+<!--        <div class="link_page">-->
+<!--            <div class="pagewrap">-->
+<!--                <ul>-->
+<!--                    <li><a href="--><?//=$full_url?><!--"><i class="fa fa-home"></i>--><?//=$glo_lang['trang_chu']?><!--</a> --><?//=$strshort?>
+<!--                    </li>-->
+<!--                </ul>-->
+<!--                <div class="clr"></div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
     <div class="banner_detail">
-        <div class="bannerimg">
-        <img style="width: 100%;height: 400px;object-fit: cover;" src="<?=$images_background?>">
-        </div>
-        <div class="content-page-title">
-            <h3 class="title"><?= $nametitle ?></h3>
-        </div>
-        <div class="clr"></div>
-        <div class="link_page">
-            <div class="pagewrap">
-                <ul>
-                    <li><a href="<?=$full_url?>"><i class="fa fa-home"></i><?=$glo_lang['trang_chu']?></a> <?=$strshort?>
-                    </li>
-                </ul>
-                <div class="clr"></div>
-            </div>
+            <img src="delete/gioithieu/banner-about.jpg">
+    </div>
+    <div class="link-direct">
+        <div class="container-fluid">
+            <ul>
+                <li>
+                    <a href="<?=$full_url?>"><i class="fa-light fa-house-chimney"></i><?=$glo_lang['trang_chu']?></a> <span class="active"><?=$strshort?></span>
+                </li>
+            </ul>
         </div>
     </div>
 <?php } else { ?>

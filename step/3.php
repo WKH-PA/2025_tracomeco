@@ -52,44 +52,113 @@ if ($is_search) {
 }
 include _source . "box-header.php";
 ?>
-<!-- <li><i class="fa fa-home"></i><a href="<?= $full_url ?>"><?= $glo_lang['trang_chu'] ?></a><?= GET_bre($arr_running['id'], $slug_step, $full_url, $lang, $thongtin_step, $slug_table, '<i class="fa fa-angle-right"></i>') ?></li> -->
-<div class="page_conten_page pagewrap">
-    <div class="tin_left">
-        <div class="tt_page_top tt_tintuc flex">
-            <?php
-            if ($nd_total == 0) {
-                echo "<div class='dv-notfull'>" . $glo_lang['khong_tim_thay_du_lieu_nao'] . "</div>";
-            } else {
-                foreach ($nd_kietxuat as $rows) {
-                    ?>
-                    <div class="new_id_bs">
-                        <li>
-                            <?php if ($rows['opt2'] == 1) { ?>
-                                <i class="fa-solid fa-fire fa-bounce"
-                                    style="color: #ff0000;position: absolute;right: 15px;top: 15px;background: rgba(255,255,255,0.7);padding: 10px;border-radius: 10px; z-index: 30">
-                                    HOT</i>
-                            <?php } ?>
-                            <a <?= full_href($rows) ?>><?= full_img($rows) ?></a>
-                        </li>
-                        <ul>
-                            <h3>
-                                <a class="limit-row-3" <?= full_href($rows) ?>><?= $rows['tenbaiviet_' . $lang] ?></a>
-                            </h3>
-                            <p class="limit-row-3">
-                                <?= strip_tags($rows['mota_' . $lang]) ?>
-                            </p>
-                        </ul>
+
+
+<div class="page_conten_page p-t-60 p-b-60">
+    <div class="container-fluid">
+        <div class="tracomeco_home_tin_tuc tt_tintuc flex" style="background: none">
+            <div class="col_conten_left" id="content_fix">
+
+                <div class="slide_tin_tuc">
+                    <div class="block_tin_tuc row">
+                        <div class="col-md-8">
+                            <div class="post_item lg">
+                                <div class="post_img">
+                                    <a href="index.php?page=tintuc_view"><img src="delete/tintuc/tintuc-1.jpg"></a>
+                                </div>
+                                <div class="post_info">
+                                    <h3><a href="index.php?page=tintuc_view">Thông báo Nghị Quyết số 01/2024-NQ-ĐHĐCĐ</a></h3>
+                                    <p class="dated"><i class="fa-regular fa-calendar-days"></i> 08/01/2025</p>
+                                    <p style="margin-bottom: 0">Công ty Cổ phần Cơ khí Xây dựng Giao thông - Tracomeco - thông báo về việc ban hành Nghị quyết Đại Hội Đồng Cổ Đông - Nhiệm kỳ V (2024-2028).</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="post_item">
+                                <div class="post_img">
+                                    <a href="index.php?page=tintuc_view"><img src="delete/tintuc/tintuc-2.jpg"></a>
+                                </div>
+                                <div class="post_info">
+                                    <h3><a href="index.php?page=tintuc_view">Thông báo Đại Hội Cổ Đông nhiệm kỳ V (2024 - 2028) - Dự thảo</a></h3>
+                                    <p class="dated"><i class="fa-regular fa-calendar-days"></i> 08/01/2025</p>
+                                </div>
+                            </div>
+                            <div class="post_item">
+                                <div class="post_img">
+                                    <a href="index.php?page=tintuc_view"><img src="delete/tintuc/tintuc-3.jpg"></a>
+                                </div>
+                                <div class="post_info">
+                                    <h3><a href="index.php?page=tintuc_view">Báo cáo Đại Hội Cổ Đông Thường Niên Năm 2023</a></h3>
+                                    <p class="dated"><i class="fa-regular fa-calendar-days"></i> 08/01/2025</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="filter-search-sharehoder non-field m-t-20">
+                    <form class="form-search flex">
+                        <div class="search">
+                            <input type="text" autocomplete="false" class="form-control form-control-sm" placeholder="Nhập nội dung cần tìm..." value="" name="key">
+                            <button class="btn btn-secondary" type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                        <select class="select-year font18" name="year">
+                            <option value="all">Tất cả</option>
+                            <?php
+                            $currentYear = date("Y");
+                            $startYear = 2000;
+                            for ($year = $currentYear; $year >= $startYear; $year--) {
+                                echo "<option value=\"$year\">$year</option>";
+                            }
+                            ?>
+                        </select>
+                        <select class="select-year font18" id="" value="0" name="year">
+                            <option value="all">Lĩnh vực</option>
+                            <option value="Công nghiệp ô tô">Công nghiệp ô tô</option>
+                            <option value="Dịch vụ cảng">Dịch vụ cảng</option>
+                            <option value="Cơ khí & Công nghiệp hỗ trợ">Cơ khí & Công nghiệp hỗ trợ</option>
+                        </select>
+                    </form>
+                </div>
+                <div class="list-media_wrapper">
+                    <?php
+                    if ($nd_total == 0) {
+                        echo "<div class='dv-notfull'>" . $glo_lang['khong_tim_thay_du_lieu_nao'] . "</div>";
+                    } else {
+                        foreach ($nd_kietxuat as $rows) {
+                            ?>
+                            <div class="new_id_bs">
+                                <li>    <a <?= full_href($rows) ?>><?= full_img($rows) ?></a></li>
+                                <ul>
+                                    <h3><a <?= full_href($rows) ?>><?= $rows['tenbaiviet_' . $lang] ?></a></h3>
+                                    <p class="dated"><i class="fa-regular fa-calendar-days"></i> <?=date("d/m/Y", $rows['ngaydang']); ?></p>
+                                    <p><?= limitText($rows['mota_' . $lang],3) ?></p>
+                                </ul>
+                            </div>
+                        <?php }
+                    } ?>
+                    <div class="nums no_box">
+                        <?= PHANTRANG($pzer, $sotrang, $full_url . "/" . $motty, $_SERVER['QUERY_STRING']) ?>
                         <div class="clr"></div>
                     </div>
-                <?php }
-            } ?>
-            <div class="clr"></div>
+                </div>
+            </div>
+            <div class="col_conten_right">
+                <?php include _source . "right_conten.php"; ?>
+            </div>
+
         </div>
-        <div class="nums no_box">
-            <?= PHANTRANG($pzer, $sotrang, $full_url . "/" . $motty, $_SERVER['QUERY_STRING']) ?>
-            <div class="clr"></div>
-        </div>
+        <div class="clr"></div>
     </div>
-    <?php include _source . "tin_right.php"; ?>
-    <div class="clr"></div>
 </div>
+
+
+
+
+
+
+
+
+
+

@@ -1,6 +1,6 @@
 <?php
 if ((!empty($thongtin_step) && $thongtin_step['num_view'] == 0) || empty($thongtin_step))
-    $numview = 12;
+    $numview = 6;
 else
     $numview = $thongtin_step['num_view'];
 
@@ -238,72 +238,35 @@ if (isset($_GET['p']) && $_GET['p'] == 1) {
 // full_src($thongtin_step, '')
 include _source . "box-header.php";
 ?>
-<!-- <li><a href="<?= $full_url ?>"><i class="fa fa-home"></i><?= $glo_lang['trang_chu'] ?></a><?= $link_p ?> </li> -->
-<div class="page_conten_page pagewrap">
-    <!-- <?php include _source . "menu_left.php"; ?> -->
-    <!-- <div class="right-new right-text">
-        <div class="sp-list-f pro_home_id pro_home_id_3 flex">
-            <?php
-            if ($nd_total == 0) {
-                echo "<div class='dv-notfull'>" . $glo_lang['khong_tim_thay_du_lieu_nao'] . "</div>";
-            } else {
-                foreach ($nd_kietxuat as $rows) {
-                    // $gia = GET_gia($rows['giatien'], $rows['giakm'], $glo_lang['dvt'], $glo_lang['gia_lienhe'], "gia_ban", "gia_km", '','', $thongtin['is_giamuti'], $rows['id']);
-                    ?>
-                    <ul>
-                        <?= $rows['opt1'] == 1 ? '<div class="discount-tag">Sales</div>' : '' ?>
-                        <a <?= full_href($rows) ?>>
-                            <li><?= full_img($rows) ?></li>
-                            <h3 class="limit-row-3"><?= $rows['tenbaiviet_' . $lang] ?></h3>
-                            <h4><?= $glo_lang['cart_ma_sp'] ?>: <?= $rows['p1'] ?></h4>
-                            <div class="button_xn"><i class="fa fa-eye"></i> <?= $glo_lang['xem_nhanh'] ?></div>
-                        </a>
-                    </ul>
-                <?php }
-            } ?>
-            <div class="clr"></div>
-        </div>
-        <div class="nums no_box">
-            <?= PHANTRANG($pzer, $sotrang, $full_url . "/" . $motty, $_SERVER['QUERY_STRING']) ?>
-            <div class="clr"></div>
-        </div>
-    </div> -->
 
-    <div class="album_anh">
-        <div class="tt_page_top tt_tintuc flex">
+<div class="page_conten_page p-t-60 p-b-60">
+    <div class="container-fluid">
+        <div class="tt_tintuc flex">
             <?php
             if ($nd_total == 0) {
                 echo "<div class='dv-notfull'>" . $glo_lang['khong_tim_thay_du_lieu_nao'] . "</div>";
             } else {
                 foreach ($nd_kietxuat as $rows) {
                     ?>
-                    <div class="new_id_bs product_item">
-                        <li>
-                            <?php if ($rows['opt2'] == 1) { ?>
-                                <i class="fa-solid fa-fire fa-bounce"
-                                    style="color: #ff0000;position: absolute;right: 15px;top: 15px;background: rgba(255,255,255,0.7);padding: 10px;border-radius: 10px; z-index: 30">
-                                    HOT</i>
-                            <?php } ?>
-                            <a style="height: auto;" <?= full_href($rows) ?>><?= full_img($rows) ?></a>
-                        </li>
-                        <ul style="width: 100%;">
-                            <h3>
-                                <a style="text-align: center;" class="limit-row-3" <?= full_href($rows) ?>><?= $rows['tenbaiviet_' . $lang] ?></a>
-                            </h3>
-                            <!-- <p class="limit-row-3">
-                                    <?= strip_tags($rows['mota_' . $lang]) ?>
-                                </p> -->
-                        </ul>
+                    <div class="new_id_bs m-b-30">
+                        <a <?= full_href($rows) ?>><?= full_img($rows) ?></a>
+                        <div class="new_col">
+                            <h3><a <?= full_href($rows) ?>><?= $rows['tenbaiviet_' . $lang] ?></a></h3>
+                            <p><?= limitText($rows['mota_' . $lang],3) ?></p>
+                        </div>
                         <div class="clr"></div>
                     </div>
+
                 <?php }
             } ?>
+        </div>
+        <div class="nums">
+            <div class="nums no_box">
+                            <?= PHANTRANG($pzer, $sotrang, $full_url . "/" . $motty, $_SERVER['QUERY_STRING']) ?>
+                            <div class="clr"></div>
+                        </div>
             <div class="clr"></div>
         </div>
-        <div class="nums no_box">
-            <?= PHANTRANG($pzer, $sotrang, $full_url . "/" . $motty, $_SERVER['QUERY_STRING']) ?>
-            <div class="clr"></div>
-        </div>
+        <div class="clr"></div>
     </div>
-    <div class="clr"></div>
 </div>

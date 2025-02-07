@@ -1,1 +1,0 @@
-{"4":{"id":"4","id_parent":"1","tenbaiviet_vi":"L\u0128NH V\u1ef0C HO\u1ea0T \u0110\u1ed8NG","tenbaiviet_en":"Operation field","tenbaiviet_cn":"","tenbaiviet_jp":"","seo_name":"","step":"9","danhmuc":"0","kieu_hien_thi":"1","kieu_chon":"1","cua_so_moi":"0","catasort":"3","showhi":"1","icon":null,"icon_hover":null,"duongdantin":"datafiles"}}

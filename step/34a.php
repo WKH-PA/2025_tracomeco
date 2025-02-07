@@ -10,7 +10,7 @@
   $lay_all_kx   = LAYDANHSACH_idkietxuat($arr_running['id_parent'], $slug_step);
 
   $wh           = "  AND `id_parent` = (".$lay_all_kx.") AND `id` <>  '".$arr_running['id']."'";
-  $numview      = 8;
+  $numview      = 6;
 
   $nd_kietxuat  = DB_fet_rd(" * "," `#_baiviet` "," `step` IN (".$slug_step.") $wh "," `catasort` DESC ", $numview);
 

@@ -47,8 +47,9 @@
     <section class="footer_copyright">
         <div class="container-fluid">
             <div class="row">
-                <p class="m-b-0">© Bản quyền thuộc Công Ty Cổ Phần Cơ Khí - Xây Dựng Giao Thông. <a href="https://www.web30s.vn/" target="_blank">Thiết kế và phát triển bởi P.A Việt Nam</a></p>
-            </div>
+                <p><?= $glo_lang['ban_quyen_name'] ?> | <a href="https://web30s.vn/" title="thiết kế website" target="_blank">
+                        <?=$glo_lang['thiet_ke_va_phat_trien']?>
+                    </a> <a href="https://web30s.vn/" target="_blank">P.A Việt Nam</a></p>            </div>
         </div>
     </section>
 
