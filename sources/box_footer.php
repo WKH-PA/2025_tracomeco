@@ -8,7 +8,7 @@
         <div class="home_khach_hang swiper myCamnhan">
             <div class="swiper-wrapper">
                 <?php
-                foreach ($nd_kietxuat as $rows) {
+                foreach ($bvlienquan as $rows) {
                     ?>
                     <div class="new_id_bs m-b-10 swiper-slide">
                         <a <?= full_href($rows) ?>><?= full_img($rows) ?></a>

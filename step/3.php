@@ -3,15 +3,20 @@ if ((!empty($thongtin_step) && $thongtin_step['num_view'] == 0) || empty($thongt
     $numview = 6;
 else
     $numview = $thongtin_step['num_view'];
+$where = "AND `opt`=1";
+$nd_hot = DB_fet_rd("*", "`#_baiviet`", " `step` IN (" . $slug_step . ") $where ", "  ", 3, "id");
 
+$key = isset($_GET['key']) ? str_replace("+", " ", strip_tags($_GET['key'])) : null;
+$year = isset($_GET['year']) ? str_replace("+", " ", strip_tags($_GET['year'])) : '';
 
-$key = isset($_GET['key']) ? str_replace("+", " ", strip_tags($_GET['key'])) : '';
-$is_search = $motty == 'search' ? true : false;
+$is_search = !empty($key) ? true : false;
+$is_search_year = !empty($_GET['year']) ? true :
+//$is_search = $motty == 'search' ? true : false;
 $wh = "";
 $lay_all_kx = "";
 $name_titile = !empty($arr_running['tenbaiviet_' . $lang]) ? SHOW_text($arr_running['tenbaiviet_' . $lang]) : "";
 if ($is_search) {
-    $slug_step = "2,3";
+    $slug_step = "5";
     $name_titile = $glo_lang['tim_kiem'];
     // $thongtin_step = DB_que("SELECT * FROM `#_step` WHERE `id` = '6' LIMIT 1");
     // $thongtin_step = mysqli_fetch_assoc($thongtin_step);
@@ -23,9 +28,12 @@ if ($lay_all_kx != "") {
 }
 
 if ($is_search) {
-    $wh .= " AND (`tenbaiviet_" . $lang . "` LIKE '%" . $key . "%' )";
-}
+    $wh .= " AND (`tenbaiviet_".$lang . "` LIKE '%" . $key . "%')";
 
+}
+if ($is_search_year) {
+    $wh .= " AND YEAR(`ngaydang`) = $year";
+}
 //
 //if ($motty != "search") {
 //    $sp_baiviet = LAY_baiviet($slug_step, 6, "`opt` = 1");
@@ -58,41 +66,44 @@ include _source . "box-header.php";
     <div class="container-fluid">
         <div class="tracomeco_home_tin_tuc tt_tintuc flex" style="background: none">
             <div class="col_conten_left" id="content_fix">
-
                 <div class="slide_tin_tuc">
                     <div class="block_tin_tuc row">
-                        <div class="col-md-8">
-                            <div class="post_item lg">
-                                <div class="post_img">
-                                    <a href="index.php?page=tintuc_view"><img src="delete/tintuc/tintuc-1.jpg"></a>
-                                </div>
-                                <div class="post_info">
-                                    <h3><a href="index.php?page=tintuc_view">Thông báo Nghị Quyết số 01/2024-NQ-ĐHĐCĐ</a></h3>
-                                    <p class="dated"><i class="fa-regular fa-calendar-days"></i> 08/01/2025</p>
-                                    <p style="margin-bottom: 0">Công ty Cổ phần Cơ khí Xây dựng Giao thông - Tracomeco - thông báo về việc ban hành Nghị quyết Đại Hội Đồng Cổ Đông - Nhiệm kỳ V (2024-2028).</p>
-                                </div>
+                        <?php
+                            $first = true;
+                            foreach ($nd_hot as $rows) {
+                                if ($first) {
+                                    ?>
+                                    <div class="col-md-8">
+                                        <div class="post_item lg">
+                                            <div class="post_img">
+                                                <a <?= full_href($rows) ?>><?= full_img($rows) ?></a>
+                                            </div>
+                                            <div class="post_info">
+                                                <h3><a <?= full_href($rows) ?>><?= $rows['tenbaiviet_' . $lang] ?></a></h3>
+                                                <p class="dated"><i class="fa-regular fa-calendar-days"></i> <?= date("d/m/Y", $rows['ngaydang']); ?></p>
+                                                <p style="margin-bottom: 0"><?= $rows['mota_' . $lang] ?></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                    <?php
+                                    $first = false;
+                                } else {
+                                    ?>
+                                    <div class="post_item">
+                                        <div class="post_img">
+                                            <a <?= full_href($rows) ?>><?= full_img($rows) ?></a>
+                                        </div>
+                                        <div class="post_info">
+                                            <h3><a <?= full_href($rows) ?>><?= $rows['tenbaiviet_' . $lang] ?></a></h3>
+                                            <p class="dated"><i class="fa-regular fa-calendar-days"></i> <?= date("d/m/Y", $rows['ngaydang']); ?></p>
+                                        </div>
+                                    </div>
+                                    <?php
+                                }
+                            }
+                            ?>
                             </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="post_item">
-                                <div class="post_img">
-                                    <a href="index.php?page=tintuc_view"><img src="delete/tintuc/tintuc-2.jpg"></a>
-                                </div>
-                                <div class="post_info">
-                                    <h3><a href="index.php?page=tintuc_view">Thông báo Đại Hội Cổ Đông nhiệm kỳ V (2024 - 2028) - Dự thảo</a></h3>
-                                    <p class="dated"><i class="fa-regular fa-calendar-days"></i> 08/01/2025</p>
-                                </div>
-                            </div>
-                            <div class="post_item">
-                                <div class="post_img">
-                                    <a href="index.php?page=tintuc_view"><img src="delete/tintuc/tintuc-3.jpg"></a>
-                                </div>
-                                <div class="post_info">
-                                    <h3><a href="index.php?page=tintuc_view">Báo cáo Đại Hội Cổ Đông Thường Niên Năm 2023</a></h3>
-                                    <p class="dated"><i class="fa-regular fa-calendar-days"></i> 08/01/2025</p>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <div class="filter-search-sharehoder non-field m-t-20">
@@ -103,8 +114,8 @@ include _source . "box-header.php";
                                 <i class="fas fa-search"></i>
                             </button>
                         </div>
-                        <select class="select-year font18" name="year">
-                            <option value="all">Tất cả</option>
+                        <select class="select-year font18" name="year" style="margin-right: 20px;">
+                            <option value="">Tất cả</option>
                             <?php
                             $currentYear = date("Y");
                             $startYear = 2000;
@@ -113,7 +124,7 @@ include _source . "box-header.php";
                             }
                             ?>
                         </select>
-                        <select class="select-year font18" id="" value="0" name="year">
+                        <select class="select-year font18" id="" value="0" name="1">
                             <option value="all">Lĩnh vực</option>
                             <option value="Công nghiệp ô tô">Công nghiệp ô tô</option>
                             <option value="Dịch vụ cảng">Dịch vụ cảng</option>

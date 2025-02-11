@@ -12,25 +12,29 @@
 
                     </ul>
                 </div>
+                <?php  $danhmuc = LAY_danhmuc(5,"");?>
                 <div class="col-xl-3 col-md-6">
+
                     <h3 class="itemtitle"><strong>Truyền thông</strong></h3>
                     <ul class="itemlist p-t-10">
-                        <li><a href="index.php?page=tintuc">Tin tức</a></li>
-                        <li><a href="index.php?page=tuyendung">Tin tuyển dụng</a></li>
-                        <li><a href="index.php?page=thu-vien-anh-va-video">Thư viện ảnh và video</a></li>
+                        <?php foreach ($danhmuc as $rows) { ?>
+                            <li><a <?=full_href($rows) ?>><?=SHOW_text($rows['tenbaiviet_'.$lang]) ?></a></li>
+                        <?php } ?>
+
                     </ul>
                 </div>
+                <?php  $danhmuc2 = LAY_danhmuc(9,"");?>
                 <div class="col-xl-3 col-md-6">
                     <h3 class="itemtitle"><strong>Lĩnh vực hoạt động</strong></h3>
                     <ul class="itemlist p-t-10">
-                        <li><a href="index.php?page=linhvuc">Công nghiệp ô tô</a></li>
-                        <li><a href="index.php?page=linhvuc">Dịch vụ cảng</a></li>
-                        <li><a href="index.php?page=linhvuc">Cơ khí & Công nghiệp hỗ trợ</a></li>
+                        <?php foreach ($danhmuc2 as $rows) { ?>
+                            <li><a <?=full_href($rows) ?>><?=SHOW_text($rows['tenbaiviet_'.$lang]) ?></a></li>
+                        <?php } ?>
                     </ul>
                 </div>
                 <div class="col-xl-3 col-md-6">
                     <div class="maps">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.5229299117414!2d106.76846318421923!3d10.847774230315594!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175270a51cb05f3%3A0xd85fa973135e2b44!2zNDI5IFNvbmcgSMOgbmggWGEgTOG7mSBIw6AgTuG7mWksIEhp4buHcCBQaMO6LCBRdeG6rW4gOSwgSOG7kyBDaMOtIE1pbmgsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1736388991381!5m2!1svi!2s" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="<?= $thongtin_step['map_google'] ?>" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                     <div class="socical_icon flex p-t-10">
                         <a title="Share on Facebook" href="https://www.facebook.com/pavietnam.com.vn/" target="_blank" rel="nofollow noopener" class="facebook" style="background:#39599c;"><i class="fa-brands fa-facebook-f"></i></a>

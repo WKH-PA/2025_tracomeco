@@ -1745,7 +1745,7 @@
 		$thuoctinhchung  = DB_fet_rd("*", "`#_thuoctinhchung`", "`showhi` = 1 $where", "`catasort` ASC, `id` DESC", 0, "id");
 		return $thuoctinhchung;
 	}
-	function LAY_baiviet($step, $limit = 0, $where = "", $orderby = '', $col = '',$showsql = "true"){
+	function LAY_baiviet($step, $limit = 0, $where = "", $orderby = '', $col = '',$showsql = ""){
 		if($limit == 0) $limit = "";
 		if($where != "") $where = " AND $where";
 		if($orderby == '') $orderby = '`catasort` DESC, `id` DESC';
@@ -1813,7 +1813,7 @@
 		return $danhmuc;
 	}
 	
-	function LAY_hinhanhcon($id, $limit  = 0, $the_loai = 0){
+	function LAY_imghinhanhcon($id, $limit  = 0, $the_loai = 0){
 		if($limit  == 0) $limit  = "";
 		$danhsach_img = DB_fet_rd("  * "," `#_baiviet_img` ",""," `sort` ASC, `id` ASC", $limit, "", "`id_parent` = '".$id."' AND `the_loai` = '$the_loai'");
 		return $danhsach_img;

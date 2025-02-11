@@ -29,6 +29,9 @@ $wh = "  AND `id_parent` = (" . $lay_all_kx . ") AND `id` <>  '" . $arr_running[
 // full_src($thongtin_step, '')
 include _source . "box-header.php";
 ?>
+
+
+
 <div class="page_conten_page pagewrap">
     <div class="left_contact">
         <h3><?=$glo_lang['lien_he_ngay_voi_chung_toi']?></h3>
@@ -81,3 +84,9 @@ include _source . "box-header.php";
     <?php include _source . "fb_sharelink.php"; ?>
     <div class="clr"></div>
 </div>
+
+
+
+
+
+

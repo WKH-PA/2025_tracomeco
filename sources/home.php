@@ -3,6 +3,7 @@
 <?php
     $ndkhac = LAYTEXT_rieng(82);
     $imggioithieu = LAY_baiviet_chitiet(25);
+
 ?>
 <section class="tracomeco_home_gioithieu p-t-60 p-b-60">
     <div class="container-fluid">
@@ -176,6 +177,10 @@
 </div>
 
 <!--// chua lam-->
+<?php
+$where = "AND `opt1`=1";
+$tintuc = DB_fet_rd("*", "`#_baiviet`", " `step` IN (" . 5 . ") $where ", "  ", 3, "id");
+?>
 <section class="tracomeco_home_tin_tuc p-t-60 p-b-60">
     <div class="container-fluid" style="position:relative;">
         <div class="row">
@@ -187,37 +192,42 @@
                     </div>
                     <div class="slide_tin_tuc">
                         <div class="block_tin_tuc row">
+                            <?php
+                            $first = true;
+                            foreach ($tintuc as $rows) {
+                            if ($first) {
+                            ?>
                             <div class="col-md-8">
                                 <div class="post_item lg">
                                     <div class="post_img">
-                                        <a href="index.php?page=tintuc_view"><img src="delete/tintuc/tintuc-1.jpg"></a>
+                                        <a <?= full_href($rows) ?>><?= full_img($rows) ?></a>
                                     </div>
                                     <div class="post_info">
-                                        <h3><a href="index.php?page=tintuc_view">Thông báo Nghị Quyết số 01/2024-NQ-ĐHĐCĐ</a></h3>
-                                        <p class="dated"><i class="fa-regular fa-calendar-days"></i> 08/01/2025</p>
-                                        <p style="margin-bottom: 0">Công ty Cổ phần Cơ khí Xây dựng Giao thông - Tracomeco - thông báo về việc ban hành Nghị quyết Đại Hội Đồng Cổ Đông - Nhiệm kỳ V (2024-2028).</p>
+                                        <h3><a <?= full_href($rows) ?>><?= $rows['tenbaiviet_' . $lang] ?></a></h3>
+                                        <p class="dated"><i class="fa-regular fa-calendar-days"></i> <?= date("d/m/Y", $rows['ngaydang']); ?></p>
+                                        <p style="margin-bottom: 0"><?= $rows['mota_' . $lang] ?></p>
                                     </div>
                                 </div>
                             </div>
+
                             <div class="col-md-4">
-                                <div class="post_item">
-                                    <div class="post_img">
-                                        <a href="index.php?page=tintuc_view"><img src="delete/tintuc/tintuc-2.jpg"></a>
+                                <?php
+                                $first = false;
+                                } else {
+                                    ?>
+                                    <div class="post_item">
+                                        <div class="post_img">
+                                            <a <?= full_href($rows) ?>><?= full_img($rows) ?></a>
+                                        </div>
+                                        <div class="post_info">
+                                            <h3><a <?= full_href($rows) ?>><?= $rows['tenbaiviet_' . $lang] ?></a></h3>
+                                            <p class="dated"><i class="fa-regular fa-calendar-days"></i> <?= date("d/m/Y", $rows['ngaydang']); ?></p>
+                                        </div>
                                     </div>
-                                    <div class="post_info">
-                                        <h3><a href="index.php?page=tintuc_view">Thông báo Đại Hội Cổ Đông nhiệm kỳ V (2024 - 2028) - Dự thảo</a></h3>
-                                        <p class="dated"><i class="fa-regular fa-calendar-days"></i> 08/01/2025</p>
-                                    </div>
-                                </div>
-                                <div class="post_item">
-                                    <div class="post_img">
-                                        <a href="index.php?page=tintuc_view"><img src="delete/tintuc/tintuc-3.jpg"></a>
-                                    </div>
-                                    <div class="post_info">
-                                        <h3><a href="index.php?page=tintuc_view">Báo cáo Đại Hội Cổ Đông Thường Niên Năm 2023</a></h3>
-                                        <p class="dated"><i class="fa-regular fa-calendar-days"></i> 08/01/2025</p>
-                                    </div>
-                                </div>
+                                    <?php
+                                }
+                                }
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -262,47 +272,24 @@
         </div>
 </section>
 
-<!--// chua lam-->
+
+<?php
+$banner = LAY_banner_new("id_parent =29");
+?>
 <section class="pa_boxcontent p-t-60 p-b-60">
     <div class="container-fluid">
         <div class="row">
             <div class="swiper myPartner">
                 <ul class="swiper-wrapper">
-                    <li class="swiper-slide">
-                        <a href="https://www.sieuthimaychu.vn/" target="_blank" title="Đối tác siêu siêu nhỏ" class="logo_bottom">
-                            <img src="https://support.pavietnam.vn/datafile/banner/2023_05/433254-15143415-f-logo-ssn.png" alt="Đối tác siêu siêu nhỏ" title="Đối tác siêu siêu nhỏ">
-                        </a>
-                    </li>
-                    <li class="swiper-slide">
-                        <a href="https://www.bang.vn/" target="_blank" title="Đối tác bang.vn" class="logo_bottom">
-                            <img src="https://support.pavietnam.vn/datafile/banner/2023_05/433254-15143356-f-logo-bang.png" alt="Đối tác bang.vn" title="Đối tác bang.vn">
-                        </a>
-                    </li>
-                    <li class="swiper-slide">
-                        <a href="https://thonet-vander.vn/" target="_blank" title="Đối tác Thoner" class="logo_bottom">
-                            <img src="https://support.pavietnam.vn/datafile/banner/2023_05/433254-15143334-f-logo-thonet.png" alt="Đối tác Thoner" title="Đối tác Thoner">
-                        </a>
-                    </li>
-                    <li class="swiper-slide">
-                        <a href="javascript:void(0)" target="_self" title="Đối tác google partner" class="logo_bottom">
-                            <img src="https://support.pavietnam.vn/datafile/banner/2023_06/649401-08133424-google-partner-logo-2ba563bac5-seeklogo.com.png" alt="Đối tác google partner" title="Đối tác google partner">
-                        </a>
-                    </li>
-                    <li class="swiper-slide">
-                        <a href="https://www.vnnic.vn/" target="_blank" title="Đối tác VNNIC" class="logo_bottom">
-                            <img src="https://support.pavietnam.vn/datafile/banner/2023_05/433254-15143214-f-logo-vnnic.png" alt="Đối tác VNNIC" title="Đối tác VNNIC">
-                        </a>
-                    </li>
-                    <li class="swiper-slide">
-                        <a href="https://www.icann.org/" target="_blank" title="Đối tác icann" class="logo_bottom">
-                            <img src="https://support.pavietnam.vn/datafile/banner/2023_12/649401-16115527-photo-2018-01-26-02-16-31.jpg" alt="Đối tác icann" title="Đối tác icann">
-                        </a>
-                    </li>
-                    <li class="swiper-slide">
-                        <a href="https://cpanel.net/" target="_blank" title="Đối tác cPanel" class="logo_bottom">
-                            <img src="https://support.pavietnam.vn/datafile/banner/2023_05/433254-15143128-f-logo-cpanel-seeklogo.png" alt="Đối tác cPanel" title="Đối tác cPanel">
-                        </a>
-                    </li>
+                    <?php
+                    foreach ($banner as $rows)  { ?>
+
+                        <li class="swiper-slide">
+                            <a <?= full_href($rows) ?> target="_blank" title="<?= $rows['tenbaiviet_' . $lang] ?>" class="logo_bottom">
+                                <?= full_img($rows) ?>
+                            </a>
+                        </li>
+                    <?php }?>
                 </ul>
             </div>
         </div>

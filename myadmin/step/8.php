@@ -41,23 +41,23 @@
                     </div>
                 <?php } ?>
 
-                <div class="form-group">
-                    <label>Seo Title (<?= $lang ?>)</label>
-                    <input type="text" class="form-control" name="seo_title_<?= $lang ?>"
-                           value="<?= !empty(${"seo_title_" . $lang}) ? Show_text(${"seo_title_" . $lang}) : "" ?>">
-                </div>
-
-                <div class="form-group">
-                    <label>Seo Description (<?= $lang ?>)</label>
-                    <input type="text" class="form-control" name="seo_description_<?= $lang ?>"
-                           value="<?= !empty(${"seo_description_" . $lang}) ? Show_text(${"seo_description_" . $lang}) : "" ?>">
-                </div>
-
-                <div class="form-group">
-                    <label>Seo Keywords (<?= $lang ?>)</label>
-                    <input type="text" class="form-control" name="seo_keywords_<?= $lang ?>"
-                           value="<?= !empty(${"seo_keywords_" . $lang}) ? Show_text(${"seo_keywords_" . $lang}) : "" ?>">
-                </div>
+<!--                <div class="form-group">-->
+<!--                    <label>Seo Title (--><?//= $lang ?><!--)</label>-->
+<!--                    <input type="text" class="form-control" name="seo_title_--><?//= $lang ?><!--"-->
+<!--                           value="--><?//= !empty(${"seo_title_" . $lang}) ? Show_text(${"seo_title_" . $lang}) : "" ?><!--">-->
+<!--                </div>-->
+<!---->
+<!--                <div class="form-group">-->
+<!--                    <label>Seo Description (--><?//= $lang ?><!--)</label>-->
+<!--                    <input type="text" class="form-control" name="seo_description_--><?//= $lang ?><!--"-->
+<!--                           value="--><?//= !empty(${"seo_description_" . $lang}) ? Show_text(${"seo_description_" . $lang}) : "" ?><!--">-->
+<!--                </div>-->
+<!---->
+<!--                <div class="form-group">-->
+<!--                    <label>Seo Keywords (--><?//= $lang ?><!--)</label>-->
+<!--                    <input type="text" class="form-control" name="seo_keywords_--><?//= $lang ?><!--"-->
+<!--                           value="--><?//= !empty(${"seo_keywords_" . $lang}) ? Show_text(${"seo_keywords_" . $lang}) : "" ?><!--">-->
+<!--                </div>-->
             </div>
             <?php $count_lang++;
         } ?>
