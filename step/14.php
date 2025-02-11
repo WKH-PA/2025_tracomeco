@@ -22,7 +22,7 @@ if ($is_search) {
     // $thongtin_step = DB_que("SELECT * FROM `#_step` WHERE `id` = '6' LIMIT 1");
     // $thongtin_step = mysqli_fetch_assoc($thongtin_step);
 } else if ($slug_table != 'step') {
-    
+
     $lay_all_kx = LAYDANHSACH_idkietxuat($arr_running['id'], $slug_step);
 }
 $wh = "";

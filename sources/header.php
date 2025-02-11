@@ -53,35 +53,41 @@
 
                 </ul>
             </div>
-            <div class="mn-mobile">
-                <div class="menu-bar hidden-md hidden-lg">
-                    <a href="#nav-mobile">
-                        <img alt="menu" src="images/menu-icon.png">
-                    </a>
-                </div>
-                <div id="nav-mobile" style="display: none">
-                    <ul>
-                        <?= GET_menu_new($full_url, $lang, '', '', '', "1") ?>
-                    </ul>
+            <div class="mobile-menu-area">
+                <div class="container">
+                    <div id="content_menu_mobile">
+                        <div class="header_menu_mobile">
+                            <a href="#menu" class="btn_menu">
+                                <i class="fa-regular fa-bars"></i>
+                            </a>
+                        </div>
+                        <nav id="menu">
+                            <div id="panel-menu">
+                                <?= GET_menu_new($full_url, $lang, 'sub-menu', '', '', "1") ?>
+                            </div>
+                        </nav>
+                    </div>
                 </div>
             </div>
+
+
+
 
         </div>
     </div>
 </div>
 <!-- Popup -->
-<div class="dv-popup-new no_box">
-    <div class="dv-popup-new-child">
-        <a class="popup-close"></a>
-        <div class="dv-nd-popup"></div>
-    </div>
-</div>
+<!--<div class="dv-popup-new no_box">-->
+<!--    <div class="dv-popup-new-child">-->
+<!--        <a class="popup-close"></a>-->
+<!--        <div class="dv-nd-popup"></div>-->
+<!--    </div>-->
+<!--</div>-->
 
 <script>
     /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
     var dropdown = document.getElementsByClassName("dropdown-btn");
     var i;
-
     for (i = 0; i < dropdown.length; i++) {
         dropdown[i].addEventListener("click", function() {
             this.classList.toggle("active");

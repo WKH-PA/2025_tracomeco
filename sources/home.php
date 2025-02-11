@@ -174,7 +174,7 @@ $tintuc = DB_fet_rd("*", "`#_baiviet`", " `step` IN (" . 5 . ") $where ", "  ", 
                             <div class="col-md-8">
                                 <div class="post_item lg">
                                     <div class="post_img">
-                                        <a <?= full_href($rows) ?>><?= full_img($rows) ?></a>
+                                        <a <?= full_href($rows) ?>><?= full_img($rows,"") ?></a>
                                     </div>
                                     <div class="post_info">
                                         <h3><a <?= full_href($rows) ?>><?= $rows['tenbaiviet_' . $lang] ?></a></h3>
@@ -191,7 +191,7 @@ $tintuc = DB_fet_rd("*", "`#_baiviet`", " `step` IN (" . 5 . ") $where ", "  ", 
                                     ?>
                                     <div class="post_item">
                                         <div class="post_img">
-                                            <a <?= full_href($rows) ?>><?= full_img($rows) ?></a>
+                                            <a <?= full_href($rows) ?>><?= full_img($rows,"") ?></a>
                                         </div>
                                         <div class="post_info">
                                             <h3><a <?= full_href($rows) ?>><?= $rows['tenbaiviet_' . $lang] ?></a></h3>
@@ -245,7 +245,7 @@ $banner = LAY_banner_new("id_parent =29");
 
                         <li class="swiper-slide">
                             <a <?= full_href($rows) ?> target="_blank" title="<?= $rows['tenbaiviet_' . $lang] ?>" class="logo_bottom">
-                                <?= full_img($rows) ?>
+                                <?= full_img($rows,"") ?>
                             </a>
                         </li>
                     <?php }?>

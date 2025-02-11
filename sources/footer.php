@@ -6,9 +6,9 @@
                     <h3 class="itemtitle"><?=$thongtin['tenbaiviet_'.$lang]?></h3>
                     <ul class="itemlist p-t-10">
                         <li><?=$glo_lang['dia_chi']?>: <?=$thongtin['diachi_'.$lang]?></li>
-                        <li><?=$glo_lang['email']?>: <?=$thongtin['email_'.$lang]?></li>
-                        <li><?=$glo_lang['so_dien_thoai']?>: <?=$thongtin['sodienthoai_'.$lang]?></li>
-                        <li><?=$glo_lang['fax']?>: <?=$thongtin['hotline_'.$lang]?></li>
+                        <li><?=$glo_lang['email']?>: <?=$thongtin['email_vi']?></li>
+                        <li><?=$glo_lang['so_dien_thoai']?>: <?=$thongtin['sodienthoai_vi']?></li>
+                        <li><?=$glo_lang['fax']?>: <?=$thongtin['hotline_vi']?></li>
 
                     </ul>
                 </div>
@@ -61,12 +61,25 @@
 
 <!--    --><?php //include"back-top.php";?>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
     <script>
         new WOW().init();
     </script>
 
+<script>
+    function openCity(button, cityId) {
+        document.querySelectorAll(".tablink").forEach(btn => btn.classList.remove("tracomeco-red"));
+        button.classList.add("tracomeco-red");
+        document.querySelectorAll(".city").forEach(city => city.classList.remove("active"));
+        document.getElementById(cityId).classList.add("active");
+        let title = button.getAttribute("data-title");
+        let content = button.getAttribute("data-content");
+        console.log("Tiêu đề: ", title);
+        console.log("Nội dung: ", content);
+    }
+    </script>
     <script>
-        function openCity(evt, cityName) {
+        function openCity2(evt, cityName) {
             var i, x, tablinks;
             x = document.getElementsByClassName("city");
             for (i = 0; i < x.length; i++) {

@@ -126,16 +126,7 @@ include _source . "box-header.php";
         }
     });
 
-    function openCity(button, cityId) {
-        document.querySelectorAll(".tablink").forEach(btn => btn.classList.remove("tracomeco-red"));
-        button.classList.add("tracomeco-red");
-        document.querySelectorAll(".city").forEach(city => city.classList.remove("active"));
-        document.getElementById(cityId).classList.add("active");
-        let title = button.getAttribute("data-title");
-        let content = button.getAttribute("data-content");
-        console.log("Tiêu đề: ", title);
-        console.log("Nội dung: ", content);
-    }
+
 
 
 </script>
