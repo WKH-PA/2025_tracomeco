@@ -3,14 +3,17 @@ if ((!empty($thongtin_step) && $thongtin_step['num_view'] == 0) || empty($thongt
     $numview = 6;
 else
     $numview = $thongtin_step['num_view'];
+
 $where = "AND `opt`=1";
 $nd_hot = DB_fet_rd("*", "`#_baiviet`", " `step` IN (" . $slug_step . ") $where ", "  ", 3, "id");
 
 $key = isset($_GET['key']) ? str_replace("+", " ", strip_tags($_GET['key'])) : null;
 $year = isset($_GET['year']) ? str_replace("+", " ", strip_tags($_GET['year'])) : '';
+$dm = isset($_GET['dm']) ? str_replace("+", " ", strip_tags($_GET['dm'])) : '';
 
 $is_search = !empty($key) ? true : false;
-$is_search_year = !empty($_GET['year']) ? true :
+$is_search_year = !empty($_GET['year']) ? true :false;
+$is_danhmuc = !empty($_GET['dm']) ? true :false;
 //$is_search = $motty == 'search' ? true : false;
 $wh = "";
 $lay_all_kx = "";
@@ -34,6 +37,9 @@ if ($is_search) {
 if ($is_search_year) {
     $wh .= " AND YEAR(`ngaydang`) = $year";
 }
+if($is_danhmuc)   {
+    $wh .= " AND `id_parent` = $dm";
+}
 //
 //if ($motty != "search") {
 //    $sp_baiviet = LAY_baiviet($slug_step, 6, "`opt` = 1");
@@ -51,14 +57,16 @@ if ($is_search_year) {
 include _source . "phantrang_kietxuat.php";
 // include _source."phantrang_danhmuc.php";
 // $anhcon   = LAY_anhstep($thongtin_step['id'], 1);
-
-if ($is_search) {
-    $link_p = '<span>/</span><a>' . $glo_lang['tim_kiem'] . "</a>";
-    $thongtin_step = LAY_anhstep_now(3);
-} else {
-    $link_p = GET_bre($arr_running['id'], $slug_step, $full_url, $lang, $thongtin_step, $slug_table, '|');
-}
+//var_dump($thongtin_step); ;
+//exit;
+//if ($is_search) {
+//    $link_p = '<span>/</span><a>' . $glo_lang['tim_kiem'] . "</a>";
+//    $thongtin_step = LAY_anhstep_now(3);
+//} else {
+//    $link_p = GET_bre($arr_running['id'], $slug_step, $full_url, $lang, $thongtin_step, $slug_table, '|');
+//}
 include _source . "box-header.php";
+
 ?>
 
 
@@ -124,11 +132,14 @@ include _source . "box-header.php";
                             }
                             ?>
                         </select>
-                        <select class="select-year font18" id="" value="0" name="1">
-                            <option value="all">Lĩnh vực</option>
-                            <option value="Công nghiệp ô tô">Công nghiệp ô tô</option>
-                            <option value="Dịch vụ cảng">Dịch vụ cảng</option>
-                            <option value="Cơ khí & Công nghiệp hỗ trợ">Cơ khí & Công nghiệp hỗ trợ</option>
+                        <?php  $danhmuc = LAY_danhmuc(5,""); ?>
+                        <select class="select-year font18" name="dm">
+                            <option value="">Tất cả</option>
+                            <?php foreach ($danhmuc as $rows) { ?>
+                                <option value="<?= SHOW_text($rows['id_parent']) ?>">
+                                    <?= SHOW_text($rows['tenbaiviet_'.$lang]) ?>
+                                </option>
+                            <?php } ?>
                         </select>
                     </form>
                 </div>

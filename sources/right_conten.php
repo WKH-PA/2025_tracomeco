@@ -1,6 +1,11 @@
 <?php
-    $id_parent = 0;
-    $danhmuc = LAY_danhmuc($thongtin_step['id'],"","`id_parent` = '$id_parent'");
+    $id_parent = [5, 6];
+    if (in_array($thongtin_step['id'], $id_parent)) {
+        $danhmuc = GET_menu(18);
+    }else{
+        $danhmuc = LAY_danhmuc($thongtin_step['id'],"","`id_parent` = 0");
+    }
+
     $danhsachtinnoibat= LAY_baiviet(5,3);
   ?>
 <div class="sidebar_menu" id="menu-center">
@@ -73,9 +78,7 @@
     });
 
 
-    $(document).ready(function() {
-        fixSticky();
-    });
+
 
 
     $(function() {

@@ -11,15 +11,15 @@
 
             <div class="col-xl-3 col-img">
                 <div class="home_dichvu_hinh">
-                    <img src="datafiles/<?php echo $imggioithieu[2]['icon']; ?>" alt="<?php echo $imggioithieu[2]['tenbaiviet_vi']; ?>"/>
+                    <?= full_img($imggioithieu[2],'') ?>
                 </div>
             </div>
             <div class="col-xl-3 col-img">
                 <div class="home_dichvu_hinh p-b-20">
-                    <img src="datafiles/<?php echo $imggioithieu[1]['icon']; ?>" alt="<?php echo $imggioithieu[1]['tenbaiviet_vi']; ?>"/>
+                    <?= full_img($imggioithieu[1],'') ?>
                 </div>
                 <div class="home_dichvu_hinh">
-                    <img src="datafiles/<?php echo $imggioithieu[0]['icon']; ?>" alt="<?php echo $imggioithieu[0]['tenbaiviet_vi']; ?>"/>
+                    <?= full_img($imggioithieu[0],'') ?>
                 </div>
             </div>
 
@@ -84,72 +84,47 @@
                     $stt++;
                 endforeach;
             ?>
-
-
-
-
-
         </div>
     </div>
 </section>
 
 
 <!--// chua lam-->
+<?php $nd_danhgia = LAY_baiviet("15");?>
 <section class="tracomeco_home_khach_hang p-t-60 p-b-60">
     <div class="container-fluid">
         <div class="tracomeco_title_main">
-            <h2 class="text-uppercase wow animate__flipInX">Khách hàng nói về tracomeco</h2>
+            <h2 class="text-uppercase wow animate__flipInX"><?= $glo_lang['khach_hang_noi_ve_tracomeco'] ?></h2>
         </div>
         <div class="home_khach_hang swiper myCamnhan">
             <div class="swiper-wrapper">
-                <div class="khach_hang_box swiper-slide">
-                    <h3>Chất lượng phục vụ</h3>
-                    <p class="rate flex" style="margin:0">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                    </p>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit...</p>
-                    <p class="name-kh">Anh Nguyễn Minh Hiếu</p>
-                </div>
-                <div class="khach_hang_box swiper-slide">
-                    <h3>Dịch vụ cảng</h3>
-                    <p class="rate flex" style="margin:0">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                    </p>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit...</p>
-                    <p class="name-kh">Anh Trần Minh Ân</p>
-                </div>
-                <div class="khach_hang_box swiper-slide">
-                    <h3>Cơ khí & Công nghiệp hỗ trợ</h3>
-                    <p class="rate flex" style="margin:0">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                    </p>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit...</p>
-                    <p class="name-kh">Chị Nguyễn Thị Mỹ Linh</p>
-                </div>
-                <div class="khach_hang_box swiper-slide">
-                    <h3>Hỗ trợ tuyệt vời</h3>
-                    <p class="rate flex" style="margin:0">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                    </p>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit...</p>
-                    <p class="name-kh">Chị Nguyễn Thị Mỹ Linh</p>
-                </div>
+            <?php
+                foreach ($nd_danhgia as $rows) {
+                    ?>
+                    <div class="khach_hang_box swiper-slide">
+                        <h3><?=$rows['tenbaiviet_'.$lang] ?></h3>
+                        <?php
+                        $rating = $rows['mota_vi'];
+                        $total_stars = 5;
+                        ?>
+                        <p class="rate flex" style="margin:0">
+                            <?php
+                            for ($i = 1; $i <= $total_stars; $i++) {
+                                if ($i <= floor($rating)) {
+                                    echo '<i class="fa fa-star" aria-hidden="true"></i>';
+                                } elseif ($i - 0.5 == $rating) {
+                                    echo '<i class="fa fa-star-half-o" aria-hidden="true"></i>';
+                                } else {
+                                    echo '<i class="fa fa-star-o" aria-hidden="true"></i>';
+                                }
+                            }
+                            ?>
+                        </p>
+                        <?=$rows['noidung_'.$lang] ?>
+                    </div>
+                <?php } ?>
+
+
             </div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
@@ -161,7 +136,6 @@
 <div class="pa_home_banner">
     <div class="swiper myBanner">
         <div class="swiper-wrapper">
-
             <?php
             foreach ($banner_top as $rows) {
                 ?>
@@ -188,7 +162,7 @@ $tintuc = DB_fet_rd("*", "`#_baiviet`", " `step` IN (" . 5 . ") $where ", "  ", 
             <div class="col-xl-8">
                 <div class="home_tin_tuc_main">
                     <div class="tracomeco_title_main" style="text-align: left;">
-                        <h2 class="m-b-30 wow animate__flipInX">TIN TỨC - SỰ KIỆN</h2>
+                        <h2 class="m-b-30 wow animate__flipInX"><?= $glo_lang['tin_tuc_su_kien'] ?></h2>
                     </div>
                     <div class="slide_tin_tuc">
                         <div class="block_tin_tuc row">
@@ -234,38 +208,23 @@ $tintuc = DB_fet_rd("*", "`#_baiviet`", " `step` IN (" . 5 . ") $where ", "  ", 
                 </div>
             </div>
             <div class="col-xl-4">
+                <?php
+                $nd_tuyendung = LAY_baiviet(6,10," `opt1` =1");
+                ?>
                 <div class="home_tin_tuc_side">
-                    <h2>Tin tuyển dụng</h2>
-                    <div class="post_item wow animate__fadeInDown">
-                        <div class="post_info">
-                            <h3><a href="index.php?page=tintuc_view">Phó Tổng Giám Đốc (Phụ Trách Nghiệp Vụ Quản Trị Cơ Bản)</a></h3>
-                            <p class="dated"><i class="fa-regular fa-calendar-days"></i> 08/01/2025</p>
+                    <h2><?= $glo_lang['tin_tuyen_dung'] ?></h2>
+
+                    <?php
+                    foreach ($nd_tuyendung as $rows) {
+                        ?>
+                        <div class="post_item wow animate__fadeInDown">
+                            <div class="post_info">
+                                <h3><a <?= full_href($rows) ?>><?=$rows['tenbaiviet_'.$lang] ?></a></h3>
+                                <p class="dated"><i class="fa-regular fa-calendar-days"></i><?=date("d/m/Y", $rows['ngaydang']); ?></p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="post_item wow animate__fadeInDown">
-                        <div class="post_info">
-                            <h3><a href="index.php?page=tintuc_view">Trưởng Nhóm Quản Lý Quy Trình Công Nghệ Hệ Thống</a></h3>
-                            <p class="dated"><i class="fa-regular fa-calendar-days"></i> 08/01/2025</p>
-                        </div>
-                    </div>
-                    <div class="post_item wow animate__fadeInDown">
-                        <div class="post_info">
-                            <h3><a href="index.php?page=tintuc_view">Phó Tổng Giám Đốc (Phụ Trách Nghiệp Vụ Quản Trị Cơ Bản)</a></h3>
-                            <p class="dated"><i class="fa-regular fa-calendar-days"></i> 08/01/2025</p>
-                        </div>
-                    </div>
-                    <div class="post_item wow animate__fadeInDown">
-                        <div class="post_info">
-                            <h3><a href="index.php?page=tintuc_view">Trưởng Nhóm Quản Lý Quy Trình Công Nghệ Hệ Thống</a></h3>
-                            <p class="dated m-b-0"><i class="fa-regular fa-calendar-days"></i> 08/01/2025</p>
-                        </div>
-                    </div>
-                    <div class="post_item wow animate__fadeInDown">
-                        <div class="post_info">
-                            <h3><a href="index.php?page=tintuc_view">Trưởng Nhóm Quản Lý Quy Trình Công Nghệ Hệ Thống</a></h3>
-                            <p class="dated m-b-0"><i class="fa-regular fa-calendar-days"></i> 08/01/2025</p>
-                        </div>
-                    </div>
+                    <?php } ?>
+
                 </div>
             </div>
 

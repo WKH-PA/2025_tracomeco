@@ -14,7 +14,9 @@
     //     LOCATION_js($full_url);
     //     exit();
     // }
-
+//     else  if($motty == "gioi-thieu"){
+//         include "step/1_home.php";
+//     }
      else if($motty == "search" || $motty == "san-pham-noi-bat"){
          include "step/3.php";
      }

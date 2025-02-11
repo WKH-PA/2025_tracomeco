@@ -51,7 +51,7 @@ include _source . "box-header.php";
 <section class="tracomeco_gt_visao p-b-60">
     <div class="container-fluid">
         <div class="tracomeco_title_main">
-            <h2 class="text-uppercase m-b-10">Đại lý của chúng tôi</h2>
+            <h2 class="text-uppercase m-b-10"><?=$glo_lang['dai_ly_cua_chung_toi']?></h2>
         </div>
         <div class="tracomeco-bar tracomeco-black tracomeco-flex">
             <?php

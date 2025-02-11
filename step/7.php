@@ -6,9 +6,8 @@ else $numview = $thongtin_step['num_view'];
 $key = isset($_GET['key']) ? str_replace("+", " ", strip_tags($_GET['key'])) : '';
 $year = isset($_GET['year']) ? str_replace("+", " ", strip_tags($_GET['year'])) : '';
 
-$is_search = isset($_GET['key']) ? true : false;
-$is_search_year = isset($_GET['year']) ? true : false;
-
+$is_search = !empty($key) ? true : false;
+$is_search_year = !empty($_GET['year']) ? true :false;
 $lay_all_kx = "";
 $name_titile = !empty($arr_running['tenbaiviet_' . $lang]) ? SHOW_text($arr_running['tenbaiviet_' . $lang]) : "";
 if ($is_search) {
@@ -38,12 +37,12 @@ include _source . "phantrang_kietxuat.php";
 
 // $anhcon   = LAY_anhstep($thongtin_step['id'], 1);
 
-if ($is_search != "") {
-    $link_p = '<span>/</span><a>' . $glo_lang['tim_kiem'] . "</a>";
-    $thongtin_step = LAY_anhstep_now(3);
-} else {
-    $link_p = GET_bre($arr_running['id'], $slug_step, $full_url, $lang, $thongtin_step, $slug_table, '/');
-}
+//if ($is_search != "") {
+//    $link_p = '<span>/</span><a>' . $glo_lang['tim_kiem'] . "</a>";
+//    $thongtin_step = LAY_anhstep_now(3);
+//} else {
+//    $link_p = GET_bre($arr_running['id'], $slug_step, $full_url, $lang, $thongtin_step, $slug_table, '/');
+//}
 include _source."box-header.php";
 
 // full_src($thongtin_step, '')
@@ -61,7 +60,7 @@ include _source."box-header.php";
                             </button>
                         </div>
                         <select class="select-year font18" name="year">
-                            <option value="all">Tất cả</option>
+                            <option value="">Tất cả</option>
                             <?php
                             $currentYear = date("Y");
                             $startYear = 2000;

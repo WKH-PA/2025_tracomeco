@@ -60,12 +60,13 @@
 
                 <?php if (!in_array($step, $st_bv_mota)) { ?>
                     <div class="form-group">
-                        <label>Mô tả (<?= $lang ?>)</label>
-                        <!--<input type="text" class="form-control " name="mota_<?= $lang ?>"
+<!--                        <label>Mô tả (--><?//= $lang ?><!--)</label>-->
+                        <label>Số sao (<?= $lang ?>)</label>
+                        <input type="text" class="form-control " name="mota_<?= $lang ?>"
                                id="mota_<?= $lang ?>"
-                               value="<?= !empty(${"mota_" . $lang}) ? SHOW_text(${"mota_" . $lang}) : '' ?>">-->
-                        <textarea id="mota_<?= $lang ?>" name="mota_<?= $lang ?>"
-                                  class="paEditor"><?= !empty(${"mota_" . $lang}) ? SHOW_text(${"mota_" . $lang}) : '' ?></textarea>
+                               value="<?= !empty(${"mota_" . $lang}) ? SHOW_text(${"mota_" . $lang}) : '' ?>">
+<!--                        <textarea id="mota_--><?//= $lang ?><!--" name="mota_--><?//= $lang ?><!--"-->
+<!--                                  class="paEditor">--><?//= !empty(${"mota_" . $lang}) ? SHOW_text(${"mota_" . $lang}) : '' ?><!--</textarea>-->
                     </div>
                 <?php } ?>
 
@@ -79,23 +80,23 @@
                     </div>
                 <?php } ?>
 
-                <div class="form-group">
-                    <label>Seo Title (<?= $lang ?>)</label>
-                    <input type="text" class="form-control" name="seo_title_<?= $lang ?>"
-                           value="<?= !empty(${"seo_title_" . $lang}) ? Show_text(${"seo_title_" . $lang}) : "" ?>">
-                </div>
-
-                <div class="form-group">
-                    <label>Seo Description (<?= $lang ?>)</label>
-                    <input type="text" class="form-control" name="seo_description_<?= $lang ?>"
-                           value="<?= !empty(${"seo_description_" . $lang}) ? Show_text(${"seo_description_" . $lang}) : "" ?>">
-                </div>
-
-                <div class="form-group">
-                    <label>Seo Keywords (<?= $lang ?>)</label>
-                    <input type="text" class="form-control" name="seo_keywords_<?= $lang ?>"
-                           value="<?= !empty(${"seo_keywords_" . $lang}) ? Show_text(${"seo_keywords_" . $lang}) : "" ?>">
-                </div>
+<!--                <div class="form-group">-->
+<!--                    <label>Seo Title (--><?//= $lang ?><!--)</label>-->
+<!--                    <input type="text" class="form-control" name="seo_title_--><?//= $lang ?><!--"-->
+<!--                           value="--><?//= !empty(${"seo_title_" . $lang}) ? Show_text(${"seo_title_" . $lang}) : "" ?><!--">-->
+<!--                </div>-->
+<!---->
+<!--                <div class="form-group">-->
+<!--                    <label>Seo Description (--><?//= $lang ?><!--)</label>-->
+<!--                    <input type="text" class="form-control" name="seo_description_--><?//= $lang ?><!--"-->
+<!--                           value="--><?//= !empty(${"seo_description_" . $lang}) ? Show_text(${"seo_description_" . $lang}) : "" ?><!--">-->
+<!--                </div>-->
+<!---->
+<!--                <div class="form-group">-->
+<!--                    <label>Seo Keywords (--><?//= $lang ?><!--)</label>-->
+<!--                    <input type="text" class="form-control" name="seo_keywords_--><?//= $lang ?><!--"-->
+<!--                           value="--><?//= !empty(${"seo_keywords_" . $lang}) ? Show_text(${"seo_keywords_" . $lang}) : "" ?><!--">-->
+<!--                </div>-->
             </div>
             <?php $count_lang++;
         } ?>

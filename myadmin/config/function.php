@@ -1793,7 +1793,7 @@
 		}
 		return $step;
 	}
-	function LAY_danhmuc($step, $limit = 0, $where = "", $catasort = '', $col = '',$showsql = "true"){
+	function LAY_danhmuc($step, $limit = 0, $where = "", $catasort = '', $col = '',$showsql = ""){
 		if($limit == 0)  $limit = "";
 		if($where != "") $where = " AND $where";
 		$catasort = $catasort == '' ? "`catasort` ASC" : $catasort;

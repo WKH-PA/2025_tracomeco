@@ -19,7 +19,7 @@ $nd_kietxuat_goiy = DB_fet(" * ", " `#_baiviet` ", "  `step` IN (" . $slug_step 
 
 // $nd_total = DB_que("SELECT `id` FROM `#_baiviet` WHERE `showhi` =  1 AND `step` IN (".$slug_step.") $wh");
 // $nd_total = mysqli_num_rows($nd_total);
-$list_hinhcon = LAY_hinhanhcon($arr_running['id'], 50);
+//$list_hinhcon = LAY_hinhanhcon($arr_running['id'], 50);
 // $tinhnang_arr = DB_fet("*","`#_baiviet_tinhnang`","`showhi` = 1 AND `step` = '".$slug_step."' ","`catasort` ASC, `id` DESC","","arr", 1);
 // full_src($thongtin_step, '')
 $tinhnang = LAY_bv_tinhnang(2);

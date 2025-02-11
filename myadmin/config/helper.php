@@ -39,3 +39,9 @@
         $lines = explode("\n", wordwrap(strip_tags($text), 80)); // Tách thành dòng
         return implode(" ", array_slice($lines, 0, $limit)) . '...'; // Lấy 3 dòng đầu
     }
+
+    function GET_menu($id_parent) {
+        $menu =DB_fet("*","#_menu", "`showhi` = '1' AND `id_parent`= $id_parent", "`catasort` ASC","", "arr");
+        return $menu;
+    }
+

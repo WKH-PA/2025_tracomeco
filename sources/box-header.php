@@ -162,7 +162,8 @@ if ($motty == "san-pham-noi-bat") {
 <!--        </div>-->
 <!--    </div>-->
     <div class="banner_detail">
-            <img src="delete/gioithieu/banner-about.jpg">
+<!--            <img src="delete/gioithieu/banner-about.jpg">-->
+        <img style="width: 100%;height: 400px;object-fit: cover;" src="<?=$images_background?>">
     </div>
     <div class="link-direct">
         <div class="container-fluid">

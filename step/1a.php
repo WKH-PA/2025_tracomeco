@@ -20,40 +20,93 @@ $thongtin_step = LAY_anhstep_now($thongtin_step['id']);
 //   $img_bg = checkImage($fullpath, $arr_running['icon_hover'], $arr_running['duongdantin']);
 // }
 // full_src($thongtin_step, '')
-$list_hinhcon = LAY_hinhanhcon($arr_running['id'], 50);
+//$list_hinhcon = LAY_hinhanhcon($arr_running['id'], 50);
 include _source . "box-header.php";
 ?>
 <!-- <li><i class="fa fa-home"></i><a href="<?= $full_url ?>"><?= $glo_lang['trang_chu'] ?></a><span><i class="fa fa-angle-right"></i></span><a <?= full_href($arr_running) ?>><?= $arr_running['tenbaiviet_' . $lang] ?></a></li> -->
 <?php if ($motty != "404") {
-    LOCATION_js($full_url."/".$thongtin_step['seo_name']);
-    exit;
+//    LOCATION_js($full_url."/".$thongtin_step['seo_name']);
+//    exit;
     ?>
-    <div class="page_conten_page pagewrap">
-        <div class="tin_left_nd tin_left_2column">
-            <div class="title_news">
-                <h2><?= $arr_running['tenbaiviet_' . $lang] ?></h2>
-                <li><i class="fa fa-calendar"></i><?= date("d/m/Y", $arr_running['ngaydang']) ?></li>
-            </div>
-            <div class="showText">
-                <?php
-                $nd = SHOW_text($arr_running['noidung_' . $_SESSION['lang']]);
-                if ($motty == "404") {
-                    $nd = str_replace('[tencongty]', $thongtin['tenbaiviet_' . $lang], $nd);
-                }
-                echo $nd;
-                ?>
-            </div>
+<!--    <div class="page_conten_page pagewrap">-->
+<!--        <div class="tin_left_nd tin_left_2column">-->
+<!--            <div class="title_news">-->
+<!--                <h2>--><?//= $arr_running['tenbaiviet_' . $lang] ?><!--</h2>-->
+<!--                <li><i class="fa fa-calendar"></i>--><?//= date("d/m/Y", $arr_running['ngaydang']) ?><!--</li>-->
+<!--            </div>-->
+<!--            <div class="showText">-->
+<!--                --><?php
+//                $nd = SHOW_text($arr_running['noidung_' . $_SESSION['lang']]);
+//                if ($motty == "404") {
+//                    $nd = str_replace('[tencongty]', $thongtin['tenbaiviet_' . $lang], $nd);
+//                }
+//                echo $nd;
+//                ?>
+<!--            </div>-->
+<!---->
+<!--            --><?php
+//            include _source."tags.php";
+//            include _source . "fb_sharelink.php";
+//            ?>
+<!--            <div class="dv-fb_coment">-->
+<!--                --><?php //include _source . "fb_coment.php"; ?>
+<!--            </div>-->
+<!--        </div>-->
+<!--        --><?php //include _source . "tin_right.php"; ?>
+<!--        <div class="clr"></div>-->
+<!--    </div>-->
 
-            <?php
-            include _source."tags.php";
-            include _source . "fb_sharelink.php";
-            ?>
-            <div class="dv-fb_coment">
-                <?php include _source . "fb_coment.php"; ?>
+
+    <div class="tracomeco_gioithieu">
+        <?php
+        $ndkhac = LAYTEXT_rieng(82);
+        $imggioithieu = LAY_baiviet_chitiet(25);
+
+        ?>
+        <section class="tracomeco_home_gioithieu p-t-60 p-b-60">
+            <div class="container-fluid">
+                <div class="row v-center">
+
+                    <div class="col-xl-3 col-img">
+                        <div class="home_dichvu_hinh">
+                            <img src="datafiles/<?php echo $imggioithieu[2]['icon']; ?>" alt="<?php echo $imggioithieu[2]['tenbaiviet_vi']; ?>"/>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-img">
+                        <div class="home_dichvu_hinh p-b-20">
+                            <img src="datafiles/<?php echo $imggioithieu[1]['icon']; ?>" alt="<?php echo $imggioithieu[1]['tenbaiviet_vi']; ?>"/>
+                        </div>
+                        <div class="home_dichvu_hinh">
+                            <img src="datafiles/<?php echo $imggioithieu[0]['icon']; ?>" alt="<?php echo $imggioithieu[0]['tenbaiviet_vi']; ?>"/>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-6 col-txt">
+                        <div class="home_dichvu_text wow animate__fadeInRight">
+                            <h2><?= $glo_lang['gioi_thieu'] ?></h2>
+                            <h3><?= $ndkhac['p1_'. $lang] ?></h3>
+                            <p class="short-desc"><?= $ndkhac['noidung_'. $lang] ?></p>
+                            <p class="read-more">
+                                <a <?= full_href($ndkhac)?> title="<?= $glo_lang['xem_chi_tiet'] ?>"><?= $glo_lang['xem_chi_tiet'] ?><i class="fa-light fa-arrow-up-right-from-square"></i></a>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
-        </div>
-        <?php include _source . "tin_right.php"; ?>
-        <div class="clr"></div>
+        </section>
+
+            <?= full_img($arr_running,'') ?>
+            <div class="tracomeco_title_main">
+                <h3><?=$arr_running['tenbaiviet_'.$lang] ?></h3>
+                <p><?=$arr_running['mota_'.$lang] ?></p>
+            </div>
+            <p><?= limitText($arr_running['noidung_' . $lang],8) ?></p>
+
+
+
+
     </div>
 <?php } else {
     include _source . "404.php";

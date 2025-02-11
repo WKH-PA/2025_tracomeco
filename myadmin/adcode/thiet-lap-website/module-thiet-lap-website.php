@@ -51,6 +51,12 @@ if (!empty($_POST) && isset($_POST['tenbaiviet_vi'])) {
     $data['seo_description_cn'] = @$seo_description_cn;
     $data['seo_keywords_cn'] = @$seo_keywords_cn;
 
+    $data['fb_url'] = $fb_url;
+    $data['zalo_url'] = $zalo_url;
+    $data['youtube_url'] = $youtube_url;
+    $data['twi_url'] = $twi_url;
+
+
 
     $data['robots'] = $robots;
     $data['duongdantin'] = $duongdantin;
@@ -335,6 +341,29 @@ if ($icon_hover != '') {
                             <input type="text" class="form-control" name="gg_url" value="<?= $gg_url ?>">
                         </div>
                     <?php } ?>
+                </div>
+            </section>
+            <section class="col-lg-12">
+                <div class="box p10" style="margin-top: 10px">
+                    <div class="form-group">
+                        <label for="exampleInputFile">Cấu hình MXH</label>
+                    </div>
+                    <div class="form-group">
+                        <label>URL FB</label>
+                        <input type="text" class="form-control" name="fb_url" value="<?= $fb_url ?>">
+                    </div>
+                    <div class="form-group">
+                        <label>URL ZALO</label>
+                        <input type="text" class="form-control" name="zalo_url" value="<?= $zalo_url ?>">
+                    </div>
+                    <div class="form-group">
+                        <label>URL YOUTUBE</label>
+                        <input type="text" class="form-control" name="youtube_url" value="<?= $youtube_url ?>">
+                    </div>
+                    <div class="form-group">
+                        <label>URL Twitter</label>
+                        <input type="text" class="form-control" name="twi_url" value="<?= $twi_url ?>">
+                    </div>
                 </div>
             </section>
             <section class="col-lg-12">
