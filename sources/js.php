@@ -14,20 +14,22 @@
 <script type="text/javascript" src="js/noty.js" defer="defer" async></script>
 <script type="text/javascript" src="js/jquery.mmenu.all.js"></script>
 <script type="text/javascript" src="js/owl.carousel.js"></script>
-<!--<script type="text/javascript">-->
-<!--    $(document).ready(function () {-->
-<!--        new WOW().init();-->
-<!--        // $('.content a').fancybox();-->
-<!--    });-->
-<!--</script>-->
-<!--<script type="text/javascript" src="js/jquery.simplyscroll.js"></script>-->
-<!--<script type="text/javascript">-->
-<!--    (function ($) {-->
-<!--        $(function () { //on DOM ready-->
-<!--            $("#scroller").simplyScroll();-->
-<!--        });-->
-<!--    })(jQuery);-->
-<!--</script>-->
+<script type="text/javascript" src="js/scroll.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        new WOW().init();
+        $('.content a').fancybox();
+    });
+</script>
+<script type="text/javascript" src="js/jquery.simplyscroll.js"></script>
+<script type="text/javascript">
+    (function ($) {
+        $(function () { //on DOM ready
+            $("#scroller").simplyScroll();
+        });
+    })(jQuery);
+</script>
 <script>
     // function openCity(evt, cityName) {
     //     var i, x, tablinks;
@@ -58,19 +60,19 @@
     // }
 
     $(document).ready(function () {
-        // $(function () {
-        //   $('.count').each(function () {
-        //     $(this).prop('Counter', 0).animate({
-        //       Counter: $(this).text()
-        //     }, {
-        //       duration: 10000,
-        //       easing: 'swing',
-        //       step: function (now) {
-        //         $(this).text(Math.ceil(now));
-        //       }
-        //     });
-        //   });
-        // });
+        $(function () {
+          $('.count').each(function () {
+            $(this).prop('Counter', 0).animate({
+              Counter: $(this).text()
+            }, {
+              duration: 10000,
+              easing: 'swing',
+              step: function (now) {
+                $(this).text(Math.ceil(now));
+              }
+            });
+          });
+        });
         var topH = $(".header").height();
         $(".l-header").css({ top: topH });
         $(window).scroll(function () {
@@ -182,30 +184,6 @@
 
 
 <script>
-    $(document).ready(function () {
-        // hide #back-top first
-        $("#back-top").hide();
-
-        // fade in #back-top
-        $(function () {
-            $(window).scroll(function () {
-                if ($(this).scrollTop() > 100) {
-                    $('#back-top').fadeIn();
-                } else {
-                    $('#back-top').fadeOut();
-                }
-            });
-
-            // scroll body to 0px on click
-            $('#back-top a').click(function () {
-                $('body,html').animate({
-                    scrollTop: 0
-                }, 0);
-                return false;
-            });
-        });
-
-    });
     document.addEventListener("DOMContentLoaded", function () {
         var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
 
@@ -229,14 +207,22 @@
         }
     });
     var loadDeferredStyles = function () {
-        var addStylesNode = document.getElementById("deferred-styles");
-        var replacement = document.createElement("div");
-        replacement.innerHTML = addStylesNode.textContent;
-        document.body.appendChild(replacement)
-        addStylesNode.parentElement.removeChild(addStylesNode);
+        // var addStylesNode = document.getElementById("deferred-styles");
+        // if (!addStylesNode) return;
+        // var replacement = document.createElement("div");
+        // replacement.innerHTML = addStylesNode.textContent;
+        // document.body.appendChild(replacement);
+        // addStylesNode.parentElement.removeChild(addStylesNode);
     };
+
     var raf = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
         window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
-    if (raf) raf(function () { window.setTimeout(loadDeferredStyles, 0); });
-    else window.addEventListener('load', loadDeferredStyles);
+
+    if (raf) {
+        raf(function () { window.setTimeout(loadDeferredStyles, 0); });
+    } else {
+        window.addEventListener('load', loadDeferredStyles);
+    }
+
+
 </script>

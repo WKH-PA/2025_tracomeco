@@ -59,24 +59,40 @@
         </div>
     </section>
 
-<!--    --><?php //include"back-top.php";?>
+    <div id="back-top-button">
+        <i class="fa-solid fa-angle-up"></i>
+    </div>
+
+    <script>
+        $(window).scroll(function(e){
+            var t = parseInt( $(window).scrollTop() );
+            if ( t > 300 ) {
+                $('#back-top-button').fadeIn();
+            } else {
+                $('#back-top-button').fadeOut();
+            }
+        });
+        $('#back-top-button').click(function(){
+            $("html, body").animate({ scrollTop: 0 }, "slow");
+        });
+    </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
     <script>
         new WOW().init();
     </script>
 
-<script>
-    function openCity(button, cityId) {
-        document.querySelectorAll(".tablink").forEach(btn => btn.classList.remove("tracomeco-red"));
-        button.classList.add("tracomeco-red");
-        document.querySelectorAll(".city").forEach(city => city.classList.remove("active"));
-        document.getElementById(cityId).classList.add("active");
-        let title = button.getAttribute("data-title");
-        let content = button.getAttribute("data-content");
-        console.log("Tiêu đề: ", title);
-        console.log("Nội dung: ", content);
-    }
+    <script>
+        function openCity(button, cityId) {
+            document.querySelectorAll(".tablink").forEach(btn => btn.classList.remove("tracomeco-red"));
+            button.classList.add("tracomeco-red");
+            document.querySelectorAll(".city").forEach(city => city.classList.remove("active"));
+            document.getElementById(cityId).classList.add("active");
+            let title = button.getAttribute("data-title");
+            let content = button.getAttribute("data-content");
+            console.log("Tiêu đề: ", title);
+            console.log("Nội dung: ", content);
+        }
     </script>
     <script>
         function openCity2(evt, cityName) {

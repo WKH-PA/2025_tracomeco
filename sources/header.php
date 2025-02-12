@@ -7,7 +7,7 @@
                         <?= GET_menu_new($full_url, $lang, '', '', '', "7") ?>
                     </ul>
                 </div>
-                <li class="flag-language">
+                <li class="lang flex">
                     <?php
                     if ($thongtin['is_lang'] == 1) {
                         // Tạo đường dẫn URL ngắn gọn
@@ -46,13 +46,29 @@
                     <img src="<?= full_src($thongtin, '') ?>" alt="<?= $thongtin['tenbaiviet_' . $lang] ?>">
                 </a>
             </div>
-
             <div class="main_menu">
                 <ul class="menu menu_pc">
-                    <?= GET_menu_new($full_url, $lang, 'sub-menu', '', '', "1") ?>
-
+                    <?= GET_menu_new($full_url, $lang, 'sub-menu', 'sub-menu', '', "1") ?>
                 </ul>
             </div>
+<!--            <div class="mobile-menu-area">-->
+<!--                <div class="container">-->
+<!--                    <div id="content_menu_mobile">-->
+<!--                        <div class="header_menu_mobile">-->
+<!--                            <a href="#menu" class="btn_menu">-->
+<!--                                <i class="fa-solid fa-bars"></i>-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                        <nav id="menu">-->
+<!--                            <div id="panel-menu">-->
+<!--                                <ul>-->
+<!--                                    --><?//= GET_menu_new($full_url, $lang, '', '', '', "1") ?>
+<!--                                </ul>-->
+<!--                            </div>-->
+<!--                        </nav>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
             <div class="mobile-menu-area">
                 <div class="container">
                     <div id="content_menu_mobile">
@@ -63,29 +79,67 @@
                         </div>
                         <nav id="menu">
                             <div id="panel-menu">
-                                <?= GET_menu_new($full_url, $lang, 'sub-menu', '', '', "1") ?>
+                                <ul>
+                                    <li class="homepage">
+                                        <a href="index.php" title="Trang chủ">Trang chủ</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="index.php?page=gioithieu">Giới thiệu</a>
+                                        <ul>
+                                            <li class="ad-br">
+                                                <a href="index.php?page=gioithieu">Về công ty</a>
+                                                <ul class="dl-submenu">
+                                                    <li><a href="index.php?page=gioithieu" title="Về công ty 1">Về công ty 1</a></li>
+                                                    <li><a href="index.php?page=gioithieu" title="Về công ty 2">Về công ty 2</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="ad-br">
+                                                <a href="index.php?page=van-hoa-cong-ty">Văn hóa công ty</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <a href="index.php?page=linhvuc">Lĩnh vực hoạt động</a>
+                                        <ul>
+                                            <li><a href="index.php?page=linhvuc">Công nghiệp ô tô</a></li>
+                                            <li><a href="index.php?page=linhvuc">Dịch vụ cảng</a></li>
+                                            <li><a href="index.php?page=linhvuc">Cơ khí & Công nghiệp hỗ trợ</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <a href="index.php?page=quan-he-co-dong">Quan hệ cổ đông</a>
+                                        <ul>
+                                            <li><a href="index.php?page=thong-tin-co-dong">Thông tin cổ đông</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <a href="#">Truyền thông</a>
+                                        <ul>
+                                            <a href="index.php?page=tintuc">Tin tức</a>
+                                            <a href="index.php?page=tuyendung">Tin tuyển dụng</a>
+                                            <a href="index.php?page=thu-vien-anh-va-video">Thư viện ảnh và video</a>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <a href="index.php?page=lienhe">Liên hệ</a>
+                                    </li>
+                                </ul>
                             </div>
                         </nav>
                     </div>
                 </div>
             </div>
-
-
-
-
         </div>
     </div>
 </div>
-<!-- Popup -->
-<!--<div class="dv-popup-new no_box">-->
-<!--    <div class="dv-popup-new-child">-->
-<!--        <a class="popup-close"></a>-->
-<!--        <div class="dv-nd-popup"></div>-->
-<!--    </div>-->
-<!--</div>-->
 
 <script>
-    /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+
     var dropdown = document.getElementsByClassName("dropdown-btn");
     var i;
     for (i = 0; i < dropdown.length; i++) {
