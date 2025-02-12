@@ -35,21 +35,21 @@ $(".minus").click(function () {
 });
 
 // end
-$("img.isload").lazyload({
-    load: function () {
-        this.style.opacity = 1;
-    },
-    threshold: 100
-});
+// $("img.isload").lazyload({
+//     load: function () {
+//         this.style.opacity = 1;
+//     },
+//     threshold: 100
+// });
 
-function LOAD_addthis(id) {
-    var js, fjs = document.getElementsByTagName('script')[0];
-    if (document.getElementById(id)) return;
-    js = document.createElement('script');
-    js.id = id;
-    js.src = '//s7.addthis.com/js/300/addthis_widget.js#pub=AddThis';
-    fjs.parentNode.insertBefore(js, fjs);
-}
+// function LOAD_addthis(id) {
+//     var js, fjs = document.getElementsByTagName('script')[0];
+//     if (document.getElementById(id)) return;
+//     js = document.createElement('script');
+//     js.id = id;
+//     js.src = '//s7.addthis.com/js/300/addthis_widget.js#pub=AddThis';
+//     fjs.parentNode.insertBefore(js, fjs);
+// }
 
 function LOAD_isfb(d, s, id, appid) {
     var js, fjs = d.getElementsByTagName(s)[0];
@@ -160,7 +160,7 @@ $(function () {
             }
         });
     }
-    LOAD_addthis('addthis');
+    // LOAD_addthis('addthis');
 
 });
 

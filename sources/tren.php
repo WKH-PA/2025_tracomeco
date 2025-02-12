@@ -13,7 +13,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- icons -->
     <link href="Font-Awesome-640/css/all.css" rel="stylesheet" type="text/css" />
-
     <!---css menu mobile--->
     <link rel="stylesheet" type="text/css" href="css/jquery.mmenu.all.css">
     <link href="css/animate.css" rel="stylesheet" type="text/css">
@@ -22,7 +21,7 @@
 
     <script src="https://kit.fontawesome.com/170a63e521.js" crossorigin="anonymous"></script>
 <!--    <link rel="stylesheet" type="text/css" href="menu_mb/css.css"/>-->
-    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+<!--    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">-->
     <link href="css/owl.carousel.css" rel="stylesheet" type="text/css" media="all">
     <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
     <?php include("css.php"); ?>
