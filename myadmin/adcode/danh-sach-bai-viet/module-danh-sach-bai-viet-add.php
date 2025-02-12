@@ -96,6 +96,10 @@ if (!empty($_POST)) {
     $data['noidung_en']            = @$noidung_en;
     $data['noidung_cn']            = @$noidung_cn;
 
+    $data['noidung2_vi']            = @$noidung2_vi;
+    $data['noidung2_en']            = @$noidung2_en;
+    $data['noidung2_cn']            = @$noidung2_cn;
+
     $data['tags_vi']               = @$tags_vi;
     $data['tags_en']               = @$tags_en;
     $data['tags_cn']               = @$tags_cn;
@@ -153,6 +157,10 @@ if (!empty($_POST)) {
 
     $data['thongso_vi']            = @$thongso_vi;
     $data['thongso_en']            = @$thongso_en;
+
+    $data['kieudang_vi']            = @$kieudang_vi;
+    $data['kieudang_en']            = @$kieudang_en;
+
     $data['thongtin_vi']            = @$thongtin_vi;
     $data['thongtin_en']            = @$thongtin_en;
 

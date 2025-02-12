@@ -101,11 +101,31 @@
 
                 <?php if (!in_array($step, $st_bv_noidung)) { ?>
                     <div class="form-group">
-                        <label>Nội dung (
+                        <label>Kiểu dáng (
+                            <?= $lang ?>)
+                        </label>
+                        <textarea id="kieudang_<?= $lang ?>" name="kieudang_<?= $lang ?>" class="form-control paEditor">
+                                <?= !empty(${"kieudang_" . $lang}) ? SHOW_text(${"kieudang_" . $lang}) : '' ?>
+                            </textarea>
+                    </div>
+                <?php } ?>
+                <?php if (!in_array($step, $st_bv_noidung)) { ?>
+                    <div class="form-group">
+                        <label>Nội thất (
                             <?= $lang ?>)
                         </label>
                         <textarea id="noidung_<?= $lang ?>" name="noidung_<?= $lang ?>" class="form-control paEditor">
                                 <?= !empty(${"noidung_" . $lang}) ? SHOW_text(${"noidung_" . $lang}) : '' ?>
+                            </textarea>
+                    </div>
+                <?php } ?>
+                <?php if (!in_array($step, $st_bv_noidung)) { ?>
+                    <div class="form-group">
+                        <label>An toàn (
+                            <?= $lang ?>)
+                        </label>
+                        <textarea id="noidung2_<?= $lang ?>" name="noidung2_<?= $lang ?>" class="form-control paEditor">
+                                <?= !empty(${"noidung2_" . $lang}) ? SHOW_text(${"noidung2_" . $lang}) : '' ?>
                             </textarea>
                     </div>
                 <?php } ?>
