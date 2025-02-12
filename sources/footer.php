@@ -14,18 +14,16 @@
                 </div>
                 <?php  $danhmuc = GET_menu(18);?>
                 <div class="col-xl-3 col-md-6">
-
-                    <h3 class="itemtitle"><strong>Truyền thông</strong></h3>
+                    <h3 class="itemtitle"><strong><?=$glo_lang['truyen_thong']?></strong></h3>
                     <ul class="itemlist p-t-10">
                         <?php foreach ($danhmuc as $rows) { ?>
                             <li><a <?=full_href($rows) ?>><?=SHOW_text($rows['tenbaiviet_'.$lang]) ?></a></li>
                         <?php } ?>
-
                     </ul>
                 </div>
                 <?php  $danhmuc2 = LAY_danhmuc(9,""); ?>
                 <div class="col-xl-3 col-md-6">
-                    <h3 class="itemtitle"><strong>Lĩnh vực hoạt động</strong></h3>
+                    <h3 class="itemtitle"><strong><?=$glo_lang['linh_vuc_hoat_dong']?></strong></h3>
                     <ul class="itemlist p-t-10">
                         <?php foreach ($danhmuc2 as $rows) { ?>
                             <li><a <?=full_href($rows) ?>><?=SHOW_text($rows['tenbaiviet_'.$lang]) ?></a></li>
@@ -36,16 +34,18 @@
                 ?>
                 <div class="col-xl-3 col-md-6">
                     <div class="maps">
-                        <iframe src="<?= $thongtin_step['map_google'] ?>" width="100%" height="200" style="border:0;" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="<?= $thongtin_step['map_google'] ?>" width="100%" height="210" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
+<!--                    <div class="socical_icon flex p-t-10">-->
+<!--                        <a title="Share on Facebook" href="--><?//= $thongtin['fb_url']?><!--" target="_blank" rel="nofollow noopener" class="facebook" style="background:#39599c;"><i class="fa-brands fa-facebook-f"></i></a>-->
+<!--                        <a title="Youtube" href="--><?//= $thongtin['youtube_url']?><!--" target="_blank" rel="nofollow noopener" class="youtube" style="background:#e82c2a;"><i class="fa-brands fa-youtube"></i></a>-->
+<!--                        <a title="Twitter" href="--><?//= $thongtin['twi_url']?><!--" target="_blank" rel="nofollow noopener" class="twitter" style="background:#0fa6f7;"><i class="fa-brands fa-twitter"></i></a>-->
+<!--                        <a title="zalo" href="--><?//= $thongtin['zalo_url']?><!--" target="_blank" rel="nofollow noopener" class="zalo" style="background:#2990d6;"><img src="https://www.pavietnam.vn/css/images/icon_zalo.svg" alt="P.A Việt Nam zalo" height="10" style="position:absolute; top:50%; left:50%; transform: translate(-50%,-50%);"></a>-->
+<!--                        <a href="https://t.me/pavietnam" target="_blank" title="Telegram" rel="noopener" class="telegram" style="width:auto"><i class="fa-brands fa-telegram fa-2xl" style="color: #74C0FC;"></i></a>-->
+<!--                    </div>-->
                     <div class="socical_icon flex p-t-10">
-                        <a title="Share on Facebook" href="<?= $thongtin['fb_url']?>" target="_blank" rel="nofollow noopener" class="facebook" style="background:#39599c;"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a title="P.A Việt Nam Channel" href="<?= $thongtin['youtube_url']?>" target="_blank" rel="nofollow noopener" class="youtube" style="background:#e82c2a;"><i class="fa-brands fa-youtube"></i></a>
-                        <a title="Share on Twitter" href="<?= $thongtin['twi_url']?>" target="_blank" rel="nofollow noopener" class="twitter" style="background:#0fa6f7;"><i class="fa-brands fa-twitter"></i></a>
-                        <a title="P.A Việt Nam zalo" href="<?= $thongtin['zalo_url']?>" target="_blank" rel="nofollow noopener" class="zalo" style="background:#2990d6;"><img src="https://www.pavietnam.vn/css/images/icon_zalo.svg" alt="P.A Việt Nam zalo" height="10" style="position:absolute; top:50%; left:50%; transform: translate(-50%,-50%);"></a>
-                        <a href="https://t.me/pavietnam" target="_blank" title="Telegram" rel="noopener" class="telegram" style="width:auto"><img src="https://support.pavietnam.vn/datafile/banner/2022_07/538544-11134957-join-tele.png" alt="P.A Việt Nam Telegram" height="35"></a>
+                        <?php include _source."mang_xa_hoi.php"; ?>
                     </div>
-                </div>
             </div>
         </div>
     </section>

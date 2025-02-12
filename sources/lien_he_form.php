@@ -79,8 +79,8 @@
 
 <!--    <p class="require_pc" style="color:red;">--><?//= $glo_lang['thong_tin_bat_buoc'] ?><!--</p>-->
     <a onclick="return CHECK_send_lienhe('<?= $full_url ?>/','#formnamecontact2', '.cls_data_check_form')"
-       style="cursor:pointer" class="button"><?= $glo_lang['gui'] ?> <img src="images/loading2.gif"
-                                                                          class="ajax_img_loading"></a>
+       style="cursor:pointer" class="button"><?= $glo_lang['gui'] ?>
+<!--        <img src="images/loading2.gif" class="ajax_img_loading"></a>-->
     <a onclick="RefreshFormMailContact(formnamecontact2)" style="cursor:pointer"
        class="button"><?= $glo_lang['lam_lai'] ?></a>
     <div class="clr"></div>

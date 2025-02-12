@@ -96,13 +96,22 @@ include _source . "box-header.php";
 
             </div>
         </section>
+        <div class="page_conten_page p-t-60 p-b-60">
+            <div class="container-fluid">
+                <div class="tin_left">
+                    <div class="title_news">
+                        <h1><?=$arr_running['tenbaiviet_'.$lang]?></h1>
+                        <p class="dated"><i class="fa-regular fa-calendar-days"></i> <?= date("d/m/Y", $arr_running['ngaydang']); ?></p>
+                    </div>
+                    <div class="showText">
+                        <p class="mota"><?=$arr_running['mota_'.$lang]?></p>
+                        <?=$arr_running['noidung_'.$lang]?>
+                    </div>
+                </div>
 
-            <?= full_img($arr_running,'') ?>
-            <div class="tracomeco_title_main">
-                <h3><?=$arr_running['tenbaiviet_'.$lang] ?></h3>
-                <p><?=$arr_running['mota_'.$lang] ?></p>
+                <div class="clr"></div>
             </div>
-            <p><?= limitText($arr_running['noidung_' . $lang],8) ?></p>
+        </div>
 
 
 

@@ -39,8 +39,7 @@ include _source . "box-header.php";
 
             <div class="contact-maps">
                 <?php if ($thongtin_step['map_google'] != "") { ?>
-                    <iframe class="iframe_load" iframe-src="<?= $thongtin_step['map_google'] ?>" width="100%"
-                            height="580" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    <iframe src="<?= $thongtin_step['map_google']?>" width="100%" height="580" style="border:0;" allowfullscreen loading="lazy"></iframe>
                 <?php } ?>
                 <div class="clr"></div>
             </div>

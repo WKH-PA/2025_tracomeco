@@ -22,6 +22,7 @@
 <link href="css/grid.css" rel="stylesheet" type="text/css" />
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/style_responsive.css" rel="stylesheet" type="text/css" />
+<link href="css/custom.css" rel="stylesheet" type="text/css" />
 <!--<link href="css/animated-on3step.css" rel="stylesheet" type="text/css">-->
 <noscript id="deferred-styles">
     <link rel="stylesheet" type="text/css" href="css/noty.min.css" type="text/css" media="all"/>
