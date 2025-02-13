@@ -63,39 +63,7 @@ include _source . "box-header.php";
         $imggioithieu = LAY_baiviet_chitiet(25);
 
         ?>
-        <section class="tracomeco_home_gioithieu p-t-60 p-b-60">
-            <div class="container-fluid">
-                <div class="row v-center">
-
-                    <div class="col-xl-3 col-img">
-                        <div class="home_dichvu_hinh">
-                            <img src="datafiles/<?php echo $imggioithieu[2]['icon']; ?>" alt="<?php echo $imggioithieu[2]['tenbaiviet_vi']; ?>"/>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-img">
-                        <div class="home_dichvu_hinh p-b-20">
-                            <img src="datafiles/<?php echo $imggioithieu[1]['icon']; ?>" alt="<?php echo $imggioithieu[1]['tenbaiviet_vi']; ?>"/>
-                        </div>
-                        <div class="home_dichvu_hinh">
-                            <img src="datafiles/<?php echo $imggioithieu[0]['icon']; ?>" alt="<?php echo $imggioithieu[0]['tenbaiviet_vi']; ?>"/>
-                        </div>
-                    </div>
-
-                    <div class="col-xl-6 col-txt">
-                        <div class="home_dichvu_text wow animate__fadeInRight">
-                            <h2><?= $glo_lang['gioi_thieu'] ?></h2>
-                            <h3><?= $ndkhac['p1_'. $lang] ?></h3>
-                            <p class="short-desc"><?= $ndkhac['noidung_'. $lang] ?></p>
-                            <p class="read-more">
-                                <a <?= full_href($ndkhac)?> title="<?= $glo_lang['xem_chi_tiet'] ?>"><?= $glo_lang['xem_chi_tiet'] ?><i class="fa-light fa-arrow-up-right-from-square"></i></a>
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
+        <?php include _source . "header_baiviet.php";?>
         <div class="page_conten_page p-t-60 p-b-60">
             <div class="container-fluid">
                 <div class="tin_left">
@@ -112,9 +80,6 @@ include _source . "box-header.php";
                 <div class="clr"></div>
             </div>
         </div>
-
-
-
 
     </div>
 <?php } else {

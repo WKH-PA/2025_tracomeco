@@ -164,29 +164,29 @@
         } ?>
     </div>
 </div>
-<div class="box p10">
-    <?php if (CHECK_key_setting("ma-san-pham")) { ?>
-        <div class="form-group">
-            <label>Mã sản phẩm</label>
-            <input type="text" class="form-control" name="p1" value="<?= !empty($p1) ? Show_text($p1) : "" ?>">
-        </div>
-    <?php } ?>
-    <?php
-    if ($thongtin['is_giamuti'] == 0) {
-        ?>
-        <div class="form-group" >
-            <label>Giá khuyến mãi</label>
-            <input type="text" class="form-control cls_giatien_f" name="giatien"
-                   value="<?= !empty($giatien) ? $giatien : "0" ?>" onkeyup="SetCurrency(this)">
-        </div>
-        <div class="form-group" >
-            <label>Giá gốc: </label>
-            <input type="text" class="form-control cls_giatien_khuyenmai_f" name="giakm"
-                   value="<?= !empty($giakm) ? $giakm : "0" ?>" onkeyup="SetCurrency(this)">
-        </div>
-    <?php } else
-        include "step_giamuti.php"; ?>
-</div>
+<!--<div class="box p10">-->
+<!--    --><?php //if (CHECK_key_setting("ma-san-pham")) { ?>
+<!--        <div class="form-group">-->
+<!--            <label>Mã sản phẩm</label>-->
+<!--            <input type="text" class="form-control" name="p1" value="--><?//= !empty($p1) ? Show_text($p1) : "" ?><!--">-->
+<!--        </div>-->
+<!--    --><?php //} ?>
+<!--    --><?php
+//    if ($thongtin['is_giamuti'] == 0) {
+//        ?>
+<!--        <div class="form-group" >-->
+<!--            <label>Giá khuyến mãi</label>-->
+<!--            <input type="text" class="form-control cls_giatien_f" name="giatien"-->
+<!--                   value="--><?//= !empty($giatien) ? $giatien : "0" ?><!--" onkeyup="SetCurrency(this)">-->
+<!--        </div>-->
+<!--        <div class="form-group" >-->
+<!--            <label>Giá gốc: </label>-->
+<!--            <input type="text" class="form-control cls_giatien_khuyenmai_f" name="giakm"-->
+<!--                   value="--><?//= !empty($giakm) ? $giakm : "0" ?><!--" onkeyup="SetCurrency(this)">-->
+<!--        </div>-->
+<!--    --><?php //} else
+//        include "step_giamuti.php"; ?>
+<!--</div>-->
 <?php
 $kieu_tn_muti = false;
 if ($kieu_tn_muti) {

@@ -1831,7 +1831,7 @@
 		$danhmuc  = DB_fet_rd(" * "," `#_step` "," `id` = '$step' ","", 1);
 		return reset($danhmuc);
 	}
-	function LAY_anhcon($id, $limit = 0){
+	function LAY_hinhanhcon($id, $limit = 0){
 		if($limit == 0) $limit = "";
 		$danhmuc  = DB_fet("*","`#_baiviet_img`","`id_parent` = '$id' ","`sort` ASC, `id` DESC",$limit,"arr", 0);
 		return $danhmuc;

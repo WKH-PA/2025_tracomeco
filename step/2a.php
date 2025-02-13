@@ -24,6 +24,7 @@ $nd_kietxuat_goiy = DB_fet(" * ", " `#_baiviet` ", "  `step` IN (" . $slug_step 
 // full_src($thongtin_step, '')
 $tinhnang = LAY_bv_tinhnang(2);
 $baiviet_ct = LAY_baiviet_chitiet($arr_running['id']);
+$list_hinhcon = LAY_hinhanhcon($arr_running['id'], 50);
 $bvlienquan = DB_fet("*", "#_baiviet", "`showhi` = 1 and id_parent =" . $arr_running['id_parent'] . " and step=" . $slug_step, "RAND()", "12", 1);
 include _source . "box-header.php";
 //$gia = GET_gia($arr_running['giatien'], $arr_running['giakm'], $glo_lang['dvt'], $glo_lang['gia_lienhe'], "gia_ban", "gia_km", '', '', $thongtin['is_giamuti'], $arr_running['id']);
@@ -54,7 +55,7 @@ include _source . "box-header.php";
                             $i = 1;
                             foreach ($list_hinhcon as $rows) {
                                 $i++;
-                                if ($i > 4)
+                                if ($i > 20)
                                     continue;
                                 ?>
                                 <li><a href='<?= checkImage($fullpath, $rows['icon'], $rows['duongdantin']) ?>'
@@ -67,6 +68,12 @@ include _source . "box-header.php";
                         </ul>
                         <a class="pro_slide_prev" id="pro_slide_prev" href="#"><span> < </span></a> <a class="pro_slide_next" id="pro_slide_next" href="#"><span> > </span></a>
                     </div>
+                    <script>
+                        if (jQuery.browser === undefined) {
+                            jQuery.browser = {};
+                            jQuery.browser.msie = /msie/.test(navigator.userAgent.toLowerCase());
+                        }
+                    </script>
                     <script type="text/javascript" src="js/cloud-zoom.1.0.2.min.js"></script>
                     <script type="text/javascript">
                         jQuery(document).ready(function(){

@@ -12,27 +12,33 @@
 <!--<script src='menu_mb/jquery.mmenu.min.js' type='text/javascript'></script>-->
 
 
-<!--<script>-->
-<!--    $(function () {-->
-<!--        $("#panel-menu").mmenu();-->
-<!--        $("#panel-menu").show();-->
-<!--        // $("#nav-mobile-new").mmenu();-->
-<!--        // $("#nav-mobile-new").show();-->
-<!--    });-->
-<!---->
-<!---->
-<!--    // $(document).ready(function () {-->
-<!--   //    $("ul.menu > li").each(function () {-->
-<!--   //         var addchua = $("a", this).eq(0).attr('add');-->
-<!--   //         if ($("ul", this).length > 0 && addchua != 'ok') {-->
-<!--   //             $("a", this).eq(0).append('<i class="fa fa-angle-down"></i>');-->
-<!--   //          $("a", this).eq(0).attr('add', 'ok');-->
-<!--   //          // $(">a", this).removeAttr('href');-->
-<!--   //          }-->
-<!--   //      });-->
-<!--   //  });-->
-<!--</script>-->
+<script>
 
+     $(document).ready(function () {
+      $("ul.menu > li").each(function () {
+var addchua = $("a", this).eq(0).attr('add');
+            if ($("ul", this).length > 0 && addchua != 'ok') {
+               $("a", this).eq(0).append('<i class="fa fa-angle-down"></i>');
+$("a", this).eq(0).attr('add', 'ok');
+              $(">a", this).removeAttr('href');
+             }
+     });
+     });
+</script>
+<?php if (!empty($slug_step)) { ?>
+    <script>$(".active_mn_<?=$slug_step ?>").addClass("acti")</script>
+<?php } else { ?>
+    <script>
+        var url_new = "<?=$full_url . ($motty != "" ? "/" . $motty : "") ?>";
+        $(".active_mn_01").each(function () {
+            var href = $(this).attr("href");
+            if (href == url_new) {
+                $(this).addClass("acti");
+                return false;
+            }
+        });
+    </script>
+<?php } ?>
 
 
 </body>

@@ -12,3 +12,6 @@
 .features-list ul{
     display: none;
 }
+.caroufredsel_wrapper{
+    width: 100% !important
+}

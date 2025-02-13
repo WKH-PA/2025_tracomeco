@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html xmlns:fb="http://ogp.me/ns/fb#">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -20,8 +20,8 @@
     <link rel="stylesheet" type="text/css" href="images/fancybox/jquery.fancybox.css"/>
 
     <script src="https://kit.fontawesome.com/170a63e521.js" crossorigin="anonymous"></script>
-<!--    <link rel="stylesheet" type="text/css" href="menu_mb/css.css"/>-->
-<!--    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">-->
+    <!--    <link rel="stylesheet" type="text/css" href="menu_mb/css.css"/>-->
+    <!--    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">-->
     <link href="css/owl.carousel.css" rel="stylesheet" type="text/css" media="all">
     <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
     <?php include("css.php"); ?>
