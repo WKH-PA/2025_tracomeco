@@ -8,3 +8,7 @@
 .maps iframe{
     float: left;
 }
+
+.features-list ul{
+    display: none;
+}

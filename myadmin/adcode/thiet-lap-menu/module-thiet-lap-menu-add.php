@@ -141,7 +141,14 @@ if ($id > 0) {
                 <div class="box p10">
                     <div class="form-group">
                         <label>Loại menu</label>
-                        <?= LAY_menu(@$id_parent, 'id_parent', 'form-control', 0, $id_step, $id, 'true') ?>
+                        <?php
+                        $menu_select = LAY_menu(@$id_parent, 'id_parent', 'form-control', 0, $id_step, $id, 'true');
+                        // Kiểm tra nếu SESSION 'admin' tồn tại và không rỗng
+                        if (!isset($_SESSION['admin']) || empty($_SESSION['admin'])) {
+                            $menu_select = str_replace('<option value="0">Chọn menu con</option>', '', $menu_select);
+                        }
+                        echo $menu_select;
+                        ?>
                     </div>
                     <div class="form-group">
                         <label>Số thứ tự</label>
