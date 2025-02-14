@@ -116,7 +116,9 @@ include _source . "box-header.php";
                     <form class="form-search flex">
                         <div class="search">
                             <input type="text" autocomplete="false" class="form-control form-control-sm"
-                                   placeholder="<?= $glo_lang['nhap_tu_khoa_tim_kiem'] ?>" value="" name="key">
+                                   placeholder="<?= $glo_lang['nhap_tu_khoa_tim_kiem'] ?>"
+                                   value="<?= !empty($_GET['key']) ? $_GET['key'] : "" ?>"
+                                   name="key">
                             <button class="btn btn-secondary" type="submit">
                                 <i class="fas fa-search"></i>
                             </button>
@@ -127,15 +129,18 @@ include _source . "box-header.php";
                             $currentYear = date("Y");
                             $startYear = 2000;
                             for ($year = $currentYear; $year >= $startYear; $year--) {
-                                echo "<option value=\"$year\">$year</option>";
+                                $select = !empty($_GET['year']) && $_GET['year'] == $year ? "selected" : "";
+                                echo "<option $select  value=\"$year\">$year</option>";
                             }
                             ?>
                         </select>
                         <?php $danhmuc = LAY_danhmuc($arr_running['id'], ""); ?>
                         <select class="select-year font18" name="dm">
                             <option value="">Tất cả</option>
-                            <?php foreach ($danhmuc as $rows) { ?>
-                                <option value="<?= SHOW_text($rows['id_parent']) ?>">
+                            <?php foreach ($danhmuc as $rows) {
+                                $selectdm = !empty($_GET['dm']) && $_GET['dm'] == $rows['id'] ? "selected" : "";
+                                ?>
+                                <option <?=$selectdm?> value="<?= SHOW_text($rows['id']) ?>">
                                     <?= SHOW_text($rows['tenbaiviet_' . $lang]) ?>
                                 </option>
                             <?php } ?>
