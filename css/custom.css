@@ -15,3 +15,8 @@
 .caroufredsel_wrapper{
     width: 100% !important
 }
+
+
+.tracomeco_home_khach_hang .khach_hang_box p.rate .dis-star {
+    background: #d2d3d5;
+}

@@ -1,6 +1,6 @@
 <?php
 if ((!empty($thongtin_step) && $thongtin_step['num_view'] == 0) || empty($thongtin_step))
-    $numview = 6;
+    $numview = 4;
 else
     $numview = $thongtin_step['num_view'];
 
@@ -73,7 +73,6 @@ include _source . "box-header.php";
     <div class="container-fluid">
         <div class="tracomeco_home_tin_tuc tt_tintuc flex" style="background: none">
             <div class="col_conten_left" id="content_fix">
-
                 <div class="slide_tin_tuc">
                     <div class="block_tin_tuc row">
                         <?php
@@ -169,9 +168,10 @@ include _source . "box-header.php";
                 </div>
             </div>
             <div class="col_conten_right">
-                <?php include _source . "right_conten.php"; ?>
+                <div class="sidebar_menu" id="menu-center">
+                    <?php include _source . "right_conten.php"; ?>
+                </div>
             </div>
-
         </div>
         <div class="clr"></div>
     </div>

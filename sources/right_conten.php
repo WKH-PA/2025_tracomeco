@@ -8,31 +8,32 @@
 
     $danhsachtinnoibat= LAY_baiviet(5,3,'`opt` =1');
   ?>
-<div class="sidebar_menu" id="menu-center">
+
+
 <div class="box_right_pro_view">
-    <div class="title_right"><?=SHOW_text($thongtin_step['tenbaiviet_'.$lang]) ?></div>
+    <div class="title_right"><?= SHOW_text($thongtin_step['tenbaiviet_' . $lang]) ?></div>
     <ul class="child_menu_right">
         <?php foreach ($danhmuc as $rows) { ?>
-            <li><a <?=full_href($rows) ?>><?=SHOW_text($rows['tenbaiviet_'.$lang]) ?></a></li>
+            <li><a <?= full_href($rows) ?>><?= SHOW_text($rows['tenbaiviet_' . $lang]) ?></a></li>
         <?php } ?>
     </ul>
     <div class="clr"></div>
 </div>
 <div class="box_right_pro_view">
-    <div class="title_right">Tin tức mới</div>
+    <div class="title_right"><?=$glo_lang['tin_tuc_moi']?></div>
     <div class="tt_page_top">
         <?php foreach ($danhsachtinnoibat as $rows) { ?>
             <div class="new_id_bs">
-                <li><a <?=full_href($rows) ?>><?= full_img($rows) ?></a></li>
+                <li><a <?= full_href($rows) ?>><?= full_img($rows) ?></a></li>
                 <ul>
-                    <h3><a <?=full_href($rows) ?>><?=SHOW_text($rows['tenbaiviet_'.$lang]) ?></a></h3>
-                    <p class="dated"><i class="fa-regular fa-calendar-days"></i><?=date("d/m/Y", $rows['ngaydang']); ?></p>
+                    <h3><a <?= full_href($rows) ?>><?= SHOW_text($rows['tenbaiviet_' . $lang]) ?></a></h3>
+                    <p class="dated"><i class="fa-regular fa-calendar-days"></i><?= date("d/m/Y", $rows['ngaydang']); ?>
+                    </p>
                 </ul>
             </div>
         <?php } ?>
     </div>
     <div class="clr"></div>
-</div>
 </div>
 
 

@@ -70,10 +70,10 @@ if ($motty == '404') {
             1, "");
         $datadanhmuc = reset($datadanhmuc);
         if (!empty($databaiviet['id_parent'])) {
-            $danhmucname = $datadanhmuc['tenbaiviet_' . $lang];
+            $danhmucname = !empty($datadanhmuc['tenbaiviet_' . $lang]) ? $datadanhmuc['tenbaiviet_' . $lang] : "";
         }
-        $seonamedanhmuc = $full_url . '/' . $datadanhmuc['seo_name'];
-        $nameseonamedanhmuc = $datadanhmuc['tenbaiviet_' . $lang];
+        $seonamedanhmuc = !empty($datadanhmuc['seo_name']) ? $full_url . '/' . $datadanhmuc['seo_name'] : "";
+        $nameseonamedanhmuc = !empty($datadanhmuc['tenbaiviet_' . $lang]) ? $datadanhmuc['tenbaiviet_' . $lang] : "";
 
         $arraydata[$seonamedanhmuc] = $nameseonamedanhmuc;
         $nametitle = $nameseonamebaiviet;

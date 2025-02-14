@@ -26,18 +26,19 @@ $wh = "  AND `id_parent` = (" . $lay_all_kx . ") AND `id` <>  '" . $arr_running[
 // }
 // full_src($thongtin_step, '')
 include _source . "box-header.php";
-$bvlienquan = DB_fet("*", "#_baiviet", "`showhi` = 1 and `id` != ".$arr_running['id']." and id_parent =" . $arr_running['id_parent'] . " and step=" . $slug_step, "", "10", 1);
+$bvlienquan = DB_fet("*", "#_baiviet", "`showhi` = 1 and `id` != " . $arr_running['id'] . " and id_parent =" . $arr_running['id_parent'] . " and step=" . $slug_step, "", "10", 1);
 ?>
 <div class="page_conten_page p-t-60 p-b-60">
     <div class="container-fluid">
         <div class="tin_left">
             <div class="title_news">
-                <h1><?=$arr_running['tenbaiviet_'.$lang]?></h1>
-                <p class="dated"><i class="fa-regular fa-calendar-days"></i><?= date("d/m/Y", $arr_running['ngaydang']); ?></p>
+                <h1><?= $arr_running['tenbaiviet_' . $lang] ?></h1>
+                <p class="dated"><i
+                            class="fa-regular fa-calendar-days"></i><?= date("d/m/Y", $arr_running['ngaydang']); ?></p>
             </div>
             <div class="showText">
-                <p class="mota"><?=$arr_running['mota_'.$lang]?></p>
-                    <?=$arr_running['noidung_'.$lang]?>
+                <p class="mota"><?= $arr_running['mota_' . $lang] ?></p>
+                <?= $arr_running['noidung_' . $lang] ?>
             </div>
         </div>
 
@@ -45,4 +46,4 @@ $bvlienquan = DB_fet("*", "#_baiviet", "`showhi` = 1 and `id` != ".$arr_running[
     </div>
 </div>
 
-<?= include _source . "box_footer.php";?>
+<?php include _source . "box_footer.php"; ?>

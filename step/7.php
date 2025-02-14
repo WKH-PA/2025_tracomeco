@@ -122,6 +122,7 @@ include _source."box-header.php";
             <div class="col_conten_right">
                 <?php include _source . "right_conten.php"; ?>
             </div>
+
         </div>
 
         <div class="clr"></div>
