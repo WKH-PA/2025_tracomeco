@@ -61,6 +61,7 @@ include _source . "box-header.php";
     <div class="container-fluid">
         <div class="tracomeco_home_tin_tuc tt_tintuc flex" style="background: none">
             <div class="col_conten_left" id="content_fix">
+
                 <div class="slide_tin_tuc">
                     <div class="block_tin_tuc row">
                         <?php
@@ -119,7 +120,7 @@ include _source . "box-header.php";
                             }
                             ?>
                         </select>
-                        <?php  $danhmuc = LAY_danhmuc(6,""); ?>
+                        <?php  $danhmuc = LAY_danhmuc($arr_running['id'],""); ?>
                         <select class="select-year font18" name="dm">
                             <option value="">Tất cả</option>
                             <?php foreach ($danhmuc as $rows) { ?>
@@ -133,7 +134,7 @@ include _source . "box-header.php";
                 <div class="list-media_wrapper">
                     <?php
                     if ($nd_total == 0) {
-                        echo "<div class='dv-notfull'>" . $glo_lang['khong_tim_thay_du_lieu_nao'] . "</div>";
+                        echo "<div class='new_id_bs'>" . $glo_lang['khong_tim_thay_du_lieu_nao'] . "</div>";
                     } else {
                         foreach ($nd_kietxuat as $rows) {
                             ?>
@@ -147,8 +148,10 @@ include _source . "box-header.php";
                             </div>
                         <?php }
                     } ?>
-                    <div class="nums no_box">
-                        <?= PHANTRANG($pzer, $sotrang, $full_url . "/" . $motty, $_SERVER['QUERY_STRING']) ?>
+                    <div class="nums">
+                        <ul>
+                            <?= PHANTRANG($pzer, $sotrang, $full_url . "/" . $motty, $_SERVER['QUERY_STRING']) ?>
+                        </ul>
                         <div class="clr"></div>
                     </div>
                 </div>
@@ -162,55 +165,56 @@ include _source . "box-header.php";
     </div>
 </div>
 
+
 <div class="stop-footer w100"></div>
 
 
-<script>
-    function fixSticky() {
-        let product_info = $('#content_fix');
-        var el = $('.sidebar_menu');
-        var stickyTop = (el.offset().top) - 160; // returns number
-        var stickwidth = (el.width()) + 0;
-
-        $(window).scroll(function() { // scroll event
-            var footerTop = ($('.stop-footer').offset().top) - 160; // returns number
-            let stickyHeight = el.find('button').height();
-            //var stickyHeight = el.height();
-            var height_info = product_info.height();
-            var limit = footerTop - stickyHeight - 600; // Adjusted to account for new top offset
-            var windowTop = $(window).scrollTop(); // returns number
-            var windowsize = $(window).width();
-
-            if (windowsize > 0) {
-                if (height_info <= stickyHeight) {
-                    // Do nothing if content height is less than sticky height
-                } else {
-                    if (stickyTop < windowTop) {
-                        el.css({
-                            position: 'fixed',
-                            top: '62px', // Set fixed position 62px from top
-                            width: stickwidth,
-                        });
-                        $('.sidebar_menu').height(stickyHeight);
-                    } else {
-                        el.css({
-                            position: 'static',
-                            top: '62px',
-                        });
-                    }
-
-                    if (limit < windowTop) {
-                        var diff = limit - windowTop;
-                        el.css({
-                            top: diff
-                        });
-                    }
-                }
-            }
-        });
-    }
-
-    $(function() {
-        fixSticky();
-    })
-</script>
+<!--<script>-->
+<!--    function fixSticky() {-->
+<!--        let product_info = $('#content_fix');-->
+<!--        var el = $('.sidebar_menu');-->
+<!--        var stickyTop = (el.offset().top) - 160; // returns number-->
+<!--        var stickwidth = (el.width()) + 0;-->
+<!---->
+<!--        $(window).scroll(function() { // scroll event-->
+<!--            var footerTop = ($('.stop-footer').offset().top) - 160; // returns number-->
+<!--            let stickyHeight = el.find('button').height();-->
+<!--            //var stickyHeight = el.height();-->
+<!--            var height_info = product_info.height();-->
+<!--            var limit = footerTop - stickyHeight - 600; // Adjusted to account for new top offset-->
+<!--            var windowTop = $(window).scrollTop(); // returns number-->
+<!--            var windowsize = $(window).width();-->
+<!---->
+<!--            if (windowsize > 0) {-->
+<!--                if (height_info <= stickyHeight) {-->
+<!--                    // Do nothing if content height is less than sticky height-->
+<!--                } else {-->
+<!--                    if (stickyTop < windowTop) {-->
+<!--                        el.css({-->
+<!--                            position: 'fixed',-->
+<!--                            top: '62px', // Set fixed position 62px from top-->
+<!--                            width: stickwidth,-->
+<!--                        });-->
+<!--                        $('.sidebar_menu').height(stickyHeight);-->
+<!--                    } else {-->
+<!--                        el.css({-->
+<!--                            position: 'static',-->
+<!--                            top: '62px',-->
+<!--                        });-->
+<!--                    }-->
+<!---->
+<!--                    if (limit < windowTop) {-->
+<!--                        var diff = limit - windowTop;-->
+<!--                        el.css({-->
+<!--                            top: diff-->
+<!--                        });-->
+<!--                    }-->
+<!--                }-->
+<!--            }-->
+<!--        });-->
+<!--    }-->
+<!---->
+<!--    $(function() {-->
+<!--        fixSticky();-->
+<!--    })-->
+<!--</script>-->

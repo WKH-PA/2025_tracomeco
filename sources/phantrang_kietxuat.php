@@ -28,7 +28,7 @@ if (empty($catasort)) {
 $limit_new = str_replace(",", ".", "$vi_tri,$numview");
 
 
-$nd_kietxuat = DB_fet_rd("*", "`#_baiviet`", " `step` IN (" . $slug_step . ") $wh ", " $catasort  ", $limit_new, "id");
+$nd_kietxuat = DB_fet_rd("*", "`#_baiviet`", " `step` IN (" . $slug_step . ") $wh ", " $catasort  ", $limit_new, "id",0,1);
 
 $nd_total = DB_num_rd("SELECT `id` FROM `#_baiviet` WHERE `showhi` =  1 AND `step` IN (" . $slug_step . ") $wh", "#_baiviet");
 

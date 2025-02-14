@@ -112,13 +112,12 @@
                             for ($i = 1; $i <= $total_stars; $i++) {
                                 if ($i <= floor($rating)) {
                                     echo '<i class="fa fa-star" aria-hidden="true"></i>';
-                                } elseif ($i - 0.5 == $rating) {
-                                    echo '<i class="fa fa-star-half-o" aria-hidden="true"></i>';
                                 } else {
                                     echo '<i class="fa fa-star-o" aria-hidden="true"></i>';
                                 }
                             }
                             ?>
+
                         </p>
                         <?=$rows['noidung_'.$lang] ?>
                     </div>

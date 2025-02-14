@@ -69,49 +69,49 @@ include _source . "box-header.php";
 
 ?>
 
-
 <div class="page_conten_page p-t-60 p-b-60">
     <div class="container-fluid">
         <div class="tracomeco_home_tin_tuc tt_tintuc flex" style="background: none">
             <div class="col_conten_left" id="content_fix">
+
                 <div class="slide_tin_tuc">
                     <div class="block_tin_tuc row">
                         <?php
-                            $first = true;
-                            foreach ($nd_hot as $rows) {
-                                if ($first) {
-                                    ?>
-                                    <div class="col-md-8">
-                                        <div class="post_item lg">
-                                            <div class="post_img">
-                                                <a <?= full_href($rows) ?>><?= full_img($rows) ?></a>
-                                            </div>
-                                            <div class="post_info">
-                                                <h3><a <?= full_href($rows) ?>><?= $rows['tenbaiviet_' . $lang] ?></a></h3>
-                                                <p class="dated"><i class="fa-regular fa-calendar-days"></i> <?= date("d/m/Y", $rows['ngaydang']); ?></p>
-                                                <p style="margin-bottom: 0"><?= $rows['mota_' . $lang] ?></p>
-                                            </div>
-                                        </div>
+                        $first = true;
+                        foreach ($nd_hot as $rows) {
+                        if ($first) {
+                        ?>
+                        <div class="col-md-8">
+                            <div class="post_item lg">
+                                <div class="post_img">
+                                    <a <?= full_href($rows) ?>><?= full_img($rows) ?></a>
+                                </div>
+                                <div class="post_info">
+                                    <h3><a <?= full_href($rows) ?>><?= $rows['tenbaiviet_' . $lang] ?></a></h3>
+                                    <p class="dated"><i class="fa-regular fa-calendar-days"></i> <?= date("d/m/Y", $rows['ngaydang']); ?></p>
+                                    <p style="margin-bottom: 0"><?= $rows['mota_' . $lang] ?></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <?php
+                            $first = false;
+                            } else {
+                                ?>
+                                <div class="post_item">
+                                    <div class="post_img">
+                                        <a <?= full_href($rows) ?>><?= full_img($rows) ?></a>
                                     </div>
-                                    <div class="col-md-4">
-                                    <?php
-                                    $first = false;
-                                } else {
-                                    ?>
-                                    <div class="post_item">
-                                        <div class="post_img">
-                                            <a <?= full_href($rows) ?>><?= full_img($rows) ?></a>
-                                        </div>
-                                        <div class="post_info">
-                                            <h3><a <?= full_href($rows) ?>><?= $rows['tenbaiviet_' . $lang] ?></a></h3>
-                                            <p class="dated"><i class="fa-regular fa-calendar-days"></i> <?= date("d/m/Y", $rows['ngaydang']); ?></p>
-                                        </div>
+                                    <div class="post_info">
+                                        <h3><a <?= full_href($rows) ?>><?= $rows['tenbaiviet_' . $lang] ?></a></h3>
+                                        <p class="dated"><i class="fa-regular fa-calendar-days"></i> <?= date("d/m/Y", $rows['ngaydang']); ?></p>
                                     </div>
-                                    <?php
-                                }
+                                </div>
+                                <?php
+                            }
                             }
                             ?>
-                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="filter-search-sharehoder non-field m-t-20">
@@ -132,7 +132,7 @@ include _source . "box-header.php";
                             }
                             ?>
                         </select>
-                        <?php  $danhmuc = LAY_danhmuc(5,""); ?>
+                        <?php  $danhmuc = LAY_danhmuc($arr_running['id'],""); ?>
                         <select class="select-year font18" name="dm">
                             <option value="">Tất cả</option>
                             <?php foreach ($danhmuc as $rows) { ?>
@@ -146,7 +146,7 @@ include _source . "box-header.php";
                 <div class="list-media_wrapper">
                     <?php
                     if ($nd_total == 0) {
-                        echo "<div class='dv-notfull'>" . $glo_lang['khong_tim_thay_du_lieu_nao'] . "</div>";
+                        echo "<div class='new_id_bs'>" . $glo_lang['khong_tim_thay_du_lieu_nao'] . "</div>";
                     } else {
                         foreach ($nd_kietxuat as $rows) {
                             ?>
@@ -160,8 +160,10 @@ include _source . "box-header.php";
                             </div>
                         <?php }
                     } ?>
-                    <div class="nums no_box">
-                        <?= PHANTRANG($pzer, $sotrang, $full_url . "/" . $motty, $_SERVER['QUERY_STRING']) ?>
+                    <div class="nums">
+                        <ul>
+                            <?= PHANTRANG($pzer, $sotrang, $full_url . "/" . $motty, $_SERVER['QUERY_STRING']) ?>
+                        </ul>
                         <div class="clr"></div>
                     </div>
                 </div>
@@ -174,6 +176,9 @@ include _source . "box-header.php";
         <div class="clr"></div>
     </div>
 </div>
+<div class="stop-footer w100"></div>
+
+
 
 
 

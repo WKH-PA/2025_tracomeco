@@ -6,7 +6,7 @@
         $danhmuc = LAY_danhmuc($thongtin_step['id'],"","`id_parent` = 0");
     }
 
-    $danhsachtinnoibat= LAY_baiviet(5,3);
+    $danhsachtinnoibat= LAY_baiviet(5,3,'`opt` =1');
   ?>
 <div class="sidebar_menu" id="menu-center">
 <div class="box_right_pro_view">
@@ -76,9 +76,6 @@
     $(document).ready(function() {
         fixSticky();
     });
-
-
-
 
 
     $(function() {

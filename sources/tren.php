@@ -22,7 +22,7 @@
     <script src="https://kit.fontawesome.com/170a63e521.js" crossorigin="anonymous"></script>
     <!--    <link rel="stylesheet" type="text/css" href="menu_mb/css.css"/>-->
     <!--    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">-->
-    <link href="css/owl.carousel.css" rel="stylesheet" type="text/css" media="all">
+<!--    <link href="css/owl.carousel.css" rel="stylesheet" type="text/css" media="all">-->
     <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
     <?php include("css.php"); ?>
     <script type="text/javascript">var fullpath = "<?=$fullpath ?>";var full_url = "<?=$full_url ?>";</script>
