@@ -41,46 +41,43 @@
 
     function fixSticky() {
         let el = $('.sidebar_menu');
-        if (el.length === 0) return; // Nếu không có sidebar, dừng luôn
+        if (el.length === 0) return;
 
-        let stickyTop = el.offset().top; // Lấy vị trí ban đầu của sidebar
-        let stickwidth = el.width(); // Giữ nguyên chiều rộng
-
+        let stickwidth = el.width();
         let footer = $('.stop-footer');
-        let footerTop = footer.length ? footer.offset().top : $(document).height(); // Nếu không tìm thấy footer, đặt cuối trang
 
-        $(window).scroll(function() {
-            let windowTop = $(window).scrollTop(); // Lấy vị trí cuộn trang
-            let stickyHeight = el.outerHeight(); // Chiều cao sidebar
-            let limit = footerTop - stickyHeight - 500; // Giới hạn sidebar không đè lên footer
+        function updateSticky() {
+            let windowTop = $(window).scrollTop();
+            let stickyTop = el.parent().offset().top; // Lấy vị trí cha chứa sidebar
+            let stickyHeight = el.outerHeight();
+            let footerTop = footer.length ? footer.offset().top : $(document).height();
+            let limit = footerTop - stickyHeight - 50; // Giảm khoảng cách giới hạn
 
             if (windowTop > stickyTop && windowTop < limit) {
                 el.css({
                     position: 'fixed',
-                    top: '0px', // Khoảng cách từ top
+                    top: '75px',
                     width: stickwidth,
                 });
             } else if (windowTop >= limit) {
                 el.css({
                     position: 'absolute',
-                    top: (footerTop - stickyHeight - 20) + 'px', // Giữ sidebar ngay trên footer
+                    top: (footerTop - stickyHeight - 10) + 'px',
                     width: stickwidth,
                 });
             } else {
                 el.css({
                     position: 'relative',
+                    top: 'auto'
                 });
             }
-        });
+        }
+
+        $(window).on("scroll resize", updateSticky); // Lắng nghe cả sự kiện scroll và resize
+        updateSticky(); // Chạy lần đầu tiên
     }
 
-    $(document).ready(function() {
-        fixSticky();
-    });
+    $(document).ready(fixSticky);
 
-
-    $(function() {
-        fixSticky();
-    })
 </script>
 
