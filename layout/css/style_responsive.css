@@ -1,0 +1,445 @@
+@media screen and (min-width: 1442px) {
+
+
+    .container-fluid {
+        max-width: 1400px;
+    }
+
+}
+
+
+@media screen and (max-width: 1680px) {
+   .container-fluid {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+}
+
+
+@media screen and (max-width: 1199px) {
+    .row.v-center>* {
+        flex-shrink: 0;
+        width: 100%;
+        max-width: 100%;
+        padding-right: calc(var(--ct-gutter-x)* .5);
+        padding-left: calc(var(--ct-gutter-x)* .5);
+        margin-top: var(--ct-gutter-y);
+    }
+    .row.v-center .col-xl-3 {
+        flex: 0 0 auto;
+        width: 25%;
+    }
+    .row.v-center .col-xl-6 {
+        flex: 0 0 auto;
+        width: 50%;
+    }
+    .col-xl-4 {
+        flex: 0 0 auto;
+        width: 33.33333333%;
+    }
+    .col-md-8 {
+        flex: 0 0 auto;
+        width: 66.66666667%;
+    }
+    .col-md-4 {
+        flex: 0 0 auto;
+        width: 33.33333333%;
+    }
+    .col_conten_right .sidebar_menu {
+        position: relative !important;
+        top: 0 !important;
+        width: 100% !important;
+    }
+    .tracomeco_home_linhvuc>div>.row {
+        justify-content: center;
+    }
+    .tracomeco_home_linhvuc>div>.row .col-xl-4 {
+        width: 40%;
+        margin-bottom: 25px;
+    }
+    .logo_top {
+        width: auto;
+    }
+    .tracomeco_gt_thongso div div .col-xl-3 {
+        width: 50%;
+        margin-bottom: 30px;
+    }
+    .showText div .col-xl-6 {
+        width: 50%;
+    }
+
+}
+
+@media screen and (max-width: 1100px) {
+    .col_conten_left {
+        width: 100%;
+    }
+    .col_conten_right {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 30px;
+    }
+}
+
+
+@media screen and (max-width: 1024px) {
+
+    .container,
+    .container-fluid {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    .tracomeco_title_main h2,
+    .home_dichvu_text h3 {
+        font-size: 30px;
+        line-height: 40px;
+    }
+    .tracomeco_home_tin_tuc div div .col-xl-4 {
+        width: 100%;
+        margin-top: 30px;
+    }
+    .tracomeco_home_linhvuc>div>.row .col-xl-4 {
+        width: 50%;
+    }
+    .tracomeco_gt_noidung .gt_right ul.uu-diem {
+        width: 80%;
+    }
+    .header .main_menu {
+        display: none;
+    }
+    .mobile-menu-area {
+        display: block;
+    }
+    .header>div>.row {
+        justify-content: space-between;
+    }
+    #menu .mm-btn_close:before {
+        font-size: 25px;
+        color: #251f21;
+    }
+    #menu .mm-btn_next:after {
+        content: "\f105";
+        font-family: "Font Awesome 6 Pro";
+    }
+    #menu .mm-btn_prev:before {
+        content: "\f104";
+        font-family: "Font Awesome 6 Pro";
+    }
+    #menu .mm-panel {
+        padding: 10px 20px;
+    }
+    #menu a {
+        padding: 12px 0;
+        border-bottom: 1px solid #dfdfdf;
+        text-transform: capitalize;
+        font-weight: 600;
+        font-size: 16px;
+    }
+    #menu .mm-navbar__btn:first-child,
+    #menu .mm-navbar__btn:last-child {
+        border-bottom: none;
+    }
+    .tracomeco_home_tin_tuc .post_item.lg .post_img {
+        height: auto;
+    }
+    .video_popup .col-md-4,
+    .video_popup .col-md-8 {
+        width: 100%;
+    }
+    .video_popup .col-md-8 {
+        margin-bottom: 25px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+
+    .row.v-center .col-xl-3 {
+        width: 50%;
+    }
+    .row.v-center .col-xl-3 .home_dichvu_hinh img {
+        width: 100%;
+    }
+    .row.v-center .col-xl-6 {
+        width: 100%;
+        margin-top: 30px;
+    }
+    .col-xl-6 .home_dichvu_text {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-bottom: 25px;
+    }
+    .pa_home_server_email .pa_title_main {
+        margin-bottom: 20px;
+    }
+    .pa_home_server_email .home_dichvu {
+        margin-bottom: 20px;
+    }
+    .new_id_bs {
+        width: 48.5%;
+    }
+
+}
+
+@media screen and (max-width: 812px) {
+    .showText p img {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+}
+
+
+@media screen and (max-width: 768px) {
+    .san-uudai {
+        width: 100%;
+        padding-bottom: 2px;
+    }
+    .menu.top-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding-bottom: 10px;
+    }
+    .logo_top a img {
+        height: 60px;
+    }
+    .features-list.flex {
+        justify-content: center;
+    }
+    .menu.top-nav > li.lang {
+        padding-left: 0;
+    }
+    .menu.top-nav > li.lang > a {
+        height: 25px;
+        color: #fff;
+        line-height: 25px !important;
+    }
+    .tracomeco_title_main h2,
+    .home_dichvu_text h3,
+    .tracomeco_gt_noidung .tracomeco_title_main h3 {
+        font-size: 27px;
+        line-height: 37px;
+    }
+    .tracomeco_gioithieu .gt_left,
+    .tracomeco_gioithieu .gt_right,
+    .left_contact,
+    .contact-maps {
+        width: 100%;
+    }
+    .contact-maps {
+        margin-top: 30px;
+    }
+    .contact-maps iframe {
+        height: 400px !important;
+    }
+    .col-md-8 {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .col-md-4,
+    .viewRight,
+    .viewLeft {
+        width: 100%;
+    }
+    .viewRight {
+        padding-left: 0;
+        margin-top: 30px;
+    }
+    .showText .col-xl-4 {
+        width: 50%;
+    }
+    .tracomeco_home_linhvuc>div>.row .col-xl-4 {
+        width: 100%;
+    }
+    .footer_link>div>div>.col-xl-3 {
+        margin-bottom: 30px;
+    }
+    .footer_link>div>div>.col-xl-3:last-child {
+        margin-bottom: 0;
+    }
+
+}
+
+@media screen and (max-width: 736px) {
+
+    .pa_home_tin_tuc .post_item {
+        margin-bottom: 20px;
+    }
+
+}
+
+@media screen and (max-width: 667px) {
+    .tt_tintuc .form-search .search,
+    .form-search .search {
+        width: 100%;
+        margin-right: 0;
+        height: 45px;
+        margin-bottom: 20px;
+    }
+    .select-year {
+        width: 48%;
+    }
+    .list-media_wrapper .new_id_bs {
+        flex-wrap: wrap;
+    }
+    .list-media_wrapper .new_id_bs>li {
+        width: 100%;
+    }
+    .list-media_wrapper .new_id_bs>ul {
+        width: 100%;
+        padding-left: 0;
+        margin-top: 10px;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+
+    .swiper .swiper-button-next:after, .swiper .swiper-button-prev:after {
+        --swiper-navigation-size: 13px;
+        color: #fff;
+    }
+    .swiper .swiper-button-next, .swiper .swiper-button-prev {
+        background: #0068ad;
+        border-radius: 4px;
+        width: 16px;
+        height: 28px;
+    }
+    .pa_home_banner .button_slide {
+        display: none;
+    }
+    .tracomeco_home_tin_tuc .home_tin_tuc_side,
+    .tracomeco_gioithieu .gt_left,
+    .tracomeco_gioithieu .gt_right {
+        padding: 25px;
+    }
+
+}
+
+@media screen and (max-width: 520px) {
+    .new_id_bs {
+        width: 100%;
+    }
+    .new_col h3 {
+        font-size: 20px;
+        line-height: 30px;
+    }
+    #bridal_images_list li {
+        width: calc(100%/3 - 10px);
+    }
+    .read-more a {
+        padding-left: 23px;
+        padding-right: 23px;
+    }
+    .tracomeco-bar {
+        flex-wrap: wrap;
+    }
+    .tracomeco-bar .tracomeco-bar-item {
+        margin: 5px;
+    }
+    .showText .col-xl-4,
+    .showText div .col-xl-6 {
+        width: 100%;
+        padding: 0;
+    }
+    .tracomeco-container .showText {
+        padding: 10px;
+    }
+    .tracomeco_home_tin_tuc .post_item.lg h3 {
+        font-size: 17px;
+        line-height: 25px;
+    }
+    .tt_page_top .new_id_bs {
+        flex-wrap: wrap; 
+    }
+    .tt_page_top .new_id_bs li {
+        width: 100%;
+    }
+    .tt_page_top .new_id_bs>ul {
+        width: 100%;
+        padding-left: 0;
+        margin-top: 10px;
+    }
+    .tracomeco_home_tin_tuc .post_item.lg .post_img {
+        height: auto;
+    }
+    .select-year {
+        width: 100%;
+        margin-bottom: 20px;
+        margin-right: 0 !important;
+    }
+    .video_popup .col-md-4 .post_item {
+        flex-wrap: wrap;
+    }
+    .video_popup .col-md-4 .post_item .post_img {
+        width: 100%;
+    }
+    .video_popup .col-md-4 .post_item .post_info {
+        width: 100%;
+    }
+    .info-item.flex {
+        flex-wrap: wrap;
+    }
+    .info-right {
+        width: calc(100% - 50px);
+        padding: 0 20px;
+        padding-left: 0;
+    }
+    .info-left {
+        margin-bottom: 15px;
+    }
+    .contact .left,
+    .contact .right {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 414px) {
+    #bridal_images {
+        height: 350px;
+    }
+    .viewRight .read-more {
+        margin-top: 10px;
+    }
+    .info-right {
+        width: 100%;
+        padding-right: 0;
+    }
+    .tracomeco_gt_thongso div div .col-xl-3 {
+        width: 100%;
+    }
+    .title_news h1,
+    .titleView,
+    .col_tieude h3 {
+     font-size: 23px;
+     line-height: 30px; 
+ }
+ footer .socical_icon a {
+    margin-bottom: 10px;
+}
+#back-top-button {
+    right: 10px;
+    bottom: 10px;
+}
+}
+
+@media screen and (max-width: 375px) {
+    .san-uudai {
+        display: none;
+    }
+    .menu.top-nav {
+        padding-top: 10px;
+    }
+    .linhvuc_col:hover .list-item {
+        display: none;
+    }
+    .left_contact h3 {
+        font-size: 23px;
+        line-height: 30px;
+    }
+
+}
+
+@media screen and (max-width: 320px) {
+
+
+}
