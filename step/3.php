@@ -12,8 +12,8 @@ $year = isset($_GET['year']) ? str_replace("+", " ", strip_tags($_GET['year'])) 
 $dm = isset($_GET['dm']) ? str_replace("+", " ", strip_tags($_GET['dm'])) : '';
 
 $is_search = !empty($key) ? true : false;
-$is_search_year = !empty($_GET['year']) ? true :false;
-$is_danhmuc = !empty($_GET['dm']) ? true :false;
+$is_search_year = !empty($_GET['year']) ? true : false;
+$is_danhmuc = !empty($_GET['dm']) ? true : false;
 //$is_search = $motty == 'search' ? true : false;
 $wh = "";
 $lay_all_kx = "";
@@ -31,13 +31,13 @@ if ($lay_all_kx != "") {
 }
 
 if ($is_search) {
-    $wh .= " AND (`tenbaiviet_".$lang . "` LIKE '%" . $key . "%')";
+    $wh .= " AND (`tenbaiviet_" . $lang . "` LIKE '%" . $key . "%')";
 
 }
 if ($is_search_year) {
     $wh .= " AND YEAR(`ngaydang`) = $year";
 }
-if($is_danhmuc)   {
+if ($is_danhmuc) {
     $wh .= " AND `id_parent` = $dm";
 }
 //
@@ -77,7 +77,9 @@ include _source . "box-header.php";
                     <div class="block_tin_tuc row">
                         <?php
                         $first = true;
-                        foreach ($nd_hot as $rows) {
+                        foreach ($nd_hot
+
+                        as $rows) {
                         if ($first) {
                         ?>
                         <div class="col-md-8">
@@ -87,7 +89,9 @@ include _source . "box-header.php";
                                 </div>
                                 <div class="post_info">
                                     <h3><a <?= full_href($rows) ?>><?= $rows['tenbaiviet_' . $lang] ?></a></h3>
-                                    <p class="dated"><i class="fa-regular fa-calendar-days"></i> <?= date("d/m/Y", $rows['ngaydang']); ?></p>
+                                    <p class="dated"><i
+                                                class="fa-regular fa-calendar-days"></i> <?= date("d/m/Y", $rows['ngaydang']); ?>
+                                    </p>
                                     <p style="margin-bottom: 0"><?= $rows['mota_' . $lang] ?></p>
                                 </div>
                             </div>
@@ -103,7 +107,9 @@ include _source . "box-header.php";
                                     </div>
                                     <div class="post_info">
                                         <h3><a <?= full_href($rows) ?>><?= $rows['tenbaiviet_' . $lang] ?></a></h3>
-                                        <p class="dated"><i class="fa-regular fa-calendar-days"></i> <?= date("d/m/Y", $rows['ngaydang']); ?></p>
+                                        <p class="dated"><i
+                                                    class="fa-regular fa-calendar-days"></i> <?= date("d/m/Y", $rows['ngaydang']); ?>
+                                        </p>
                                     </div>
                                 </div>
                                 <?php
@@ -116,7 +122,9 @@ include _source . "box-header.php";
                 <div class="filter-search-sharehoder non-field m-t-20">
                     <form class="form-search flex">
                         <div class="search">
-                            <input type="text" autocomplete="false" class="form-control form-control-sm" placeholder="Nhập nội dung cần tìm..." value="" name="key">
+                            <input type="text" autocomplete="false" class="form-control form-control-sm"
+                                   placeholder="Nhập nội dung cần tìm..."
+                                   value="<?= !empty($_GET['key']) ? $_GET['key'] : "" ?>" name="key">
                             <button class="btn btn-secondary" type="submit">
                                 <i class="fas fa-search"></i>
                             </button>
@@ -127,16 +135,19 @@ include _source . "box-header.php";
                             $currentYear = date("Y");
                             $startYear = 2000;
                             for ($year = $currentYear; $year >= $startYear; $year--) {
-                                echo "<option value=\"$year\">$year</option>";
+                                $select = !empty($_GET['year']) && $_GET['year'] == $year ? "selected" : "";
+                                echo "<option $select  value=\"$year\">$year</option>";
                             }
                             ?>
                         </select>
-                        <?php  $danhmuc = LAY_danhmuc($arr_running['id'],""); ?>
+                        <?php $danhmuc = LAY_danhmuc($arr_running['id'], ""); ?>
                         <select class="select-year font18" name="dm">
                             <option value="">Tất cả</option>
-                            <?php foreach ($danhmuc as $rows) { ?>
-                                <option value="<?= SHOW_text($rows['id_parent']) ?>">
-                                    <?= SHOW_text($rows['tenbaiviet_'.$lang]) ?>
+                            <?php foreach ($danhmuc as $rows) {
+                                $selectdm = !empty($_GET['dm']) && $_GET['dm'] == $rows['id'] ? "selected" : "";
+                                ?>
+                                <option <?=$selectdm?> value="<?= SHOW_text($rows['id']) ?>">
+                                    <?= SHOW_text($rows['tenbaiviet_' . $lang]) ?>
                                 </option>
                             <?php } ?>
                         </select>
@@ -150,11 +161,13 @@ include _source . "box-header.php";
                         foreach ($nd_kietxuat as $rows) {
                             ?>
                             <div class="new_id_bs">
-                                <li>    <a <?= full_href($rows) ?>><?= full_img($rows) ?></a></li>
+                                <li><a <?= full_href($rows) ?>><?= full_img($rows) ?></a></li>
                                 <ul>
                                     <h3><a <?= full_href($rows) ?>><?= $rows['tenbaiviet_' . $lang] ?></a></h3>
-                                    <p class="dated"><i class="fa-regular fa-calendar-days"></i> <?=date("d/m/Y", $rows['ngaydang']); ?></p>
-                                    <p><?= limitText($rows['mota_' . $lang],3) ?></p>
+                                    <p class="dated"><i
+                                                class="fa-regular fa-calendar-days"></i> <?= date("d/m/Y", $rows['ngaydang']); ?>
+                                    </p>
+                                    <p><?= limitText($rows['mota_' . $lang], 3) ?></p>
                                 </ul>
                             </div>
                         <?php }
