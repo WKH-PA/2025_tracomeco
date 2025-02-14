@@ -105,7 +105,7 @@ include _source . "box-header.php";
                 <div class="filter-search-sharehoder non-field m-t-20">
                     <form class="form-search flex">
                         <div class="search">
-                            <input type="text" autocomplete="false" class="form-control form-control-sm" placeholder="Nhập nội dung cần tìm..." value="" name="key">
+                            <input type="text" autocomplete="false" class="form-control form-control-sm" placeholder="<?=$glo_lang['nhap_tu_khoa_tim_kiem']?>" value="" name="key">
                             <button class="btn btn-secondary" type="submit">
                                 <i class="fas fa-search"></i>
                             </button>

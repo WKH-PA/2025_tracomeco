@@ -54,7 +54,10 @@ include _source."box-header.php";
                 <div class="filter-search-sharehoder non-field">
                     <form class="form-search flex">
                         <div class="search">
-                            <input type="text" autocomplete="false" class="form-control form-control-sm" placeholder="Nhập nội dung cần tìm..." value="" name="key">
+                            <input type="text" autocomplete="false" class="form-control form-control-sm"
+                                   placeholder="<?=$glo_lang['nhap_tu_khoa_tim_kiem']?>"
+                                   value="<?= !empty($_GET['key']) ? $_GET['key'] : "" ?>"
+                                   name="key">
                             <button class="btn btn-secondary" type="submit">
                                 <i class="fas fa-search"></i>
                             </button>
@@ -65,7 +68,8 @@ include _source."box-header.php";
                             $currentYear = date("Y");
                             $startYear = 2000;
                             for ($year = $currentYear; $year >= $startYear; $year--) {
-                                echo "<option value=\"$year\">$year</option>";
+                                $select = !empty($_GET['year']) && $_GET['year'] == $year ? "selected" : "";
+                                echo "<option $select value=\"$year\">$year</option>";
                             }
                             ?>
                         </select>
