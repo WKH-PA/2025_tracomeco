@@ -35,7 +35,7 @@ if ($is_search) {
 
 }
 if ($is_search_year) {
-    $wh .= " AND YEAR(`ngaydang`) = $year";
+    $wh .= " AND YEAR(FROM_UNIXTIME(ngaydang)) = $year";
 }
 if ($is_danhmuc) {
     $wh .= " AND `id_parent` = $dm";

@@ -29,7 +29,7 @@ if ($is_search) {
 
 // //check year
 if ($is_search_year) {
-    $wh .= " AND YEAR(`ngaydang`) = $year";
+    $wh .= " AND YEAR(FROM_UNIXTIME(ngaydang)) = $year";
 }
 //
 include _source . "phantrang_kietxuat.php";
