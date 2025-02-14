@@ -74,7 +74,9 @@ include _source . "box-header.php";
                         <div class="col-md-8">
                             <div class="post_item lg">
                                 <div class="post_img">
-                                    <a <?= full_href($rows) ?>><?= full_img($rows) ?></a>
+                                    <a <?= full_href($rows) ?>><img src="<?= $fullpath . '/datafiles/' . $rows['icon'] ?>"
+                                        class="isload isload_full isload_full_1"
+                                        alt="<?= $rows['tenbaiviet_' . $lang] ?>"></a>
                                 </div>
                                 <div class="post_info">
                                     <h3><a <?= full_href($rows) ?>><?= $rows['tenbaiviet_' . $lang] ?></a></h3>
@@ -92,7 +94,9 @@ include _source . "box-header.php";
                                 ?>
                                 <div class="post_item">
                                     <div class="post_img">
-                                        <a <?= full_href($rows) ?>><?= full_img($rows) ?></a>
+                                        <a <?= full_href($rows) ?>><img src="<?= $fullpath . '/datafiles/' . $rows['icon'] ?>"
+                                        class="isload isload_full isload_full_1"
+                                        alt="<?= $rows['tenbaiviet_' . $lang] ?>"></a>
                                     </div>
                                     <div class="post_info">
                                         <h3><a <?= full_href($rows) ?>><?= $rows['tenbaiviet_' . $lang] ?></a></h3>
@@ -146,7 +150,9 @@ include _source . "box-header.php";
                         foreach ($nd_kietxuat as $rows) {
                             ?>
                             <div class="new_id_bs">
-                                <li><a <?= full_href($rows) ?>><?= full_img($rows) ?></a></li>
+                                <li><a <?= full_href($rows) ?>><img src="<?= $fullpath . '/datafiles/' . $rows['icon'] ?>"
+                                        class="isload isload_full isload_full_1"
+                                        alt="<?= $rows['tenbaiviet_' . $lang] ?>"></a></li>
                                 <ul>
                                     <h3><a <?= full_href($rows) ?>><?= $rows['tenbaiviet_' . $lang] ?></a></h3>
                                     <p class="dated"><i
