@@ -32,9 +32,4 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
-    <style type="text/css">
-        body { font-size: 16px; line-height: 26px; font-family: 'Quicksand',sans-serif; font-weight: normal;  }
-        .heading_secondary,.heading_primary,.our_product_id ul h3,.center-footer ul h3,
-        .bannerMain .slogan h2,.dv-home-tuyendung h2.text-l { font-family: 'Roboto Condensed',sans-serif;  }
-    </style>
 <?php } ?>

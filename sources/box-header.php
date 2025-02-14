@@ -48,7 +48,9 @@ if ($motty == '404') {
         $danhmucname = $datadanhmuc['tenbaiviet_' . $lang];
         $arraydata[$seonamedanhmuc] = $nameseonamedanhmuc;
         $nametitle = $nameseonamedanhmuc;
-        $images_background = $fullpath . '/datafiles/' . $datadanhmuc['icon'];
+        if (!empty($datadanhmuc['icon'])) {
+            $images_background = $fullpath . '/datafiles/' . $datadanhmuc['icon'];
+        }
     }
 
     if ($slug_table == 'baiviet') {
@@ -72,19 +74,6 @@ if ($motty == '404') {
         }
         $seonamedanhmuc = $full_url . '/' . $datadanhmuc['seo_name'];
         $nameseonamedanhmuc = $datadanhmuc['tenbaiviet_' . $lang];
-
-        //////dm cha
-//        if(empty($datadanhmuc)){
-//            $datadanhmuc_cha = DB_fet("*", "#_step", 'showhi=1 AND id_parent = 0 and id=' . $datadanhmuc['id_parent'], "", "1", "arr", 1);
-//            $datadanhmuc_cha = reset($datadanhmuc_cha);
-//            var_dump($datadanhmuc_cha);
-//            $seonamedanhmuc_cha = $full_url . '/' . $datadanhmuc_cha['seo_name'];
-//            $nameseonamedanhmuc_cha = $datadanhmuc_cha['tenbaiviet_' . $lang];
-//            $arraydata[$seonamedanhmuc_cha] = $nameseonamedanhmuc_cha;
-//            $nametitle = $nameseonamedanhmuc_cha;
-//        }
-
-        /////
 
         $arraydata[$seonamedanhmuc] = $nameseonamedanhmuc;
         $nametitle = $nameseonamebaiviet;
@@ -113,6 +102,7 @@ if ($motty == '404') {
     $nametitle = $glo_lang['tim_kiem'];
     $arraydata[$full_url . '/search/' . $haity] = $nametitle;
 }
+
 ?>
 <?php
 $strshort = "";
@@ -143,33 +133,34 @@ if ($motty == "san-pham-noi-bat") {
 ?>
 <?php if ($motty != "404") { ?>
     <!--<div class="banner_detail" style="background-image: url('<?= $images_background ?>');">-->
-<!--    <div class="banner_detail">-->
-<!--        <div class="bannerimg">-->
-<!--        <img style="width: 100%;height: 400px;object-fit: cover;" src="--><?//=$images_background?><!--">-->
-<!--        </div>-->
-<!--        <div class="content-page-title">-->
-<!--            <h3 class="title">--><?//= $nametitle ?><!--</h3>-->
-<!--        </div>-->
-<!--        <div class="clr"></div>-->
-<!--        <div class="link_page">-->
-<!--            <div class="pagewrap">-->
-<!--                <ul>-->
-<!--                    <li><a href="--><?//=$full_url?><!--"><i class="fa fa-home"></i>--><?//=$glo_lang['trang_chu']?><!--</a> --><?//=$strshort?>
-<!--                    </li>-->
-<!--                </ul>-->
-<!--                <div class="clr"></div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
+    <!--    <div class="banner_detail">-->
+    <!--        <div class="bannerimg">-->
+    <!--        <img style="width: 100%;height: 400px;object-fit: cover;" src="--><? //=$images_background?><!--">-->
+    <!--        </div>-->
+    <!--        <div class="content-page-title">-->
+    <!--            <h3 class="title">--><? //= $nametitle ?><!--</h3>-->
+    <!--        </div>-->
+    <!--        <div class="clr"></div>-->
+    <!--        <div class="link_page">-->
+    <!--            <div class="pagewrap">-->
+    <!--                <ul>-->
+    <!--                    <li><a href="--><? //=$full_url?><!--"><i class="fa fa-home"></i>--><? //=$glo_lang['trang_chu']?><!--</a> --><? //=$strshort?>
+    <!--                    </li>-->
+    <!--                </ul>-->
+    <!--                <div class="clr"></div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </div>-->
     <div class="banner_detail">
-<!--            <img src="delete/gioithieu/banner-about.jpg">-->
-        <img style="width: 100%;height: 400px;object-fit: cover;" src="<?=$images_background?>">
+        <!--            <img src="delete/gioithieu/banner-about.jpg">-->
+        <img style="width: 100%;height: 400px;object-fit: cover;" src="<?= $images_background ?>">
     </div>
     <div class="link-direct">
         <div class="container-fluid">
             <ul>
                 <li>
-                    <a href="<?=$full_url?>"><i class="fa-light fa-house-chimney"></i><?=$glo_lang['trang_chu']?></a> <span class="active"><?=$strshort?></span>
+                    <a href="<?= $full_url ?>"><i class="fa-light fa-house-chimney"></i><?= $glo_lang['trang_chu'] ?>
+                    </a> <span class="active"><?= $strshort ?></span>
                 </li>
             </ul>
         </div>

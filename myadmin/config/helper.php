@@ -27,6 +27,7 @@
                 'tenbaiviet_danhmuc' => $dm['tenbaiviet_' . $lang],
                 'icon_danhmuc' => !empty($dm['icon']) ? full_src($dm, '') : '',
                 'mota_danhmuc' => !empty($dm['mota_'. $lang]) ? $dm['mota_'. $lang] : '',
+                'noidung_danhmuc' => !empty($dm['noidung_'. $lang]) ? $dm['noidung_'. $lang] : '',
                 'seo_name_danhmuc' => !empty($dm['seo_name']) ? $fullpath. "/". $dm['seo_name'] :'' ,
                 'tenbaiviet' => !empty($grouped_baiviet[$dm['id']]) ? $grouped_baiviet[$dm['id']] : []
             ];
