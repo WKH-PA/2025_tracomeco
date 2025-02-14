@@ -285,7 +285,7 @@ if ($id > 0) {
             </section>
             <section class="col-lg-12">
                 <div class="box p10">
-                    <?php if ($step != 5 && $step != 10) { ?>
+                    <?php if ($step != 5 && $step != 10 && $step != 1&& $step != 9 ) { ?>
                         <div class="form-group">
                             <label>Nằm trong</label>
                             <?= LAY_chude($id_parent, $step, 'id_parent', 'form-control SlectBox', 0, $id_step, $id, 'true', 0) ?>
