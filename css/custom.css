@@ -20,3 +20,6 @@
 .tracomeco_home_khach_hang .khach_hang_box p.rate .dis-star {
     background: #d2d3d5;
 }
+.tt_page_top .col_conten_right{
+    height: fit-content;
+}
