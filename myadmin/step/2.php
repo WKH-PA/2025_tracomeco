@@ -305,10 +305,10 @@ if ($kieu_tn_muti) {
     </div>
     <?php include "step_hinhanh.php"; ?>
 
-    <div class="form-group ">
-        <label>Hiển thị</label>
-        <?= LAY_chude_muti(@$id_parent_muti, $step, 'id_parent_muti[]', ' form-control SlectBoxNew', 0, 0, 'false', "multiple='multiple'") ?>
-    </div>
+<!--    <div class="form-group ">-->
+<!--        <label>Hiển thị</label>-->
+<!--        --><?//= LAY_chude_muti(@$id_parent_muti, $step, 'id_parent_muti[]', ' form-control SlectBoxNew', 0, 0, 'false', "multiple='multiple'") ?>
+<!--    </div>-->
 
     <div class="form-group">
         <label>Ngày đăng</label>

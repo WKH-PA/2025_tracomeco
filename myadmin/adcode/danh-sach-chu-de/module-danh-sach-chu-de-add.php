@@ -285,12 +285,12 @@ if ($id > 0) {
             </section>
             <section class="col-lg-12">
                 <div class="box p10">
-                    <?php if ($step != 5 && $step != 10 && $step != 1&& $step != 9 ) { ?>
-                        <div class="form-group">
-                            <label>Nằm trong</label>
-                            <?= LAY_chude($id_parent, $step, 'id_parent', 'form-control SlectBox', 0, $id_step, $id, 'true', 0) ?>
-                        </div>
-                    <?php } ?>
+<!--                    --><?php //if ($step != 5 && $step != 10 && $step != 1&& $step != 9 ) { ?>
+<!--                        <div class="form-group">-->
+<!--                            <label>Nằm trong</label>-->
+<!--                            --><?//= LAY_chude($id_parent, $step, 'id_parent', 'form-control SlectBox', 0, $id_step, $id, 'true', 0) ?>
+<!--                        </div>-->
+<!--                    --><?php //} ?>
                     <div class="form-group">
                         <label>Seo name <a data-tooltip="Đường dẫn chuẩn bao gồm các ký tự [a-zA-Z0-9-]."> </a></label>
                         <input type="text" class="form-control" name="seo_name" id="seo_name"

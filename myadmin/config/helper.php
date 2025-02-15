@@ -15,7 +15,7 @@
         if (empty($list_id_danhmuc)) return [];
 
         $id_danhmuc_str = implode(',', $list_id_danhmuc);
-        $tb_listbv = DB_fet_rd("*", "#_baiviet", "id_parent IN ($id_danhmuc_str) AND `opt1` = 1 AND showhi = 1", "`catasort` DESC, `id` DESC", "$limit_baiviet", "id");
+        $tb_listbv = DB_fet_rd("*", "#_baiviet", "id_parent IN ($id_danhmuc_str) AND `opt1` = 1", "`catasort` DESC, `id` DESC", "$limit_baiviet", "id");
 
         $grouped_baiviet = [];
         foreach ($tb_listbv as $bv) {

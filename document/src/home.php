@@ -26,9 +26,9 @@
         .footer {
             font-size: 48px; /* Tăng kích thước chữ */
             font-weight: bold;
-            background: linear-gradient(90deg, rgba(255,0,150,1) 0%, rgba(0,204,255,1) 100%);
+            /*background: linear-gradient(90deg, rgba(255,0,150,1) 0%, rgba(0,204,255,1) 100%);*/
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            /*-webkit-text-fill-color: transparent;*/
             text-shadow: 3px 3px 10px rgba(0,0,0,0.3); /* Tăng độ bóng */
             text-transform: uppercase;
             margin: 0;

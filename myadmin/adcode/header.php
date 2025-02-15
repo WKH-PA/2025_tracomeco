@@ -63,6 +63,11 @@
         </a>
       </li>
       <?php } ?>
+        <li>
+            <a href="../document" target="_blank">
+                <i class="fa fa-book"></i>
+                Hướng dẫn sử dụng           </a>
+        </li>
       <!-- Dien thoai ho tro-->
       <li>
         <a href="tel:1900 9477">

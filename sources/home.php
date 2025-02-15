@@ -78,7 +78,7 @@ $imggioithieu = LAY_baiviet_chitiet(25);
 </section>
 
 
-<!--// chua lam-->
+
 <?php $nd_danhgia = LAY_baiviet("15"); ?>
 <section class="tracomeco_home_khach_hang p-t-60 p-b-60">
     <div class="container-fluid">

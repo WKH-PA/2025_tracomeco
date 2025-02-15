@@ -13,7 +13,7 @@ if (!empty($id)) {
     } else {
 
         $data = lay_du_lieu_theo_id($id, 'tinhnang');
-
+        $dataname = lay_du_lieu_theo_id($id, 'module_page');
         $href = $fullpath . '/myadmin/' . $data['lien_ket'];
     }
     if (is_array($data) && !empty($data)) {
@@ -30,7 +30,7 @@ if (!empty($id)) {
         <div class="page-title">
             <div class="row">
                 <div class="col-sm-6 ps-0">
-                    <a href="<?= $href ?>"><h3><?= SHOW_text($data['ten_vi']) ?></h3></a>
+                    <a href="<?= $href ?>"><h3><?= SHOW_text($dataname['ten_vi']) ?></h3></a>
                 </div>
                 <div class="col-sm-6 pe-0">
                     <ol class="breadcrumb">

@@ -108,8 +108,9 @@ foreach ($module_setting as $rows) {
     <div class="page-body-wrapper">
         <?php
         include _src . "sidebar.php";
-        $id = !empty($id) ? $id : 36;
-        include _src . "noidung.php";
+//        $id = !empty($id) ? $id : 36;
+        empty($id) ? include _src . "home.php" : include _src . "noidung.php";;;
+//        include _src . "noidung.php";
         include _src . "footer.php";
         ?>
     </div>

@@ -29,7 +29,7 @@
             <div id="sidebar-menu">
                 <ul class="sidebar-links" id="simple-bar">
                     <?php
-                    $sql = DB_que("SELECT * FROM `#_module_tinhnang` WHERE `showhi` = 1 ORDER BY `sort` ASC ");
+                    $sql = DB_que("SELECT * FROM `#_module_tinhnang` WHERE `showhi` = 1 AND `m_dev` = 0 ORDER BY `sort` ASC ");
                     $sql_array = DB_arr($sql);
                     $nhom_1 = '';
 
