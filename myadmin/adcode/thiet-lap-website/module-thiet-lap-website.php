@@ -269,11 +269,11 @@ if ($icon_hover != '') {
                                    class="minimal minimal_click" <?= isset($is_https) && $is_https == 1 ? 'checked="checked"' : '' ?>
                                    colum="is_https" idcol="<?= $id ?>" table="#_seo" value="1"> Bật Https
                         </label>
-                        <label class="mr-20 checkbox-mini">
-                            <input type="checkbox" name="is_comment"
-                                   class="minimal minimal_click" <?= isset($is_comment) && $is_comment == 1 ? 'checked="checked"' : '' ?>
-                                   colum="is_comment" idcol="<?= $id ?>" table="#_seo" value="1"> Bật Comment Facebook
-                        </label>
+<!--                        <label class="mr-20 checkbox-mini">-->
+<!--                            <input type="checkbox" name="is_comment"-->
+<!--                                   class="minimal minimal_click" --><?//= isset($is_comment) && $is_comment == 1 ? 'checked="checked"' : '' ?>
+<!--                                   colum="is_comment" idcol="--><?//= $id ?><!--" table="#_seo" value="1"> Bật Comment Facebook-->
+<!--                        </label>-->
                         <label class="mr-20 checkbox-mini">
                             <input type="checkbox" name="is_lang"
                                    class="minimal minimal_click" <?= isset($is_lang) && $is_lang == 1 ? 'checked="checked"' : '' ?>
@@ -291,14 +291,14 @@ if ($icon_hover != '') {
                         </label>
 
                     </div>
-                    <div class="form-group">
-                        <label for="exampleInputFile">Facebook App</label>
-                        <input type="text" class="form-control" name="fb_app" value="<?= $fb_app ?>">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputFile">Facebook ID</label>
-                        <input type="text" class="form-control" name="fb_id" value="<?= $fb_id ?>">
-                    </div>
+<!--                    <div class="form-group">-->
+<!--                        <label for="exampleInputFile">Facebook App</label>-->
+<!--                        <input type="text" class="form-control" name="fb_app" value="--><?//= $fb_app ?><!--">-->
+<!--                    </div>-->
+<!--                    <div class="form-group">-->
+<!--                        <label for="exampleInputFile">Facebook ID</label>-->
+<!--                        <input type="text" class="form-control" name="fb_id" value="--><?//= $fb_id ?><!--">-->
+<!--                    </div>-->
                     <?php if (!empty($_SESSION['admin'])) { ?>
                         <label class="mr-20 checkbox-mini">
                             <input type="checkbox" name="is_login_fb"
@@ -366,41 +366,41 @@ if ($icon_hover != '') {
 <!--                    </div>-->
 <!--                </div>-->
 <!--            </section>-->
-            <section class="col-lg-12">
-                <div class="box p10" style="margin-top: 10px">
-                    <div class="form-group">
-                        <label for="exampleInputFile">Mã kích hoạt</label>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputFile">ID</label>
-                        <input type="text" class="form-control" name="lic_name" value="<?= $lic_name ?>">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputFile">Key</label>
-                        <input type="text" class="form-control" name="lic_key" value="<?= $lic_key ?>">
-                    </div>
-                    <div style="font-size: 11px; line-height: 10px; color: #00a65a; margin-top: -5px;">
-                        <?php
-                        $check_lic_pa = lic_web_pa_check_lic($lic_name, $lic_key);
-                        $check_lic_pa = @json_decode($check_lic_pa, true);
-                        $check_lic_pa_0 = @$check_lic_pa[0];
-                        $check_lic_pa_1 = @$check_lic_pa[1];
-                        ?>
-                        <p style="<?= $check_lic_pa_0 == 0 ? "color: red;" : "" ?>"><?= $check_lic_pa_0 == 0 ? "ID Key không hợp lệ" : "ID Key hợp lệ. " ?><?= $check_lic_pa_1 == 0 ? "" : "Hạn sử dụng đến " . date("d-m-Y", $check_lic_pa_1) ?></p>
-                    </div>
-                    <div class="form-group">
-                        <label>Tên miền phụ <a data-tooltip="Mỗi tên miền 1 dòng !"> </a></label>
-                        <textarea class="form-control" name="is_key_tenmien_phu" style="min-height: 200px"><?php
-                            $check_tm = DB_que("SELECT * FROM `#_subdomain` ");
-                            $check_tm = DB_arr($check_tm);
-                            foreach ($check_tm as $rtm) {
-                                echo $rtm['tenbaiviet_vi'] . "\n";
-                            }
-
-                            ?></textarea>
-                    </div>
-                </div>
-            </section>
+<!--            <section class="col-lg-12">-->
+<!--                <div class="box p10" style="margin-top: 10px">-->
+<!--                    <div class="form-group">-->
+<!--                        <label for="exampleInputFile">Mã kích hoạt</label>-->
+<!--                    </div>-->
+<!--                    <div class="form-group">-->
+<!--                        <label for="exampleInputFile">ID</label>-->
+<!--                        <input type="text" class="form-control" name="lic_name" value="--><?//= $lic_name ?><!--">-->
+<!--                    </div>-->
+<!--                    <div class="form-group">-->
+<!--                        <label for="exampleInputFile">Key</label>-->
+<!--                        <input type="text" class="form-control" name="lic_key" value="--><?//= $lic_key ?><!--">-->
+<!--                    </div>-->
+<!--                    <div style="font-size: 11px; line-height: 10px; color: #00a65a; margin-top: -5px;">-->
+<!--                        --><?php
+//                        $check_lic_pa = lic_web_pa_check_lic($lic_name, $lic_key);
+//                        $check_lic_pa = @json_decode($check_lic_pa, true);
+//                        $check_lic_pa_0 = @$check_lic_pa[0];
+//                        $check_lic_pa_1 = @$check_lic_pa[1];
+//                        ?>
+<!--                        <p style="--><?//= $check_lic_pa_0 == 0 ? "color: red;" : "" ?><!--">--><?//= $check_lic_pa_0 == 0 ? "ID Key không hợp lệ" : "ID Key hợp lệ. " ?><!----><?//= $check_lic_pa_1 == 0 ? "" : "Hạn sử dụng đến " . date("d-m-Y", $check_lic_pa_1) ?><!--</p>-->
+<!--                    </div>-->
+<!--                    <div class="form-group">-->
+<!--                        <label>Tên miền phụ <a data-tooltip="Mỗi tên miền 1 dòng !"> </a></label>-->
+<!--                        <textarea class="form-control" name="is_key_tenmien_phu" style="min-height: 200px">--><?php
+//                            $check_tm = DB_que("SELECT * FROM `#_subdomain` ");
+//                            $check_tm = DB_arr($check_tm);
+//                            foreach ($check_tm as $rtm) {
+//                                echo $rtm['tenbaiviet_vi'] . "\n";
+//                            }
+//
+//                            ?><!--</textarea>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </section>-->
             <section class="col-lg-12">
                 <div class="box p10" style="margin-top: 10px">
                     <div class="form-group">

@@ -29,7 +29,7 @@
 	    header("HTTP/1.0 404 Not Found");
 	    die( "404 Not found" );
 	}
-	include "redis.php";
+	include __DIR__."/../../redis.php";
 	if(empty($thongtin)) {
 		echo "Tên miền chưa được kích hoạt!";
 		exit();

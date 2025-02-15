@@ -4,6 +4,8 @@ $id = isset($_GET['edit']) && is_numeric($_GET['edit']) ? SHOW_text($_GET['edit'
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $ten_vi = @$_REQUEST['ten_vi'];
+    $mota               = @$_REQUEST['mota'];
+    $noidung            = @$_REQUEST['noidung'];
     $m_action = @$_REQUEST['m_action'];
     $id_parent = @$_REQUEST['id_parent'];
     $sort = @$_REQUEST['sort'];
@@ -22,6 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 if (!empty($_POST)) {
     $data = array();
     $data['ten_vi'] = $ten_vi;
+    $data['mota']       = $mota;
+    $data['noidung']    = $noidung;
     $data['m_action'] = $m_action;
     $data['id_parent'] = $id_parent;
     $data['m_xem'] = $m_xem;
@@ -96,7 +100,14 @@ if ($id > 0) {
                                     <input type="text" class="form-control"
                                            value="<?= !empty($ten_vi) ? SHOW_text($ten_vi) : '' ?>" name="ten_vi">
                                 </div>
-
+                                <div class="form-group">
+                                    <label>Mô tả</label>
+                                    <textarea id="mota" name="mota" class="paEditor"><?=!empty($mota) ? SHOW_text($mota) : ''?></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Nội dung</label>
+                                    <textarea id="noidung" name="noidung" class="paEditor"><?=!empty($noidung) ? SHOW_text($noidung) : ''?></textarea>
+                                </div>
                                 <div class="form-group">
                                     <label>Action</label>
                                     <input type="text" class="form-control" name="m_action"

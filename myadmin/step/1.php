@@ -70,28 +70,28 @@
         </label>
     </div>
     <div class="form-group">
-        <label>Kiểu hiển thị </label>
-        <!--<div>
-            <?php for ($i = 1; $i <= 9; $i++) { ?>
-                <span style="background: #dadada; padding: 0px 7px; display: inline-block; border-radius: 100px; margin: 0 3px 3px 0; font-size: 10px">Kiểu hiển thị <?= $i ?> <a
-                            data-tooltip='<img src="img/kieu_<?= $i ?>.png" style="width: 100%">'> </a></span>
-            <?php } ?>
-        </div>-->
-        <select name="p2" class="form-control">
-            <option value="">Chọn kiểu hiển thị</option>
-            <?php for ($i = 1; $i <= 1; $i++) { ?>
-                <option value="<?= $i ?>" <?= @LAY_selected($i, $p2) ?>>VISION - MISSION - CORE VALUES</option>
-            <?php } ?>
-        </select>
-        <?php
-        if (!empty($p2) && $p2 == 1) {
-            $so_baiviet = DB_que("SELECT `id` FROM `#_baiviet_chitiet` WHERE `id_parent` = '$id'");
-            ?>
-            <p style="margin-top: 10px;">
-                <a href="?module=bai-viet-chi-tiet&action=bai-viet-chi-tiet&id-parent=<?= $id ?>&step=<?= $step ?>"
-                   style="font-size: 12px; color: #ff4c14;">[Quản lý bài viết] [<?= DB_num($so_baiviet) ?>]</a>
-            </p>
-        <?php } ?>
+<!--        <label>Kiểu hiển thị </label>-->
+<!--        <!--<div>-->
+<!--            --><?php //for ($i = 1; $i <= 9; $i++) { ?>
+<!--                <span style="background: #dadada; padding: 0px 7px; display: inline-block; border-radius: 100px; margin: 0 3px 3px 0; font-size: 10px">Kiểu hiển thị --><?//= $i ?><!-- <a-->
+<!--                            data-tooltip='<img src="img/kieu_--><?//= $i ?><!--.png" style="width: 100%">'> </a></span>-->
+<!--            --><?php //} ?>
+<!--        </div>-->
+<!--        <select name="p2" class="form-control">-->
+<!--            <option value="">Chọn kiểu hiển thị</option>-->
+<!--            --><?php //for ($i = 1; $i <= 1; $i++) { ?>
+<!--                <option value="--><?//= $i ?><!--" --><?//= @LAY_selected($i, $p2) ?><//VISION - MISSION - CORE VALUES</option>
+<!--            --><?php //} ?>
+<!--        </select>-->
+<!--        --><?php
+//        if (!empty($p2) && $p2 == 1) {
+//            $so_baiviet = DB_que("SELECT `id` FROM `#_baiviet_chitiet` WHERE `id_parent` = '$id'");
+//            ?>
+<!--            <p style="margin-top: 10px;">-->
+<!--                <a href="?module=bai-viet-chi-tiet&action=bai-viet-chi-tiet&id-parent=--><?//= $id ?><!--&step=--><?//= $step ?><!--"-->
+<!--                   style="font-size: 12px; color: #ff4c14;">[Quản lý bài viết] [--><?//= DB_num($so_baiviet) ?><!--]</a>-->
+<!--            </p>-->
+<!--        --><?php //} ?>
     </div>
     <?php if (in_array($step, $check_video)) { ?>
         <div class="form-group">
