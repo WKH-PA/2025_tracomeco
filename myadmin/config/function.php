@@ -1502,7 +1502,7 @@
 
 				// show danh muc ra
 				$list_dm_sel  = "";
-				// $tb_danhmuc   = LAY_danhmuc($tb_danhmuc)
+				 $tb_danhmuc   = LAY_danhmuc($tb_danhmuc);
 				foreach ($tb_danhmuc as $dmuc) {
 					if($dmuc['step'] 		!= $row['step']) 	continue; // khac step
 					if($dmuc['id_parent'] 	!= 0)  continue; // khac dm cha

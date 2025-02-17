@@ -145,16 +145,16 @@ include _source . "box-header.php";
                             ?>
                         </select>
                         <?php $danhmuc = LAY_danhmuc($arr_running['id'], ""); ?>
-                        <select class="select-year font18" name="dm">
-                            <option value="">Tất cả</option>
-                            <?php foreach ($danhmuc as $rows) {
-                                $selectdm = !empty($_GET['dm']) && $_GET['dm'] == $rows['id'] ? "selected" : "";
-                                ?>
-                                <option <?=$selectdm?> value="<?= SHOW_text($rows['id']) ?>">
-                                    <?= SHOW_text($rows['tenbaiviet_' . $lang]) ?>
-                                </option>
-                            <?php } ?>
-                        </select>
+<!--                        <select class="select-year font18" name="dm">-->
+<!--                            <option value="">Tất cả</option>-->
+<!--                            --><?php //foreach ($danhmuc as $rows) {
+//                                $selectdm = !empty($_GET['dm']) && $_GET['dm'] == $rows['id'] ? "selected" : "";
+//                                ?>
+<!--                                <option --><?//=$selectdm?><!-- value="--><?//= SHOW_text($rows['id']) ?><!--">-->
+<!--                                    --><?//= SHOW_text($rows['tenbaiviet_' . $lang]) ?>
+<!--                                </option>-->
+<!--                            --><?php //} ?>
+<!--                        </select>-->
                     </form>
                 </div>
                 <div class="list-media_wrapper">
