@@ -178,7 +178,7 @@ if ($id > 0) {
 </section>
 <form id="form_submit" name="form_submit" action="" method="post" enctype='multipart/form-data'>
     <input type="hidden" name="anh_sp"
-        value="<?= !empty($thongtin_step['size_img_dm']) && $thongtin_step['size_img_dm'] != '' ? $thongtin_step['size_img_dm'] : '' ?>">
+           value="<?= !empty($thongtin_step['size_img_dm']) && $thongtin_step['size_img_dm'] != '' ? $thongtin_step['size_img_dm'] : '' ?>">
 
     <section class="content form_create">
         <div class="row">
@@ -194,13 +194,13 @@ if ($id > 0) {
                         </h2>
                         <h3 class="box-title box-title-td pull-right">
                             <button onclick="return checkSubmit()" type="submit" class="btn btn-primary"><i
-                                    class="fa fa-floppy-o"></i>
+                                        class="fa fa-floppy-o"></i>
                                 <?= luu_lai ?>
                             </button>
                             <a href="<?= $url_page ?>&them-moi=true&step=<?= @$step ?>&id_step=<?= @$id_step ?>"
-                                class="btn btn-primary"><i class="fa fa-plus"></i> Thêm mới</a>
+                               class="btn btn-primary"><i class="fa fa-plus"></i> Thêm mới</a>
                             <a href="<?= $url_page ?>&step=<?= @$step ?>&id_step=<?= @$id_step ?>"
-                                class="btn btn-primary"><i class="fa fa-sign-out"></i> Thoát</a>
+                               class="btn btn-primary"><i class="fa fa-sign-out"></i> Thoát</a>
                         </h3>
                     </div>
                     <div class="nav-tabs-custom">
@@ -214,15 +214,16 @@ if ($id > 0) {
                                     $lang = "cn";
                                 }
                                 ?>
-                                <div class="tab-pane <?= $count_lang == 1 ? "active" : "" ?>" id="tab_<?= $count_lang ?>">
+                                <div class="tab-pane <?= $count_lang == 1 ? "active" : "" ?>"
+                                     id="tab_<?= $count_lang ?>">
                                     <div class="form-group">
                                         <label>Tên
                                             <?= $name_chude ?> (
                                             <?= $lang ?>)
                                         </label>
                                         <input type="text" class="form-control"
-                                            value="<?= !empty(${"tenbaiviet_" . $lang}) ? SHOW_text(${"tenbaiviet_" . $lang}) : "" ?>"
-                                            name="tenbaiviet_<?= $lang ?>" id="tenbaiviet_<?= $lang ?>">
+                                               value="<?= !empty(${"tenbaiviet_" . $lang}) ? SHOW_text(${"tenbaiviet_" . $lang}) : "" ?>"
+                                               name="tenbaiviet_<?= $lang ?>" id="tenbaiviet_<?= $lang ?>">
                                     </div>
 
                                     <!-- <div class="form-group">
@@ -236,8 +237,8 @@ if ($id > 0) {
                                                 <?= $lang ?>)
                                             </label>
                                             <input type="text" class="form-control " name="mota_<?= $lang ?>"
-                                                id="mota_<?= $lang ?>"
-                                                value="<?= !empty(${"mota_" . $lang}) ? SHOW_text(${"mota_" . $lang}) : '' ?>">
+                                                   id="mota_<?= $lang ?>"
+                                                   value="<?= !empty(${"mota_" . $lang}) ? SHOW_text(${"mota_" . $lang}) : '' ?>">
                                         </div>
                                     <?php } ?>
 
@@ -247,7 +248,7 @@ if ($id > 0) {
                                                 <?= $lang ?>)
                                             </label>
                                             <textarea id="noidung_<?= $lang ?>" name="noidung_<?= $lang ?>"
-                                                class="form-control paEditor">
+                                                      class="form-control paEditor">
                                         <?= !empty(${"noidung_" . $lang}) ? SHOW_text(${"noidung_" . $lang}) : '' ?>
                                     </textarea>
                                         </div>
@@ -258,7 +259,7 @@ if ($id > 0) {
                                             <?= $lang ?>)
                                         </label>
                                         <input type="text" class="form-control" name="seo_title_<?= $lang ?>"
-                                            value="<?= !empty(${"seo_title_" . $lang}) ? Show_text(${"seo_title_" . $lang}) : "" ?>">
+                                               value="<?= !empty(${"seo_title_" . $lang}) ? Show_text(${"seo_title_" . $lang}) : "" ?>">
                                     </div>
 
                                     <div class="form-group">
@@ -266,7 +267,7 @@ if ($id > 0) {
                                             <?= $lang ?>)
                                         </label>
                                         <input type="text" class="form-control" name="seo_description_<?= $lang ?>"
-                                            value="<?= !empty(${"seo_description_" . $lang}) ? Show_text(${"seo_description_" . $lang}) : "" ?>">
+                                               value="<?= !empty(${"seo_description_" . $lang}) ? Show_text(${"seo_description_" . $lang}) : "" ?>">
                                     </div>
 
                                     <div class="form-group">
@@ -274,7 +275,7 @@ if ($id > 0) {
                                             <?= $lang ?>)
                                         </label>
                                         <input type="text" class="form-control" name="seo_keywords_<?= $lang ?>"
-                                            value="<?= !empty(${"seo_keywords_" . $lang}) ? Show_text(${"seo_keywords_" . $lang}) : "" ?>">
+                                               value="<?= !empty(${"seo_keywords_" . $lang}) ? Show_text(${"seo_keywords_" . $lang}) : "" ?>">
                                     </div>
                                 </div>
                                 <?php $count_lang++;
@@ -285,18 +286,19 @@ if ($id > 0) {
             </section>
             <section class="col-lg-12">
                 <div class="box p10">
-<!--                    --><?php //if ($step != 5 && $step != 10 && $step != 1&& $step != 9 ) { ?>
-<!--                        <div class="form-group">-->
-<!--                            <label>Nằm trong</label>-->
-<!--                            --><?//= LAY_chude($id_parent, $step, 'id_parent', 'form-control SlectBox', 0, $id_step, $id, 'true', 0) ?>
-<!--                        </div>-->
-<!--                    --><?php //} ?>
+                    <!--                    --><?php //if ($step != 5 && $step != 10 && $step != 1&& $step != 9 ) { ?>
+                    <!--                        <div class="form-group">-->
+                    <!--                            <label>Nằm trong</label>-->
+                    <!--                            --><? //= LAY_chude($id_parent, $step, 'id_parent', 'form-control SlectBox', 0, $id_step, $id, 'true', 0) ?>
+                    <!--                        </div>-->
+                    <!--                    --><?php //} ?>
                     <div class="form-group">
                         <label>Seo name <a data-tooltip="Đường dẫn chuẩn bao gồm các ký tự [a-zA-Z0-9-]."> </a></label>
                         <input type="text" class="form-control" name="seo_name" id="seo_name"
-                            value="<?= !empty($seo_name) ? Show_text($seo_name) : "" ?>">
+                               value="<?= !empty($seo_name) ? Show_text($seo_name) : "" ?>">
                         <label class="noweight noweight-top checkbox-mini">
-                            <input class="minimal auto_get_link" type="checkbox" <?= empty($id) || $id == 0 ? 'checked="checked"' : '' ?>> Lấy đường
+                            <input class="minimal auto_get_link"
+                                   type="checkbox" <?= empty($id) || $id == 0 ? 'checked="checked"' : '' ?>> Lấy đường
                             dẫn tự động
                         </label>
                     </div>
@@ -306,9 +308,9 @@ if ($id > 0) {
                             <label>Kiểu hiển thị</label>
                             <select name="nhom_sp" id="nhom_sp">
                                 <?php
-                                $arr_animal = array("0" => "Chúng tôi là ai", "1" => "Tầm nhìn - sứ mệnh", "2" => "Giá trị của chúng tôi");
-                                foreach ($arr_animal as $key => $val) {
-                                    ?>
+                        $arr_animal = array("0" => "Chúng tôi là ai", "1" => "Tầm nhìn - sứ mệnh", "2" => "Giá trị của chúng tôi");
+                        foreach ($arr_animal as $key => $val) {
+                            ?>
                                     <option value="<?= $key ?>" <?= !empty($nhom_sp) && ($key == @$nhom_sp) ? 'selected="selected"' : "" ?>><?= $val ?></option>
                                 <?php } ?>
                             </select>
@@ -325,9 +327,9 @@ if ($id > 0) {
                                        onchange="pa_previewImg(event, '#img_icon_home','input_icon_home');">
                                 <img src="<?= @$full_icon_home ?>" alt="" class="img_chile_dangtin"
                                      style="<?php if (!empty($full_icon_home) && $full_icon_home != "")
-                                         echo "display: block";
-                                     else
-                                         echo "display: none" ?>"
+                        echo "display: block";
+                    else
+                        echo "display: none" ?>"
                                      id="img_icon_home">
                             </div>
                         </div>
@@ -343,14 +345,15 @@ if ($id > 0) {
                                 <div class="dv-anh-chitiet-img">
                                     <p><i class="fa fa-cloud-upload" aria-hidden="true"></i></p>
                                     <input type="file" name="icon" id="input_icon" class="cls_hinhanh" accept="image/*"
-                                        onchange="pa_previewImg(event, '#img_icon','input_icon');">
-                                    <img src="<?= @$full_icon ?>" alt="" class="img_chile_dangtin" style="<?php if (!empty($full_icon) && $full_icon != "")
-                                          echo "display: block";
-                                      else
-                                          echo "display: none" ?>" id="img_icon">
-                                    </div>
+                                           onchange="pa_previewImg(event, '#img_icon','input_icon');">
+                                    <img src="<?= @$full_icon ?>" alt="" class="img_chile_dangtin"
+                                         style="<?php if (!empty($full_icon) && $full_icon != "")
+                                             echo "display: block";
+                                         else
+                                             echo "display: none" ?>" id="img_icon">
                                 </div>
                             </div>
+                        </div>
                     <?php } ?>
                     <?php if (in_array($step, $check_anh_dm_hv)) { ?>
                         <div class="form-group">
@@ -362,55 +365,52 @@ if ($id > 0) {
                                 <div class="dv-anh-chitiet-img">
                                     <p><i class="fa fa-cloud-upload" aria-hidden="true"></i></p>
                                     <input type="file" name="icon_hover" id="input_icon_hv" class="cls_hinhanh"
-                                        accept="image/*" onchange="pa_previewImg(event, '#img_icon_hv','input_icon_hv');">
-                                    <img src="<?= @$full_icon_hover ?>" alt="" class="img_chile_dangtin" style="<?php if (!empty($full_icon_hover) && $full_icon_hover != "")
-                                          echo "display: block";
-                                      else
-                                          echo "display: none" ?>" id="img_icon_hv">
-                                    </div>
+                                           accept="image/*"
+                                           onchange="pa_previewImg(event, '#img_icon_hv','input_icon_hv');">
+                                    <img src="<?= @$full_icon_hover ?>" alt="" class="img_chile_dangtin"
+                                         style="<?php if (!empty($full_icon_hover) && $full_icon_hover != "")
+                                             echo "display: block";
+                                         else
+                                             echo "display: none" ?>" id="img_icon_hv">
                                 </div>
                             </div>
+                        </div>
                     <?php } ?>
 
 
-                    <!--<?php
-                    if ($step == 2) {
-                        $bvtinhnang = LAY_bv_tinhnang($step);
-                        $id_parent_muti = explode(",", @$id_parent_muti);
+                    <?php
+                    if ($step == 1) {
+                        $dataStyle = [
+                            1 => "Phong cách 1",
+                            2 => "Phong cách 2",
+                        ];
                         ?>
                         <div class="form-group ">
-                            <label>Hiển thị menu</label>
-                            <select name="id_parent_muti[]" class=" form-control SlectBoxNew" multiple='multiple'>
+                            <label>Phong cách</label>
+                            <select name="p_khuyenmai" class=" form-control SlectBoxNew">
                                 <?php
-                                foreach ($bvtinhnang as $tn) {
-                                    if ($tn['id_parent'] != 0)
-                                        continue;
-                                    ?>
-                                    <option value="<?= $tn['id'] ?>" <?= in_array($tn['id'], $id_parent_muti) ? 'selected="selected"' : "" ?> ><?= $tn['tenbaiviet_vi'] ?></option>
-                                    <?php
-                                    foreach ($bvtinhnang as $tn2) {
-                                        if ($tn2['id_parent'] != $tn['id'])
-                                            continue;
-                                        ?>
-                                         <option value="<?= $tn2['id'] ?>"  <?= in_array($tn2['id'], $id_parent_muti) ? 'selected="selected"' : "" ?> ><?= $tn2['tenbaiviet_vi'] ?></option>
-                                    <?php }
-                                } ?>
+                                foreach ($dataStyle as $key => $val) { ?>
+                                    <option <?= $p_khuyenmai == $key ? "selected" : "" ?>
+                                            value="<?= $key ?>"><?= $val ?></option>
+                                <?php } ?>
                             </select>
                         </div>
-                    <?php } ?>-->
+                    <?php } ?>
                     <div class="form-group">
                         <label>Số thứ tự</label>
                         <input type="text" class="form-control" name="catasort" id="catasort"
-                            value="<?= SHOW_text($catasort) ?>" onkeyup="SetCurrency(this)">
+                               value="<?= SHOW_text($catasort) ?>" onkeyup="SetCurrency(this)">
                     </div>
 
                     <div class="form-group">
                         <label class="mr-20">
-                            <input type="radio" name="showhi" class="minimal" value="1" <?= (isset($_GET['edit'])) ? LAY_checked($showhi, 1) : 'checked' ?>>
+                            <input type="radio" name="showhi" class="minimal"
+                                   value="1" <?= (isset($_GET['edit'])) ? LAY_checked($showhi, 1) : 'checked' ?>>
                             Hiển thị
                         </label>
                         <label>
-                            <input type="radio" name="showhi" class="minimal" value="2" <?= (isset($_GET['edit'])) ? LAY_checked($showhi, 2) : '' ?>> Ẩn
+                            <input type="radio" name="showhi" class="minimal"
+                                   value="2" <?= (isset($_GET['edit'])) ? LAY_checked($showhi, 2) : '' ?>> Ẩn
                         </label>
                     </div>
                 </div>
@@ -424,9 +424,9 @@ if ($id > 0) {
                 <?= luu_lai ?>
             </button>
             <a href="<?= $url_page ?>&them-moi=true&step=<?= @$step ?>&id_step=<?= @$id_step ?>"
-                class="btn btn-primary"><i class="fa fa-plus"></i> Thêm mới</a>
+               class="btn btn-primary"><i class="fa fa-plus"></i> Thêm mới</a>
             <a href="<?= $url_page ?>&step=<?= @$step ?>&id_step=<?= @$id_step ?>" class="btn btn-primary"><i
-                    class="fa fa-sign-out"></i> Thoát</a>
+                        class="fa fa-sign-out"></i> Thoát</a>
         </h3>
     </div>
 

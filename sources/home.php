@@ -64,7 +64,6 @@ $imggioithieu = LAY_baiviet_chitiet(25);
                         ?>
                         <p class="rate flex" style="margin:0">
                             <?php
-
                             for ($i = 1; $i <= $total_stars; $i++) {
                                 if ($rating <= $i) {
                                     echo '<i class="fa fa-star dis-star" aria-hidden="true"></i>';
