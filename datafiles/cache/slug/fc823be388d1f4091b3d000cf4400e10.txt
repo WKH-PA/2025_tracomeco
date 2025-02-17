@@ -1,1 +1,0 @@
-[{"id":"54","bang":"baiviet","slug":"test-tuyen-dung","id_bang":"38","step":"6"}]

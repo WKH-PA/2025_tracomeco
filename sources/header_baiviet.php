@@ -1,4 +1,7 @@
 <?php
+$is_trangchu = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) == "/";
+
+echo $is_trangchu;
 
 $noidung = LAY_baiviet($slug_step,1,'`opt2` = 1');
 $imggioithieu = LAY_hinhanhcon($noidung[0]['id'],3);
