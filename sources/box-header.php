@@ -129,7 +129,8 @@ if ($motty == "search") {
 //}
 if ($motty == "san-pham-noi-bat") {
     $strshort = '/ <a class="cl_active" href="' . $full_url . "/san-pham-noi-bat/" . '"> ' . $glo_lang['san_pham_noi_bat'] . '</a>';
-}
+}elseif ($motty == "thu-vien-anh-va-video")
+    $strshort = '/ <a class="cl_active" href="' . $full_url . "/thu-vien-anh-va-video/" . '"> ' . $glo_lang['thu_vien_anh_va_video'] . '</a>';
 ?>
 <?php if ($motty != "404") { ?>
     <!--<div class="banner_detail" style="background-image: url('<?= $images_background ?>');">-->

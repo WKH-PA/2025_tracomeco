@@ -81,7 +81,7 @@ include _source . "box-header.php";
                         <div class="tracomeco-container">
                             <div class="tracomeco-bar tracomeco-black">
                             <?php
-                            $baiviet2 = LAY_baiviet($thongtin_step['id'], 2, "`id_parent` = '" . $arr_running['id'] . "'");
+                            $baiviet2 = LAY_baiviet($thongtin_step['id'], 2, "`opt` = 1  AND`id_parent` = '" . $arr_running['id'] . "'");
                             $count = 1;
                             foreach ($baiviet2 as $rows) {
                                 $cityId = "city_" . $count;

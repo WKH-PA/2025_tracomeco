@@ -5,20 +5,26 @@
     }else{
         $danhmuc = LAY_danhmuc($thongtin_step['id'],"","`id_parent` = 0");
     }
-
+    $thongtin_step = LAY_anhstep_now($thongtin_step['id']);
     $danhsachtinnoibat= LAY_baiviet(5,3,'`opt` =1');
+    $url_parts = explode('/', $_SERVER['REQUEST_URI']);
+    $seo_name = end($url_parts);
   ?>
 
 
 <div class="box_right_pro_view">
     <div class="title_right"><?= SHOW_text($thongtin_step['tenbaiviet_' . $lang]) ?></div>
     <ul class="child_menu_right">
-        <?php foreach ($danhmuc as $rows) { ?>
-            <li><a <?= full_href($rows) ?>><?= SHOW_text($rows['tenbaiviet_' . $lang]) ?></a></li>
+        <?php foreach ($danhmuc as $rows) {
+            $active_class = ($rows['seo_name'] == $seo_name) ? 'class="active"' : '';
+            ?>
+            <li ><a <?= full_href($rows) . $active_class ?>><?= SHOW_text($rows['tenbaiviet_' . $lang]) ?></a></li>
         <?php } ?>
     </ul>
     <div class="clr"></div>
 </div>
+
+
 <div class="box_right_pro_view">
     <div class="title_right"><?=$glo_lang['tin_tuc_moi']?></div>
     <div class="tt_page_top">

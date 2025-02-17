@@ -83,7 +83,7 @@
     </div>
 <?php } ?>
 <?php //if (in_array($step, $array_only_bv)) { ?>
-<?php if ($step == 5 || $step == 9 ||  $step == 11) { ?>
+<?php if ($step == 5 || $step == 9 || $step == 1 || $step == 11) { ?>
     <div class="form-group">
         <label>Thuộc chủ đề</label>
         <?= LAY_chude($id_parent, $step, 'id_parent', 'form-control SlectBox', 0, $id_step, 0, 'true', 1) ?>

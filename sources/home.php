@@ -5,41 +5,7 @@ $ndkhac = LAYTEXT_rieng(82);
 $imggioithieu = LAY_baiviet_chitiet(25);
 
 ?>
-<section class="tracomeco_home_gioithieu p-t-60 p-b-60">
-    <div class="container-fluid">
-        <div class="row v-center">
-
-            <div class="col-xl-3 col-img">
-                <div class="home_dichvu_hinh">
-                    <?= full_img($imggioithieu[2], '') ?>
-                </div>
-            </div>
-            <div class="col-xl-3 col-img">
-                <div class="home_dichvu_hinh p-b-20">
-                    <?= full_img($imggioithieu[1], '') ?>
-                </div>
-                <div class="home_dichvu_hinh">
-                    <?= full_img($imggioithieu[0], '') ?>
-                </div>
-            </div>
-
-            <div class="col-xl-6 col-txt">
-                <div class="home_dichvu_text wow animate__fadeInRight">
-                    <h2><?= $glo_lang['gioi_thieu'] ?></h2>
-                    <h3><?= $ndkhac['p1_' . $lang] ?></h3>
-                    <p class="short-desc"><?= $ndkhac['noidung_' . $lang] ?></p>
-                    <p class="read-more">
-                        <a <?= full_href($ndkhac) ?>
-                                title="<?= $glo_lang['xem_chi_tiet'] ?>"><?= $glo_lang['xem_chi_tiet'] ?><i
-                                    class="fa-light fa-arrow-up-right-from-square"></i></a>
-                    </p>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-</section>
+<?php include _source . "header_baiviet.php";?>
 
 <?php $danhmuc_menu = GET_danhmuc_menu("4", $lang, 3, 4); ?>
 <section class="tracomeco_home_linhvuc p-t-60 p-b-60">
@@ -146,11 +112,12 @@ $imggioithieu = LAY_baiviet_chitiet(25);
 <?php
 $where = "AND `opt1`=1";
 $tintuc = DB_fet_rd("*", "`#_baiviet`", " `step` IN (" . 5 . ") $where ", "  ", 3, "id");
+$nd_tuyendung = LAY_baiviet(6, 10, " `opt1` =1");
+if (!empty($tintuc) || !empty($nd_tuyendung)) {
 ?>
 <section class="tracomeco_home_tin_tuc p-t-60 p-b-60">
     <div class="container-fluid" style="position:relative;">
         <div class="row">
-
             <div class="col-xl-8">
                 <div class="home_tin_tuc_main">
                     <div class="tracomeco_title_main" style="text-align: left;">
@@ -207,30 +174,25 @@ $tintuc = DB_fet_rd("*", "`#_baiviet`", " `step` IN (" . 5 . ") $where ", "  ", 
             </div>
             <div class="col-xl-4">
                 <?php
-                $nd_tuyendung = LAY_baiviet(6, 10, " `opt1` =1");
-                ?>
-                <div class="home_tin_tuc_side">
-                    <h2><?= $glo_lang['tin_tuyen_dung'] ?></h2>
 
-                    <?php
-                    foreach ($nd_tuyendung as $rows) {
-                        ?>
-                        <div class="post_item wow animate__fadeInDown">
-                            <div class="post_info">
-                                <h3><a <?= full_href($rows) ?>><?= $rows['tenbaiviet_' . $lang] ?></a></h3>
-                                <p class="dated"><i
-                                            class="fa-regular fa-calendar-days"></i><?= date("d/m/Y", $rows['ngaydang']); ?>
-                                </p>
+                if (!empty($nd_tuyendung)) {
+                    ?>
+                    <div class="home_tin_tuc_side">
+                        <h2><?= $glo_lang['tin_tuyen_dung'] ?></h2>
+                        <?php foreach ($nd_tuyendung as $rows) { ?>
+                            <div class="post_item wow animate__fadeInDown">
+                                <div class="post_info">
+                                    <h3><a <?= full_href($rows) ?>><?= $rows['tenbaiviet_' . $lang] ?></a></h3>
+                                    <p class="dated"><i class="fa-regular fa-calendar-days"></i> <?= date("d/m/Y", $rows['ngaydang']); ?></p>
+                                </div>
                             </div>
-                        </div>
-                    <?php } ?>
-
-                </div>
+                        <?php } ?>
+                    </div>
+                <?php } ?>
             </div>
-
         </div>
 </section>
-
+<?php } ?>
 
 <?php
 $banner = LAY_banner_new("id_parent =29");

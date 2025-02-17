@@ -20,7 +20,7 @@ var addchua = $("a", this).eq(0).attr('add');
             if ($("ul", this).length > 0 && addchua != 'ok') {
                $("a", this).eq(0).append('<i class="fa fa-angle-down"></i>');
 $("a", this).eq(0).attr('add', 'ok');
-              $(">a", this).removeAttr('href');
+              // $(">a", this).removeAttr('href');
              }
      });
      });
