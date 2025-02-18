@@ -11,6 +11,7 @@ $idCatategory = $slug_table == 'danhmuc' ? $arr_running['id'] : $aboutData['id_p
 $dataCategory = DB_fet("*", "#_danhmuc", "`step` = '$tempDataStep' AND id =  " . $idCatategory, " `catasort` ASC", "1", "arr");
 $dataCategory = current($dataCategory);
 $templateId = !empty($dataCategory['p_khuyenmai']) ? $dataCategory['p_khuyenmai'] : 1;
+$contentAbout = $hiddenLink ? $aboutData['mota_' . $lang] : $aboutData['noidung_' . $lang];
 if (!empty($aboutData)) {
 
     $dataImgChild = LAY_imghinhanhcon($aboutData['id'], 3);

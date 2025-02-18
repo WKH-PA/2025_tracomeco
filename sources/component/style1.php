@@ -1,5 +1,6 @@
 <?php
 $idFirst = 0;
+
 foreach ($dataImgChild as $imgChild) {
     if ($idFirst > 0)
         continue;
@@ -33,7 +34,7 @@ foreach ($dataImgChild as $imgChild) {
     <div class="home_dichvu_text wow animate__fadeInRight">
         <h2><?= $dataStep['tenbaiviet_' . $lang] ?></h2>
         <h3>  <?= $aboutData['tenbaiviet_' . $lang] ?></h3>
-        <?= $aboutData['mota_' . $lang] ?>
+        <?= $contentAbout ?>
         <?php if ($hiddenLink) { ?>
             <p class="read-more">
                 <a href="<?= $full_url . '/' . $aboutData['seo_name'] ?>"
