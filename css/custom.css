@@ -30,3 +30,11 @@
 .hidden {
     display: none;
 }
+
+.page_conten_page.pagewrap {
+    padding: 50px;
+    text-align: center;
+}
+.title_news{
+    margin-bottom: 15px;
+}
