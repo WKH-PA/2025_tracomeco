@@ -2,7 +2,7 @@
     <div class="home_dichvu_text wow animate__fadeInRight">
         <h2><?= $dataStep['tenbaiviet_' . $lang] ?></h2>
         <h3>  <?= $aboutData['tenbaiviet_' . $lang] ?></h3>
-        <?= $aboutData['noidung_' . $lang] ?>
+        <?= $aboutData['mota_' . $lang] ?>
         <?php if ($hiddenLink) { ?>
             <p class="read-more">
                 <a href="<?= $full_url . '/' . $aboutData['seo_name'] ?>"
