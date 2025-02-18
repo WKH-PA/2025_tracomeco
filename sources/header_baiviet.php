@@ -1,6 +1,7 @@
 <?php
 $tempDataStep = 1;
 $where = "showhi=1 and `opt2` = 1";
+$hiddenLink = !empty($slug_table) ? false : true;
 if ($slug_table == 'danhmuc') {
     $where = "showhi=1 and `opt2` =1 and id_parent=" . $arr_running['id'];
 }

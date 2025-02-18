@@ -3,11 +3,13 @@
         <h2><?= $dataStep['tenbaiviet_' . $lang] ?></h2>
         <h3>  <?= $aboutData['tenbaiviet_' . $lang] ?></h3>
         <?= $aboutData['noidung_' . $lang] ?>
-        <p class="read-more">
-            <a href="<?= $full_url . '/' . $aboutData['seo_name'] ?>"
-               title="<?= $glo_lang['xem_chi_tiet'] ?>"><?= $glo_lang['xem_chi_tiet'] ?><i
-                        class="fa-light fa-arrow-up-right-from-square"></i></a>
-        </p>
+        <?php if ($hiddenLink) { ?>
+            <p class="read-more">
+                <a href="<?= $full_url . '/' . $aboutData['seo_name'] ?>"
+                   title="<?= $glo_lang['xem_chi_tiet'] ?>"><?= $glo_lang['xem_chi_tiet'] ?><i
+                            class="fa-light fa-arrow-up-right-from-square"></i></a>
+            </p>
+        <?php } ?>
     </div>
 </div>
 <div class="col-xl-3 col-img">
