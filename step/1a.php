@@ -64,7 +64,7 @@ include _source . "box-header.php";
 
         ?>
         <?php include _source . "header_baiviet.php";?>
-        <div class="page_conten_page p-t-60 p-b-60">
+        <div class="page_conten_page p-t-60 p-b-60 tracomeco_gt_noidung">
             <div class="container-fluid">
                 <div class="tin_left">
                     <div class="title_news">

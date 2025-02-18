@@ -84,6 +84,8 @@ if (!empty($_POST) && isset($_POST['tenbaiviet_vi'])) {
     $data['lic_key'] = @$lic_key;
 
     $icon = UPLOAD_image("icon", "../" . $duongdantin . "/", time());
+    $banner_gt = UPLOAD_image("banner_gt", "../" . $duongdantin . "/", time());
+    $banner_gt_bg = UPLOAD_image("banner_gt_bg", "../" . $duongdantin . "/", time());
     $favico = UPLOAD_image("favico", "../" . $duongdantin . "/", time());
     $icon_hover = UPLOAD_image("icon_hover", "../" . $duongdantin . "/", time());
 
@@ -103,6 +105,15 @@ if (!empty($_POST) && isset($_POST['tenbaiviet_vi'])) {
     if ($icon_hover != '') {
         $data['icon_hover'] = $icon_hover;
         @unlink("../" . $sql_thongtin["duongdantin"] . "/" . $sql_thongtin["icon_hover"]);
+    }
+
+    if ($banner_gt != '') {
+        $data['banner_gt'] = $banner_gt;
+        @unlink("../" . $sql_thongtin["duongdantin"] . "/" . $sql_thongtin["banner_gt"]);
+    }
+   if ($banner_gt_bg != '') {
+        $data['banner_gt_bg'] = $banner_gt_bg;
+        @unlink("../" . $sql_thongtin["duongdantin"] . "/" . $sql_thongtin["banner_gt_bg"]);
     }
 
     ACTION_db($data, '#_seo', 'update', NULL, "1 = 1");
@@ -129,6 +140,12 @@ if ($favico != '') {
 }
 if ($icon_hover != '') {
     $full_icon_hover2 = "../$duongdantin/$icon_hover";
+}
+if ($banner_gt_bg != '') {
+    $full_banner_gt_bg = "../$duongdantin/$banner_gt_bg";
+}
+if ($banner_gt != '') {
+    $full_banner_gt = "../$duongdantin/$banner_gt";
 }
 ?>
 
@@ -243,6 +260,34 @@ if ($icon_hover != '') {
                                 <img src="<?= @$full_icon_hover ?>" alt="" class="img_chile_dangtin"
                                      style="<?php if (!empty($full_icon_hover) && $full_icon_hover != "") echo "display: block"; else echo "display: none" ?>"
                                      id="img_icon_hover">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputFile2">Ảnh nền box giới thiệu</label>
+                        <div class="dv-anh-chitiet-img-cont">
+                            <div class="dv-anh-chitiet-img">
+                                <p><i class="fa fa-cloud-upload" aria-hidden="true"></i></p>
+                                <input type="file" name="banner_gt" id="input_banner_gt" class="cls_hinhanh"
+                                       accept="image/*"
+                                       onchange="pa_previewImg(event, '#input_banner_gt','input_banner_gt');">
+                                <img src="<?= @$full_banner_gt ?>" alt="" class="img_chile_dangtin"
+                                     style="<?php if (!empty($full_icon_hover) && $full_icon_hover != "") echo "display: block"; else echo "display: none" ?>"
+                                     id="input_banner_gt">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputFile2">Ảnh nền trang giới thiệu</label>
+                        <div class="dv-anh-chitiet-img-cont">
+                            <div class="dv-anh-chitiet-img">
+                                <p><i class="fa fa-cloud-upload" aria-hidden="true"></i></p>
+                                <input type="file" name="banner_gt_bg" id="input_banner_gt_bg" class="cls_hinhanh"
+                                       accept="image/*"
+                                       onchange="pa_previewImg(event, '#input_banner_gt_bg','input_banner_gt_bg');">
+                                <img src="<?= @$full_banner_gt_bg ?>" alt="" class="img_chile_dangtin"
+                                     style="<?php if (!empty($full_icon_hover) && $full_icon_hover != "") echo "display: block"; else echo "display: none" ?>"
+                                     id="input_banner_gt_bg">
                             </div>
                         </div>
                     </div>

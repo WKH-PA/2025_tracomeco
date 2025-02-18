@@ -1,18 +1,20 @@
-.socical_icon{
+.socical_icon {
     clear: both;
 }
-.maps{
+
+.maps {
     float: left;
 }
 
-.maps iframe{
+.maps iframe {
     float: left;
 }
 
-.features-list ul{
+.features-list ul {
     display: none;
 }
-.caroufredsel_wrapper{
+
+.caroufredsel_wrapper {
     width: 100% !important
 }
 
@@ -20,6 +22,11 @@
 .tracomeco_home_khach_hang .khach_hang_box p.rate .dis-star {
     background: #d2d3d5;
 }
-.tt_page_top .col_conten_right{
+
+.tt_page_top .col_conten_right {
     height: fit-content;
+}
+
+.hidden {
+    display: none;
 }

@@ -1,0 +1,1 @@
+ALTER TABLE `lh_seo` ADD `banner_gt` TEXT NOT NULL AFTER `twi_url`, ADD `banner_gt_bg` TEXT NOT NULL AFTER `banner_gt`;

@@ -82,34 +82,6 @@
         new WOW().init();
     </script>
 
-    <script>
-        function openCity(button, cityId) {
-            document.querySelectorAll(".tablink").forEach(btn => btn.classList.remove("tracomeco-red"));
-            button.classList.add("tracomeco-red");
-            document.querySelectorAll(".city").forEach(city => city.classList.remove("active"));
-            document.getElementById(cityId).classList.add("active");
-            let title = button.getAttribute("data-title");
-            let content = button.getAttribute("data-content");
-            console.log("Tiêu đề: ", title);
-            console.log("Nội dung: ", content);
-        }
-    </script>
-    <script>
-        function openCity2(evt, cityName) {
-            var i, x, tablinks;
-            x = document.getElementsByClassName("city");
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
-            }
-            tablinks = document.getElementsByClassName("tablink");
-            for (i = 0; i < x.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" tracomeco-red", "");
-            }
-            document.getElementById(cityName).style.display = "block";
-            evt.currentTarget.className += " tracomeco-red";
-        }
-    </script>
-
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- Initialize Swiper -->
     <script>
