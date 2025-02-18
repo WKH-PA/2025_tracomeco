@@ -60,11 +60,17 @@ $imggioithieu = LAY_baiviet_chitiet(25);
                         <h3><?= $rows['tenbaiviet_' . $lang] ?></h3>
                         <?php
                         $rating = $rows['mota_vi'];
-                        $total_stars = 5;
+                        $total_stars = 4;
+//                        echo $rating;
                         ?>
                         <p class="rate flex" style="margin:0">
                             <?php
+<<<<<<< Updated upstream
                             for ($i = 1; $i <= $total_stars; $i++) {
+=======
+
+                            for ($i = 0; $i <= $total_stars; $i++) {
+>>>>>>> Stashed changes
                                 if ($rating <= $i) {
                                     echo '<i class="fa fa-star dis-star" aria-hidden="true"></i>';
 

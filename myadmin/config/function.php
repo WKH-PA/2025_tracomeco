@@ -1479,7 +1479,7 @@
 		if($row['step'] != 0) {
 			if($row['kieu_hien_thi'] == 2) { //baiviet
 				// show list bv
-				$tb_listbv  = DB_fet_rd("*", "`#_baiviet`", "`step` = '".$row['step']."'", "`catasort` DESC, `id` DESC", "","id");
+				$tb_listbv  = DB_fet_rd("*", "`#_baiviet`", "`id_parent` = '".$row['danhmuc']."' AND `step` = '".$row['step']."'", "`catasort` DESC, `id` DESC", "","id");
 
 				$return 		= "";
 				$them = "";
@@ -1502,7 +1502,7 @@
 
 				// show danh muc ra
 				$list_dm_sel  = "";
-				 $tb_danhmuc   = LAY_danhmuc($tb_danhmuc);
+				// $tb_danhmuc   = LAY_danhmuc($tb_danhmuc)
 				foreach ($tb_danhmuc as $dmuc) {
 					if($dmuc['step'] 		!= $row['step']) 	continue; // khac step
 					if($dmuc['id_parent'] 	!= 0)  continue; // khac dm cha

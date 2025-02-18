@@ -8,7 +8,7 @@
 	$db_localhost 		 		= "localhost";
 	$db_user 			 		= "root";
 	$db_pass 			 		= '';
-	$db_data 			 		= "webdemo5_thoang";
+	$db_data 			 		= "test1";
 	$_SESSION['sub_demo'] 		= "2021_thienhoanggroup/";
 	$check_fl_domain 			= "webdemo5.pavietnam.vn";
 	$cache_file   				= "on";

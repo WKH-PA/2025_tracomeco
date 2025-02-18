@@ -77,57 +77,66 @@ include _source . "box-header.php";
                     <div class="block_tin_tuc row">
                         <?php
                         $first = true;
-                        foreach ($nd_hot
-
-                        as $rows) {
-                        if ($first) {
-                        ?>
-                        <div class="col-md-8">
-                            <div class="post_item lg">
-                                <div class="post_img">
-                                    <a <?= full_href($rows) ?>><img src="<?= $fullpath . '/datafiles/' . $rows['icon'] ?>"
-                                        class="isload isload_full isload_full_1"
-                                        alt="<?= $rows['tenbaiviet_' . $lang] ?>"></a>
-                                </div>
-                                <div class="post_info">
-                                    <h3><a <?= full_href($rows) ?>><?= $rows['tenbaiviet_' . $lang] ?></a></h3>
-                                    <p class="dated"><i
-                                                class="fa-regular fa-calendar-days"></i> <?= date("d/m/Y", $rows['ngaydang']); ?>
-                                    </p>
-                                    <p style="margin-bottom: 0"><?= $rows['mota_' . $lang] ?></p>
-                                </div>
+                        if (!empty($nd_hot)) {
+                            foreach ($nd_hot as $rows) {
+                                if ($first) { ?>
+                                    <div class="col-md-8">
+                                        <div class="post_item lg">
+                                            <div class="post_img">
+                                                <a <?= full_href($rows) ?>>
+                                                    <img src="<?= $fullpath . '/datafiles/' . $rows['icon'] ?>"
+                                                         class="isload isload_full isload_full_1"
+                                                         alt="<?= $rows['tenbaiviet_' . $lang] ?>">
+                                                </a>
+                                            </div>
+                                            <div class="post_info">
+                                                <h3><a <?= full_href($rows) ?>><?= $rows['tenbaiviet_' . $lang] ?></a></h3>
+                                                <p class="dated">
+                                                    <i class="fa-regular fa-calendar-days"></i>
+                                                    <?= date("d/m/Y", $rows['ngaydang']); ?>
+                                                </p>
+                                                <p style="margin-bottom: 0"><?= $rows['mota_' . $lang] ?></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                    <?php
+                                    $first = false;
+                                } else { ?>
+                                    <div class="post_item">
+                                        <div class="post_img">
+                                            <a <?= full_href($rows) ?>>
+                                                <img src="<?= $fullpath . '/datafiles/' . $rows['icon'] ?>"
+                                                     class="isload isload_full isload_full_1"
+                                                     alt="<?= $rows['tenbaiviet_' . $lang] ?>">
+                                            </a>
+                                        </div>
+                                        <div class="post_info">
+                                            <h3><a <?= full_href($rows) ?>><?= $rows['tenbaiviet_' . $lang] ?></a></h3>
+                                            <p class="dated">
+                                                <i class="fa-regular fa-calendar-days"></i>
+                                                <?= date("d/m/Y", $rows['ngaydang']); ?>
+                                            </p>
+                                        </div>
+                                    </div>
+                                <?php }
+                            } ?>
                             </div>
-                        </div>
-                        <div class="col-md-4">
                             <?php
-                            $first = false;
-                            } else {
-                                ?>
-                                <div class="post_item">
-                                    <div class="post_img">
-                                        <a <?= full_href($rows) ?>><img src="<?= $fullpath . '/datafiles/' . $rows['icon'] ?>"
-                                        class="isload isload_full isload_full_1"
-                                        alt="<?= $rows['tenbaiviet_' . $lang] ?>"></a>
-                                    </div>
-                                    <div class="post_info">
-                                        <h3><a <?= full_href($rows) ?>><?= $rows['tenbaiviet_' . $lang] ?></a></h3>
-                                        <p class="dated"><i
-                                                    class="fa-regular fa-calendar-days"></i> <?= date("d/m/Y", $rows['ngaydang']); ?>
-                                        </p>
-                                    </div>
-                                </div>
-                                <?php
-                            }
-                            }
-                            ?>
-                        </div>
+                        } else { ?>
+                            <div class="no-data-message">
+                                <p>Không có tin tức nổi bật.</p>
+                            </div>
+                        <?php } ?>
                     </div>
                 </div>
+
+                <!-- Bộ lọc tìm kiếm -->
                 <div class="filter-search-sharehoder non-field m-t-20">
                     <form class="form-search flex">
                         <div class="search">
-                            <input type="text" autocomplete="false" class="form-control form-control-sm"
-                                   placeholder="<?=$glo_lang['nhap_tu_khoa_tim_kiem']?>"
+                            <input type="text" autocomplete="off" class="form-control form-control-sm"
+                                   placeholder="<?= $glo_lang['nhap_tu_khoa_tim_kiem'] ?>"
                                    value="<?= !empty($_GET['key']) ? $_GET['key'] : "" ?>" name="key">
                             <button class="btn btn-secondary" type="submit">
                                 <i class="fas fa-search"></i>
@@ -139,39 +148,36 @@ include _source . "box-header.php";
                             $currentYear = date("Y");
                             $startYear = 2000;
                             for ($year = $currentYear; $year >= $startYear; $year--) {
-                                $select = !empty($_GET['year']) && $_GET['year'] == $year ? "selected" : "";
-                                echo "<option $select  value=\"$year\">$year</option>";
+                                $select = (!empty($_GET['year']) && $_GET['year'] == $year) ? "selected" : "";
+                                echo "<option $select value=\"$year\">$year</option>";
                             }
                             ?>
                         </select>
-                        <?php $danhmuc = LAY_danhmuc($arr_running['id'], ""); ?>
-<!--                        <select class="select-year font18" name="dm">-->
-<!--                            <option value="">Tất cả</option>-->
-<!--                            --><?php //foreach ($danhmuc as $rows) {
-//                                $selectdm = !empty($_GET['dm']) && $_GET['dm'] == $rows['id'] ? "selected" : "";
-//                                ?>
-<!--                                <option --><?//=$selectdm?><!-- value="--><?//= SHOW_text($rows['id']) ?><!--">-->
-<!--                                    --><?//= SHOW_text($rows['tenbaiviet_' . $lang]) ?>
-<!--                                </option>-->
-<!--                            --><?php //} ?>
-<!--                        </select>-->
                     </form>
                 </div>
+
                 <div class="list-media_wrapper">
                     <?php
-                    if ($nd_total == 0) {
-                        echo "<div class='new_id_bs'>" . $glo_lang['khong_tim_thay_du_lieu_nao'] . "</div>";
-                    } else {
-                        foreach ($nd_kietxuat as $rows) {
-                            ?>
+                    if ($nd_total == 0) { ?>
+                        <div class="new_id_bs no-data">
+                            <img src="/images/no-data.png" alt="Không có dữ liệu" class="no-data-img">
+                            <p><?= $glo_lang['khong_tim_thay_du_lieu_nao'] ?></p>
+                        </div>
+                    <?php } else {
+                        foreach ($nd_kietxuat as $rows) { ?>
                             <div class="new_id_bs">
-                                <li><a <?= full_href($rows) ?>><img src="<?= $fullpath . '/datafiles/' . $rows['icon'] ?>"
-                                                                    class="isload isload_full isload_full_1"
-                                                                    alt="<?= $rows['tenbaiviet_' . $lang] ?>"></li>
+                                <li>
+                                    <a <?= full_href($rows) ?>>
+                                        <img src="<?= $fullpath . '/datafiles/' . $rows['icon'] ?>"
+                                             class="isload isload_full isload_full_1"
+                                             alt="<?= $rows['tenbaiviet_' . $lang] ?>">
+                                    </a>
+                                </li>
                                 <ul>
                                     <h3><a <?= full_href($rows) ?>><?= $rows['tenbaiviet_' . $lang] ?></a></h3>
-                                    <p class="dated"><i
-                                                class="fa-regular fa-calendar-days"></i> <?= date("d/m/Y", $rows['ngaydang']); ?>
+                                    <p class="dated">
+                                        <i class="fa-regular fa-calendar-days"></i>
+                                        <?= date("d/m/Y", $rows['ngaydang']); ?>
                                     </p>
                                     <p><?= limitText($rows['mota_' . $lang], 3) ?></p>
                                 </ul>
@@ -186,6 +192,8 @@ include _source . "box-header.php";
                     </div>
                 </div>
             </div>
+
+            <!-- Sidebar -->
             <div class="col_conten_right">
                 <div class="sidebar_menu" id="menu-center">
                     <?php include _source . "right_conten.php"; ?>
