@@ -69,7 +69,6 @@ include _source . "box-header.php";
                 <div class="tin_left">
                     <div class="title_news">
                         <h1><?=$arr_running['tenbaiviet_'.$lang]?></h1>
-                        <p class="dated"><i class="fa-regular fa-calendar-days"></i> <?= date("d/m/Y", $arr_running['ngaydang']); ?></p>
                     </div>
                     <div class="showText">
                         <p class="mota"><?=$arr_running['mota_'.$lang]?></p>
