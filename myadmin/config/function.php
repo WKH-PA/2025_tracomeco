@@ -1479,7 +1479,7 @@
 		if($row['step'] != 0) {
 			if($row['kieu_hien_thi'] == 2) { //baiviet
 				// show list bv
-				$tb_listbv  = DB_fet_rd("*", "`#_baiviet`", "`step` = '".$row['step']."'", "`catasort` DESC, `id` DESC", "","id");
+				$tb_listbv  = DB_fet_rd("*", "`#_baiviet`", "`id_parent` = '".$row['danhmuc']."' AND `step` = '".$row['step']."'", "`catasort` DESC, `id` DESC", "","id");
 
 				$return 		= "";
 				$them = "";
