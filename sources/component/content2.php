@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row">
             <?php for ($i = 1; $i <= 4; $i++) {
-                $number = !empty($glo_lang['number_' . $i]) ? $glo_lang['number_' . $i] :10;
+                $number = !empty($glo_lang['numer_' . $i]) ? $glo_lang['numer_' . $i] :10;
                 $title = !empty($glo_lang['title_' . $i]) ? $glo_lang['title_' . $i] : "title_" . $i;
                 $desc = !empty($glo_lang['desc_' . $i]) ? $glo_lang['desc_' . $i] : "desc_" . $i;
                 ?>
