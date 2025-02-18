@@ -9,7 +9,7 @@
         <?= $contentAbout ?>
         <?php if ($hiddenLink) { ?>
             <p class="read-more">
-                <a href="<?= $full_url . '/' . $aboutData['seo_name'] ?>"
+                <a href="<?= $link ?>"
                    title="<?= $glo_lang['xem_chi_tiet'] ?>"><?= $glo_lang['xem_chi_tiet'] ?><i
                             class="fa-light fa-arrow-up-right-from-square"></i></a>
             </p>

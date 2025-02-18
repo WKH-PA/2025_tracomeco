@@ -12,6 +12,7 @@ $dataCategory = DB_fet("*", "#_danhmuc", "`step` = '$tempDataStep' AND id =  " .
 $dataCategory = current($dataCategory);
 $templateId = !empty($dataCategory['p_khuyenmai']) ? $dataCategory['p_khuyenmai'] : 1;
 $contentAbout = $hiddenLink ? $aboutData['mota_' . $lang] : $aboutData['noidung_' . $lang];
+$link = $full_url . '/gioi-thieu';
 if (!empty($aboutData)) {
 
     $dataImgChild = LAY_imghinhanhcon($aboutData['id'], 3);
