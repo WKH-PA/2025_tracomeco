@@ -184,3 +184,19 @@
     <script type="text/javascript" src="js/scroll.js"></script>
 
 </footer>
+
+<script>
+    function openCity2(evt, cityName) {
+        var i, x, tablinks;
+        x = document.getElementsByClassName("city");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < x.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" tracomeco-red", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " tracomeco-red";
+    }
+</script>
