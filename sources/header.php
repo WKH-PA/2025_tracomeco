@@ -1,3 +1,15 @@
+<?php
+$aboutBgBox = $fullpath . '/delete/gioithieu/building.jpg';
+if (!empty($thongtin['banner_gt'])) {
+    $aboutBgBox = $fullpath . '/datafiles/' . $thongtin['banner_gt'];
+}
+
+$aboutBg = $fullpath . '/delete/banner/banner-4.jpg';
+if (!empty($thongtin['banner_gt_bg'])) {
+    $aboutBg = $fullpath . '/datafiles/' . $thongtin['banner_gt_bg'];
+}
+
+?>
 <div class="header_top header_top_pa">
     <div class="container-fluid">
         <div class="">
@@ -79,7 +91,7 @@
     var dropdown = document.getElementsByClassName("dropdown-btn");
     var i;
     for (i = 0; i < dropdown.length; i++) {
-        dropdown[i].addEventListener("click", function() {
+        dropdown[i].addEventListener("click", function () {
             this.classList.toggle("active");
             var dropdownContent = this.nextElementSibling;
             if (dropdownContent.style.display === "block") {
@@ -93,12 +105,12 @@
 
 
 <script>
-    $(document).ready(function(){
+    $(document).ready(function () {
         // Thêm debounce để tối ưu hiệu năng
         let scrollTimer;
-        $(window).scroll(function(){
+        $(window).scroll(function () {
             clearTimeout(scrollTimer);
-            scrollTimer = setTimeout(function(){
+            scrollTimer = setTimeout(function () {
                 if ($(window).scrollTop() > 150) {
                     $('.header').addClass('fixed');
                 } else {

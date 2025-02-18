@@ -118,6 +118,43 @@ foreach ($arraydata as $k => $v) {
         $strshort .= ' | <a class="active" href="' . $k . '"> ' . $v . '</a>';
     }
 }
+$danhmuc_hientai = DB_fet("*", "#_menu", "showhi=1 AND seo_name='$motty'", "", "1", "arr", 1);
+$danhmuc_hientai = reset($danhmuc_hientai);
+$thongtin_danhmuc = "";
+
+if (!empty($danhmuc_hientai)) {
+    // Thông tin danh mục hiện tại (in đậm)
+    $thongtin_danhmuc = '<strong><a class="active" href="' . full_href($danhmuc_hientai) . '">' . SHOW_text($danhmuc_hientai['tenbaiviet_' . $lang]) . '</a></strong>';
+
+    // Kiểm tra nếu có danh mục cha
+    if (!empty($danhmuc_hientai['id_parent']) && $danhmuc_hientai['id_parent'] != 0) {
+        $danhmuccha = DB_fet("*", "#_menu", "showhi=1 AND id=" . $danhmuc_hientai['id_parent'], "", "1", "arr", 1);
+        $danhmuccha = reset($danhmuccha);
+
+        if (!empty($danhmuccha)) {
+            // Thêm danh mục cha (không in đậm) + thêm dấu "|"
+            $thongtin_danhmuc = '| <a href="' . full_href($danhmuccha) . '">' . $danhmuccha['tenbaiviet_' . $lang] . '</a> |' . $thongtin_danhmuc;
+        } else {
+            // Nếu không có danh mục cha, chỉ thêm dấu "|"
+            $thongtin_danhmuc = '| ' . $thongtin_danhmuc;
+        }
+    } else {
+        // Nếu không có danh mục cha, chỉ thêm dấu "|"
+        $thongtin_danhmuc = '| ' . $thongtin_danhmuc;
+    }
+}
+
+// Hiển thị danh mục
+//if (!empty($thongtin_danhmuc)) {
+//    echo '<h3 class="itemtitle">' . $thongtin_danhmuc . '</h3>';
+//}
+
+
+// Hiển thị danh mục cha (nếu có)
+//if (!empty($danhmuccha)) {
+//    echo '<h3 class="itemtitle"><strong>' . SHOW_text($danhmuccha['tenbaiviet_' . $lang]) . '</strong></h3>';
+//}
+
 
 if ($motty == "search") {
     $datakhac = DB_fet("*", "#_step", 'showhi=1 and id=' . 2, "", "1", "arr", 1);
@@ -161,7 +198,7 @@ if ($motty == "san-pham-noi-bat") {
             <ul>
                 <li>
                     <a href="<?= $full_url ?>"><i class="fa-light fa-house-chimney"></i><?= $glo_lang['trang_chu'] ?>
-                    </a> <span class="active"><?= $strshort ?></span>
+                    </a> <span ><?= $thongtin_danhmuc?></span>
                 </li>
             </ul>
         </div>

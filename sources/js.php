@@ -20,7 +20,6 @@
 <!--<script type="text/javascript" src="js/scroll.js"></script>-->
 <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="js/jquery.caroufredsel.js"></script>
-<script type="text/javascript" src="js/wow.min.js"></script>
 <!--<script type="text/javascript" src="js/jquery.idtabs.min.js"></script>-->
 <script type="text/javascript" src="js/jquery.mmenu.all.js"></script>
 <script type="text/javascript" src="js/script218.js"></script>

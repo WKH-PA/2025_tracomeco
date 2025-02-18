@@ -1,51 +1,28 @@
 <?php
-$is_trangchu = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) == "/";
+$tempDataStep = 1;
+$where = "showhi=1 and `opt2` = 1";
+$hiddenLink = !empty($slug_table) ? false : true;
+if ($slug_table == 'danhmuc') {
+    $where = "showhi=1 and `opt2` =1 and id_parent=" . $arr_running['id'];
+}
+$aboutData = LAY_baiviet($tempDataStep, 1, $where, "catasort desc");
+$aboutData = current($aboutData);
+$idCatategory = $slug_table == 'danhmuc' ? $arr_running['id'] : $aboutData['id_parent'];
+$dataCategory = DB_fet("*", "#_danhmuc", "`step` = '$tempDataStep' AND id =  " . $idCatategory, " `catasort` ASC", "1", "arr");
+$dataCategory = current($dataCategory);
+$templateId = !empty($dataCategory['p_khuyenmai']) ? $dataCategory['p_khuyenmai'] : 1;
+$contentAbout = $hiddenLink ? $aboutData['mota_' . $lang] : $aboutData['noidung_' . $lang];
+$link = $full_url . '/gioi-thieu';
+if (!empty($aboutData)) {
 
-echo $is_trangchu;
-
-$noidung = LAY_baiviet($slug_step,1,'`opt2` = 1');
-$imggioithieu = LAY_hinhanhcon($noidung[0]['id'],3);
-$thongtin_step = LAY_anhstep_now($thongtin_step['id']);
-?>
-<section class="tracomeco_home_gioithieu p-t-60 p-b-60">
-    <div class="container-fluid">
-        <div class="row v-center">
-
-            <div class="col-xl-3 col-img">
-                <div class="home_dichvu_hinh">
-                    <?= full_img($imggioithieu[2],'') ?>
-                </div>
+    $dataImgChild = LAY_imghinhanhcon($aboutData['id'], 3);
+    $dataStep = LAY_anhstep_now($tempDataStep);
+    ?>
+    <section class="tracomeco_home_gioithieu p-t-60 p-b-60 <?= $templateId ?>">
+        <div class="container-fluid">
+            <div class="row v-center">
+                <?php include "component/style" . $templateId . ".php" ?>
             </div>
-            <div class="col-xl-3 col-img">
-                <div class="home_dichvu_hinh p-b-20">
-                    <?= full_img($imggioithieu[1],'') ?>
-                </div>
-                <div class="home_dichvu_hinh">
-                    <?= full_img($imggioithieu[0],'') ?>
-                </div>
-            </div>
-
-            <div class="col-xl-6 col-txt">
-                <div class="home_dichvu_text wow animate__fadeInRight">
-                    <h2><?= $glo_lang['gioi_thieu'] ?></h2>
-                    <?php
-                    foreach ($noidung as $rows) {
-                        $is_trangchu = $thongtin_step['seo_name'] == $rows['seo_name'] ? true :false;
-                    ?>
-                        <h3><?= $rows['tenbaiviet_'. $lang] ?></h3>
-                        <?php if ($_SERVER['REQUEST_URI'] == "/") { ?>
-                        <p class="short-desc"><?= $rows['mota_'. $lang] ?></p>
-                        <p class="read-more">
-                            <a <?= full_href($rows)?> title="<?= $glo_lang['xem_chi_tiet'] ?>"><?= $glo_lang['xem_chi_tiet'] ?><i class="fa-light fa-arrow-up-right-from-square"></i></a>
-                        </p>
-                        <?php } else { ?>
-                            <p class="short-desc"><?= $rows['noidung_'. $lang] ?></p>
-                    <?php } } ?>
-
-                </div>
-            </div>
-
         </div>
-
-    </div>
-</section>
+    </section>
+<?php } ?>
