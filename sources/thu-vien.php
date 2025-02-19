@@ -18,7 +18,7 @@ include _source . "box-header.php";
                 <div class="new_id_bs m-b-30" style="cursor: pointer;" data-target="#hinhanh<?= $key ?>">
                     <a href=""><?= full_img($rows) ?></a>
                     <div class="new_col">
-                        <h3><i class="fa-light fa-image"></i><?= $rows['tenbaiviet_' . $lang] ?></h3>
+                        <h3><i class="fa-light fa-image"></i> <?= $rows['tenbaiviet_' . $lang] ?></h3>
                     </div>
                     <div class="clr"></div>
                     <!--- popup-box --->
