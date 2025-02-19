@@ -195,7 +195,6 @@
         }
     </script>
     <script>
-
         function openCity2(evt, cityName) {
             var i, x, tablinks;
             x = document.getElementsByClassName("city");
@@ -211,3 +210,5 @@
         }
     </script>
 </footer>
+
+

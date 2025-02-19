@@ -124,8 +124,36 @@ include _source . "box-header.php";
             firstTab.click();
         }
     });
+</script>
 
+<script>
+    function openCity(element, cityName) {
+        var i, x, tablinks;
 
+        // Ẩn tất cả các phần tử có class "city"
+        x = document.getElementsByClassName("city");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
 
+        // Xóa class "tracomeco-red" khỏi tất cả các tablinks
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].classList.remove("tracomeco-red"); // Dùng classList.remove thay vì replace()
+        }
 
+        // Hiển thị nội dung của tab được chọn
+        var cityElement = document.getElementById(cityName);
+        if (cityElement) {
+            cityElement.style.display = "block";
+        } else {
+            console.error("Không tìm thấy phần tử có ID:", cityName);
+            return;
+        }
+
+        // Thêm class "tracomeco-red" vào nút được click
+        element.classList.add("tracomeco-red");
+
+        console.log("Tab được chọn:", element.innerText);
+    }
 </script>

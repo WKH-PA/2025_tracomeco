@@ -28,33 +28,33 @@ include _source . "box-header.php";
 //    LOCATION_js($full_url."/".$thongtin_step['seo_name']);
 //    exit;
     ?>
-<!--    <div class="page_conten_page pagewrap">-->
-<!--        <div class="tin_left_nd tin_left_2column">-->
-<!--            <div class="title_news">-->
-<!--                <h2>--><?//= $arr_running['tenbaiviet_' . $lang] ?><!--</h2>-->
-<!--                <li><i class="fa fa-calendar"></i>--><?//= date("d/m/Y", $arr_running['ngaydang']) ?><!--</li>-->
-<!--            </div>-->
-<!--            <div class="showText">-->
-<!--                --><?php
+    <!--    <div class="page_conten_page pagewrap">-->
+    <!--        <div class="tin_left_nd tin_left_2column">-->
+    <!--            <div class="title_news">-->
+    <!--                <h2>--><? //= $arr_running['tenbaiviet_' . $lang] ?><!--</h2>-->
+    <!--                <li><i class="fa fa-calendar"></i>--><? //= date("d/m/Y", $arr_running['ngaydang']) ?><!--</li>-->
+    <!--            </div>-->
+    <!--            <div class="showText">-->
+    <!--                --><?php
 //                $nd = SHOW_text($arr_running['noidung_' . $_SESSION['lang']]);
 //                if ($motty == "404") {
 //                    $nd = str_replace('[tencongty]', $thongtin['tenbaiviet_' . $lang], $nd);
 //                }
 //                echo $nd;
 //                ?>
-<!--            </div>-->
-<!---->
-<!--            --><?php
+    <!--            </div>-->
+    <!---->
+    <!--            --><?php
 //            include _source."tags.php";
 //            include _source . "fb_sharelink.php";
 //            ?>
-<!--            <div class="dv-fb_coment">-->
-<!--                --><?php //include _source . "fb_coment.php"; ?>
-<!--            </div>-->
-<!--        </div>-->
-<!--        --><?php //include _source . "tin_right.php"; ?>
-<!--        <div class="clr"></div>-->
-<!--    </div>-->
+    <!--            <div class="dv-fb_coment">-->
+    <!--                --><?php //include _source . "fb_coment.php"; ?>
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--        --><?php //include _source . "tin_right.php"; ?>
+    <!--        <div class="clr"></div>-->
+    <!--    </div>-->
 
 
     <div class="tracomeco_gioithieu">
@@ -63,16 +63,16 @@ include _source . "box-header.php";
         $imggioithieu = LAY_baiviet_chitiet(25);
 
         ?>
-        <?php include _source . "header_baiviet.php";?>
+        <?php include _source . "header_baiviet.php"; ?>
         <div class="page_conten_page p-t-60 p-b-60 tracomeco_gt_noidung">
             <div class="container-fluid">
                 <div class="tin_left">
                     <div class="title_news">
-                        <h1><?=$arr_running['tenbaiviet_'.$lang]?></h1>
+                        <h1><?= $arr_running['tenbaiviet_' . $lang] ?></h1>
                     </div>
                     <div class="showText">
-                        <p class="mota"><?=$arr_running['mota_'.$lang]?></p>
-                        <?=$arr_running['noidung_'.$lang]?>
+                        <p class="mota"><?= $arr_running['mota_' . $lang] ?></p>
+                        <?= $arr_running['noidung_' . $lang] ?>
                     </div>
                 </div>
 
@@ -81,6 +81,8 @@ include _source . "box-header.php";
         </div>
 
     </div>
-<?php } else {
-    include _source . "404.php";
-} ?>
+<?php } else { ?>
+    <div class="tracomeco_gioithieu tracomeco_gt_noidung">
+        <?php include _source . "404.php"; ?>
+    </div>
+<?php } ?>

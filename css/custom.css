@@ -30,6 +30,7 @@
 .hidden {
     display: none;
 }
+
 .menu.menu_pc > li > ul > li:last-child a {
     width: 100% ;
     overflow: hidden;
@@ -39,4 +40,18 @@
     left: calc(100% + 20px);
     top: -8px;
     width: fit-content;
+}
+
+.page_conten_page.pagewrap {
+    padding: 50px;
+    text-align: center;
+}
+.title_news{
+    margin-bottom: 15px;
+}
+.banner_detail img{
+    float: left;
+}
+.link-direct{
+    clear: both;
 }
