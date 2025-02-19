@@ -53,7 +53,7 @@
     //     document.getElementById(cityName).style.display = "block";
     //     evt.currentTarget.className += " w3-red";
     // }
-
+    //
     // function openCity2(evt, cityName) {
     //     var i, tabcontent2, tablinks2;
     //     tabcontent2 = document.getElementsByClassName("tabcontent2");

@@ -122,11 +122,6 @@ include _source . "box-header.php";
                                 <?php }
                             } ?>
                             </div>
-                            <?php
-                        } else { ?>
-                            <div class="no-data-message">
-                                <p>Không có tin tức nổi bật.</p>
-                            </div>
                         <?php } ?>
                     </div>
                 </div>
@@ -153,17 +148,23 @@ include _source . "box-header.php";
                             }
                             ?>
                         </select>
+                        <?php $danhmuc = LAY_danhmuc($arr_running['id'], ""); ?>
+<!--                        <select class="select-year font18" name="dm">-->
+<!--                            <option value="">Tất cả</option>-->
+<!--                            --><?php //foreach ($danhmuc as $rows) {
+//                                $selectdm = !empty($_GET['dm']) && $_GET['dm'] == $rows['id'] ? "selected" : "";
+//                                ?>
+<!--                                <option --><?//=$selectdm?><!-- value="--><?//= SHOW_text($rows['id']) ?><!--">-->
+<!--                                    --><?//= SHOW_text($rows['tenbaiviet_' . $lang]) ?>
+<!--                                </option>-->
+<!--                            --><?php //} ?>
+<!--                        </select>-->
                     </form>
                 </div>
 
                 <div class="list-media_wrapper">
                     <?php
-                    if ($nd_total == 0) { ?>
-                        <div class="new_id_bs no-data">
-                            <img src="/images/no-data.png" alt="Không có dữ liệu" class="no-data-img">
-                            <p><?= $glo_lang['khong_tim_thay_du_lieu_nao'] ?></p>
-                        </div>
-                    <?php } else {
+                    if ($nd_total > 0) {
                         foreach ($nd_kietxuat as $rows) { ?>
                             <div class="new_id_bs">
                                 <li>
@@ -204,6 +205,7 @@ include _source . "box-header.php";
     </div>
 </div>
 <div class="stop-footer w100"></div>
+
 
 
 

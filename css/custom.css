@@ -30,3 +30,13 @@
 .hidden {
     display: none;
 }
+.menu.menu_pc > li > ul > li:last-child a {
+    width: 100% ;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.menu > li > ul > li > ul.sub-menu {
+    left: calc(100% + 20px);
+    top: -8px;
+    width: fit-content;
+}

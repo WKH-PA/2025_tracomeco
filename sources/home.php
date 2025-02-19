@@ -65,12 +65,7 @@ $imggioithieu = LAY_baiviet_chitiet(25);
                         ?>
                         <p class="rate flex" style="margin:0">
                             <?php
-<<<<<<< Updated upstream
-                            for ($i = 1; $i <= $total_stars; $i++) {
-=======
-
                             for ($i = 0; $i <= $total_stars; $i++) {
->>>>>>> Stashed changes
                                 if ($rating <= $i) {
                                     echo '<i class="fa fa-star dis-star" aria-hidden="true"></i>';
 
@@ -113,7 +108,7 @@ $imggioithieu = LAY_baiviet_chitiet(25);
     </div>
 </div>
 
-<!--// chua lam-->
+
 <?php
 $where = "AND `opt1`=1";
 $tintuc = DB_fet_rd("*", "`#_baiviet`", " `step` IN (" . 5 . ") $where ", "  ", 3, "id");

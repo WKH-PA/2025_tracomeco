@@ -25,10 +25,47 @@ if ($motty == '404') {
 } else if (($motty != 'search-news' && $motty != 'search' && $motty != 'tin-khuyen-mai') && $motty != 'tag') {
     $datastep = DB_fet("*", "#_step", 'showhi=1 and id IN (' . $slug_step . ') ', "", "1", "arr", 1);
     $datastep = reset($datastep);
+
+    $dk_step = (!empty($slug_step)) ? "step=" . $slug_step : "";
+    $dk_seo = (!empty($motty)) ? "seo_name LIKE '%" . $motty . "%'" : "";
+    $dieukien = [];
+    if (!empty($dk_step)) $dieukien[] = $dk_step;
+    if (!empty($dk_seo)) $dieukien[] = $dk_seo;
+    $condition = !empty($dieukien) ? "AND (" . implode(" OR ", $dieukien) . ")" : "";
+//    $thongtin_menu = DB_fet("*", "#_menu",
+//        "showhi=1 AND id_parent NOT IN (0, 7) " . $condition,
+//        "", "", "arr", 1
+//    );
+    $thongtin_menu = DB_fet(
+        "*, COUNT(*) as so_lan_xuat_hien",
+        "#_menu",
+        "showhi=1 AND id_parent NOT IN (0, 7)" . $condition,
+        "so_lan_xuat_hien DESC",
+        "1",
+        "arr", 1
+    );
+    $thongtin_menu = reset($thongtin_menu);
+
+    $data_menucha = DB_fet(
+        "*",
+        "#_menu",
+        "showhi=1 AND id_parent  not IN (0, 7) AND id = " . $thongtin_menu['id_parent'],
+        "", "", "arr", 1
+    );
+    $data_menucha = reset($data_menucha);
+
+    $dk_parent = !empty($thongtin_menu['id_parent']) ? "id_parent=" . $thongtin_menu['id_parent'] : "";
+    $dieukien = array_filter([$dk_parent, $dk_seo, $dk_step]);
+    $condition = !empty($dieukien) ? " AND (" . implode(" OR ", $dieukien) . ")" : "";
+
+    $seonamecha = $full_url . '/' . $data_menucha['seo_name'];
+    $nameseonamecha = $data_menucha['tenbaiviet_' . $lang];
+    $arraydata[$seonamecha] = $nameseonamecha;
+
     $danhmucname = $datastep['tenbaiviet_' . $lang];
     $images_background = $fullpath . '/' . $datastep['duongdantin'] . '/' . $datastep['icon'];
-    $seonamestep = $full_url . '/' . $datastep['seo_name'];
-    $nameseonamestep = $datastep['tenbaiviet_' . $lang];
+    $seonamestep = $full_url . '/' . $thongtin_menu['seo_name'];
+    $nameseonamestep = $thongtin_menu['tenbaiviet_' . $lang];
     $arraydata[$seonamestep] = $nameseonamestep;
     $nametitle = $nameseonamestep;
     if ($slug_table == 'danhmuc') {
@@ -98,6 +135,7 @@ if ($motty == '404') {
 } else if ($motty == "tin-khuyen-mai") {
     $nametitle = $glo_lang['tin_khuyen_mai'];
     $arraydata[$full_url . '/tin-khuyen-mai/'] = $nametitle;
+
 } else {
     $nametitle = $glo_lang['tim_kiem'];
     $arraydata[$full_url . '/search/' . $haity] = $nametitle;
@@ -129,8 +167,7 @@ if ($motty == "search") {
 //}
 if ($motty == "san-pham-noi-bat") {
     $strshort = '/ <a class="cl_active" href="' . $full_url . "/san-pham-noi-bat/" . '"> ' . $glo_lang['san_pham_noi_bat'] . '</a>';
-}elseif ($motty == "thu-vien-anh-va-video")
-    $strshort = '/ <a class="cl_active" href="' . $full_url . "/thu-vien-anh-va-video/" . '"> ' . $glo_lang['thu_vien_anh_va_video'] . '</a>';
+}
 ?>
 <?php if ($motty != "404") { ?>
     <!--<div class="banner_detail" style="background-image: url('<?= $images_background ?>');">-->
