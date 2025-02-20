@@ -2,7 +2,7 @@ Options +FollowSymlinks
 RewriteEngine On
 RewriteRule ^datafiles(.+)\.php$ http://www.google.com [L,R]
 RewriteRule ^images(.+)\.php$ http://www.google.com [L,R]
-RewriteCond $1 !^(z\.php|bower_components|plugins|dist|imgcode\.php|myadmin|viewcss|images|index\.php|js|fonts|css|Font-Awesome-640|css_layout|js2|menu_mb|favicon\.ico|(.*)\.jpg|(.*)\.JPG|(.*)\.png|(.*)\.PNG|(.*)\.gif|(.*)\.ico|(.*)\.GIF|(.*)\.jpeg|(.*)\.JPEG|(.*)\.zip|(.*)\.doc|(.*)\.docx|(.*)\.xls|(.*)\.xlsx|(.*)\.gz|(.*)\.pdf|(.*)\.mp4|(.*)\.webp|layout|cke_min|(.*)\.svg|keybor|otime_img\.php|tool\.php|index2\.php|test\.php|api\.php)
+RewriteCond $1 !^(z\.php|bower_components|plugins|dist|imgcode\.php|myadmin|viewcss|images|index\.php|js|fonts|css|Font-Awesome-640|css_layout|js2|menu_mb|favicon\.ico|(.*)\.jpg|(.*)\.JPG|(.*)\.png|(.*)\.PNG|(.*)\.gif|(.*)\.ico|(.*)\.GIF|(.*)\.jpeg|(.*)\.JPEG|(.*)\.zip|(.*)\.doc|(.*)\.docx|(.*)\.xls|(.*)\.xlsx|(.*)\.gz|(.*)\.pdf|(.*)\.mp4|(.*)\.webp|layout|cke_min|(.*)\.svg|keybor|otime_img\.php|tool\.php|index2\.php|test\.php|api\.php|info\.php)
 RewriteRule ^(.*)$ index.php/$1 [L]
 
 php_value max_input_vars 10000

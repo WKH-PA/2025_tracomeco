@@ -104,12 +104,12 @@ foreach ($module_setting as $rows) {
 
 <body>
 <div class="page-wrapper" id="pageWrapper">
-    <?php include _src . "header.php"; ?>
+<!--    --><?php //include _src . "header.php"; ?>
     <div class="page-body-wrapper">
         <?php
         include _src . "sidebar.php";
 //        $id = !empty($id) ? $id : 36;
-        empty($id) ? include _src . "home.php" : include _src . "noidung.php";;;
+        empty($id) ? include _src . "home.php" : include _src . "noidung.php";
 //        include _src . "noidung.php";
         include _src . "footer.php";
         ?>
