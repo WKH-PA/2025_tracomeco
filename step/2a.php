@@ -117,10 +117,10 @@ include _source . "box-header.php";
         <div class="tracomeco-container">
 
             <div class="tracomeco-bar tracomeco-black">
-                <button class="tracomeco-bar-item tracomeco-button tablink tracomeco-red" onclick="openCity2(event,'tabs1')">Thông số kỹ thuật</button>
-                <button class="tracomeco-bar-item tracomeco-button tablink" onclick="openCity2(event,'tabs2')">Kiểu dáng</button>
-                <button class="tracomeco-bar-item tracomeco-button tablink" onclick="openCity2(event,'tabs3')">Nội thất</button>
-                <button class="tracomeco-bar-item tracomeco-button tablink" onclick="openCity2(event,'tabs4')">An toàn</button>
+                <button class="tracomeco-bar-item tracomeco-button tablink tracomeco-red" onclick="openCity2(event,'tabs1')"><?= $glo_lang['thong_so_ky_thuat'] ?></button>
+                <button class="tracomeco-bar-item tracomeco-button tablink" onclick="openCity2(event,'tabs2')"><?= $glo_lang['kieu_dang'] ?></button>
+                <button class="tracomeco-bar-item tracomeco-button tablink" onclick="openCity2(event,'tabs3')"><?= $glo_lang['noi_that'] ?></button>
+                <button class="tracomeco-bar-item tracomeco-button tablink" onclick="openCity2(event,'tabs4')"><?= $glo_lang['an_toan'] ?></button>
             </div>
 
             <div id="tabs1" class="tracomeco-container tracomeco-border city">

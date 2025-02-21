@@ -63,7 +63,7 @@ include _source."box-header.php";
                             </button>
                         </div>
                         <select class="select-year font18" name="year">
-                            <option value="">Tất cả</option>
+                            <option value=""><?=$glo_lang['tat_ca']?></option>
                             <?php
                             $currentYear = date("Y");
                             $startYear = 2000;

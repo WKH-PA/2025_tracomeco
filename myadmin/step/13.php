@@ -28,11 +28,11 @@
                 <?php if (!in_array($step, $st_bv_mota)) { ?>
                     <div class="form-group">
                         <label>Mô tả (<?= $lang ?>)</label>
-                        <!--<input type="text" class="form-control " name="mota_<?= $lang ?>"
+                       <input type="text" class="form-control " name="mota_<?= $lang ?>"
                                id="mota_<?= $lang ?>"
-                               value="<?= !empty(${"mota_" . $lang}) ? SHOW_text(${"mota_" . $lang}) : '' ?>">-->
-                        <textarea id="mota_<?= $lang ?>" name="mota_<?= $lang ?>"
-                                  class="paEditor"><?= !empty(${"mota_" . $lang}) ? SHOW_text(${"mota_" . $lang}) : '' ?></textarea>
+                               value="<?= !empty(${"mota_" . $lang}) ? SHOW_text(${"mota_" . $lang}) : '' ?>">
+<!--                        <textarea id="mota_--><?//= $lang ?><!--" name="mota_--><?//= $lang ?><!--"-->
+<!--                                  class="paEditor">--><?//= !empty(${"mota_" . $lang}) ? SHOW_text(${"mota_" . $lang}) : '' ?><!--</textarea>-->
                     </div>
                 <?php } ?>
 

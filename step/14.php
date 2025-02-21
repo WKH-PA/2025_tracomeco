@@ -125,7 +125,7 @@ include _source . "box-header.php";
                             </button>
                         </div>
                         <select class="select-year font18" name="year" style="margin-right: 20px;">
-                            <option value="">Tất cả</option>
+                            <option value=""><?=$glo_lang['tat_ca']?></option>
                             <?php
                             $currentYear = date("Y");
                             $startYear = 2000;
@@ -137,7 +137,7 @@ include _source . "box-header.php";
                         </select>
                         <?php $danhmuc = LAY_danhmuc($arr_running['id'], ""); ?>
                         <select class="select-year font18" name="dm">
-                            <option value="">Tất cả</option>
+                            <option value=""><?=$glo_lang['tat_ca']?></option>
                             <?php foreach ($danhmuc as $rows) {
                                 $selectdm = !empty($_GET['dm']) && $_GET['dm'] == $rows['id'] ? "selected" : "";
                                 ?>
