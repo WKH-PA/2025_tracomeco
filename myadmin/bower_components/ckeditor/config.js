@@ -4,6 +4,7 @@
  */
 
 CKEDITOR.editorConfig = function( config ) {
+	config.skin = 'moonocolor';
 	// Define changes to default configuration here. For example:
 	config.language = 'vi';
 	config.protectedSource.push(/<i[^>]*><\/i>/g);
