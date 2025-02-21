@@ -1,1 +1,0 @@
-[{"id":"60","bang":"baiviet","slug":"album-3","id_bang":"42","step":"10"}]

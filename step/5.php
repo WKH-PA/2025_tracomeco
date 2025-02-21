@@ -24,9 +24,9 @@ include _source . "box-header.php";
                         // if($i > 1) continue;
                         // full_img($rows, '')
                         ?>
-                        <h3><?=$rows['tenbaiviet_'.$lang]?></h3>
+                        <h3><?=GET_text($rows,'tenbaiviet_')?></h3>
                     <ul>
-                        <p><?= $rows['noidung_' . $lang] ?></p>
+                        <p><?=GET_text($rows,'noidung_') ?></p>
                     </ul>
 
                     <?php } ?>
@@ -62,10 +62,10 @@ include _source . "box-header.php";
                 ?>
                 <button class="tracomeco-bar-item tracomeco-button tablink <?= $activeClass ?>"
                         data-id="<?= $cityId ?>"
-                        data-title="<?= $rows['tenbaiviet_' . $lang] ?>"
-                        data-content="<?= htmlspecialchars($rows['noidung_' . $lang]) ?>"
+                        data-title="<?= GET_text($rows,'tenbaiviet_') ?>"
+                        data-content="<?= htmlspecialchars(GET_text($rows,'noidung_')) ?>"
                         onclick="openCity(this, '<?= $cityId ?>')">
-                    <?= $rows['tenbaiviet_' . $lang] ?>
+                    <?= GET_text($rows,'tenbaiviet_') ?>
                 </button>
                 <?php
                 $count++;
@@ -76,11 +76,11 @@ include _source . "box-header.php";
         $count = 1;
         foreach ($baiviet2 as $rows) {
             $cityId = "city_" . $count;
-            $activeClass = ($count == 1) ? 'active' : ''; // Mặc định hiển thị nội dung đầu tiên
+            $activeClass = ($count == 1) ? 'active' : '';
             ?>
             <div id="<?= $cityId ?>" class="tracomeco-container tracomeco-border city <?= $activeClass ?>">
-                <iframe src="<?= $rows['mota_' . $lang] ?>" width="100%" height="400" style="border:0;" allowfullscreen loading="lazy"></iframe>
-                <p><?= $rows['noidung_' . $lang] ?></p>
+                <iframe src="<?= GET_text($rows,'mota_') ?>" width="100%" height="400" style="border:0;" allowfullscreen loading="lazy"></iframe>
+                <p><?= GET_text($rows,'noidung_') ?></p>
             </div>
             <?php
             $count++;

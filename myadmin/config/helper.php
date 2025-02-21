@@ -45,44 +45,70 @@
         $menu =DB_fet("*","#_menu", "`showhi` = '1' AND `id_parent`= $id_parent", "`catasort` ASC","", "arr");
         return $menu;
     }
-    
 
-function shorten_text($text, $max_length) {
-    return (strlen($text) > $max_length) ? substr($text, 0, $max_length) . '...' : $text;
-}
 
-function get_menu_item_by_id($menu_items, $id) {
-    foreach ($menu_items as $item) {
-        if ($item['step'] == $id) return $item;
-    }
-    return null;
-}
+    //==========>menu
+        function shorten_text($text, $max_length) {
+            return (strlen($text) > $max_length) ? substr($text, 0, $max_length) . '...' : $text;
+        }
 
-function get_parent_menu_name($menus, $child_id) {
-    foreach ($menus as $menu) {
-        if ($menu['id'] == $child_id) {
-            foreach ($menus as $parent) {
-                if ($parent['id'] == $menu['id_parent']) return $parent['ten_vi'];
+        function get_menu_item_by_id($menu_items, $id) {
+            foreach ($menu_items as $item) {
+                if ($item['step'] == $id) return $item;
             }
+            return null;
+        }
+
+        function get_parent_menu_name($menus, $child_id) {
+            foreach ($menus as $menu) {
+                if ($menu['id'] == $child_id) {
+                    foreach ($menus as $parent) {
+                        if ($parent['id'] == $menu['id_parent']) return $parent['ten_vi'];
+                    }
+                }
+            }
+            return '';
+        }
+
+        function lay_du_lieu_theo_id($id, $type = 'step') {
+            $tables = [
+                'step' => "#_step",
+                'tinhnang' => "#_module_tinhnang",
+                'module_page' => "#_module_page"
+            ];
+
+            if (!isset($tables[$type])) return ['error' => "Invalid type: $type"];
+
+            $table = $tables[$type];
+            $condition = $type === 'module_page' ? "`page` = '$id'" : "`id` = '$id'";
+
+            $result = DB_que("SELECT * FROM `$table` WHERE $condition AND `showhi` = 1 LIMIT 1");
+
+            return DB_num($result) ? DB_arr($result)[0] : ['error' => "No results found for id: $id"];
+        }
+    //======>
+
+
+
+function GET_text($rows, $field, $fallbacks = ['vi']) {
+    global $full_url, $lang;
+    $keyLang = $field . $lang; // Ví dụ: 'tenbaiviet_en'
+
+    // Kiểm tra nếu tồn tại dữ liệu theo ngôn ngữ yêu cầu
+    if (isset($rows[$keyLang]) && !empty($rows[$keyLang])) {
+        return $rows[$keyLang];
+    }
+
+    // Duyệt danh sách fallback để tìm dữ liệu thay thế
+    foreach ($fallbacks as $fallback) {
+        $keyFallback = $field . $fallback;
+        if (isset($rows[$keyFallback]) && !empty($rows[$keyFallback])) {
+            return $rows[$keyFallback];
         }
     }
-    return '';
+
+    return ''; // Trả về chuỗi rỗng nếu không tìm thấy dữ liệu
 }
 
-// ✅ Gộp chung function lấy dữ liệu theo ID từ các bảng khác nhau
-function lay_du_lieu_theo_id($id, $type = 'step') {
-    $tables = [
-        'step' => "#_step",
-        'tinhnang' => "#_module_tinhnang",
-        'module_page' => "#_module_page"
-    ];
 
-    if (!isset($tables[$type])) return ['error' => "Invalid type: $type"];
 
-    $table = $tables[$type];
-    $condition = $type === 'module_page' ? "`page` = '$id'" : "`id` = '$id'";
-
-    $result = DB_que("SELECT * FROM `$table` WHERE $condition AND `showhi` = 1 LIMIT 1");
-
-    return DB_num($result) ? DB_arr($result)[0] : ['error' => "No results found for id: $id"];
-}

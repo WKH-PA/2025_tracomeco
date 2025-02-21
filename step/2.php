@@ -251,8 +251,8 @@ include _source . "box-header.php";
                     <div class="new_id_bs m-b-30">
                         <a <?= full_href($rows) ?>><?= full_img($rows) ?></a>
                         <div class="new_col">
-                            <h3><a <?= full_href($rows) ?>><?= $rows['tenbaiviet_' . $lang] ?></a></h3>
-                            <p><?= limitText($rows['mota_' . $lang],3) ?></p>
+                            <h3><a <?= full_href($rows) ?>><?= GET_text($rows,'tenbaiviet_') ?></a></h3>
+                            <p><?= limitText(GET_text($rows,'mota_'),3) ?></p>
                         </div>
                         <div class="clr"></div>
                     </div>

@@ -100,14 +100,14 @@ include _source . "box-header.php";
             <!--end viewLeft-->
             <div class="viewRight">
                 <div class="viewRight_more">
-                    <h1 class="titleView"><?= SHOW_text($arr_running['tenbaiviet_' . $lang]) ?></h1>
-                    <?= SHOW_text($arr_running['mota_' . $lang]) ?>
+                    <h1 class="titleView"><?= GET_text($arr_running,'tenbaiviet_') ?></h1>
+                    <?= GET_text($arr_running,'mota_') ?>
                     <div class="flex">
                         <p class="read-more" style="margin-right: 20px;">
                             <a href="<?= $full_url?>/lien-he" title="<?= $glo_lang['lien_he_bao_gia'] ?>"><?= $glo_lang['lien_he_bao_gia'] ?><i class="fa-light fa-arrow-up-right-from-square"></i></a>
                         </p>
                         <p class="read-more" style="">
-                            <a href="tel:<?=$thongtin['sodienthoai_'.$lang]?>" title="<?= $glo_lang['goi_ngay'] ?>"><?= $glo_lang['goi_ngay'] ?> <i class="fa-light fa-phone-flip"></i></a>
+                            <a href="tel:<?=GET_text($thongtin,'sodienthoai_')?>" title="<?= $glo_lang['goi_ngay'] ?>"><?= $glo_lang['goi_ngay'] ?> <i class="fa-light fa-phone-flip"></i></a>
                         </p>
                     </div>
                 </div>
@@ -125,25 +125,25 @@ include _source . "box-header.php";
 
             <div id="tabs1" class="tracomeco-container tracomeco-border city">
                 <div class="showText">
-                    <?= SHOW_text($arr_running['thongso_' . $lang]) ?>
+                    <?= GET_text($arr_running,'thongso_') ?>
                 </div>
             </div>
 
             <div id="tabs2" class="tracomeco-container tracomeco-border city" style="display:none">
                 <div class="showText">
-                    <?= SHOW_text($arr_running['kieudang_' . $lang]) ?>
+                    <?= GET_text($arr_running,'kieudang_') ?>
                 </div>
             </div>
 
             <div id="tabs3" class="tracomeco-container tracomeco-border city" style="display:none">
                 <div class="showText">
-                    <?= SHOW_text($arr_running['noidung_' . $lang]) ?>
+                    <?= GET_text($arr_running,'noidung_') ?>
                 </div>
             </div>
 
             <div id="tabs4" class="tracomeco-container tracomeco-border city" style="display:none">
                 <div class="showText">
-                    <?= SHOW_text($arr_running['noidung2_' . $lang]) ?>
+                    <?= GET_text($arr_running,'noidung2_') ?>
                 </div>
             </div>
 

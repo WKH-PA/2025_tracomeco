@@ -73,16 +73,16 @@ include _source . "box-header.php";
                                                 <a <?= full_href($rows) ?>>
                                                     <img src="<?= $fullpath . '/datafiles/' . $rows['icon'] ?>"
                                                          class="isload isload_full isload_full_1"
-                                                         alt="<?= $rows['tenbaiviet_' . $lang] ?>">
+                                                         alt="<?= GET_text($rows,'tenbaiviet_') ?>">
                                                 </a>
                                             </div>
                                             <div class="post_info">
-                                                <h3><a <?= full_href($rows) ?>><?= $rows['tenbaiviet_' . $lang] ?></a></h3>
+                                                <h3><a <?= full_href($rows) ?>><?= GET_text($rows,'tenbaiviet_') ?></a></h3>
                                                 <p class="dated">
                                                     <i class="fa-regular fa-calendar-days"></i>
                                                     <?= date("d/m/Y", $rows['ngaydang']); ?>
                                                 </p>
-                                                <p style="margin-bottom: 0"><?= $rows['mota_' . $lang] ?></p>
+                                                <p style="margin-bottom: 0"><?=GET_text($rows,'mota_') ?></p>
                                             </div>
                                         </div>
                                     </div>
@@ -95,11 +95,11 @@ include _source . "box-header.php";
                                             <a <?= full_href($rows) ?>>
                                                 <img src="<?= $fullpath . '/datafiles/' . $rows['icon'] ?>"
                                                      class="isload isload_full isload_full_1"
-                                                     alt="<?= $rows['tenbaiviet_' . $lang] ?>">
+                                                     alt="<?= GET_text($rows,'tenbaiviet_') ?>">
                                             </a>
                                         </div>
                                         <div class="post_info">
-                                            <h3><a <?= full_href($rows) ?>><?= $rows['tenbaiviet_' . $lang] ?></a></h3>
+                                            <h3><a <?= full_href($rows) ?>><?=GET_text($rows,'tenbaiviet_') ?></a></h3>
                                             <p class="dated">
                                                 <i class="fa-regular fa-calendar-days"></i>
                                                 <?= date("d/m/Y", $rows['ngaydang']); ?>
@@ -142,7 +142,7 @@ include _source . "box-header.php";
                                 $selectdm = !empty($_GET['dm']) && $_GET['dm'] == $rows['id'] ? "selected" : "";
                                 ?>
                                 <option <?=$selectdm?> value="<?= SHOW_text($rows['id']) ?>">
-                                    <?= SHOW_text($rows['tenbaiviet_' . $lang]) ?>
+                                    <?= SHOW_text(GET_text($rows,'tenbaiviet_')) ?>
                                 </option>
                             <?php } ?>
                         </select>
@@ -158,16 +158,16 @@ include _source . "box-header.php";
                                     <a <?= full_href($rows) ?>>
                                         <img src="<?= $fullpath . '/datafiles/' . $rows['icon'] ?>"
                                              class="isload isload_full isload_full_1"
-                                             alt="<?= $rows['tenbaiviet_' . $lang] ?>">
+                                             alt="<?= GET_text($rows,'tenbaiviet_') ?>">
                                     </a>
                                 </li>
                                 <ul>
-                                    <h3><a <?= full_href($rows) ?>><?= $rows['tenbaiviet_' . $lang] ?></a></h3>
+                                    <h3><a <?= full_href($rows) ?>><?= GET_text($rows,'tenbaiviet_') ?></a></h3>
                                     <p class="dated">
                                         <i class="fa-regular fa-calendar-days"></i>
                                         <?= date("d/m/Y", $rows['ngaydang']); ?>
                                     </p>
-                                    <p><?= limitText($rows['mota_' . $lang], 3) ?></p>
+                                    <p><?= limitText(GET_text($rows,'mota_'), 3) ?></p>
                                 </ul>
                             </div>
                         <?php }

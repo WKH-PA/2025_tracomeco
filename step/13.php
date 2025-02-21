@@ -31,7 +31,7 @@ if ($lay_all_kx != "") {
 }
 
 if ($is_search) {
-    $wh .= " AND (`tenbaiviet_" . $lang . "` LIKE '%" . $key . "%')";
+    $wh .= "AND (tenbaiviet_" . $lang . " LIKE '%" . $key . "%' OR tenbaiviet_vi LIKE '%" . $key . "%' OR tenbaiviet_en LIKE '%" . $key . "%')";
 
 }
 if ($is_search_year) {
@@ -114,7 +114,7 @@ include _source . "box-header.php";
                                     <h3>
                                         <!-- Mở file khi nhấn vào tên -->
                                         <a <?= full_href($rows)?>>
-                                            <?= SHOW_text($rows['tenbaiviet_' . $lang]) ?>
+                                            <?= GET_text($rows,'tenbaiviet_') ?>
                                         </a>
                                     </h3>
                                     <p>1 Files</p>
