@@ -204,8 +204,8 @@ require(
         [
             // 'echarts/chart/bar',
             // 'echarts/chart/line',
-            // 'echarts/component/legend',
-            // 'echarts/component/graphic',
+            // 'echarts//legend',
+            // 'echarts//graphic',
             // 'echarts/component/grid',
             // 'echarts/component/tooltip',
             // 'echarts/component/brush',
