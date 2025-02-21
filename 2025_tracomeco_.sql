@@ -1,0 +1,6260 @@
+-- phpMyAdmin SQL Dump
+-- version 4.8.1
+-- https://www.phpmyadmin.net/
+--
+-- Máy chủ: localhost
+-- Thời gian đã tạo: Th2 21, 2025 lúc 10:56 AM
+-- Phiên bản máy phục vụ: 10.1.33-MariaDB
+-- Phiên bản PHP: 7.2.6
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Cơ sở dữ liệu: `test1`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_backup`
+--
+
+CREATE TABLE `lh_backup` (
+  `id` int(11) NOT NULL,
+  `file` varchar(255) DEFAULT NULL,
+  `duongdantin` varchar(255) DEFAULT NULL,
+  `ngay_backup` int(11) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_baiviet`
+--
+
+CREATE TABLE `lh_baiviet` (
+  `id` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL DEFAULT '0',
+  `id_parent` int(11) NOT NULL DEFAULT '0',
+  `tenbaiviet_vi` varchar(255) DEFAULT NULL,
+  `tenbaiviet_en` varchar(255) DEFAULT NULL,
+  `tenbaiviet_cn` varchar(255) DEFAULT NULL,
+  `mota_vi` text,
+  `mota_en` text,
+  `mota_cn` text,
+  `noidung_vi` mediumtext,
+  `noidung_en` mediumtext,
+  `noidung_cn` text,
+  `tags_vi` varchar(255) DEFAULT NULL,
+  `tags_en` varchar(255) DEFAULT NULL,
+  `tags_cn` varchar(255) DEFAULT NULL,
+  `seo_name` varchar(255) DEFAULT NULL,
+  `id_parent_muti` varchar(255) DEFAULT NULL,
+  `catasort` int(11) NOT NULL DEFAULT '0',
+  `icon` varchar(255) DEFAULT NULL,
+  `icon_hover` varchar(255) DEFAULT NULL,
+  `dowload` varchar(255) DEFAULT NULL,
+  `dowload_text` varchar(255) DEFAULT NULL,
+  `duongdantin` varchar(255) NOT NULL DEFAULT 'datafiles/setone',
+  `ngaydang` int(11) NOT NULL DEFAULT '0',
+  `capnhat` int(11) NOT NULL DEFAULT '0',
+  `soluotxem` int(11) NOT NULL DEFAULT '1',
+  `step` tinyint(3) NOT NULL DEFAULT '1',
+  `giatien` bigint(11) NOT NULL DEFAULT '0',
+  `giakm` bigint(11) NOT NULL DEFAULT '0',
+  `seo_title_vi` varchar(255) DEFAULT NULL,
+  `seo_title_en` varchar(255) DEFAULT NULL,
+  `seo_title_cn` varchar(255) DEFAULT NULL,
+  `seo_keywords_vi` varchar(255) DEFAULT NULL,
+  `seo_keywords_en` varchar(255) DEFAULT NULL,
+  `seo_keywords_cn` varchar(255) DEFAULT NULL,
+  `seo_description_vi` varchar(255) DEFAULT NULL,
+  `seo_description_en` varchar(255) DEFAULT NULL,
+  `seo_description_cn` varchar(255) DEFAULT NULL,
+  `opt_km` tinyint(1) NOT NULL DEFAULT '0',
+  `opt` tinyint(1) NOT NULL DEFAULT '0',
+  `opt1` tinyint(1) NOT NULL DEFAULT '0',
+  `opt2` tinyint(1) NOT NULL DEFAULT '0',
+  `opt3` tinyint(4) NOT NULL DEFAULT '0',
+  `opt4` tinyint(4) NOT NULL DEFAULT '0',
+  `opt5` tinyint(4) NOT NULL DEFAULT '0',
+  `top_video` tinyint(4) NOT NULL DEFAULT '0',
+  `p1` varchar(255) DEFAULT NULL,
+  `p2` int(11) NOT NULL DEFAULT '0',
+  `p3` varchar(255) DEFAULT NULL,
+  `link_video` varchar(255) DEFAULT NULL,
+  `num_1` int(11) NOT NULL DEFAULT '0',
+  `num_2` int(11) NOT NULL DEFAULT '0',
+  `num_3` int(11) NOT NULL DEFAULT '0',
+  `num_4` int(11) NOT NULL DEFAULT '0',
+  `showhi` tinyint(1) NOT NULL DEFAULT '1',
+  `tinh_nang` text,
+  `thuoc_tinh_1_vi` varchar(255) DEFAULT NULL,
+  `thuoc_tinh_1_en` varchar(255) DEFAULT NULL,
+  `thuoc_tinh_2_vi` varchar(255) DEFAULT NULL,
+  `thuoc_tinh_2_en` varchar(255) DEFAULT NULL,
+  `thuoc_tinh_3_vi` varchar(255) DEFAULT NULL,
+  `thuoc_tinh_3_en` varchar(255) DEFAULT NULL,
+  `gia_tri_1_vi` longtext,
+  `gia_tri_2_vi` longtext,
+  `gia_tri_3_vi` longtext,
+  `thongso_vi` mediumtext,
+  `thongso_en` mediumtext,
+  `thongtin_vi` mediumtext,
+  `thongtin_en` mediumtext,
+  `ngayden` int(11) NOT NULL DEFAULT '0',
+  `ngaydi` int(11) NOT NULL DEFAULT '0',
+  `id_tag_multi` varchar(255) DEFAULT NULL,
+  `noidung2_vi` mediumtext,
+  `noidung2_en` mediumtext,
+  `noidung2_cn` text,
+  `kieudang_vi` mediumtext,
+  `kieudang_en` mediumtext,
+  `kieudang_cn` text
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COMMENT='Bang chua catalag News' ROW_FORMAT=DYNAMIC;
+
+--
+-- Đang đổ dữ liệu cho bảng `lh_baiviet`
+--
+
+INSERT INTO `lh_baiviet` (`id`, `id_user`, `id_parent`, `tenbaiviet_vi`, `tenbaiviet_en`, `tenbaiviet_cn`, `mota_vi`, `mota_en`, `mota_cn`, `noidung_vi`, `noidung_en`, `noidung_cn`, `tags_vi`, `tags_en`, `tags_cn`, `seo_name`, `id_parent_muti`, `catasort`, `icon`, `icon_hover`, `dowload`, `dowload_text`, `duongdantin`, `ngaydang`, `capnhat`, `soluotxem`, `step`, `giatien`, `giakm`, `seo_title_vi`, `seo_title_en`, `seo_title_cn`, `seo_keywords_vi`, `seo_keywords_en`, `seo_keywords_cn`, `seo_description_vi`, `seo_description_en`, `seo_description_cn`, `opt_km`, `opt`, `opt1`, `opt2`, `opt3`, `opt4`, `opt5`, `top_video`, `p1`, `p2`, `p3`, `link_video`, `num_1`, `num_2`, `num_3`, `num_4`, `showhi`, `tinh_nang`, `thuoc_tinh_1_vi`, `thuoc_tinh_1_en`, `thuoc_tinh_2_vi`, `thuoc_tinh_2_en`, `thuoc_tinh_3_vi`, `thuoc_tinh_3_en`, `gia_tri_1_vi`, `gia_tri_2_vi`, `gia_tri_3_vi`, `thongso_vi`, `thongso_en`, `thongtin_vi`, `thongtin_en`, `ngayden`, `ngaydi`, `id_tag_multi`, `noidung2_vi`, `noidung2_en`, `noidung2_cn`, `kieudang_vi`, `kieudang_en`, `kieudang_cn`) VALUES
+(1, 1, 0, 'Năng lượng sinh khối', 'Biomass energy industry', '', 'THIÊN HOÀNG là nhà sản xuất và cung cấp viên nén gỗ với chất lượng quốc tế cho các nhà máy nhiệt điện sinh khối, lò hơi, lò sưởi tại thị trường Châu Á và Châu Âu như Nhật Bản, Hàn Quốc ...', 'THIEN HOANG is a manufacturer and supplier of wood pellets with international quality for biomass thermal power plants, boilers and heaters Asian and European markets such as Japan, Korea...', '', '<ul>\r\n	<li style=\"margin-left: 40px;\"><strong>VI&Ecirc;N N&Eacute;N GỖ:&nbsp;</strong>Thiện Ho&agrave;ng&nbsp;l&agrave; nh&agrave; sản xuất v&agrave; cung cấp vi&ecirc;n n&eacute;n gỗ với chất lượng quốc tế cho nh&agrave; m&aacute;y nhiệt điện sinh khối, l&ograve; hơi v&agrave; l&ograve; sưởi ấm c&aacute;c thị trường ch&acirc;u &Aacute;, Ch&acirc;u&nbsp; &Acirc;u&nbsp;như Nhật Bản, H&agrave;n Quốc...</li>\r\n</ul>\r\n\r\n<ul>\r\n	<li style=\"margin-left: 40px;\"><strong>DĂM B&Agrave;O, M&Ugrave;N CƯA &Eacute;P KHỐI: </strong>Với nguy&ecirc;n liệu ch&iacute;nh từ c&aacute;c phế phẩm từ hoạt động sản xuất gỗ. Dăm b&agrave;o, m&ugrave;n cưa &eacute;p khối l&agrave; sản phẩm được ứng dụng ch&iacute;nh cho việc trồng nấm, l&oacute;t chuồng động vật. Ngo&agrave;i ra c&ograve;n được sử dụng để trộn với c&aacute;c chất thải kh&aacute;c để l&agrave;m ph&acirc;n b&oacute;n v&ocirc; cơ.</li>\r\n</ul>\r\n\r\n<ul>\r\n	<li style=\"margin-left: 40px;\"><strong>DĂM GỖ:&nbsp;</strong>Nguy&ecirc;n liệu được lấy từ nguồn gỗ rừng trồng, dăm gỗ được sử dụng l&agrave;m nguy&ecirc;n liệu ch&iacute;nh cho ng&agrave;nh c&ocirc;ng nghiệp giấy của thị trường Ch&acirc;u &Aacute; như Trung Quốc, Nhật Bản, H&agrave;n Quốc. Ngo&agrave;i ra cũng l&agrave; nhi&ecirc;n liệu cung cấp cho c&aacute;c nh&agrave; m&aacute;y nhiệt điện sinh khối v&agrave; l&ograve; hơi.</li>\r\n</ul>', '<ul>\r\n	<li><strong>WOOD PELLETS:</strong>&nbsp;Thien Hoang Group has been manufacturer and supplier of wood pellets with international quality for biomass thermal power plants, boilers and heaters in Asia such as Japan, Korea... and European markets.</li>\r\n	<li><strong>WOOD SHAVING &amp; SAWDUST BLOCK:</strong>The raw materials from by-products of furniture production, wood shaving &amp; sawdust block are used for the heating carpet for the animals and mushroom raising application, also used for mix with the wastes to produce fertilizers.</li>\r\n	<li><strong>WOOD CHIPS</strong>: Raw materials are taken from wood of artificial forest. Wood chips are used as the main raw materials for the paper industry of Asian markets such as China, Japan, and Korea. In addition, used burning fuel for biomass thermal power plants and boiler</li>\r\n</ul>', '', '', '', '', 'biomass-energy-industry', '', 4, '1623826914_1.jpg', NULL, NULL, '', 'datafiles', 1623830350, 0, 122, 3, 0, 0, 'Biomass energy industry', 'Biomass energy industry', '', 'Biomass energy industry', 'Biomass energy industry', '', 'Biomass energy industry', 'Biomass energy industry', NULL, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL),
+(5, 1, 0, 'What is the procedure for importing goods in Vietnam 10?', 'What is the procedure for importing goods in Vietnam 10?', '', 'Import-export is a fairly broad field, to understand this array well, one article is impossible to encapsulate. So, in this article the experts...', 'Import-export is a fairly broad field, to understand this array well, one article is impossible to encapsulate. So, in this article the experts...', '', '<p style=\"text-align:center\"><a class=\"img-box\" href=\"https://lecvietnam.com/hoat-dong/tin-tuc/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-nhu-the-nao-60.html\" style=\"text-align: center;\"><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam như thế nào?\" height=\"300\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-4.jpg\" width=\"600\" /></a></p>\r\n\r\n<h2><span><span style=\"color:#a2c64a;font-size: 17px;\"><strong>What kind of procedure to import goods in Vietnam?</strong></span></span></h2>\r\n\r\n<p><span>Import of goods in Vietnam can be understood simply as a type of importation of goods under a sales contract to Vietnam. After that, it will be sold domestically or used as raw materials for production. For example: <em>imports clothes from Taiwan to Vietnam to sell at stores; importing beef from Japan to sell at supermarkets or big stores in Vietnam,&hellip;</em></span></p>\r\n\r\n<p style=\"text-align: center;\"><span><em><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" height=\"320\" longdesc=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam.jpg\" style=\"width: 600px; height: 320px;\" title=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" width=\"600\" /></em></span></p>\r\n\r\n<p><em><strong><span>Types of procedures for importing goods in Vietnam include:</span></strong></em></p>\r\n\r\n<ul>\r\n	<li><span>Import for consumer business (goods are cleared at the border gate Customs Department).</span></li>\r\n	<li><span>Import for production business (goods are cleared at the border gate Customs Sub-Department).</span></li>\r\n	<li><span>Transfer domestic consumption from temporarily imported source.</span></li>\r\n	<li><span>Import returned export goods.</span></li>\r\n	<li><span>Business importation of foreign invested enterprises.</span></li>\r\n	<li><span>Transfer to other domestic consumption.</span></li>\r\n	<li><span>Import raw materials of export processing enterprises from abroad.</span></li>\r\n	<li><span>Import and create fixed assets of export processing enterprises.</span></li>\r\n	<li><span>Import raw materials from domestic export processing enterprises.</span></li>\r\n	<li><span>Import raw materials for processing for foreign traders.</span></li>\r\n	<li><span>Import processing materials from another contract.</span></li>\r\n	<li><span>Import raw materials for export production.</span></li>\r\n	<li><span>Input materials in tax declaration warehouse.</span></li>\r\n	<li><span>Import processed products abroad.</span></li>\r\n	<li><span>Temporary import of goods temporarily imported for re-export.</span></li>\r\n	<li><span>Temporary import of machinery and equipment to serve the project for a limited time.</span></li>\r\n	<li><span>Temporary duty-free import.</span></li>\r\n	<li><span>Other temporary entry.</span></li>\r\n	<li><span>Re-import of temporarily exported goods.</span></li>\r\n	<li><span>Goods in bonded warehouse.</span></li>\r\n	<li><span>Goods brought into the non-tariff area of ​​the border gate economic zone.</span></li>\r\n	<li><span>Other imported goods.</span></li>\r\n</ul>\r\n\r\n<h3><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong>THIEN HOANG CONSTRUCTION AND TRADING CO. </strong></span></span></h3>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Address:</strong> 982 Hung Vuong, Nhon Phu Ward, Quy Nhon City, Binh Dinh Province</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Hotline:</strong> 025 6354 8989</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Email:</strong> <a href=\"mailto:info@thienhoanggroup.com\"><span style=\"color:#0000ff;\"><em>info@thienhoanggroup.com</em> </span></a></span></strong></span></span></p>', '<p style=\"text-align:center\"><a class=\"img-box\" href=\"https://lecvietnam.com/hoat-dong/tin-tuc/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-nhu-the-nao-60.html\" style=\"text-align: center;\"><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam như thế nào?\" height=\"300\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-4.jpg\" width=\"600\" /></a></p>\r\n\r\n<h2><span><span style=\"color:#a2c64a;font-size: 17px;\"><strong>What kind of procedure to import goods in Vietnam?</strong></span></span></h2>\r\n\r\n<p><span>Import of goods in Vietnam can be understood simply as a type of importation of goods under a sales contract to Vietnam. After that, it will be sold domestically or used as raw materials for production. For example: <em>imports clothes from Taiwan to Vietnam to sell at stores; importing beef from Japan to sell at supermarkets or big stores in Vietnam,&hellip;</em></span></p>\r\n\r\n<p style=\"text-align: center;\"><span><em><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" height=\"320\" longdesc=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam.jpg\" style=\"width: 600px; height: 320px;\" title=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" width=\"600\" /></em></span></p>\r\n\r\n<p><em><strong><span>Types of procedures for importing goods in Vietnam include:</span></strong></em></p>\r\n\r\n<ul>\r\n	<li><span>Import for consumer business (goods are cleared at the border gate Customs Department).</span></li>\r\n	<li><span>Import for production business (goods are cleared at the border gate Customs Sub-Department).</span></li>\r\n	<li><span>Transfer domestic consumption from temporarily imported source.</span></li>\r\n	<li><span>Import returned export goods.</span></li>\r\n	<li><span>Business importation of foreign invested enterprises.</span></li>\r\n	<li><span>Transfer to other domestic consumption.</span></li>\r\n	<li><span>Import raw materials of export processing enterprises from abroad.</span></li>\r\n	<li><span>Import and create fixed assets of export processing enterprises.</span></li>\r\n	<li><span>Import raw materials from domestic export processing enterprises.</span></li>\r\n	<li><span>Import raw materials for processing for foreign traders.</span></li>\r\n	<li><span>Import processing materials from another contract.</span></li>\r\n	<li><span>Import raw materials for export production.</span></li>\r\n	<li><span>Input materials in tax declaration warehouse.</span></li>\r\n	<li><span>Import processed products abroad.</span></li>\r\n	<li><span>Temporary import of goods temporarily imported for re-export.</span></li>\r\n	<li><span>Temporary import of machinery and equipment to serve the project for a limited time.</span></li>\r\n	<li><span>Temporary duty-free import.</span></li>\r\n	<li><span>Other temporary entry.</span></li>\r\n	<li><span>Re-import of temporarily exported goods.</span></li>\r\n	<li><span>Goods in bonded warehouse.</span></li>\r\n	<li><span>Goods brought into the non-tariff area of ​​the border gate economic zone.</span></li>\r\n	<li><span>Other imported goods.</span></li>\r\n</ul>\r\n\r\n<h3><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong>THIEN HOANG CONSTRUCTION AND TRADING CO. </strong></span></span></h3>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Address:</strong> 982 Hung Vuong, Nhon Phu Ward, Quy Nhon City, Binh Dinh Province</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Hotline:</strong> 025 6354 8989</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Email:</strong> <a href=\"mailto:info@thienhoanggroup.com\"><span style=\"color:#0000ff;\"><em>info@thienhoanggroup.com</em> </span></a></span></strong></span></span></p>', '', '', '', '', 'what-is-the-procedure-for-importing-goods-in-vietnam', '', 1, '1623833540_tintuc1.png', NULL, NULL, '', 'datafiles', 1623814885, 0, 1, 5, 0, 0, 'What is the procedure for importing goods in Vietnam?', 'What is the procedure for importing goods in Vietnam?', '', 'What is the procedure for importing goods in Vietnam?', 'What is the procedure for importing goods in Vietnam?', '', 'What is the procedure for importing goods in Vietnam?', 'What is the procedure for importing goods in Vietnam?', NULL, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 1, 0, 'Lâm nghiệp trồng & Quản lý rừng trồng', 'Forestry industry', '', 'Hầu hết các hoạt động sản xuất kinh doanh của công ty đều liên quan đến nguyên liệu gỗ rừng trồng. Vì vậy, chúng tôi luôn phát triển nguồn nguyên liệu rừng trồng song song với hoạt động kinh doanh', 'Most of the company\'s production and business activities are related to wood materials planted forest. Therefore, we always develop the source of plantation materials in parallel with business activities', '', '<p>Đa phần hoạt động sản xuất, kinh doanh của c&ocirc;ng ty li&ecirc;n quan tới nguồn nguy&ecirc;n liệu l&agrave; gỗ rừng trồng. V&igrave; vậy, ch&uacute;ng t&ocirc;i lu&ocirc;n ph&aacute;t triển nguồn nguy&ecirc;n liệu rừng trồng song song với hoạt động sản xuất kinh doanh của c&ocirc;ng ty. Hoạt động trồng, quản l&yacute; v&agrave; khai th&aacute;c rừng trồng theo đ&uacute;ng quy tắc quốc tế ph&aacute;t triển rừng bền vững.</p>\r\n\r\n<p style=\"text-align:center\"><img alt=\"\" src=\"/2021_thienhoanggroup/datafiles/images/banner3.jpg\" style=\"width: 100%;\" /></p>\r\n\r\n<p>&nbsp;</p>', '<p>Most of the company&rsquo;s production and business activities are related to raw materials from artificial forest. Therefore, we always develop materials from artificial forest in parallely with the company&rsquo;s production and business activities. Artificial forest planting, management and exploitation activities are complied with international rules for sustainable forest development.</p>\r\n\r\n<p style=\"text-align:center\"><img alt=\"\" src=\"/2021_thienhoanggroup/datafiles/images/banner3.jpg\" style=\"width: 100%;\" /></p>\r\n\r\n<p>&nbsp;</p>', '', '', '', '', 'forestry-industry', '', 3, '1629084168_csm_Akazienforst_Kolumbien_0c1c6cd08b.jpg', NULL, NULL, '', 'datafiles', 1623822159, 0, 61, 3, 0, 0, 'Forestry industry', 'Forestry industry', '', 'Forestry industry', 'Forestry industry', '', 'Forestry industry', 'Forestry industry', NULL, 0, 0, 0, 1, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL),
+(3, 1, 0, 'Sản xuất & Thi công nội thất - Nội thất mây nhựa', 'Furniture industry', '', 'Bằng sự nhiệt tình, thấu hiểu và sáng tạo, Chúng tôi tự tin mang đến cho Quý khách hàng phong cách Giàu tính thẩm mỹ, nâng tầm giá trị công trình của bạn với chi phí tối ưu', 'With enthusiasm, understanding and creativity, We are confident to bring our customers the style Rich in aesthetics, raising the value of your work at a cost optimal', '', '<p><strong>SẢN XUẤT V&Agrave; THI C&Ocirc;NG NỘI THẤT</strong></p>\r\n\r\n<p>Thiện Ho&agrave;ng l&agrave; c&ocirc;ng ty uy t&iacute;n trong lĩnh vực sản xuất, thiết kế v&agrave; thi c&ocirc;ng nội ngoại thất với nền tảng kinh nghiệm nhiều năm trong ng&agrave;nh. Bằng t&acirc;m huyết c&ugrave;ng với sự am hiểu v&agrave; s&aacute;ng tạo, ch&uacute;ng t&ocirc;i tự tin mang tới cho kh&aacute;ch h&agrave;ng những phong c&aacute;ch gi&agrave;u t&iacute;nh thẩm mỹ, n&acirc;ng tầm gi&aacute; trị c&ocirc;ng tr&igrave;nh của bạn với chi ph&iacute; tối ưu.</p>\r\n\r\n<p><strong>NỘI THẤT M&Acirc;Y NHỰA</strong></p>\r\n\r\n<p>Thiện Ho&agrave;ng l&agrave; nh&agrave; sản xuất, xuất khẩu nội ngoại thất m&acirc;y nhựa trong những năm gần đ&acirc;y. Ch&uacute;ng t&ocirc;i cung cấp c&aacute;c giải ph&aacute;p nội thất ho&agrave;n thiện ngo&agrave;i trời v&agrave; trong nh&agrave; với c&aacute;c sản phẩm nội thất m&acirc;y nhựa chất lượng cao v&agrave; nội thất với thiết kế hiện đại kh&ocirc;ng k&eacute;m phần sang trọng.</p>', '<p><strong>MANUFACTURER &amp; CONSTRUCTION FURNITURE</strong></p>\r\n\r\n<p>Thien Hoang Group is a reputable company in the field of manufacturing, designing and constructing interior and exterior furniture with many years of experience in the industry. With our enthusiasm and deep understanding and creativity, we confidently bring to our customer with aesthetical styles, elevating the value of your project at optimal costs.</p>\r\n\r\n<p><strong>WICKER FURNITURE</strong></p>\r\n\r\n<p>Thien Hoang Group is a manufacturer and exporter of wicker furniture in recent years. We provide complete outdoor and indoor interior solutions with high quality wicker furniture and interior furniture with a modern but no less luxurious design</p>', '', '', '', '', 'furniture-industry', '', 2, '1623832457_3.jpg', NULL, NULL, '', 'datafiles', 1623822289, 0, 65, 3, 0, 0, 'Furniture industry', 'Furniture industry', '', 'Furniture industry', 'Furniture industry', '', 'Furniture industry', 'Furniture industry', NULL, 0, 0, 0, 1, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL),
+(4, 1, 0, 'Dịch vụ chuỗi cung ứng & Logistics', 'Supply chain and logistics', '', 'IEH Logistics và ANT Shipping được thành lập với mục tiêu kết nối giao thương chuyển phát phục vụ các hoạt động thương mại quốc tế đã nhanh chóng trở thành một trong những thương hiệu phát triển vượt bậc ...', 'IEH Logistics and ANT Shipping were established with the goal of connecting delivery trade for international trade activities has quickly become a one of the outstandingly developed brands...', '', '<p>IEH Logistics c&ugrave;ng với ANT Shipping được th&agrave;nh lập với mục ti&ecirc;u kết nối giao thương cho c&aacute;c hoạt động thương mại quốc tế đ&atilde; nhanh ch&oacute;ng trở th&agrave;nh một trong những thương hiệu ph&aacute;t triển vượt bật trong lĩnh vực dịch vụ chuỗi cung ứng v&agrave; logistics. Với vinh dự l&agrave; Hội vi&ecirc;n ch&iacute;nh thức của c&aacute;c Hiệp hội giao nhận vận tải uy t&iacute;n trong v&agrave; ngo&agrave;i nước: WCA, FIATA, VLA... Suốt thời gian qua ch&uacute;ng t&ocirc;i rất tự h&agrave;o đ&atilde; đồng h&agrave;nh ph&aacute;t triển v&agrave; mang lại gi&aacute; trị cho tất cả kh&aacute;ch h&agrave;ng v&agrave; đối t&aacute;c.</p>\r\n\r\n<p><strong>DỊCH VỤ CUNG CẤP CỦA CH&Uacute;NG T&Ocirc;I BAO GỒM:</strong></p>\r\n\r\n<ol>\r\n	<li>Đại l&yacute; thủ tục Hải quan</li>\r\n	<li>Dịch vụ gi&aacute; trị gia tăng</li>\r\n	<li>Uỷ th&aacute;c xuất nhập khẩu h&agrave;ng ho&aacute;, chuyển ph&aacute;t nhanh quốc tế, đ&oacute;ng g&oacute;i h&agrave;ng ho&aacute;, kiểm định, khử tr&ugrave;ng, kiểm dịch...</li>\r\n	<li>Vận tải quốc tế đường biển, đường h&agrave;ng kh&ocirc;ng</li>\r\n	<li>M&ocirc;i giới cho thu&ecirc; v&agrave; đại l&yacute; t&agrave;u biển</li>\r\n	<li>Vận tải nội địa v&agrave; dịch vụ</li>\r\n</ol>', '<p>IEH Logistics, together with ANT Shipping, which were established with the goal of connecting trade for international trade activities, has quickly become one of the emerging brands in the field of supply chain services and logistics. With the honor of being an official member of prestigious domestic and foreign freight forwarding associations: WCA, FIATA, VLA, etc. We are very proud of having accompanied the development and bringing value to all customers and partners.</p>\r\n\r\n<p><strong>OUR OFFERING INCLUDES:</strong></p>\r\n\r\n<ol>\r\n	<li>Customs agency</li>\r\n	<li>Value-added service</li>\r\n	<li>Entrust goods import and export, international express delivery, goods packaging, inspection, sterilization, quarantine, etc.</li>\r\n	<li>International transportation by sea and by air</li>\r\n	<li>Ship rental broker and agent</li>\r\n	<li>Domestic transportation and warehouse rental services</li>\r\n</ol>', '', '', '', '', 'supply-chain-and-logistics', '', 1, '1623832457_4.jpg', NULL, NULL, '', 'datafiles', 1623822483, 0, 28, 3, 0, 0, 'Supply chain and logistics', 'Supply chain and logistics', '', 'Supply chain and logistics', 'Supply chain and logistics', '', 'Supply chain and logistics', 'Supply chain and logistics', NULL, 0, 0, 0, 1, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL),
+(6, 1, 0, 'What is the procedure for importing goods in Vietnam 9?', 'What is the procedure for importing goods in Vietnam 9?', '', 'Import-export is a fairly broad field, to understand this array well, one article is impossible to encapsulate. So, in this article the experts...', 'Import-export is a fairly broad field, to understand this array well, one article is impossible to encapsulate. So, in this article the experts...', '', '<p style=\"text-align:center\"><a class=\"img-box\" href=\"https://lecvietnam.com/hoat-dong/tin-tuc/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-nhu-the-nao-60.html\" style=\"text-align: center;\"><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam như thế nào?\" height=\"300\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-4.jpg\" width=\"600\" /></a></p>\r\n\r\n<h2><span><span style=\"color:#a2c64a;font-size: 17px;\"><strong>What kind of procedure to import goods in Vietnam?</strong></span></span></h2>\r\n\r\n<p><span>Import of goods in Vietnam can be understood simply as a type of importation of goods under a sales contract to Vietnam. After that, it will be sold domestically or used as raw materials for production. For example: <em>imports clothes from Taiwan to Vietnam to sell at stores; importing beef from Japan to sell at supermarkets or big stores in Vietnam,&hellip;</em></span></p>\r\n\r\n<p style=\"text-align: center;\"><span><em><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" height=\"320\" longdesc=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam.jpg\" style=\"width: 600px; height: 320px;\" title=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" width=\"600\" /></em></span></p>\r\n\r\n<p><em><strong><span>Types of procedures for importing goods in Vietnam include:</span></strong></em></p>\r\n\r\n<ul>\r\n	<li><span>Import for consumer business (goods are cleared at the border gate Customs Department).</span></li>\r\n	<li><span>Import for production business (goods are cleared at the border gate Customs Sub-Department).</span></li>\r\n	<li><span>Transfer domestic consumption from temporarily imported source.</span></li>\r\n	<li><span>Import returned export goods.</span></li>\r\n	<li><span>Business importation of foreign invested enterprises.</span></li>\r\n	<li><span>Transfer to other domestic consumption.</span></li>\r\n	<li><span>Import raw materials of export processing enterprises from abroad.</span></li>\r\n	<li><span>Import and create fixed assets of export processing enterprises.</span></li>\r\n	<li><span>Import raw materials from domestic export processing enterprises.</span></li>\r\n	<li><span>Import raw materials for processing for foreign traders.</span></li>\r\n	<li><span>Import processing materials from another contract.</span></li>\r\n	<li><span>Import raw materials for export production.</span></li>\r\n	<li><span>Input materials in tax declaration warehouse.</span></li>\r\n	<li><span>Import processed products abroad.</span></li>\r\n	<li><span>Temporary import of goods temporarily imported for re-export.</span></li>\r\n	<li><span>Temporary import of machinery and equipment to serve the project for a limited time.</span></li>\r\n	<li><span>Temporary duty-free import.</span></li>\r\n	<li><span>Other temporary entry.</span></li>\r\n	<li><span>Re-import of temporarily exported goods.</span></li>\r\n	<li><span>Goods in bonded warehouse.</span></li>\r\n	<li><span>Goods brought into the non-tariff area of ​​the border gate economic zone.</span></li>\r\n	<li><span>Other imported goods.</span></li>\r\n</ul>\r\n\r\n<h3><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong>THIEN HOANG CONSTRUCTION AND TRADING CO. </strong></span></span></h3>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Address:</strong> 982 Hung Vuong, Nhon Phu Ward, Quy Nhon City, Binh Dinh Province</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Hotline:</strong> 025 6354 8989</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Email:</strong> <a href=\"mailto:info@thienhoanggroup.com\"><span style=\"color:#0000ff;\"><em>info@thienhoanggroup.com</em> </span></a></span></strong></span></span></p>', '<p style=\"text-align:center\"><a class=\"img-box\" href=\"https://lecvietnam.com/hoat-dong/tin-tuc/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-nhu-the-nao-60.html\" style=\"text-align: center;\"><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam như thế nào?\" height=\"300\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-4.jpg\" width=\"600\" /></a></p>\r\n\r\n<h2><span><span style=\"color:#a2c64a;font-size: 17px;\"><strong>What kind of procedure to import goods in Vietnam?</strong></span></span></h2>\r\n\r\n<p><span>Import of goods in Vietnam can be understood simply as a type of importation of goods under a sales contract to Vietnam. After that, it will be sold domestically or used as raw materials for production. For example: <em>imports clothes from Taiwan to Vietnam to sell at stores; importing beef from Japan to sell at supermarkets or big stores in Vietnam,&hellip;</em></span></p>\r\n\r\n<p style=\"text-align: center;\"><span><em><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" height=\"320\" longdesc=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam.jpg\" style=\"width: 600px; height: 320px;\" title=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" width=\"600\" /></em></span></p>\r\n\r\n<p><em><strong><span>Types of procedures for importing goods in Vietnam include:</span></strong></em></p>\r\n\r\n<ul>\r\n	<li><span>Import for consumer business (goods are cleared at the border gate Customs Department).</span></li>\r\n	<li><span>Import for production business (goods are cleared at the border gate Customs Sub-Department).</span></li>\r\n	<li><span>Transfer domestic consumption from temporarily imported source.</span></li>\r\n	<li><span>Import returned export goods.</span></li>\r\n	<li><span>Business importation of foreign invested enterprises.</span></li>\r\n	<li><span>Transfer to other domestic consumption.</span></li>\r\n	<li><span>Import raw materials of export processing enterprises from abroad.</span></li>\r\n	<li><span>Import and create fixed assets of export processing enterprises.</span></li>\r\n	<li><span>Import raw materials from domestic export processing enterprises.</span></li>\r\n	<li><span>Import raw materials for processing for foreign traders.</span></li>\r\n	<li><span>Import processing materials from another contract.</span></li>\r\n	<li><span>Import raw materials for export production.</span></li>\r\n	<li><span>Input materials in tax declaration warehouse.</span></li>\r\n	<li><span>Import processed products abroad.</span></li>\r\n	<li><span>Temporary import of goods temporarily imported for re-export.</span></li>\r\n	<li><span>Temporary import of machinery and equipment to serve the project for a limited time.</span></li>\r\n	<li><span>Temporary duty-free import.</span></li>\r\n	<li><span>Other temporary entry.</span></li>\r\n	<li><span>Re-import of temporarily exported goods.</span></li>\r\n	<li><span>Goods in bonded warehouse.</span></li>\r\n	<li><span>Goods brought into the non-tariff area of ​​the border gate economic zone.</span></li>\r\n	<li><span>Other imported goods.</span></li>\r\n</ul>\r\n\r\n<h3><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong>THIEN HOANG CONSTRUCTION AND TRADING CO. </strong></span></span></h3>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Address:</strong> 982 Hung Vuong, Nhon Phu Ward, Quy Nhon City, Binh Dinh Province</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Hotline:</strong> 025 6354 8989</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Email:</strong> <a href=\"mailto:info@thienhoanggroup.com\"><span style=\"color:#0000ff;\"><em>info@thienhoanggroup.com</em> </span></a></span></strong></span></span></p>', '', '', '', '', 'what-is-the-procedure-for-importing-goods-in-vietnam-cp-294431623833887', '', 2, '1623833887_tintuc2.png', NULL, NULL, '', 'datafiles', 1623826427, 0, 1, 5, 0, 0, 'What is the procedure for importing goods in Vietnam?', 'What is the procedure for importing goods in Vietnam?', '', 'What is the procedure for importing goods in Vietnam?', 'What is the procedure for importing goods in Vietnam?', '', 'What is the procedure for importing goods in Vietnam?', 'What is the procedure for importing goods in Vietnam?', NULL, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL),
+(7, 1, 0, 'What is the procedure for importing goods in Vietnam 8?', 'What is the procedure for importing goods in Vietnam 8?', '', 'Import-export is a fairly broad field, to understand this array well, one article is impossible to encapsulate. So, in this article the experts...', 'Import-export is a fairly broad field, to understand this array well, one article is impossible to encapsulate. So, in this article the experts...', '', '<p style=\"text-align:center\"><a class=\"img-box\" href=\"https://lecvietnam.com/hoat-dong/tin-tuc/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-nhu-the-nao-60.html\" style=\"text-align: center;\"><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam như thế nào?\" height=\"300\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-4.jpg\" width=\"600\" /></a></p>\r\n\r\n<h2><span><span style=\"color:#a2c64a;font-size: 17px;\"><strong>What kind of procedure to import goods in Vietnam?</strong></span></span></h2>\r\n\r\n<p><span>Import of goods in Vietnam can be understood simply as a type of importation of goods under a sales contract to Vietnam. After that, it will be sold domestically or used as raw materials for production. For example: <em>imports clothes from Taiwan to Vietnam to sell at stores; importing beef from Japan to sell at supermarkets or big stores in Vietnam,&hellip;</em></span></p>\r\n\r\n<p style=\"text-align: center;\"><span><em><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" height=\"320\" longdesc=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam.jpg\" style=\"width: 600px; height: 320px;\" title=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" width=\"600\" /></em></span></p>\r\n\r\n<p><em><strong><span>Types of procedures for importing goods in Vietnam include:</span></strong></em></p>\r\n\r\n<ul>\r\n	<li><span>Import for consumer business (goods are cleared at the border gate Customs Department).</span></li>\r\n	<li><span>Import for production business (goods are cleared at the border gate Customs Sub-Department).</span></li>\r\n	<li><span>Transfer domestic consumption from temporarily imported source.</span></li>\r\n	<li><span>Import returned export goods.</span></li>\r\n	<li><span>Business importation of foreign invested enterprises.</span></li>\r\n	<li><span>Transfer to other domestic consumption.</span></li>\r\n	<li><span>Import raw materials of export processing enterprises from abroad.</span></li>\r\n	<li><span>Import and create fixed assets of export processing enterprises.</span></li>\r\n	<li><span>Import raw materials from domestic export processing enterprises.</span></li>\r\n	<li><span>Import raw materials for processing for foreign traders.</span></li>\r\n	<li><span>Import processing materials from another contract.</span></li>\r\n	<li><span>Import raw materials for export production.</span></li>\r\n	<li><span>Input materials in tax declaration warehouse.</span></li>\r\n	<li><span>Import processed products abroad.</span></li>\r\n	<li><span>Temporary import of goods temporarily imported for re-export.</span></li>\r\n	<li><span>Temporary import of machinery and equipment to serve the project for a limited time.</span></li>\r\n	<li><span>Temporary duty-free import.</span></li>\r\n	<li><span>Other temporary entry.</span></li>\r\n	<li><span>Re-import of temporarily exported goods.</span></li>\r\n	<li><span>Goods in bonded warehouse.</span></li>\r\n	<li><span>Goods brought into the non-tariff area of ​​the border gate economic zone.</span></li>\r\n	<li><span>Other imported goods.</span></li>\r\n</ul>\r\n\r\n<h3><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong>THIEN HOANG CONSTRUCTION AND TRADING CO. </strong></span></span></h3>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Address:</strong> 982 Hung Vuong, Nhon Phu Ward, Quy Nhon City, Binh Dinh Province</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Hotline:</strong> 025 6354 8989</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Email:</strong> <a href=\"mailto:info@thienhoanggroup.com\"><span style=\"color:#0000ff;\"><em>info@thienhoanggroup.com</em> </span></a></span></strong></span></span></p>', '<p style=\"text-align:center\"><a class=\"img-box\" href=\"https://lecvietnam.com/hoat-dong/tin-tuc/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-nhu-the-nao-60.html\" style=\"text-align: center;\"><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam như thế nào?\" height=\"300\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-4.jpg\" width=\"600\" /></a></p>\r\n\r\n<h2><span><span style=\"color:#a2c64a;font-size: 17px;\"><strong>What kind of procedure to import goods in Vietnam?</strong></span></span></h2>\r\n\r\n<p><span>Import of goods in Vietnam can be understood simply as a type of importation of goods under a sales contract to Vietnam. After that, it will be sold domestically or used as raw materials for production. For example: <em>imports clothes from Taiwan to Vietnam to sell at stores; importing beef from Japan to sell at supermarkets or big stores in Vietnam,&hellip;</em></span></p>\r\n\r\n<p style=\"text-align: center;\"><span><em><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" height=\"320\" longdesc=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam.jpg\" style=\"width: 600px; height: 320px;\" title=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" width=\"600\" /></em></span></p>\r\n\r\n<p><em><strong><span>Types of procedures for importing goods in Vietnam include:</span></strong></em></p>\r\n\r\n<ul>\r\n	<li><span>Import for consumer business (goods are cleared at the border gate Customs Department).</span></li>\r\n	<li><span>Import for production business (goods are cleared at the border gate Customs Sub-Department).</span></li>\r\n	<li><span>Transfer domestic consumption from temporarily imported source.</span></li>\r\n	<li><span>Import returned export goods.</span></li>\r\n	<li><span>Business importation of foreign invested enterprises.</span></li>\r\n	<li><span>Transfer to other domestic consumption.</span></li>\r\n	<li><span>Import raw materials of export processing enterprises from abroad.</span></li>\r\n	<li><span>Import and create fixed assets of export processing enterprises.</span></li>\r\n	<li><span>Import raw materials from domestic export processing enterprises.</span></li>\r\n	<li><span>Import raw materials for processing for foreign traders.</span></li>\r\n	<li><span>Import processing materials from another contract.</span></li>\r\n	<li><span>Import raw materials for export production.</span></li>\r\n	<li><span>Input materials in tax declaration warehouse.</span></li>\r\n	<li><span>Import processed products abroad.</span></li>\r\n	<li><span>Temporary import of goods temporarily imported for re-export.</span></li>\r\n	<li><span>Temporary import of machinery and equipment to serve the project for a limited time.</span></li>\r\n	<li><span>Temporary duty-free import.</span></li>\r\n	<li><span>Other temporary entry.</span></li>\r\n	<li><span>Re-import of temporarily exported goods.</span></li>\r\n	<li><span>Goods in bonded warehouse.</span></li>\r\n	<li><span>Goods brought into the non-tariff area of ​​the border gate economic zone.</span></li>\r\n	<li><span>Other imported goods.</span></li>\r\n</ul>\r\n\r\n<h3><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong>THIEN HOANG CONSTRUCTION AND TRADING CO. </strong></span></span></h3>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Address:</strong> 982 Hung Vuong, Nhon Phu Ward, Quy Nhon City, Binh Dinh Province</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Hotline:</strong> 025 6354 8989</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Email:</strong> <a href=\"mailto:info@thienhoanggroup.com\"><span style=\"color:#0000ff;\"><em>info@thienhoanggroup.com</em> </span></a></span></strong></span></span></p>', '', '', '', '', 'what-is-the-procedure-for-importing-goods-in-vietnam-cp-626171623833887', '', 3, '1623833887_tintuc3.png', NULL, NULL, '', 'datafiles', 1623826422, 0, 1, 5, 0, 0, 'What is the procedure for importing goods in Vietnam?', 'What is the procedure for importing goods in Vietnam?', '', 'What is the procedure for importing goods in Vietnam?', 'What is the procedure for importing goods in Vietnam?', '', 'What is the procedure for importing goods in Vietnam?', 'What is the procedure for importing goods in Vietnam?', NULL, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL),
+(8, 1, 0, 'What is the procedure for importing goods in Vietnam 7?', 'What is the procedure for importing goods in Vietnam 7?', '', 'Import-export is a fairly broad field, to understand this array well, one article is impossible to encapsulate. So, in this article the experts...', 'Import-export is a fairly broad field, to understand this array well, one article is impossible to encapsulate. So, in this article the experts...', '', '<p style=\"text-align:center\"><a class=\"img-box\" href=\"https://lecvietnam.com/hoat-dong/tin-tuc/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-nhu-the-nao-60.html\" style=\"text-align: center;\"><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam như thế nào?\" height=\"300\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-4.jpg\" width=\"600\" /></a></p>\r\n\r\n<h2><span><span style=\"color:#a2c64a;font-size: 17px;\"><strong>What kind of procedure to import goods in Vietnam?</strong></span></span></h2>\r\n\r\n<p><span>Import of goods in Vietnam can be understood simply as a type of importation of goods under a sales contract to Vietnam. After that, it will be sold domestically or used as raw materials for production. For example: <em>imports clothes from Taiwan to Vietnam to sell at stores; importing beef from Japan to sell at supermarkets or big stores in Vietnam,&hellip;</em></span></p>\r\n\r\n<p style=\"text-align: center;\"><span><em><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" height=\"320\" longdesc=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam.jpg\" style=\"width: 600px; height: 320px;\" title=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" width=\"600\" /></em></span></p>\r\n\r\n<p><em><strong><span>Types of procedures for importing goods in Vietnam include:</span></strong></em></p>\r\n\r\n<ul>\r\n	<li><span>Import for consumer business (goods are cleared at the border gate Customs Department).</span></li>\r\n	<li><span>Import for production business (goods are cleared at the border gate Customs Sub-Department).</span></li>\r\n	<li><span>Transfer domestic consumption from temporarily imported source.</span></li>\r\n	<li><span>Import returned export goods.</span></li>\r\n	<li><span>Business importation of foreign invested enterprises.</span></li>\r\n	<li><span>Transfer to other domestic consumption.</span></li>\r\n	<li><span>Import raw materials of export processing enterprises from abroad.</span></li>\r\n	<li><span>Import and create fixed assets of export processing enterprises.</span></li>\r\n	<li><span>Import raw materials from domestic export processing enterprises.</span></li>\r\n	<li><span>Import raw materials for processing for foreign traders.</span></li>\r\n	<li><span>Import processing materials from another contract.</span></li>\r\n	<li><span>Import raw materials for export production.</span></li>\r\n	<li><span>Input materials in tax declaration warehouse.</span></li>\r\n	<li><span>Import processed products abroad.</span></li>\r\n	<li><span>Temporary import of goods temporarily imported for re-export.</span></li>\r\n	<li><span>Temporary import of machinery and equipment to serve the project for a limited time.</span></li>\r\n	<li><span>Temporary duty-free import.</span></li>\r\n	<li><span>Other temporary entry.</span></li>\r\n	<li><span>Re-import of temporarily exported goods.</span></li>\r\n	<li><span>Goods in bonded warehouse.</span></li>\r\n	<li><span>Goods brought into the non-tariff area of ​​the border gate economic zone.</span></li>\r\n	<li><span>Other imported goods.</span></li>\r\n</ul>\r\n\r\n<h3><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong>THIEN HOANG CONSTRUCTION AND TRADING CO. </strong></span></span></h3>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Address:</strong> 982 Hung Vuong, Nhon Phu Ward, Quy Nhon City, Binh Dinh Province</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Hotline:</strong> 025 6354 8989</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Email:</strong> <a href=\"mailto:info@thienhoanggroup.com\"><span style=\"color:#0000ff;\"><em>info@thienhoanggroup.com</em> </span></a></span></strong></span></span></p>', '<p style=\"text-align:center\"><a class=\"img-box\" href=\"https://lecvietnam.com/hoat-dong/tin-tuc/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-nhu-the-nao-60.html\" style=\"text-align: center;\"><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam như thế nào?\" height=\"300\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-4.jpg\" width=\"600\" /></a></p>\r\n\r\n<h2><span><span style=\"color:#a2c64a;font-size: 17px;\"><strong>What kind of procedure to import goods in Vietnam?</strong></span></span></h2>\r\n\r\n<p><span>Import of goods in Vietnam can be understood simply as a type of importation of goods under a sales contract to Vietnam. After that, it will be sold domestically or used as raw materials for production. For example: <em>imports clothes from Taiwan to Vietnam to sell at stores; importing beef from Japan to sell at supermarkets or big stores in Vietnam,&hellip;</em></span></p>\r\n\r\n<p style=\"text-align: center;\"><span><em><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" height=\"320\" longdesc=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam.jpg\" style=\"width: 600px; height: 320px;\" title=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" width=\"600\" /></em></span></p>\r\n\r\n<p><em><strong><span>Types of procedures for importing goods in Vietnam include:</span></strong></em></p>\r\n\r\n<ul>\r\n	<li><span>Import for consumer business (goods are cleared at the border gate Customs Department).</span></li>\r\n	<li><span>Import for production business (goods are cleared at the border gate Customs Sub-Department).</span></li>\r\n	<li><span>Transfer domestic consumption from temporarily imported source.</span></li>\r\n	<li><span>Import returned export goods.</span></li>\r\n	<li><span>Business importation of foreign invested enterprises.</span></li>\r\n	<li><span>Transfer to other domestic consumption.</span></li>\r\n	<li><span>Import raw materials of export processing enterprises from abroad.</span></li>\r\n	<li><span>Import and create fixed assets of export processing enterprises.</span></li>\r\n	<li><span>Import raw materials from domestic export processing enterprises.</span></li>\r\n	<li><span>Import raw materials for processing for foreign traders.</span></li>\r\n	<li><span>Import processing materials from another contract.</span></li>\r\n	<li><span>Import raw materials for export production.</span></li>\r\n	<li><span>Input materials in tax declaration warehouse.</span></li>\r\n	<li><span>Import processed products abroad.</span></li>\r\n	<li><span>Temporary import of goods temporarily imported for re-export.</span></li>\r\n	<li><span>Temporary import of machinery and equipment to serve the project for a limited time.</span></li>\r\n	<li><span>Temporary duty-free import.</span></li>\r\n	<li><span>Other temporary entry.</span></li>\r\n	<li><span>Re-import of temporarily exported goods.</span></li>\r\n	<li><span>Goods in bonded warehouse.</span></li>\r\n	<li><span>Goods brought into the non-tariff area of ​​the border gate economic zone.</span></li>\r\n	<li><span>Other imported goods.</span></li>\r\n</ul>\r\n\r\n<h3><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong>THIEN HOANG CONSTRUCTION AND TRADING CO. </strong></span></span></h3>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Address:</strong> 982 Hung Vuong, Nhon Phu Ward, Quy Nhon City, Binh Dinh Province</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Hotline:</strong> 025 6354 8989</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Email:</strong> <a href=\"mailto:info@thienhoanggroup.com\"><span style=\"color:#0000ff;\"><em>info@thienhoanggroup.com</em> </span></a></span></strong></span></span></p>', '', '', '', '', 'what-is-the-procedure-for-importing-goods-in-vietnam-cp-794361623833887', '', 4, '1623833887_tintuc6.png', NULL, NULL, '', 'datafiles', 1623826416, 0, 4, 5, 0, 0, 'What is the procedure for importing goods in Vietnam?', 'What is the procedure for importing goods in Vietnam?', '', 'What is the procedure for importing goods in Vietnam?', 'What is the procedure for importing goods in Vietnam?', '', 'What is the procedure for importing goods in Vietnam?', 'What is the procedure for importing goods in Vietnam?', NULL, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `lh_baiviet` (`id`, `id_user`, `id_parent`, `tenbaiviet_vi`, `tenbaiviet_en`, `tenbaiviet_cn`, `mota_vi`, `mota_en`, `mota_cn`, `noidung_vi`, `noidung_en`, `noidung_cn`, `tags_vi`, `tags_en`, `tags_cn`, `seo_name`, `id_parent_muti`, `catasort`, `icon`, `icon_hover`, `dowload`, `dowload_text`, `duongdantin`, `ngaydang`, `capnhat`, `soluotxem`, `step`, `giatien`, `giakm`, `seo_title_vi`, `seo_title_en`, `seo_title_cn`, `seo_keywords_vi`, `seo_keywords_en`, `seo_keywords_cn`, `seo_description_vi`, `seo_description_en`, `seo_description_cn`, `opt_km`, `opt`, `opt1`, `opt2`, `opt3`, `opt4`, `opt5`, `top_video`, `p1`, `p2`, `p3`, `link_video`, `num_1`, `num_2`, `num_3`, `num_4`, `showhi`, `tinh_nang`, `thuoc_tinh_1_vi`, `thuoc_tinh_1_en`, `thuoc_tinh_2_vi`, `thuoc_tinh_2_en`, `thuoc_tinh_3_vi`, `thuoc_tinh_3_en`, `gia_tri_1_vi`, `gia_tri_2_vi`, `gia_tri_3_vi`, `thongso_vi`, `thongso_en`, `thongtin_vi`, `thongtin_en`, `ngayden`, `ngaydi`, `id_tag_multi`, `noidung2_vi`, `noidung2_en`, `noidung2_cn`, `kieudang_vi`, `kieudang_en`, `kieudang_cn`) VALUES
+(9, 1, 0, 'What is the procedure for importing goods in Vietnam 6?', 'What is the procedure for importing goods in Vietnam 6?', '', 'Import-export is a fairly broad field, to understand this array well, one article is impossible to encapsulate. So, in this article the experts...', 'Import-export is a fairly broad field, to understand this array well, one article is impossible to encapsulate. So, in this article the experts...', '', '<p style=\"text-align:center\"><a class=\"img-box\" href=\"https://lecvietnam.com/hoat-dong/tin-tuc/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-nhu-the-nao-60.html\" style=\"text-align: center;\"><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam như thế nào?\" height=\"300\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-4.jpg\" width=\"600\" /></a></p>\r\n\r\n<h2><span><span style=\"color:#a2c64a;font-size: 17px;\"><strong>What kind of procedure to import goods in Vietnam?</strong></span></span></h2>\r\n\r\n<p><span>Import of goods in Vietnam can be understood simply as a type of importation of goods under a sales contract to Vietnam. After that, it will be sold domestically or used as raw materials for production. For example: <em>imports clothes from Taiwan to Vietnam to sell at stores; importing beef from Japan to sell at supermarkets or big stores in Vietnam,&hellip;</em></span></p>\r\n\r\n<p style=\"text-align: center;\"><span><em><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" height=\"320\" longdesc=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam.jpg\" style=\"width: 600px; height: 320px;\" title=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" width=\"600\" /></em></span></p>\r\n\r\n<p><em><strong><span>Types of procedures for importing goods in Vietnam include:</span></strong></em></p>\r\n\r\n<ul>\r\n	<li><span>Import for consumer business (goods are cleared at the border gate Customs Department).</span></li>\r\n	<li><span>Import for production business (goods are cleared at the border gate Customs Sub-Department).</span></li>\r\n	<li><span>Transfer domestic consumption from temporarily imported source.</span></li>\r\n	<li><span>Import returned export goods.</span></li>\r\n	<li><span>Business importation of foreign invested enterprises.</span></li>\r\n	<li><span>Transfer to other domestic consumption.</span></li>\r\n	<li><span>Import raw materials of export processing enterprises from abroad.</span></li>\r\n	<li><span>Import and create fixed assets of export processing enterprises.</span></li>\r\n	<li><span>Import raw materials from domestic export processing enterprises.</span></li>\r\n	<li><span>Import raw materials for processing for foreign traders.</span></li>\r\n	<li><span>Import processing materials from another contract.</span></li>\r\n	<li><span>Import raw materials for export production.</span></li>\r\n	<li><span>Input materials in tax declaration warehouse.</span></li>\r\n	<li><span>Import processed products abroad.</span></li>\r\n	<li><span>Temporary import of goods temporarily imported for re-export.</span></li>\r\n	<li><span>Temporary import of machinery and equipment to serve the project for a limited time.</span></li>\r\n	<li><span>Temporary duty-free import.</span></li>\r\n	<li><span>Other temporary entry.</span></li>\r\n	<li><span>Re-import of temporarily exported goods.</span></li>\r\n	<li><span>Goods in bonded warehouse.</span></li>\r\n	<li><span>Goods brought into the non-tariff area of ​​the border gate economic zone.</span></li>\r\n	<li><span>Other imported goods.</span></li>\r\n</ul>\r\n\r\n<h3><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong>THIEN HOANG CONSTRUCTION AND TRADING CO. </strong></span></span></h3>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Address:</strong> 982 Hung Vuong, Nhon Phu Ward, Quy Nhon City, Binh Dinh Province</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Hotline:</strong> 025 6354 8989</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Email:</strong> <a href=\"mailto:info@thienhoanggroup.com\"><span style=\"color:#0000ff;\"><em>info@thienhoanggroup.com</em> </span></a></span></strong></span></span></p>', '<p style=\"text-align:center\"><a class=\"img-box\" href=\"https://lecvietnam.com/hoat-dong/tin-tuc/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-nhu-the-nao-60.html\" style=\"text-align: center;\"><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam như thế nào?\" height=\"300\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-4.jpg\" width=\"600\" /></a></p>\r\n\r\n<h2><span><span style=\"color:#a2c64a;font-size: 17px;\"><strong>What kind of procedure to import goods in Vietnam?</strong></span></span></h2>\r\n\r\n<p><span>Import of goods in Vietnam can be understood simply as a type of importation of goods under a sales contract to Vietnam. After that, it will be sold domestically or used as raw materials for production. For example: <em>imports clothes from Taiwan to Vietnam to sell at stores; importing beef from Japan to sell at supermarkets or big stores in Vietnam,&hellip;</em></span></p>\r\n\r\n<p style=\"text-align: center;\"><span><em><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" height=\"320\" longdesc=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam.jpg\" style=\"width: 600px; height: 320px;\" title=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" width=\"600\" /></em></span></p>\r\n\r\n<p><em><strong><span>Types of procedures for importing goods in Vietnam include:</span></strong></em></p>\r\n\r\n<ul>\r\n	<li><span>Import for consumer business (goods are cleared at the border gate Customs Department).</span></li>\r\n	<li><span>Import for production business (goods are cleared at the border gate Customs Sub-Department).</span></li>\r\n	<li><span>Transfer domestic consumption from temporarily imported source.</span></li>\r\n	<li><span>Import returned export goods.</span></li>\r\n	<li><span>Business importation of foreign invested enterprises.</span></li>\r\n	<li><span>Transfer to other domestic consumption.</span></li>\r\n	<li><span>Import raw materials of export processing enterprises from abroad.</span></li>\r\n	<li><span>Import and create fixed assets of export processing enterprises.</span></li>\r\n	<li><span>Import raw materials from domestic export processing enterprises.</span></li>\r\n	<li><span>Import raw materials for processing for foreign traders.</span></li>\r\n	<li><span>Import processing materials from another contract.</span></li>\r\n	<li><span>Import raw materials for export production.</span></li>\r\n	<li><span>Input materials in tax declaration warehouse.</span></li>\r\n	<li><span>Import processed products abroad.</span></li>\r\n	<li><span>Temporary import of goods temporarily imported for re-export.</span></li>\r\n	<li><span>Temporary import of machinery and equipment to serve the project for a limited time.</span></li>\r\n	<li><span>Temporary duty-free import.</span></li>\r\n	<li><span>Other temporary entry.</span></li>\r\n	<li><span>Re-import of temporarily exported goods.</span></li>\r\n	<li><span>Goods in bonded warehouse.</span></li>\r\n	<li><span>Goods brought into the non-tariff area of ​​the border gate economic zone.</span></li>\r\n	<li><span>Other imported goods.</span></li>\r\n</ul>\r\n\r\n<h3><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong>THIEN HOANG CONSTRUCTION AND TRADING CO. </strong></span></span></h3>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Address:</strong> 982 Hung Vuong, Nhon Phu Ward, Quy Nhon City, Binh Dinh Province</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Hotline:</strong> 025 6354 8989</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Email:</strong> <a href=\"mailto:info@thienhoanggroup.com\"><span style=\"color:#0000ff;\"><em>info@thienhoanggroup.com</em> </span></a></span></strong></span></span></p>', '', '', '', '', 'what-is-the-procedure-for-importing-goods-in-vietnam-cp-447901623833887', '', 5, '1623833887_tintuc7.png', NULL, NULL, '', 'datafiles', 1623826410, 0, 4, 5, 0, 0, 'What is the procedure for importing goods in Vietnam?', 'What is the procedure for importing goods in Vietnam?', '', 'What is the procedure for importing goods in Vietnam?', 'What is the procedure for importing goods in Vietnam?', '', 'What is the procedure for importing goods in Vietnam?', 'What is the procedure for importing goods in Vietnam?', NULL, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL),
+(10, 1, 0, 'What is the procedure for importing goods in Vietnam 5?', 'What is the procedure for importing goods in Vietnam 5?', '', 'Import-export is a fairly broad field, to understand this array well, one article is impossible to encapsulate. So, in this article the experts...', 'Import-export is a fairly broad field, to understand this array well, one article is impossible to encapsulate. So, in this article the experts...', '', '<p style=\"text-align:center\"><a class=\"img-box\" href=\"https://lecvietnam.com/hoat-dong/tin-tuc/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-nhu-the-nao-60.html\" style=\"text-align: center;\"><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam như thế nào?\" height=\"300\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-4.jpg\" width=\"600\" /></a></p>\r\n\r\n<h2><span><span style=\"color:#a2c64a;font-size: 17px;\"><strong>What kind of procedure to import goods in Vietnam?</strong></span></span></h2>\r\n\r\n<p><span>Import of goods in Vietnam can be understood simply as a type of importation of goods under a sales contract to Vietnam. After that, it will be sold domestically or used as raw materials for production. For example: <em>imports clothes from Taiwan to Vietnam to sell at stores; importing beef from Japan to sell at supermarkets or big stores in Vietnam,&hellip;</em></span></p>\r\n\r\n<p style=\"text-align: center;\"><span><em><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" height=\"320\" longdesc=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam.jpg\" style=\"width: 600px; height: 320px;\" title=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" width=\"600\" /></em></span></p>\r\n\r\n<p><em><strong><span>Types of procedures for importing goods in Vietnam include:</span></strong></em></p>\r\n\r\n<ul>\r\n	<li><span>Import for consumer business (goods are cleared at the border gate Customs Department).</span></li>\r\n	<li><span>Import for production business (goods are cleared at the border gate Customs Sub-Department).</span></li>\r\n	<li><span>Transfer domestic consumption from temporarily imported source.</span></li>\r\n	<li><span>Import returned export goods.</span></li>\r\n	<li><span>Business importation of foreign invested enterprises.</span></li>\r\n	<li><span>Transfer to other domestic consumption.</span></li>\r\n	<li><span>Import raw materials of export processing enterprises from abroad.</span></li>\r\n	<li><span>Import and create fixed assets of export processing enterprises.</span></li>\r\n	<li><span>Import raw materials from domestic export processing enterprises.</span></li>\r\n	<li><span>Import raw materials for processing for foreign traders.</span></li>\r\n	<li><span>Import processing materials from another contract.</span></li>\r\n	<li><span>Import raw materials for export production.</span></li>\r\n	<li><span>Input materials in tax declaration warehouse.</span></li>\r\n	<li><span>Import processed products abroad.</span></li>\r\n	<li><span>Temporary import of goods temporarily imported for re-export.</span></li>\r\n	<li><span>Temporary import of machinery and equipment to serve the project for a limited time.</span></li>\r\n	<li><span>Temporary duty-free import.</span></li>\r\n	<li><span>Other temporary entry.</span></li>\r\n	<li><span>Re-import of temporarily exported goods.</span></li>\r\n	<li><span>Goods in bonded warehouse.</span></li>\r\n	<li><span>Goods brought into the non-tariff area of ​​the border gate economic zone.</span></li>\r\n	<li><span>Other imported goods.</span></li>\r\n</ul>\r\n\r\n<h3><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong>THIEN HOANG CONSTRUCTION AND TRADING CO. </strong></span></span></h3>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Address:</strong> 982 Hung Vuong, Nhon Phu Ward, Quy Nhon City, Binh Dinh Province</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Hotline:</strong> 025 6354 8989</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Email:</strong> <a href=\"mailto:info@thienhoanggroup.com\"><span style=\"color:#0000ff;\"><em>info@thienhoanggroup.com</em> </span></a></span></strong></span></span></p>', '<p style=\"text-align:center\"><a class=\"img-box\" href=\"https://lecvietnam.com/hoat-dong/tin-tuc/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-nhu-the-nao-60.html\" style=\"text-align: center;\"><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam như thế nào?\" height=\"300\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-4.jpg\" width=\"600\" /></a></p>\r\n\r\n<h2><span><span style=\"color:#a2c64a;font-size: 17px;\"><strong>What kind of procedure to import goods in Vietnam?</strong></span></span></h2>\r\n\r\n<p><span>Import of goods in Vietnam can be understood simply as a type of importation of goods under a sales contract to Vietnam. After that, it will be sold domestically or used as raw materials for production. For example: <em>imports clothes from Taiwan to Vietnam to sell at stores; importing beef from Japan to sell at supermarkets or big stores in Vietnam,&hellip;</em></span></p>\r\n\r\n<p style=\"text-align: center;\"><span><em><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" height=\"320\" longdesc=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam.jpg\" style=\"width: 600px; height: 320px;\" title=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" width=\"600\" /></em></span></p>\r\n\r\n<p><em><strong><span>Types of procedures for importing goods in Vietnam include:</span></strong></em></p>\r\n\r\n<ul>\r\n	<li><span>Import for consumer business (goods are cleared at the border gate Customs Department).</span></li>\r\n	<li><span>Import for production business (goods are cleared at the border gate Customs Sub-Department).</span></li>\r\n	<li><span>Transfer domestic consumption from temporarily imported source.</span></li>\r\n	<li><span>Import returned export goods.</span></li>\r\n	<li><span>Business importation of foreign invested enterprises.</span></li>\r\n	<li><span>Transfer to other domestic consumption.</span></li>\r\n	<li><span>Import raw materials of export processing enterprises from abroad.</span></li>\r\n	<li><span>Import and create fixed assets of export processing enterprises.</span></li>\r\n	<li><span>Import raw materials from domestic export processing enterprises.</span></li>\r\n	<li><span>Import raw materials for processing for foreign traders.</span></li>\r\n	<li><span>Import processing materials from another contract.</span></li>\r\n	<li><span>Import raw materials for export production.</span></li>\r\n	<li><span>Input materials in tax declaration warehouse.</span></li>\r\n	<li><span>Import processed products abroad.</span></li>\r\n	<li><span>Temporary import of goods temporarily imported for re-export.</span></li>\r\n	<li><span>Temporary import of machinery and equipment to serve the project for a limited time.</span></li>\r\n	<li><span>Temporary duty-free import.</span></li>\r\n	<li><span>Other temporary entry.</span></li>\r\n	<li><span>Re-import of temporarily exported goods.</span></li>\r\n	<li><span>Goods in bonded warehouse.</span></li>\r\n	<li><span>Goods brought into the non-tariff area of ​​the border gate economic zone.</span></li>\r\n	<li><span>Other imported goods.</span></li>\r\n</ul>\r\n\r\n<h3><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong>THIEN HOANG CONSTRUCTION AND TRADING CO. </strong></span></span></h3>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Address:</strong> 982 Hung Vuong, Nhon Phu Ward, Quy Nhon City, Binh Dinh Province</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Hotline:</strong> 025 6354 8989</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Email:</strong> <a href=\"mailto:info@thienhoanggroup.com\"><span style=\"color:#0000ff;\"><em>info@thienhoanggroup.com</em> </span></a></span></strong></span></span></p>', '', '', '', '', 'what-is-the-procedure-for-importing-goods-in-vietnam-cp-153431623833887', '', 6, '1623833888_tintuc8.png', NULL, NULL, '', 'datafiles', 1623826404, 0, 6, 5, 0, 0, 'What is the procedure for importing goods in Vietnam?', 'What is the procedure for importing goods in Vietnam?', '', 'What is the procedure for importing goods in Vietnam?', 'What is the procedure for importing goods in Vietnam?', '', 'What is the procedure for importing goods in Vietnam?', 'What is the procedure for importing goods in Vietnam?', NULL, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL),
+(11, 1, 3, 'What is the procedure for importing goods in Vietnam 4?', 'What is the procedure for importing goods in Vietnam 4?', '', 'Import-export is a fairly broad field, to understand this array well, one article is impossible to encapsulate. So, in this article the experts...', 'Import-export is a fairly broad field, to understand this array well, one article is impossible to encapsulate. So, in this article the experts...', '', '<p style=\"text-align:center\"><a class=\"img-box\" href=\"https://lecvietnam.com/hoat-dong/tin-tuc/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-nhu-the-nao-60.html\" style=\"text-align: center;\"><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam như thế nào?\" height=\"300\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-4.jpg\" width=\"600\" /></a></p>\r\n\r\n<h2><span><span style=\"color:#a2c64a;font-size: 17px;\"><strong>What kind of procedure to import goods in Vietnam?</strong></span></span></h2>\r\n\r\n<p><span>Import of goods in Vietnam can be understood simply as a type of importation of goods under a sales contract to Vietnam. After that, it will be sold domestically or used as raw materials for production. For example: <em>imports clothes from Taiwan to Vietnam to sell at stores; importing beef from Japan to sell at supermarkets or big stores in Vietnam,&hellip;</em></span></p>\r\n\r\n<p style=\"text-align: center;\"><span><em><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" height=\"320\" longdesc=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam.jpg\" style=\"width: 600px; height: 320px;\" title=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" width=\"600\" /></em></span></p>\r\n\r\n<p><em><strong><span>Types of procedures for importing goods in Vietnam include:</span></strong></em></p>\r\n\r\n<ul>\r\n	<li><span>Import for consumer business (goods are cleared at the border gate Customs Department).</span></li>\r\n	<li><span>Import for production business (goods are cleared at the border gate Customs Sub-Department).</span></li>\r\n	<li><span>Transfer domestic consumption from temporarily imported source.</span></li>\r\n	<li><span>Import returned export goods.</span></li>\r\n	<li><span>Business importation of foreign invested enterprises.</span></li>\r\n	<li><span>Transfer to other domestic consumption.</span></li>\r\n	<li><span>Import raw materials of export processing enterprises from abroad.</span></li>\r\n	<li><span>Import and create fixed assets of export processing enterprises.</span></li>\r\n	<li><span>Import raw materials from domestic export processing enterprises.</span></li>\r\n	<li><span>Import raw materials for processing for foreign traders.</span></li>\r\n	<li><span>Import processing materials from another contract.</span></li>\r\n	<li><span>Import raw materials for export production.</span></li>\r\n	<li><span>Input materials in tax declaration warehouse.</span></li>\r\n	<li><span>Import processed products abroad.</span></li>\r\n	<li><span>Temporary import of goods temporarily imported for re-export.</span></li>\r\n	<li><span>Temporary import of machinery and equipment to serve the project for a limited time.</span></li>\r\n	<li><span>Temporary duty-free import.</span></li>\r\n	<li><span>Other temporary entry.</span></li>\r\n	<li><span>Re-import of temporarily exported goods.</span></li>\r\n	<li><span>Goods in bonded warehouse.</span></li>\r\n	<li><span>Goods brought into the non-tariff area of ​​the border gate economic zone.</span></li>\r\n	<li><span>Other imported goods.</span></li>\r\n</ul>\r\n\r\n<h3><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong>THIEN HOANG CONSTRUCTION AND TRADING CO. </strong></span></span></h3>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Address:</strong> 982 Hung Vuong, Nhon Phu Ward, Quy Nhon City, Binh Dinh Province</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Hotline:</strong> 025 6354 8989</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Email:</strong> <a href=\"mailto:info@thienhoanggroup.com\"><span style=\"color:#0000ff;\"><em>info@thienhoanggroup.com</em> </span></a></span></strong></span></span></p>', '<p style=\"text-align:center\"><a class=\"img-box\" href=\"https://lecvietnam.com/hoat-dong/tin-tuc/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-nhu-the-nao-60.html\" style=\"text-align: center;\"><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam như thế nào?\" height=\"300\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-4.jpg\" width=\"600\" /></a></p>\r\n\r\n<h2><span><span style=\"color:#a2c64a;font-size: 17px;\"><strong>What kind of procedure to import goods in Vietnam?</strong></span></span></h2>\r\n\r\n<p><span>Import of goods in Vietnam can be understood simply as a type of importation of goods under a sales contract to Vietnam. After that, it will be sold domestically or used as raw materials for production. For example: <em>imports clothes from Taiwan to Vietnam to sell at stores; importing beef from Japan to sell at supermarkets or big stores in Vietnam,&hellip;</em></span></p>\r\n\r\n<p style=\"text-align: center;\"><span><em><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" height=\"320\" longdesc=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam.jpg\" style=\"width: 600px; height: 320px;\" title=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" width=\"600\" /></em></span></p>\r\n\r\n<p><em><strong><span>Types of procedures for importing goods in Vietnam include:</span></strong></em></p>\r\n\r\n<ul>\r\n	<li><span>Import for consumer business (goods are cleared at the border gate Customs Department).</span></li>\r\n	<li><span>Import for production business (goods are cleared at the border gate Customs Sub-Department).</span></li>\r\n	<li><span>Transfer domestic consumption from temporarily imported source.</span></li>\r\n	<li><span>Import returned export goods.</span></li>\r\n	<li><span>Business importation of foreign invested enterprises.</span></li>\r\n	<li><span>Transfer to other domestic consumption.</span></li>\r\n	<li><span>Import raw materials of export processing enterprises from abroad.</span></li>\r\n	<li><span>Import and create fixed assets of export processing enterprises.</span></li>\r\n	<li><span>Import raw materials from domestic export processing enterprises.</span></li>\r\n	<li><span>Import raw materials for processing for foreign traders.</span></li>\r\n	<li><span>Import processing materials from another contract.</span></li>\r\n	<li><span>Import raw materials for export production.</span></li>\r\n	<li><span>Input materials in tax declaration warehouse.</span></li>\r\n	<li><span>Import processed products abroad.</span></li>\r\n	<li><span>Temporary import of goods temporarily imported for re-export.</span></li>\r\n	<li><span>Temporary import of machinery and equipment to serve the project for a limited time.</span></li>\r\n	<li><span>Temporary duty-free import.</span></li>\r\n	<li><span>Other temporary entry.</span></li>\r\n	<li><span>Re-import of temporarily exported goods.</span></li>\r\n	<li><span>Goods in bonded warehouse.</span></li>\r\n	<li><span>Goods brought into the non-tariff area of ​​the border gate economic zone.</span></li>\r\n	<li><span>Other imported goods.</span></li>\r\n</ul>\r\n\r\n<h3><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong>THIEN HOANG CONSTRUCTION AND TRADING CO. </strong></span></span></h3>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Address:</strong> 982 Hung Vuong, Nhon Phu Ward, Quy Nhon City, Binh Dinh Province</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Hotline:</strong> 025 6354 8989</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Email:</strong> <a href=\"mailto:info@thienhoanggroup.com\"><span style=\"color:#0000ff;\"><em>info@thienhoanggroup.com</em> </span></a></span></strong></span></span></p>', '', '', '', '', 'what-is-the-procedure-for-importing-goods-in-vietnam-cp-817271623833968', '', 7, '1623833968_tintuc1.png', NULL, NULL, '', 'datafiles', 1623833198, 0, 1, 5, 0, 0, 'What is the procedure for importing goods in Vietnam?', 'What is the procedure for importing goods in Vietnam?', '', 'What is the procedure for importing goods in Vietnam?', 'What is the procedure for importing goods in Vietnam?', '', 'What is the procedure for importing goods in Vietnam?', 'What is the procedure for importing goods in Vietnam?', NULL, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL),
+(12, 1, 5, 'What is the procedure for importing goods in Vietnam 3?', 'What is the procedure for importing goods in Vietnam3 ?', '', 'Import-export is a fairly broad field, to understand this array well, one article is impossible to encapsulate. So, in this article the experts...', 'Import-export is a fairly broad field, to understand this array well, one article is impossible to encapsulate. So, in this article the experts...', '', '<p style=\"text-align:center\"><a class=\"img-box\" href=\"https://lecvietnam.com/hoat-dong/tin-tuc/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-nhu-the-nao-60.html\" style=\"text-align: center;\"><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam như thế nào?\" height=\"300\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-4.jpg\" width=\"600\" /></a></p>\r\n\r\n<h2><span><span style=\"color:#a2c64a;font-size: 17px;\"><strong>What kind of procedure to import goods in Vietnam?</strong></span></span></h2>\r\n\r\n<p><span>Import of goods in Vietnam can be understood simply as a type of importation of goods under a sales contract to Vietnam. After that, it will be sold domestically or used as raw materials for production. For example: <em>imports clothes from Taiwan to Vietnam to sell at stores; importing beef from Japan to sell at supermarkets or big stores in Vietnam,&hellip;</em></span></p>\r\n\r\n<p style=\"text-align: center;\"><span><em><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" height=\"320\" longdesc=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam.jpg\" style=\"width: 600px; height: 320px;\" title=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" width=\"600\" /></em></span></p>\r\n\r\n<p><em><strong><span>Types of procedures for importing goods in Vietnam include:</span></strong></em></p>\r\n\r\n<ul>\r\n	<li><span>Import for consumer business (goods are cleared at the border gate Customs Department).</span></li>\r\n	<li><span>Import for production business (goods are cleared at the border gate Customs Sub-Department).</span></li>\r\n	<li><span>Transfer domestic consumption from temporarily imported source.</span></li>\r\n	<li><span>Import returned export goods.</span></li>\r\n	<li><span>Business importation of foreign invested enterprises.</span></li>\r\n	<li><span>Transfer to other domestic consumption.</span></li>\r\n	<li><span>Import raw materials of export processing enterprises from abroad.</span></li>\r\n	<li><span>Import and create fixed assets of export processing enterprises.</span></li>\r\n	<li><span>Import raw materials from domestic export processing enterprises.</span></li>\r\n	<li><span>Import raw materials for processing for foreign traders.</span></li>\r\n	<li><span>Import processing materials from another contract.</span></li>\r\n	<li><span>Import raw materials for export production.</span></li>\r\n	<li><span>Input materials in tax declaration warehouse.</span></li>\r\n	<li><span>Import processed products abroad.</span></li>\r\n	<li><span>Temporary import of goods temporarily imported for re-export.</span></li>\r\n	<li><span>Temporary import of machinery and equipment to serve the project for a limited time.</span></li>\r\n	<li><span>Temporary duty-free import.</span></li>\r\n	<li><span>Other temporary entry.</span></li>\r\n	<li><span>Re-import of temporarily exported goods.</span></li>\r\n	<li><span>Goods in bonded warehouse.</span></li>\r\n	<li><span>Goods brought into the non-tariff area of ​​the border gate economic zone.</span></li>\r\n	<li><span>Other imported goods.</span></li>\r\n</ul>\r\n\r\n<h3><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong>THIEN HOANG CONSTRUCTION AND TRADING CO. </strong></span></span></h3>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Address:</strong> 982 Hung Vuong, Nhon Phu Ward, Quy Nhon City, Binh Dinh Province</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Hotline:</strong> 025 6354 8989</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Email:</strong> <a href=\"mailto:info@thienhoanggroup.com\"><span style=\"color:#0000ff;\"><em>info@thienhoanggroup.com</em> </span></a></span></strong></span></span></p>', '<p style=\"text-align:center\"><a class=\"img-box\" href=\"https://lecvietnam.com/hoat-dong/tin-tuc/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-nhu-the-nao-60.html\" style=\"text-align: center;\"><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam như thế nào?\" height=\"300\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-4.jpg\" width=\"600\" /></a></p>\r\n\r\n<h2><span><span style=\"color:#a2c64a;font-size: 17px;\"><strong>What kind of procedure to import goods in Vietnam?</strong></span></span></h2>\r\n\r\n<p><span>Import of goods in Vietnam can be understood simply as a type of importation of goods under a sales contract to Vietnam. After that, it will be sold domestically or used as raw materials for production. For example: <em>imports clothes from Taiwan to Vietnam to sell at stores; importing beef from Japan to sell at supermarkets or big stores in Vietnam,&hellip;</em></span></p>\r\n\r\n<p style=\"text-align: center;\"><span><em><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" height=\"320\" longdesc=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam.jpg\" style=\"width: 600px; height: 320px;\" title=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" width=\"600\" /></em></span></p>\r\n\r\n<p><em><strong><span>Types of procedures for importing goods in Vietnam include:</span></strong></em></p>\r\n\r\n<ul>\r\n	<li><span>Import for consumer business (goods are cleared at the border gate Customs Department).</span></li>\r\n	<li><span>Import for production business (goods are cleared at the border gate Customs Sub-Department).</span></li>\r\n	<li><span>Transfer domestic consumption from temporarily imported source.</span></li>\r\n	<li><span>Import returned export goods.</span></li>\r\n	<li><span>Business importation of foreign invested enterprises.</span></li>\r\n	<li><span>Transfer to other domestic consumption.</span></li>\r\n	<li><span>Import raw materials of export processing enterprises from abroad.</span></li>\r\n	<li><span>Import and create fixed assets of export processing enterprises.</span></li>\r\n	<li><span>Import raw materials from domestic export processing enterprises.</span></li>\r\n	<li><span>Import raw materials for processing for foreign traders.</span></li>\r\n	<li><span>Import processing materials from another contract.</span></li>\r\n	<li><span>Import raw materials for export production.</span></li>\r\n	<li><span>Input materials in tax declaration warehouse.</span></li>\r\n	<li><span>Import processed products abroad.</span></li>\r\n	<li><span>Temporary import of goods temporarily imported for re-export.</span></li>\r\n	<li><span>Temporary import of machinery and equipment to serve the project for a limited time.</span></li>\r\n	<li><span>Temporary duty-free import.</span></li>\r\n	<li><span>Other temporary entry.</span></li>\r\n	<li><span>Re-import of temporarily exported goods.</span></li>\r\n	<li><span>Goods in bonded warehouse.</span></li>\r\n	<li><span>Goods brought into the non-tariff area of ​​the border gate economic zone.</span></li>\r\n	<li><span>Other imported goods.</span></li>\r\n</ul>\r\n\r\n<h3><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong>THIEN HOANG CONSTRUCTION AND TRADING CO. </strong></span></span></h3>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Address:</strong> 982 Hung Vuong, Nhon Phu Ward, Quy Nhon City, Binh Dinh Province</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Hotline:</strong> 025 6354 8989</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Email:</strong> <a href=\"mailto:info@thienhoanggroup.com\"><span style=\"color:#0000ff;\"><em>info@thienhoanggroup.com</em> </span></a></span></strong></span></span></p>', '', '', '', '', 'what-is-the-procedure-for-importing-goods-in-vietnam-cp-153221623833968', '', 8, '1623833969_tintuc2.png', '1630050462_1623833969_tintuc2.png', NULL, '', 'datafiles', 1623833191, 0, 3, 5, 0, 0, 'What is the procedure for importing goods in Vietnam?', 'What is the procedure for importing goods in Vietnam?', '', 'What is the procedure for importing goods in Vietnam?', 'What is the procedure for importing goods in Vietnam?', '', 'What is the procedure for importing goods in Vietnam?', 'What is the procedure for importing goods in Vietnam?', NULL, 0, 0, 0, 1, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL),
+(14, 1, 4, 'What is the procedure for importing goods in Vietnam 2?', 'What is the procedure for importing goods in Vietnam 2?', '', 'Import-export is a fairly broad field, to understand this array well, one article is impossible to encapsulate. So, in this article the experts...', 'Import-export is a fairly broad field, to understand this array well, one article is impossible to encapsulate. So, in this article the experts...', '', '<p style=\"text-align:center\"><a class=\"img-box\" href=\"https://lecvietnam.com/hoat-dong/tin-tuc/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-nhu-the-nao-60.html\" style=\"text-align: center;\"><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam như thế nào?\" height=\"300\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-4.jpg\" width=\"600\" /></a></p>\r\n\r\n<h2><span><span style=\"color:#a2c64a;font-size: 17px;\"><strong>What kind of procedure to import goods in Vietnam?</strong></span></span></h2>\r\n\r\n<p><span>Import of goods in Vietnam can be understood simply as a type of importation of goods under a sales contract to Vietnam. After that, it will be sold domestically or used as raw materials for production. For example: <em>imports clothes from Taiwan to Vietnam to sell at stores; importing beef from Japan to sell at supermarkets or big stores in Vietnam,&hellip;</em></span></p>\r\n\r\n<p style=\"text-align: center;\"><span><em><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" height=\"320\" longdesc=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam.jpg\" style=\"width: 600px; height: 320px;\" title=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" width=\"600\" /></em></span></p>\r\n\r\n<p><em><strong><span>Types of procedures for importing goods in Vietnam include:</span></strong></em></p>\r\n\r\n<ul>\r\n	<li><span>Import for consumer business (goods are cleared at the border gate Customs Department).</span></li>\r\n	<li><span>Import for production business (goods are cleared at the border gate Customs Sub-Department).</span></li>\r\n	<li><span>Transfer domestic consumption from temporarily imported source.</span></li>\r\n	<li><span>Import returned export goods.</span></li>\r\n	<li><span>Business importation of foreign invested enterprises.</span></li>\r\n	<li><span>Transfer to other domestic consumption.</span></li>\r\n	<li><span>Import raw materials of export processing enterprises from abroad.</span></li>\r\n	<li><span>Import and create fixed assets of export processing enterprises.</span></li>\r\n	<li><span>Import raw materials from domestic export processing enterprises.</span></li>\r\n	<li><span>Import raw materials for processing for foreign traders.</span></li>\r\n	<li><span>Import processing materials from another contract.</span></li>\r\n	<li><span>Import raw materials for export production.</span></li>\r\n	<li><span>Input materials in tax declaration warehouse.</span></li>\r\n	<li><span>Import processed products abroad.</span></li>\r\n	<li><span>Temporary import of goods temporarily imported for re-export.</span></li>\r\n	<li><span>Temporary import of machinery and equipment to serve the project for a limited time.</span></li>\r\n	<li><span>Temporary duty-free import.</span></li>\r\n	<li><span>Other temporary entry.</span></li>\r\n	<li><span>Re-import of temporarily exported goods.</span></li>\r\n	<li><span>Goods in bonded warehouse.</span></li>\r\n	<li><span>Goods brought into the non-tariff area of ​​the border gate economic zone.</span></li>\r\n	<li><span>Other imported goods.</span></li>\r\n</ul>\r\n\r\n<h3><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong>THIEN HOANG CONSTRUCTION AND TRADING CO. </strong></span></span></h3>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Address:</strong> 982 Hung Vuong, Nhon Phu Ward, Quy Nhon City, Binh Dinh Province</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Hotline:</strong> 025 6354 8989</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Email:</strong> <a href=\"mailto:info@thienhoanggroup.com\"><span style=\"color:#0000ff;\"><em>info@thienhoanggroup.com</em> </span></a></span></strong></span></span></p>', '<p style=\"text-align:center\"><a class=\"img-box\" href=\"https://lecvietnam.com/hoat-dong/tin-tuc/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-nhu-the-nao-60.html\" style=\"text-align: center;\"><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam như thế nào?\" height=\"300\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-4.jpg\" width=\"600\" /></a></p>\r\n\r\n<h2><span><span style=\"color:#a2c64a;font-size: 17px;\"><strong>What kind of procedure to import goods in Vietnam?</strong></span></span></h2>\r\n\r\n<p><span>Import of goods in Vietnam can be understood simply as a type of importation of goods under a sales contract to Vietnam. After that, it will be sold domestically or used as raw materials for production. For example: <em>imports clothes from Taiwan to Vietnam to sell at stores; importing beef from Japan to sell at supermarkets or big stores in Vietnam,&hellip;</em></span></p>\r\n\r\n<p style=\"text-align: center;\"><span><em><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" height=\"320\" longdesc=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam.jpg\" style=\"width: 600px; height: 320px;\" title=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" width=\"600\" /></em></span></p>\r\n\r\n<p><em><strong><span>Types of procedures for importing goods in Vietnam include:</span></strong></em></p>\r\n\r\n<ul>\r\n	<li><span>Import for consumer business (goods are cleared at the border gate Customs Department).</span></li>\r\n	<li><span>Import for production business (goods are cleared at the border gate Customs Sub-Department).</span></li>\r\n	<li><span>Transfer domestic consumption from temporarily imported source.</span></li>\r\n	<li><span>Import returned export goods.</span></li>\r\n	<li><span>Business importation of foreign invested enterprises.</span></li>\r\n	<li><span>Transfer to other domestic consumption.</span></li>\r\n	<li><span>Import raw materials of export processing enterprises from abroad.</span></li>\r\n	<li><span>Import and create fixed assets of export processing enterprises.</span></li>\r\n	<li><span>Import raw materials from domestic export processing enterprises.</span></li>\r\n	<li><span>Import raw materials for processing for foreign traders.</span></li>\r\n	<li><span>Import processing materials from another contract.</span></li>\r\n	<li><span>Import raw materials for export production.</span></li>\r\n	<li><span>Input materials in tax declaration warehouse.</span></li>\r\n	<li><span>Import processed products abroad.</span></li>\r\n	<li><span>Temporary import of goods temporarily imported for re-export.</span></li>\r\n	<li><span>Temporary import of machinery and equipment to serve the project for a limited time.</span></li>\r\n	<li><span>Temporary duty-free import.</span></li>\r\n	<li><span>Other temporary entry.</span></li>\r\n	<li><span>Re-import of temporarily exported goods.</span></li>\r\n	<li><span>Goods in bonded warehouse.</span></li>\r\n	<li><span>Goods brought into the non-tariff area of ​​the border gate economic zone.</span></li>\r\n	<li><span>Other imported goods.</span></li>\r\n</ul>\r\n\r\n<h3><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong>THIEN HOANG CONSTRUCTION AND TRADING CO. </strong></span></span></h3>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Address:</strong> 982 Hung Vuong, Nhon Phu Ward, Quy Nhon City, Binh Dinh Province</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Hotline:</strong> 025 6354 8989</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Email:</strong> <a href=\"mailto:info@thienhoanggroup.com\"><span style=\"color:#0000ff;\"><em>info@thienhoanggroup.com</em> </span></a></span></strong></span></span></p>', '', '', '', '', 'what-is-the-procedure-for-importing-goods-in-vietnam-cp-582141623833968', '', 10, '1623833969_tintuc6.png', '1623926021_tintuc5.png', NULL, '', 'datafiles', 1623833184, 0, 7, 5, 0, 0, 'What is the procedure for importing goods in Vietnam?', 'What is the procedure for importing goods in Vietnam?', '', 'What is the procedure for importing goods in Vietnam?', 'What is the procedure for importing goods in Vietnam?', '', 'What is the procedure for importing goods in Vietnam?', 'What is the procedure for importing goods in Vietnam?', NULL, 0, 1, 1, 1, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `lh_baiviet` (`id`, `id_user`, `id_parent`, `tenbaiviet_vi`, `tenbaiviet_en`, `tenbaiviet_cn`, `mota_vi`, `mota_en`, `mota_cn`, `noidung_vi`, `noidung_en`, `noidung_cn`, `tags_vi`, `tags_en`, `tags_cn`, `seo_name`, `id_parent_muti`, `catasort`, `icon`, `icon_hover`, `dowload`, `dowload_text`, `duongdantin`, `ngaydang`, `capnhat`, `soluotxem`, `step`, `giatien`, `giakm`, `seo_title_vi`, `seo_title_en`, `seo_title_cn`, `seo_keywords_vi`, `seo_keywords_en`, `seo_keywords_cn`, `seo_description_vi`, `seo_description_en`, `seo_description_cn`, `opt_km`, `opt`, `opt1`, `opt2`, `opt3`, `opt4`, `opt5`, `top_video`, `p1`, `p2`, `p3`, `link_video`, `num_1`, `num_2`, `num_3`, `num_4`, `showhi`, `tinh_nang`, `thuoc_tinh_1_vi`, `thuoc_tinh_1_en`, `thuoc_tinh_2_vi`, `thuoc_tinh_2_en`, `thuoc_tinh_3_vi`, `thuoc_tinh_3_en`, `gia_tri_1_vi`, `gia_tri_2_vi`, `gia_tri_3_vi`, `thongso_vi`, `thongso_en`, `thongtin_vi`, `thongtin_en`, `ngayden`, `ngaydi`, `id_tag_multi`, `noidung2_vi`, `noidung2_en`, `noidung2_cn`, `kieudang_vi`, `kieudang_en`, `kieudang_cn`) VALUES
+(15, 1, 2, 'What is the procedure for importing goods in Vietnam 1?', 'What is the procedure for importing goods in Vietnam 1?', '', 'Import-export is a fairly broad field, to understand this array well, one article is impossible to encapsulate. So, in this article the experts...', 'Import-export is a fairly broad field, to understand this array well, one article is impossible to encapsulate. So, in this article the experts...', '', '<p style=\"text-align:center\"><a class=\"img-box\" href=\"https://lecvietnam.com/hoat-dong/tin-tuc/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-nhu-the-nao-60.html\" style=\"text-align: center;\"><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam như thế nào?\" height=\"300\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-4.jpg\" width=\"600\" /></a></p>\r\n\r\n<h2><span><span style=\"color:#a2c64a;font-size: 17px;\"><strong>What kind of procedure to import goods in Vietnam?</strong></span></span></h2>\r\n\r\n<p><span>Import of goods in Vietnam can be understood simply as a type of importation of goods under a sales contract to Vietnam. After that, it will be sold domestically or used as raw materials for production. For example: <em>imports clothes from Taiwan to Vietnam to sell at stores; importing beef from Japan to sell at supermarkets or big stores in Vietnam,&hellip;</em></span></p>\r\n\r\n<p style=\"text-align: center;\"><span><em><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" height=\"320\" longdesc=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam.jpg\" style=\"width: 600px; height: 320px;\" title=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" width=\"600\" /></em></span></p>\r\n\r\n<p><em><strong><span>Types of procedures for importing goods in Vietnam include:</span></strong></em></p>\r\n\r\n<ul>\r\n	<li><span>Import for consumer business (goods are cleared at the border gate Customs Department).</span></li>\r\n	<li><span>Import for production business (goods are cleared at the border gate Customs Sub-Department).</span></li>\r\n	<li><span>Transfer domestic consumption from temporarily imported source.</span></li>\r\n	<li><span>Import returned export goods.</span></li>\r\n	<li><span>Business importation of foreign invested enterprises.</span></li>\r\n	<li><span>Transfer to other domestic consumption.</span></li>\r\n	<li><span>Import raw materials of export processing enterprises from abroad.</span></li>\r\n	<li><span>Import and create fixed assets of export processing enterprises.</span></li>\r\n	<li><span>Import raw materials from domestic export processing enterprises.</span></li>\r\n	<li><span>Import raw materials for processing for foreign traders.</span></li>\r\n	<li><span>Import processing materials from another contract.</span></li>\r\n	<li><span>Import raw materials for export production.</span></li>\r\n	<li><span>Input materials in tax declaration warehouse.</span></li>\r\n	<li><span>Import processed products abroad.</span></li>\r\n	<li><span>Temporary import of goods temporarily imported for re-export.</span></li>\r\n	<li><span>Temporary import of machinery and equipment to serve the project for a limited time.</span></li>\r\n	<li><span>Temporary duty-free import.</span></li>\r\n	<li><span>Other temporary entry.</span></li>\r\n	<li><span>Re-import of temporarily exported goods.</span></li>\r\n	<li><span>Goods in bonded warehouse.</span></li>\r\n	<li><span>Goods brought into the non-tariff area of ​​the border gate economic zone.</span></li>\r\n	<li><span>Other imported goods.</span></li>\r\n</ul>\r\n\r\n<h3><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong>THIEN HOANG CONSTRUCTION AND TRADING CO. </strong></span></span></h3>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Address:</strong> 982 Hung Vuong, Nhon Phu Ward, Quy Nhon City, Binh Dinh Province</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Hotline:</strong> 025 6354 8989</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Email:</strong> <a href=\"mailto:info@thienhoanggroup.com\"><span style=\"color:#0000ff;\"><em>info@thienhoanggroup.com</em> </span></a></span></strong></span></span></p>', '<p style=\"text-align:center\"><a class=\"img-box\" href=\"https://lecvietnam.com/hoat-dong/tin-tuc/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-nhu-the-nao-60.html\" style=\"text-align: center;\"><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam như thế nào?\" height=\"300\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-4.jpg\" width=\"600\" /></a></p>\r\n\r\n<h2><span><span style=\"color:#a2c64a;font-size: 17px;\"><strong>What kind of procedure to import goods in Vietnam?</strong></span></span></h2>\r\n\r\n<p><span>Import of goods in Vietnam can be understood simply as a type of importation of goods under a sales contract to Vietnam. After that, it will be sold domestically or used as raw materials for production. For example: <em>imports clothes from Taiwan to Vietnam to sell at stores; importing beef from Japan to sell at supermarkets or big stores in Vietnam,&hellip;</em></span></p>\r\n\r\n<p style=\"text-align: center;\"><span><em><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" height=\"320\" longdesc=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam.jpg\" style=\"width: 600px; height: 320px;\" title=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" width=\"600\" /></em></span></p>\r\n\r\n<p><em><strong><span>Types of procedures for importing goods in Vietnam include:</span></strong></em></p>\r\n\r\n<ul>\r\n	<li><span>Import for consumer business (goods are cleared at the border gate Customs Department).</span></li>\r\n	<li><span>Import for production business (goods are cleared at the border gate Customs Sub-Department).</span></li>\r\n	<li><span>Transfer domestic consumption from temporarily imported source.</span></li>\r\n	<li><span>Import returned export goods.</span></li>\r\n	<li><span>Business importation of foreign invested enterprises.</span></li>\r\n	<li><span>Transfer to other domestic consumption.</span></li>\r\n	<li><span>Import raw materials of export processing enterprises from abroad.</span></li>\r\n	<li><span>Import and create fixed assets of export processing enterprises.</span></li>\r\n	<li><span>Import raw materials from domestic export processing enterprises.</span></li>\r\n	<li><span>Import raw materials for processing for foreign traders.</span></li>\r\n	<li><span>Import processing materials from another contract.</span></li>\r\n	<li><span>Import raw materials for export production.</span></li>\r\n	<li><span>Input materials in tax declaration warehouse.</span></li>\r\n	<li><span>Import processed products abroad.</span></li>\r\n	<li><span>Temporary import of goods temporarily imported for re-export.</span></li>\r\n	<li><span>Temporary import of machinery and equipment to serve the project for a limited time.</span></li>\r\n	<li><span>Temporary duty-free import.</span></li>\r\n	<li><span>Other temporary entry.</span></li>\r\n	<li><span>Re-import of temporarily exported goods.</span></li>\r\n	<li><span>Goods in bonded warehouse.</span></li>\r\n	<li><span>Goods brought into the non-tariff area of ​​the border gate economic zone.</span></li>\r\n	<li><span>Other imported goods.</span></li>\r\n</ul>\r\n\r\n<h3><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong>THIEN HOANG CONSTRUCTION AND TRADING CO. </strong></span></span></h3>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Address:</strong> 982 Hung Vuong, Nhon Phu Ward, Quy Nhon City, Binh Dinh Province</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Hotline:</strong> 025 6354 8989</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Email:</strong> <a href=\"mailto:info@thienhoanggroup.com\"><span style=\"color:#0000ff;\"><em>info@thienhoanggroup.com</em> </span></a></span></strong></span></span></p>', '', '', '', '', 'what-is-the-procedure-for-importing-goods-in-vietnam-cp-690191623833968', '', 11, '1623833969_tintuc7.png', NULL, NULL, '', 'datafiles', 1623833169, 0, 14, 5, 0, 0, 'What is the procedure for importing goods in Vietnam?', 'What is the procedure for importing goods in Vietnam?', '', 'What is the procedure for importing goods in Vietnam?', 'What is the procedure for importing goods in Vietnam?', '', 'What is the procedure for importing goods in Vietnam?', 'What is the procedure for importing goods in Vietnam?', NULL, 0, 1, 1, 1, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL),
+(16, 1, 0, 'Maritime/GOODS INSPECTION', 'Maritime/GOODS INSPECTION', '', 'With the ambition to expand the system of warehouses and services in all provinces and cities across the country.', 'With the ambition to expand the system of warehouses and services in all provinces and cities across the country.', '', '<p style=\"text-align:center\"><a class=\"img-box\" href=\"https://lecvietnam.com/hoat-dong/tin-tuc/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-nhu-the-nao-60.html\" style=\"text-align: center;\"><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam như thế nào?\" height=\"300\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-4.jpg\" width=\"600\" /></a></p>\r\n\r\n<h2><span><span style=\"color:#a2c64a;font-size: 17px;\"><strong>What kind of procedure to import goods in Vietnam?</strong></span></span></h2>\r\n\r\n<p><span>Import of goods in Vietnam can be understood simply as a type of importation of goods under a sales contract to Vietnam. After that, it will be sold domestically or used as raw materials for production. For example: <em>imports clothes from Taiwan to Vietnam to sell at stores; importing beef from Japan to sell at supermarkets or big stores in Vietnam,&hellip;</em></span></p>\r\n\r\n<p style=\"text-align: center;\"><span><em><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" height=\"320\" longdesc=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam.jpg\" style=\"width: 600px; height: 320px;\" title=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" width=\"600\" /></em></span></p>\r\n\r\n<p><em><strong><span>Types of procedures for importing goods in Vietnam include:</span></strong></em></p>\r\n\r\n<ul>\r\n	<li><span>Import for consumer business (goods are cleared at the border gate Customs Department).</span></li>\r\n	<li><span>Import for production business (goods are cleared at the border gate Customs Sub-Department).</span></li>\r\n	<li><span>Transfer domestic consumption from temporarily imported source.</span></li>\r\n	<li><span>Import returned export goods.</span></li>\r\n	<li><span>Business importation of foreign invested enterprises.</span></li>\r\n	<li><span>Transfer to other domestic consumption.</span></li>\r\n	<li><span>Import raw materials of export processing enterprises from abroad.</span></li>\r\n	<li><span>Import and create fixed assets of export processing enterprises.</span></li>\r\n	<li><span>Import raw materials from domestic export processing enterprises.</span></li>\r\n	<li><span>Import raw materials for processing for foreign traders.</span></li>\r\n	<li><span>Import processing materials from another contract.</span></li>\r\n	<li><span>Import raw materials for export production.</span></li>\r\n	<li><span>Input materials in tax declaration warehouse.</span></li>\r\n	<li><span>Import processed products abroad.</span></li>\r\n	<li><span>Temporary import of goods temporarily imported for re-export.</span></li>\r\n	<li><span>Temporary import of machinery and equipment to serve the project for a limited time.</span></li>\r\n	<li><span>Temporary duty-free import.</span></li>\r\n	<li><span>Other temporary entry.</span></li>\r\n	<li><span>Re-import of temporarily exported goods.</span></li>\r\n	<li><span>Goods in bonded warehouse.</span></li>\r\n	<li><span>Goods brought into the non-tariff area of ​​the border gate economic zone.</span></li>\r\n	<li><span>Other imported goods.</span></li>\r\n</ul>\r\n\r\n<h3><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong>THIEN HOANG CONSTRUCTION AND TRADING CO. </strong></span></span></h3>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Address:</strong> 982 Hung Vuong, Nhon Phu Ward, Quy Nhon City, Binh Dinh Province</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Hotline:</strong> 025 6354 8989</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Email:</strong> <a href=\"mailto:info@thienhoanggroup.com\"><span style=\"color:#0000ff;\"><em>info@thienhoanggroup.com</em> </span></a></span></strong></span></span></p>', '<p style=\"text-align:center\"><a class=\"img-box\" href=\"https://lecvietnam.com/hoat-dong/tin-tuc/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-nhu-the-nao-60.html\" style=\"text-align: center;\"><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam như thế nào?\" height=\"300\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-4.jpg\" width=\"600\" /></a></p>\r\n\r\n<h2><span><span style=\"color:#a2c64a;font-size: 17px;\"><strong>What kind of procedure to import goods in Vietnam?</strong></span></span></h2>\r\n\r\n<p><span>Import of goods in Vietnam can be understood simply as a type of importation of goods under a sales contract to Vietnam. After that, it will be sold domestically or used as raw materials for production. For example: <em>imports clothes from Taiwan to Vietnam to sell at stores; importing beef from Japan to sell at supermarkets or big stores in Vietnam,&hellip;</em></span></p>\r\n\r\n<p style=\"text-align: center;\"><span><em><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" height=\"320\" longdesc=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam.jpg\" style=\"width: 600px; height: 320px;\" title=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" width=\"600\" /></em></span></p>\r\n\r\n<p><em><strong><span>Types of procedures for importing goods in Vietnam include:</span></strong></em></p>\r\n\r\n<ul>\r\n	<li><span>Import for consumer business (goods are cleared at the border gate Customs Department).</span></li>\r\n	<li><span>Import for production business (goods are cleared at the border gate Customs Sub-Department).</span></li>\r\n	<li><span>Transfer domestic consumption from temporarily imported source.</span></li>\r\n	<li><span>Import returned export goods.</span></li>\r\n	<li><span>Business importation of foreign invested enterprises.</span></li>\r\n	<li><span>Transfer to other domestic consumption.</span></li>\r\n	<li><span>Import raw materials of export processing enterprises from abroad.</span></li>\r\n	<li><span>Import and create fixed assets of export processing enterprises.</span></li>\r\n	<li><span>Import raw materials from domestic export processing enterprises.</span></li>\r\n	<li><span>Import raw materials for processing for foreign traders.</span></li>\r\n	<li><span>Import processing materials from another contract.</span></li>\r\n	<li><span>Import raw materials for export production.</span></li>\r\n	<li><span>Input materials in tax declaration warehouse.</span></li>\r\n	<li><span>Import processed products abroad.</span></li>\r\n	<li><span>Temporary import of goods temporarily imported for re-export.</span></li>\r\n	<li><span>Temporary import of machinery and equipment to serve the project for a limited time.</span></li>\r\n	<li><span>Temporary duty-free import.</span></li>\r\n	<li><span>Other temporary entry.</span></li>\r\n	<li><span>Re-import of temporarily exported goods.</span></li>\r\n	<li><span>Goods in bonded warehouse.</span></li>\r\n	<li><span>Goods brought into the non-tariff area of ​​the border gate economic zone.</span></li>\r\n	<li><span>Other imported goods.</span></li>\r\n</ul>\r\n\r\n<h3><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong>THIEN HOANG CONSTRUCTION AND TRADING CO. </strong></span></span></h3>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Address:</strong> 982 Hung Vuong, Nhon Phu Ward, Quy Nhon City, Binh Dinh Province</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Hotline:</strong> 025 6354 8989</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Email:</strong> <a href=\"mailto:info@thienhoanggroup.com\"><span style=\"color:#0000ff;\"><em>info@thienhoanggroup.com</em> </span></a></span></strong></span></span></p>', '', '', '', '', 'maritime-goods-inspection', '', 1, '1623838692_1.png', NULL, NULL, '', 'datafiles', 1623838692, 0, 1, 6, 0, 0, 'Maritime/GOODS INSPECTION', 'Maritime/GOODS INSPECTION', '', 'Maritime/GOODS INSPECTION', 'Maritime/GOODS INSPECTION', '', 'Maritime/GOODS INSPECTION', 'Maritime/GOODS INSPECTION', NULL, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL),
+(17, 1, 0, 'Maritime/GOODS INSPECTION 6', 'Maritime/GOODS INSPECTION 6', '', 'With the ambition to expand the system of warehouses and services in all provinces and cities across the country.', 'With the ambition to expand the system of warehouses and services in all provinces and cities across the country.', '', '<p style=\"text-align:center\"><a class=\"img-box\" href=\"https://lecvietnam.com/hoat-dong/tin-tuc/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-nhu-the-nao-60.html\" style=\"text-align: center;\"><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam như thế nào?\" height=\"300\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-4.jpg\" width=\"600\" /></a></p>\r\n\r\n<h2><span><span style=\"color:#a2c64a;font-size: 17px;\"><strong>What kind of procedure to import goods in Vietnam?</strong></span></span></h2>\r\n\r\n<p><span>Import of goods in Vietnam can be understood simply as a type of importation of goods under a sales contract to Vietnam. After that, it will be sold domestically or used as raw materials for production. For example: <em>imports clothes from Taiwan to Vietnam to sell at stores; importing beef from Japan to sell at supermarkets or big stores in Vietnam,&hellip;</em></span></p>\r\n\r\n<p style=\"text-align: center;\"><span><em><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" height=\"320\" longdesc=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam.jpg\" style=\"width: 600px; height: 320px;\" title=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" width=\"600\" /></em></span></p>\r\n\r\n<p><em><strong><span>Types of procedures for importing goods in Vietnam include:</span></strong></em></p>\r\n\r\n<ul>\r\n	<li><span>Import for consumer business (goods are cleared at the border gate Customs Department).</span></li>\r\n	<li><span>Import for production business (goods are cleared at the border gate Customs Sub-Department).</span></li>\r\n	<li><span>Transfer domestic consumption from temporarily imported source.</span></li>\r\n	<li><span>Import returned export goods.</span></li>\r\n	<li><span>Business importation of foreign invested enterprises.</span></li>\r\n	<li><span>Transfer to other domestic consumption.</span></li>\r\n	<li><span>Import raw materials of export processing enterprises from abroad.</span></li>\r\n	<li><span>Import and create fixed assets of export processing enterprises.</span></li>\r\n	<li><span>Import raw materials from domestic export processing enterprises.</span></li>\r\n	<li><span>Import raw materials for processing for foreign traders.</span></li>\r\n	<li><span>Import processing materials from another contract.</span></li>\r\n	<li><span>Import raw materials for export production.</span></li>\r\n	<li><span>Input materials in tax declaration warehouse.</span></li>\r\n	<li><span>Import processed products abroad.</span></li>\r\n	<li><span>Temporary import of goods temporarily imported for re-export.</span></li>\r\n	<li><span>Temporary import of machinery and equipment to serve the project for a limited time.</span></li>\r\n	<li><span>Temporary duty-free import.</span></li>\r\n	<li><span>Other temporary entry.</span></li>\r\n	<li><span>Re-import of temporarily exported goods.</span></li>\r\n	<li><span>Goods in bonded warehouse.</span></li>\r\n	<li><span>Goods brought into the non-tariff area of ​​the border gate economic zone.</span></li>\r\n	<li><span>Other imported goods.</span></li>\r\n</ul>\r\n\r\n<h3><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong>THIEN HOANG CONSTRUCTION AND TRADING CO. </strong></span></span></h3>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Address:</strong> 982 Hung Vuong, Nhon Phu Ward, Quy Nhon City, Binh Dinh Province</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Hotline:</strong> 025 6354 8989</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Email:</strong> <a href=\"mailto:info@thienhoanggroup.com\"><span style=\"color:#0000ff;\"><em>info@thienhoanggroup.com</em> </span></a></span></strong></span></span></p>', '<p style=\"text-align:center\"><a class=\"img-box\" href=\"https://lecvietnam.com/hoat-dong/tin-tuc/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-nhu-the-nao-60.html\" style=\"text-align: center;\"><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam như thế nào?\" height=\"300\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-4.jpg\" width=\"600\" /></a></p>\r\n\r\n<h2><span><span style=\"color:#a2c64a;font-size: 17px;\"><strong>What kind of procedure to import goods in Vietnam?</strong></span></span></h2>\r\n\r\n<p><span>Import of goods in Vietnam can be understood simply as a type of importation of goods under a sales contract to Vietnam. After that, it will be sold domestically or used as raw materials for production. For example: <em>imports clothes from Taiwan to Vietnam to sell at stores; importing beef from Japan to sell at supermarkets or big stores in Vietnam,&hellip;</em></span></p>\r\n\r\n<p style=\"text-align: center;\"><span><em><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" height=\"320\" longdesc=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam.jpg\" style=\"width: 600px; height: 320px;\" title=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" width=\"600\" /></em></span></p>\r\n\r\n<p><em><strong><span>Types of procedures for importing goods in Vietnam include:</span></strong></em></p>\r\n\r\n<ul>\r\n	<li><span>Import for consumer business (goods are cleared at the border gate Customs Department).</span></li>\r\n	<li><span>Import for production business (goods are cleared at the border gate Customs Sub-Department).</span></li>\r\n	<li><span>Transfer domestic consumption from temporarily imported source.</span></li>\r\n	<li><span>Import returned export goods.</span></li>\r\n	<li><span>Business importation of foreign invested enterprises.</span></li>\r\n	<li><span>Transfer to other domestic consumption.</span></li>\r\n	<li><span>Import raw materials of export processing enterprises from abroad.</span></li>\r\n	<li><span>Import and create fixed assets of export processing enterprises.</span></li>\r\n	<li><span>Import raw materials from domestic export processing enterprises.</span></li>\r\n	<li><span>Import raw materials for processing for foreign traders.</span></li>\r\n	<li><span>Import processing materials from another contract.</span></li>\r\n	<li><span>Import raw materials for export production.</span></li>\r\n	<li><span>Input materials in tax declaration warehouse.</span></li>\r\n	<li><span>Import processed products abroad.</span></li>\r\n	<li><span>Temporary import of goods temporarily imported for re-export.</span></li>\r\n	<li><span>Temporary import of machinery and equipment to serve the project for a limited time.</span></li>\r\n	<li><span>Temporary duty-free import.</span></li>\r\n	<li><span>Other temporary entry.</span></li>\r\n	<li><span>Re-import of temporarily exported goods.</span></li>\r\n	<li><span>Goods in bonded warehouse.</span></li>\r\n	<li><span>Goods brought into the non-tariff area of ​​the border gate economic zone.</span></li>\r\n	<li><span>Other imported goods.</span></li>\r\n</ul>\r\n\r\n<h3><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong>THIEN HOANG CONSTRUCTION AND TRADING CO. </strong></span></span></h3>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Address:</strong> 982 Hung Vuong, Nhon Phu Ward, Quy Nhon City, Binh Dinh Province</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Hotline:</strong> 025 6354 8989</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Email:</strong> <a href=\"mailto:info@thienhoanggroup.com\"><span style=\"color:#0000ff;\"><em>info@thienhoanggroup.com</em> </span></a></span></strong></span></span></p>', '', '', '', '', 'maritime-goods-inspection-cp-223641623838702', '', 2, '1623838702_2.png', NULL, NULL, '', 'datafiles', 1623826626, 0, 1, 6, 0, 0, 'Maritime/GOODS INSPECTION', 'Maritime/GOODS INSPECTION', '', 'Maritime/GOODS INSPECTION', 'Maritime/GOODS INSPECTION', '', 'Maritime/GOODS INSPECTION', 'Maritime/GOODS INSPECTION', NULL, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL),
+(18, 1, 0, 'Maritime/GOODS INSPECTION 5', 'Maritime/GOODS INSPECTION 5', '', 'With the ambition to expand the system of warehouses and services in all provinces and cities across the country.', 'With the ambition to expand the system of warehouses and services in all provinces and cities across the country.', '', '<p style=\"text-align:center\"><a class=\"img-box\" href=\"https://lecvietnam.com/hoat-dong/tin-tuc/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-nhu-the-nao-60.html\" style=\"text-align: center;\"><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam như thế nào?\" height=\"300\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-4.jpg\" width=\"600\" /></a></p>\r\n\r\n<h2><span><span style=\"color:#a2c64a;font-size: 17px;\"><strong>What kind of procedure to import goods in Vietnam?</strong></span></span></h2>\r\n\r\n<p><span>Import of goods in Vietnam can be understood simply as a type of importation of goods under a sales contract to Vietnam. After that, it will be sold domestically or used as raw materials for production. For example: <em>imports clothes from Taiwan to Vietnam to sell at stores; importing beef from Japan to sell at supermarkets or big stores in Vietnam,&hellip;</em></span></p>\r\n\r\n<p style=\"text-align: center;\"><span><em><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" height=\"320\" longdesc=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam.jpg\" style=\"width: 600px; height: 320px;\" title=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" width=\"600\" /></em></span></p>\r\n\r\n<p><em><strong><span>Types of procedures for importing goods in Vietnam include:</span></strong></em></p>\r\n\r\n<ul>\r\n	<li><span>Import for consumer business (goods are cleared at the border gate Customs Department).</span></li>\r\n	<li><span>Import for production business (goods are cleared at the border gate Customs Sub-Department).</span></li>\r\n	<li><span>Transfer domestic consumption from temporarily imported source.</span></li>\r\n	<li><span>Import returned export goods.</span></li>\r\n	<li><span>Business importation of foreign invested enterprises.</span></li>\r\n	<li><span>Transfer to other domestic consumption.</span></li>\r\n	<li><span>Import raw materials of export processing enterprises from abroad.</span></li>\r\n	<li><span>Import and create fixed assets of export processing enterprises.</span></li>\r\n	<li><span>Import raw materials from domestic export processing enterprises.</span></li>\r\n	<li><span>Import raw materials for processing for foreign traders.</span></li>\r\n	<li><span>Import processing materials from another contract.</span></li>\r\n	<li><span>Import raw materials for export production.</span></li>\r\n	<li><span>Input materials in tax declaration warehouse.</span></li>\r\n	<li><span>Import processed products abroad.</span></li>\r\n	<li><span>Temporary import of goods temporarily imported for re-export.</span></li>\r\n	<li><span>Temporary import of machinery and equipment to serve the project for a limited time.</span></li>\r\n	<li><span>Temporary duty-free import.</span></li>\r\n	<li><span>Other temporary entry.</span></li>\r\n	<li><span>Re-import of temporarily exported goods.</span></li>\r\n	<li><span>Goods in bonded warehouse.</span></li>\r\n	<li><span>Goods brought into the non-tariff area of ​​the border gate economic zone.</span></li>\r\n	<li><span>Other imported goods.</span></li>\r\n</ul>\r\n\r\n<h3><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong>THIEN HOANG CONSTRUCTION AND TRADING CO. </strong></span></span></h3>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Address:</strong> 982 Hung Vuong, Nhon Phu Ward, Quy Nhon City, Binh Dinh Province</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Hotline:</strong> 025 6354 8989</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Email:</strong> <a href=\"mailto:info@thienhoanggroup.com\"><span style=\"color:#0000ff;\"><em>info@thienhoanggroup.com</em> </span></a></span></strong></span></span></p>', '<p style=\"text-align:center\"><a class=\"img-box\" href=\"https://lecvietnam.com/hoat-dong/tin-tuc/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-nhu-the-nao-60.html\" style=\"text-align: center;\"><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam như thế nào?\" height=\"300\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-4.jpg\" width=\"600\" /></a></p>\r\n\r\n<h2><span><span style=\"color:#a2c64a;font-size: 17px;\"><strong>What kind of procedure to import goods in Vietnam?</strong></span></span></h2>\r\n\r\n<p><span>Import of goods in Vietnam can be understood simply as a type of importation of goods under a sales contract to Vietnam. After that, it will be sold domestically or used as raw materials for production. For example: <em>imports clothes from Taiwan to Vietnam to sell at stores; importing beef from Japan to sell at supermarkets or big stores in Vietnam,&hellip;</em></span></p>\r\n\r\n<p style=\"text-align: center;\"><span><em><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" height=\"320\" longdesc=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam.jpg\" style=\"width: 600px; height: 320px;\" title=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" width=\"600\" /></em></span></p>\r\n\r\n<p><em><strong><span>Types of procedures for importing goods in Vietnam include:</span></strong></em></p>\r\n\r\n<ul>\r\n	<li><span>Import for consumer business (goods are cleared at the border gate Customs Department).</span></li>\r\n	<li><span>Import for production business (goods are cleared at the border gate Customs Sub-Department).</span></li>\r\n	<li><span>Transfer domestic consumption from temporarily imported source.</span></li>\r\n	<li><span>Import returned export goods.</span></li>\r\n	<li><span>Business importation of foreign invested enterprises.</span></li>\r\n	<li><span>Transfer to other domestic consumption.</span></li>\r\n	<li><span>Import raw materials of export processing enterprises from abroad.</span></li>\r\n	<li><span>Import and create fixed assets of export processing enterprises.</span></li>\r\n	<li><span>Import raw materials from domestic export processing enterprises.</span></li>\r\n	<li><span>Import raw materials for processing for foreign traders.</span></li>\r\n	<li><span>Import processing materials from another contract.</span></li>\r\n	<li><span>Import raw materials for export production.</span></li>\r\n	<li><span>Input materials in tax declaration warehouse.</span></li>\r\n	<li><span>Import processed products abroad.</span></li>\r\n	<li><span>Temporary import of goods temporarily imported for re-export.</span></li>\r\n	<li><span>Temporary import of machinery and equipment to serve the project for a limited time.</span></li>\r\n	<li><span>Temporary duty-free import.</span></li>\r\n	<li><span>Other temporary entry.</span></li>\r\n	<li><span>Re-import of temporarily exported goods.</span></li>\r\n	<li><span>Goods in bonded warehouse.</span></li>\r\n	<li><span>Goods brought into the non-tariff area of ​​the border gate economic zone.</span></li>\r\n	<li><span>Other imported goods.</span></li>\r\n</ul>\r\n\r\n<h3><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong>THIEN HOANG CONSTRUCTION AND TRADING CO. </strong></span></span></h3>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Address:</strong> 982 Hung Vuong, Nhon Phu Ward, Quy Nhon City, Binh Dinh Province</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Hotline:</strong> 025 6354 8989</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Email:</strong> <a href=\"mailto:info@thienhoanggroup.com\"><span style=\"color:#0000ff;\"><em>info@thienhoanggroup.com</em> </span></a></span></strong></span></span></p>', '', '', '', '', 'maritime-goods-inspection-cp-673011623838702', '', 3, '1623838702_3.png', NULL, NULL, '', 'datafiles', 1623826620, 0, 1, 6, 0, 0, 'Maritime/GOODS INSPECTION', 'Maritime/GOODS INSPECTION', '', 'Maritime/GOODS INSPECTION', 'Maritime/GOODS INSPECTION', '', 'Maritime/GOODS INSPECTION', 'Maritime/GOODS INSPECTION', NULL, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL),
+(19, 1, 0, 'Maritime/GOODS INSPECTION 4', 'Maritime/GOODS INSPECTION 4', '', 'With the ambition to expand the system of warehouses and services in all provinces and cities across the country.', 'With the ambition to expand the system of warehouses and services in all provinces and cities across the country.', '', '<p style=\"text-align:center\"><a class=\"img-box\" href=\"https://lecvietnam.com/hoat-dong/tin-tuc/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-nhu-the-nao-60.html\" style=\"text-align: center;\"><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam như thế nào?\" height=\"300\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-4.jpg\" width=\"600\" /></a></p>\r\n\r\n<h2><span><span style=\"color:#a2c64a;font-size: 17px;\"><strong>What kind of procedure to import goods in Vietnam?</strong></span></span></h2>\r\n\r\n<p><span>Import of goods in Vietnam can be understood simply as a type of importation of goods under a sales contract to Vietnam. After that, it will be sold domestically or used as raw materials for production. For example: <em>imports clothes from Taiwan to Vietnam to sell at stores; importing beef from Japan to sell at supermarkets or big stores in Vietnam,&hellip;</em></span></p>\r\n\r\n<p style=\"text-align: center;\"><span><em><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" height=\"320\" longdesc=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam.jpg\" style=\"width: 600px; height: 320px;\" title=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" width=\"600\" /></em></span></p>\r\n\r\n<p><em><strong><span>Types of procedures for importing goods in Vietnam include:</span></strong></em></p>\r\n\r\n<ul>\r\n	<li><span>Import for consumer business (goods are cleared at the border gate Customs Department).</span></li>\r\n	<li><span>Import for production business (goods are cleared at the border gate Customs Sub-Department).</span></li>\r\n	<li><span>Transfer domestic consumption from temporarily imported source.</span></li>\r\n	<li><span>Import returned export goods.</span></li>\r\n	<li><span>Business importation of foreign invested enterprises.</span></li>\r\n	<li><span>Transfer to other domestic consumption.</span></li>\r\n	<li><span>Import raw materials of export processing enterprises from abroad.</span></li>\r\n	<li><span>Import and create fixed assets of export processing enterprises.</span></li>\r\n	<li><span>Import raw materials from domestic export processing enterprises.</span></li>\r\n	<li><span>Import raw materials for processing for foreign traders.</span></li>\r\n	<li><span>Import processing materials from another contract.</span></li>\r\n	<li><span>Import raw materials for export production.</span></li>\r\n	<li><span>Input materials in tax declaration warehouse.</span></li>\r\n	<li><span>Import processed products abroad.</span></li>\r\n	<li><span>Temporary import of goods temporarily imported for re-export.</span></li>\r\n	<li><span>Temporary import of machinery and equipment to serve the project for a limited time.</span></li>\r\n	<li><span>Temporary duty-free import.</span></li>\r\n	<li><span>Other temporary entry.</span></li>\r\n	<li><span>Re-import of temporarily exported goods.</span></li>\r\n	<li><span>Goods in bonded warehouse.</span></li>\r\n	<li><span>Goods brought into the non-tariff area of ​​the border gate economic zone.</span></li>\r\n	<li><span>Other imported goods.</span></li>\r\n</ul>\r\n\r\n<h3><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong>THIEN HOANG CONSTRUCTION AND TRADING CO. </strong></span></span></h3>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Address:</strong> 982 Hung Vuong, Nhon Phu Ward, Quy Nhon City, Binh Dinh Province</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Hotline:</strong> 025 6354 8989</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Email:</strong> <a href=\"mailto:info@thienhoanggroup.com\"><span style=\"color:#0000ff;\"><em>info@thienhoanggroup.com</em> </span></a></span></strong></span></span></p>', '<p style=\"text-align:center\"><a class=\"img-box\" href=\"https://lecvietnam.com/hoat-dong/tin-tuc/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-nhu-the-nao-60.html\" style=\"text-align: center;\"><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam như thế nào?\" height=\"300\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-4.jpg\" width=\"600\" /></a></p>\r\n\r\n<h2><span><span style=\"color:#a2c64a;font-size: 17px;\"><strong>What kind of procedure to import goods in Vietnam?</strong></span></span></h2>\r\n\r\n<p><span>Import of goods in Vietnam can be understood simply as a type of importation of goods under a sales contract to Vietnam. After that, it will be sold domestically or used as raw materials for production. For example: <em>imports clothes from Taiwan to Vietnam to sell at stores; importing beef from Japan to sell at supermarkets or big stores in Vietnam,&hellip;</em></span></p>\r\n\r\n<p style=\"text-align: center;\"><span><em><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" height=\"320\" longdesc=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam.jpg\" style=\"width: 600px; height: 320px;\" title=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" width=\"600\" /></em></span></p>\r\n\r\n<p><em><strong><span>Types of procedures for importing goods in Vietnam include:</span></strong></em></p>\r\n\r\n<ul>\r\n	<li><span>Import for consumer business (goods are cleared at the border gate Customs Department).</span></li>\r\n	<li><span>Import for production business (goods are cleared at the border gate Customs Sub-Department).</span></li>\r\n	<li><span>Transfer domestic consumption from temporarily imported source.</span></li>\r\n	<li><span>Import returned export goods.</span></li>\r\n	<li><span>Business importation of foreign invested enterprises.</span></li>\r\n	<li><span>Transfer to other domestic consumption.</span></li>\r\n	<li><span>Import raw materials of export processing enterprises from abroad.</span></li>\r\n	<li><span>Import and create fixed assets of export processing enterprises.</span></li>\r\n	<li><span>Import raw materials from domestic export processing enterprises.</span></li>\r\n	<li><span>Import raw materials for processing for foreign traders.</span></li>\r\n	<li><span>Import processing materials from another contract.</span></li>\r\n	<li><span>Import raw materials for export production.</span></li>\r\n	<li><span>Input materials in tax declaration warehouse.</span></li>\r\n	<li><span>Import processed products abroad.</span></li>\r\n	<li><span>Temporary import of goods temporarily imported for re-export.</span></li>\r\n	<li><span>Temporary import of machinery and equipment to serve the project for a limited time.</span></li>\r\n	<li><span>Temporary duty-free import.</span></li>\r\n	<li><span>Other temporary entry.</span></li>\r\n	<li><span>Re-import of temporarily exported goods.</span></li>\r\n	<li><span>Goods in bonded warehouse.</span></li>\r\n	<li><span>Goods brought into the non-tariff area of ​​the border gate economic zone.</span></li>\r\n	<li><span>Other imported goods.</span></li>\r\n</ul>\r\n\r\n<h3><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong>THIEN HOANG CONSTRUCTION AND TRADING CO. </strong></span></span></h3>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Address:</strong> 982 Hung Vuong, Nhon Phu Ward, Quy Nhon City, Binh Dinh Province</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Hotline:</strong> 025 6354 8989</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Email:</strong> <a href=\"mailto:info@thienhoanggroup.com\"><span style=\"color:#0000ff;\"><em>info@thienhoanggroup.com</em> </span></a></span></strong></span></span></p>', '', '', '', '', 'maritime-goods-inspection-cp-658971623838702', '', 4, '1623838702_4.png', NULL, NULL, '', 'datafiles', 1623826615, 0, 2, 6, 0, 0, 'Maritime/GOODS INSPECTION', 'Maritime/GOODS INSPECTION', '', 'Maritime/GOODS INSPECTION', 'Maritime/GOODS INSPECTION', '', 'Maritime/GOODS INSPECTION', 'Maritime/GOODS INSPECTION', NULL, 0, 0, 1, 0, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `lh_baiviet` (`id`, `id_user`, `id_parent`, `tenbaiviet_vi`, `tenbaiviet_en`, `tenbaiviet_cn`, `mota_vi`, `mota_en`, `mota_cn`, `noidung_vi`, `noidung_en`, `noidung_cn`, `tags_vi`, `tags_en`, `tags_cn`, `seo_name`, `id_parent_muti`, `catasort`, `icon`, `icon_hover`, `dowload`, `dowload_text`, `duongdantin`, `ngaydang`, `capnhat`, `soluotxem`, `step`, `giatien`, `giakm`, `seo_title_vi`, `seo_title_en`, `seo_title_cn`, `seo_keywords_vi`, `seo_keywords_en`, `seo_keywords_cn`, `seo_description_vi`, `seo_description_en`, `seo_description_cn`, `opt_km`, `opt`, `opt1`, `opt2`, `opt3`, `opt4`, `opt5`, `top_video`, `p1`, `p2`, `p3`, `link_video`, `num_1`, `num_2`, `num_3`, `num_4`, `showhi`, `tinh_nang`, `thuoc_tinh_1_vi`, `thuoc_tinh_1_en`, `thuoc_tinh_2_vi`, `thuoc_tinh_2_en`, `thuoc_tinh_3_vi`, `thuoc_tinh_3_en`, `gia_tri_1_vi`, `gia_tri_2_vi`, `gia_tri_3_vi`, `thongso_vi`, `thongso_en`, `thongtin_vi`, `thongtin_en`, `ngayden`, `ngaydi`, `id_tag_multi`, `noidung2_vi`, `noidung2_en`, `noidung2_cn`, `kieudang_vi`, `kieudang_en`, `kieudang_cn`) VALUES
+(20, 1, 0, 'Maritime/GOODS INSPECTION', 'Maritime/GOODS INSPECTION', NULL, 'With the ambition to expand the system of warehouses and services in all provinces and cities across the country.', 'With the ambition to expand the system of warehouses and services in all provinces and cities across the country.', NULL, '<p style=\"text-align:center\"><a class=\"img-box\" href=\"https://lecvietnam.com/hoat-dong/tin-tuc/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-nhu-the-nao-60.html\" style=\"text-align: center;\"><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam như thế nào?\" height=\"300\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-4.jpg\" width=\"600\" /></a></p>\r\n\r\n<h2><span><span style=\"color:#a2c64a;font-size: 17px;\"><strong>What kind of procedure to import goods in Vietnam?</strong></span></span></h2>\r\n\r\n<p><span>Import of goods in Vietnam can be understood simply as a type of importation of goods under a sales contract to Vietnam. After that, it will be sold domestically or used as raw materials for production. For example: <em>imports clothes from Taiwan to Vietnam to sell at stores; importing beef from Japan to sell at supermarkets or big stores in Vietnam,&hellip;</em></span></p>\r\n\r\n<p style=\"text-align: center;\"><span><em><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" height=\"320\" longdesc=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam.jpg\" style=\"width: 600px; height: 320px;\" title=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" width=\"600\" /></em></span></p>\r\n\r\n<p><em><strong><span>Types of procedures for importing goods in Vietnam include:</span></strong></em></p>\r\n\r\n<ul>\r\n	<li><span>Import for consumer business (goods are cleared at the border gate Customs Department).</span></li>\r\n	<li><span>Import for production business (goods are cleared at the border gate Customs Sub-Department).</span></li>\r\n	<li><span>Transfer domestic consumption from temporarily imported source.</span></li>\r\n	<li><span>Import returned export goods.</span></li>\r\n	<li><span>Business importation of foreign invested enterprises.</span></li>\r\n	<li><span>Transfer to other domestic consumption.</span></li>\r\n	<li><span>Import raw materials of export processing enterprises from abroad.</span></li>\r\n	<li><span>Import and create fixed assets of export processing enterprises.</span></li>\r\n	<li><span>Import raw materials from domestic export processing enterprises.</span></li>\r\n	<li><span>Import raw materials for processing for foreign traders.</span></li>\r\n	<li><span>Import processing materials from another contract.</span></li>\r\n	<li><span>Import raw materials for export production.</span></li>\r\n	<li><span>Input materials in tax declaration warehouse.</span></li>\r\n	<li><span>Import processed products abroad.</span></li>\r\n	<li><span>Temporary import of goods temporarily imported for re-export.</span></li>\r\n	<li><span>Temporary import of machinery and equipment to serve the project for a limited time.</span></li>\r\n	<li><span>Temporary duty-free import.</span></li>\r\n	<li><span>Other temporary entry.</span></li>\r\n	<li><span>Re-import of temporarily exported goods.</span></li>\r\n	<li><span>Goods in bonded warehouse.</span></li>\r\n	<li><span>Goods brought into the non-tariff area of ​​the border gate economic zone.</span></li>\r\n	<li><span>Other imported goods.</span></li>\r\n</ul>\r\n\r\n<h3><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong>THIEN HOANG CONSTRUCTION AND TRADING CO. </strong></span></span></h3>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Address:</strong> 982 Hung Vuong, Nhon Phu Ward, Quy Nhon City, Binh Dinh Province</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Hotline:</strong> 025 6354 8989</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Email:</strong> <a href=\"mailto:info@thienhoanggroup.com\"><span style=\"color:#0000ff;\"><em>info@thienhoanggroup.com</em> </span></a></span></strong></span></span></p>', '<p style=\"text-align:center\"><a class=\"img-box\" href=\"https://lecvietnam.com/hoat-dong/tin-tuc/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-nhu-the-nao-60.html\" style=\"text-align: center;\"><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam như thế nào?\" height=\"300\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-4.jpg\" width=\"600\" /></a></p>\r\n\r\n<h2><span><span style=\"color:#a2c64a;font-size: 17px;\"><strong>What kind of procedure to import goods in Vietnam?</strong></span></span></h2>\r\n\r\n<p><span>Import of goods in Vietnam can be understood simply as a type of importation of goods under a sales contract to Vietnam. After that, it will be sold domestically or used as raw materials for production. For example: <em>imports clothes from Taiwan to Vietnam to sell at stores; importing beef from Japan to sell at supermarkets or big stores in Vietnam,&hellip;</em></span></p>\r\n\r\n<p style=\"text-align: center;\"><span><em><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" height=\"320\" longdesc=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam.jpg\" style=\"width: 600px; height: 320px;\" title=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" width=\"600\" /></em></span></p>\r\n\r\n<p><em><strong><span>Types of procedures for importing goods in Vietnam include:</span></strong></em></p>\r\n\r\n<ul>\r\n	<li><span>Import for consumer business (goods are cleared at the border gate Customs Department).</span></li>\r\n	<li><span>Import for production business (goods are cleared at the border gate Customs Sub-Department).</span></li>\r\n	<li><span>Transfer domestic consumption from temporarily imported source.</span></li>\r\n	<li><span>Import returned export goods.</span></li>\r\n	<li><span>Business importation of foreign invested enterprises.</span></li>\r\n	<li><span>Transfer to other domestic consumption.</span></li>\r\n	<li><span>Import raw materials of export processing enterprises from abroad.</span></li>\r\n	<li><span>Import and create fixed assets of export processing enterprises.</span></li>\r\n	<li><span>Import raw materials from domestic export processing enterprises.</span></li>\r\n	<li><span>Import raw materials for processing for foreign traders.</span></li>\r\n	<li><span>Import processing materials from another contract.</span></li>\r\n	<li><span>Import raw materials for export production.</span></li>\r\n	<li><span>Input materials in tax declaration warehouse.</span></li>\r\n	<li><span>Import processed products abroad.</span></li>\r\n	<li><span>Temporary import of goods temporarily imported for re-export.</span></li>\r\n	<li><span>Temporary import of machinery and equipment to serve the project for a limited time.</span></li>\r\n	<li><span>Temporary duty-free import.</span></li>\r\n	<li><span>Other temporary entry.</span></li>\r\n	<li><span>Re-import of temporarily exported goods.</span></li>\r\n	<li><span>Goods in bonded warehouse.</span></li>\r\n	<li><span>Goods brought into the non-tariff area of ​​the border gate economic zone.</span></li>\r\n	<li><span>Other imported goods.</span></li>\r\n</ul>\r\n\r\n<h3><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong>THIEN HOANG CONSTRUCTION AND TRADING CO. </strong></span></span></h3>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Address:</strong> 982 Hung Vuong, Nhon Phu Ward, Quy Nhon City, Binh Dinh Province</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Hotline:</strong> 025 6354 8989</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Email:</strong> <a href=\"mailto:info@thienhoanggroup.com\"><span style=\"color:#0000ff;\"><em>info@thienhoanggroup.com</em> </span></a></span></strong></span></span></p>', NULL, NULL, NULL, NULL, 'maritime-goods-inspection-cp-966811623838712', NULL, 5, '1623838712_1.png', NULL, NULL, NULL, 'datafiles', 1623838692, 0, 3, 6, 0, 0, 'Maritime/GOODS INSPECTION', 'Maritime/GOODS INSPECTION', NULL, 'Maritime/GOODS INSPECTION', 'Maritime/GOODS INSPECTION', NULL, 'Maritime/GOODS INSPECTION', 'Maritime/GOODS INSPECTION', NULL, 0, 0, 1, 0, 0, 0, 0, 0, NULL, 0, NULL, NULL, 0, 0, 0, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(21, 1, 0, 'Maritime/GOODS INSPECTION 3', 'Maritime/GOODS INSPECTION 3', '', 'With the ambition to expand the system of warehouses and services in all provinces and cities across the country.', 'With the ambition to expand the system of warehouses and services in all provinces and cities across the country.', '', '<p style=\"text-align:center\"><a class=\"img-box\" href=\"https://lecvietnam.com/hoat-dong/tin-tuc/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-nhu-the-nao-60.html\" style=\"text-align: center;\"><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam như thế nào?\" height=\"300\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-4.jpg\" width=\"600\" /></a></p>\r\n\r\n<h2><span><span style=\"color:#a2c64a;font-size: 17px;\"><strong>What kind of procedure to import goods in Vietnam?</strong></span></span></h2>\r\n\r\n<p><span>Import of goods in Vietnam can be understood simply as a type of importation of goods under a sales contract to Vietnam. After that, it will be sold domestically or used as raw materials for production. For example: <em>imports clothes from Taiwan to Vietnam to sell at stores; importing beef from Japan to sell at supermarkets or big stores in Vietnam,&hellip;</em></span></p>\r\n\r\n<p style=\"text-align: center;\"><span><em><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" height=\"320\" longdesc=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam.jpg\" style=\"width: 600px; height: 320px;\" title=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" width=\"600\" /></em></span></p>\r\n\r\n<p><em><strong><span>Types of procedures for importing goods in Vietnam include:</span></strong></em></p>\r\n\r\n<ul>\r\n	<li><span>Import for consumer business (goods are cleared at the border gate Customs Department).</span></li>\r\n	<li><span>Import for production business (goods are cleared at the border gate Customs Sub-Department).</span></li>\r\n	<li><span>Transfer domestic consumption from temporarily imported source.</span></li>\r\n	<li><span>Import returned export goods.</span></li>\r\n	<li><span>Business importation of foreign invested enterprises.</span></li>\r\n	<li><span>Transfer to other domestic consumption.</span></li>\r\n	<li><span>Import raw materials of export processing enterprises from abroad.</span></li>\r\n	<li><span>Import and create fixed assets of export processing enterprises.</span></li>\r\n	<li><span>Import raw materials from domestic export processing enterprises.</span></li>\r\n	<li><span>Import raw materials for processing for foreign traders.</span></li>\r\n	<li><span>Import processing materials from another contract.</span></li>\r\n	<li><span>Import raw materials for export production.</span></li>\r\n	<li><span>Input materials in tax declaration warehouse.</span></li>\r\n	<li><span>Import processed products abroad.</span></li>\r\n	<li><span>Temporary import of goods temporarily imported for re-export.</span></li>\r\n	<li><span>Temporary import of machinery and equipment to serve the project for a limited time.</span></li>\r\n	<li><span>Temporary duty-free import.</span></li>\r\n	<li><span>Other temporary entry.</span></li>\r\n	<li><span>Re-import of temporarily exported goods.</span></li>\r\n	<li><span>Goods in bonded warehouse.</span></li>\r\n	<li><span>Goods brought into the non-tariff area of ​​the border gate economic zone.</span></li>\r\n	<li><span>Other imported goods.</span></li>\r\n</ul>\r\n\r\n<h3><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong>THIEN HOANG CONSTRUCTION AND TRADING CO. </strong></span></span></h3>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Address:</strong> 982 Hung Vuong, Nhon Phu Ward, Quy Nhon City, Binh Dinh Province</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Hotline:</strong> 025 6354 8989</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Email:</strong> <a href=\"mailto:info@thienhoanggroup.com\"><span style=\"color:#0000ff;\"><em>info@thienhoanggroup.com</em> </span></a></span></strong></span></span></p>', '<p style=\"text-align:center\"><a class=\"img-box\" href=\"https://lecvietnam.com/hoat-dong/tin-tuc/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-nhu-the-nao-60.html\" style=\"text-align: center;\"><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam như thế nào?\" height=\"300\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-4.jpg\" width=\"600\" /></a></p>\r\n\r\n<h2><span><span style=\"color:#a2c64a;font-size: 17px;\"><strong>What kind of procedure to import goods in Vietnam?</strong></span></span></h2>\r\n\r\n<p><span>Import of goods in Vietnam can be understood simply as a type of importation of goods under a sales contract to Vietnam. After that, it will be sold domestically or used as raw materials for production. For example: <em>imports clothes from Taiwan to Vietnam to sell at stores; importing beef from Japan to sell at supermarkets or big stores in Vietnam,&hellip;</em></span></p>\r\n\r\n<p style=\"text-align: center;\"><span><em><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" height=\"320\" longdesc=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam.jpg\" style=\"width: 600px; height: 320px;\" title=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" width=\"600\" /></em></span></p>\r\n\r\n<p><em><strong><span>Types of procedures for importing goods in Vietnam include:</span></strong></em></p>\r\n\r\n<ul>\r\n	<li><span>Import for consumer business (goods are cleared at the border gate Customs Department).</span></li>\r\n	<li><span>Import for production business (goods are cleared at the border gate Customs Sub-Department).</span></li>\r\n	<li><span>Transfer domestic consumption from temporarily imported source.</span></li>\r\n	<li><span>Import returned export goods.</span></li>\r\n	<li><span>Business importation of foreign invested enterprises.</span></li>\r\n	<li><span>Transfer to other domestic consumption.</span></li>\r\n	<li><span>Import raw materials of export processing enterprises from abroad.</span></li>\r\n	<li><span>Import and create fixed assets of export processing enterprises.</span></li>\r\n	<li><span>Import raw materials from domestic export processing enterprises.</span></li>\r\n	<li><span>Import raw materials for processing for foreign traders.</span></li>\r\n	<li><span>Import processing materials from another contract.</span></li>\r\n	<li><span>Import raw materials for export production.</span></li>\r\n	<li><span>Input materials in tax declaration warehouse.</span></li>\r\n	<li><span>Import processed products abroad.</span></li>\r\n	<li><span>Temporary import of goods temporarily imported for re-export.</span></li>\r\n	<li><span>Temporary import of machinery and equipment to serve the project for a limited time.</span></li>\r\n	<li><span>Temporary duty-free import.</span></li>\r\n	<li><span>Other temporary entry.</span></li>\r\n	<li><span>Re-import of temporarily exported goods.</span></li>\r\n	<li><span>Goods in bonded warehouse.</span></li>\r\n	<li><span>Goods brought into the non-tariff area of ​​the border gate economic zone.</span></li>\r\n	<li><span>Other imported goods.</span></li>\r\n</ul>\r\n\r\n<h3><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong>THIEN HOANG CONSTRUCTION AND TRADING CO. </strong></span></span></h3>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Address:</strong> 982 Hung Vuong, Nhon Phu Ward, Quy Nhon City, Binh Dinh Province</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Hotline:</strong> 025 6354 8989</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Email:</strong> <a href=\"mailto:info@thienhoanggroup.com\"><span style=\"color:#0000ff;\"><em>info@thienhoanggroup.com</em> </span></a></span></strong></span></span></p>', '', '', '', '', 'maritime-goods-inspection-cp-932461623838712', '', 6, '1623838712_2.png', NULL, NULL, '', 'datafiles', 1623826610, 0, 4, 6, 0, 0, 'Maritime/GOODS INSPECTION', 'Maritime/GOODS INSPECTION', '', 'Maritime/GOODS INSPECTION', 'Maritime/GOODS INSPECTION', '', 'Maritime/GOODS INSPECTION', 'Maritime/GOODS INSPECTION', NULL, 0, 0, 1, 0, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL),
+(22, 1, 0, 'Maritime/GOODS INSPECTION 2', 'Maritime/GOODS INSPECTION 2', '', 'With the ambition to expand the system of warehouses and services in all provinces and cities across the country.', 'With the ambition to expand the system of warehouses and services in all provinces and cities across the country.', '', '<p style=\"text-align:center\"><a class=\"img-box\" href=\"https://lecvietnam.com/hoat-dong/tin-tuc/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-nhu-the-nao-60.html\" style=\"text-align: center;\"><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam như thế nào?\" height=\"300\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-4.jpg\" width=\"600\" /></a></p>\r\n\r\n<h2><span><span style=\"color:#a2c64a;font-size: 17px;\"><strong>What kind of procedure to import goods in Vietnam?</strong></span></span></h2>\r\n\r\n<p><span>Import of goods in Vietnam can be understood simply as a type of importation of goods under a sales contract to Vietnam. After that, it will be sold domestically or used as raw materials for production. For example: <em>imports clothes from Taiwan to Vietnam to sell at stores; importing beef from Japan to sell at supermarkets or big stores in Vietnam,&hellip;</em></span></p>\r\n\r\n<p style=\"text-align: center;\"><span><em><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" height=\"320\" longdesc=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam.jpg\" style=\"width: 600px; height: 320px;\" title=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" width=\"600\" /></em></span></p>\r\n\r\n<p><em><strong><span>Types of procedures for importing goods in Vietnam include:</span></strong></em></p>\r\n\r\n<ul>\r\n	<li><span>Import for consumer business (goods are cleared at the border gate Customs Department).</span></li>\r\n	<li><span>Import for production business (goods are cleared at the border gate Customs Sub-Department).</span></li>\r\n	<li><span>Transfer domestic consumption from temporarily imported source.</span></li>\r\n	<li><span>Import returned export goods.</span></li>\r\n	<li><span>Business importation of foreign invested enterprises.</span></li>\r\n	<li><span>Transfer to other domestic consumption.</span></li>\r\n	<li><span>Import raw materials of export processing enterprises from abroad.</span></li>\r\n	<li><span>Import and create fixed assets of export processing enterprises.</span></li>\r\n	<li><span>Import raw materials from domestic export processing enterprises.</span></li>\r\n	<li><span>Import raw materials for processing for foreign traders.</span></li>\r\n	<li><span>Import processing materials from another contract.</span></li>\r\n	<li><span>Import raw materials for export production.</span></li>\r\n	<li><span>Input materials in tax declaration warehouse.</span></li>\r\n	<li><span>Import processed products abroad.</span></li>\r\n	<li><span>Temporary import of goods temporarily imported for re-export.</span></li>\r\n	<li><span>Temporary import of machinery and equipment to serve the project for a limited time.</span></li>\r\n	<li><span>Temporary duty-free import.</span></li>\r\n	<li><span>Other temporary entry.</span></li>\r\n	<li><span>Re-import of temporarily exported goods.</span></li>\r\n	<li><span>Goods in bonded warehouse.</span></li>\r\n	<li><span>Goods brought into the non-tariff area of ​​the border gate economic zone.</span></li>\r\n	<li><span>Other imported goods.</span></li>\r\n</ul>\r\n\r\n<h3><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong>THIEN HOANG CONSTRUCTION AND TRADING CO. </strong></span></span></h3>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Address:</strong> 982 Hung Vuong, Nhon Phu Ward, Quy Nhon City, Binh Dinh Province</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Hotline:</strong> 025 6354 8989</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Email:</strong> <a href=\"mailto:info@thienhoanggroup.com\"><span style=\"color:#0000ff;\"><em>info@thienhoanggroup.com</em> </span></a></span></strong></span></span></p>', '<p style=\"text-align:center\"><a class=\"img-box\" href=\"https://lecvietnam.com/hoat-dong/tin-tuc/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-nhu-the-nao-60.html\" style=\"text-align: center;\"><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam như thế nào?\" height=\"300\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-4.jpg\" width=\"600\" /></a></p>\r\n\r\n<h2><span><span style=\"color:#a2c64a;font-size: 17px;\"><strong>What kind of procedure to import goods in Vietnam?</strong></span></span></h2>\r\n\r\n<p><span>Import of goods in Vietnam can be understood simply as a type of importation of goods under a sales contract to Vietnam. After that, it will be sold domestically or used as raw materials for production. For example: <em>imports clothes from Taiwan to Vietnam to sell at stores; importing beef from Japan to sell at supermarkets or big stores in Vietnam,&hellip;</em></span></p>\r\n\r\n<p style=\"text-align: center;\"><span><em><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" height=\"320\" longdesc=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam.jpg\" style=\"width: 600px; height: 320px;\" title=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" width=\"600\" /></em></span></p>\r\n\r\n<p><em><strong><span>Types of procedures for importing goods in Vietnam include:</span></strong></em></p>\r\n\r\n<ul>\r\n	<li><span>Import for consumer business (goods are cleared at the border gate Customs Department).</span></li>\r\n	<li><span>Import for production business (goods are cleared at the border gate Customs Sub-Department).</span></li>\r\n	<li><span>Transfer domestic consumption from temporarily imported source.</span></li>\r\n	<li><span>Import returned export goods.</span></li>\r\n	<li><span>Business importation of foreign invested enterprises.</span></li>\r\n	<li><span>Transfer to other domestic consumption.</span></li>\r\n	<li><span>Import raw materials of export processing enterprises from abroad.</span></li>\r\n	<li><span>Import and create fixed assets of export processing enterprises.</span></li>\r\n	<li><span>Import raw materials from domestic export processing enterprises.</span></li>\r\n	<li><span>Import raw materials for processing for foreign traders.</span></li>\r\n	<li><span>Import processing materials from another contract.</span></li>\r\n	<li><span>Import raw materials for export production.</span></li>\r\n	<li><span>Input materials in tax declaration warehouse.</span></li>\r\n	<li><span>Import processed products abroad.</span></li>\r\n	<li><span>Temporary import of goods temporarily imported for re-export.</span></li>\r\n	<li><span>Temporary import of machinery and equipment to serve the project for a limited time.</span></li>\r\n	<li><span>Temporary duty-free import.</span></li>\r\n	<li><span>Other temporary entry.</span></li>\r\n	<li><span>Re-import of temporarily exported goods.</span></li>\r\n	<li><span>Goods in bonded warehouse.</span></li>\r\n	<li><span>Goods brought into the non-tariff area of ​​the border gate economic zone.</span></li>\r\n	<li><span>Other imported goods.</span></li>\r\n</ul>\r\n\r\n<h3><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong>THIEN HOANG CONSTRUCTION AND TRADING CO. </strong></span></span></h3>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Address:</strong> 982 Hung Vuong, Nhon Phu Ward, Quy Nhon City, Binh Dinh Province</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Hotline:</strong> 025 6354 8989</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Email:</strong> <a href=\"mailto:info@thienhoanggroup.com\"><span style=\"color:#0000ff;\"><em>info@thienhoanggroup.com</em> </span></a></span></strong></span></span></p>', '', '', '', '', 'maritime-goods-inspection-cp-516711623838712', '', 7, '1623838712_3.png', NULL, NULL, '', 'datafiles', 1623826605, 0, 3, 6, 0, 0, 'Maritime/GOODS INSPECTION', 'Maritime/GOODS INSPECTION', '', 'Maritime/GOODS INSPECTION', 'Maritime/GOODS INSPECTION', '', 'Maritime/GOODS INSPECTION', 'Maritime/GOODS INSPECTION', NULL, 0, 1, 1, 0, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL),
+(23, 1, 23, 'Maritime/GOODS INSPECTION 1', 'Maritime/GOODS INSPECTION 1', '', 'With the ambition to expand the system of warehouses and services in all provinces and cities across the country.', 'With the ambition to expand the system of warehouses and services in all provinces and cities across the country.', '', '<p style=\"text-align:center\"><a class=\"img-box\" href=\"https://lecvietnam.com/hoat-dong/tin-tuc/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-nhu-the-nao-60.html\" style=\"text-align: center;\"><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam như thế nào?\" height=\"300\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-4.jpg\" width=\"600\" /></a></p>\r\n\r\n<h2><span><span style=\"color:#a2c64a;font-size: 17px;\"><strong>What kind of procedure to import goods in Vietnam?</strong></span></span></h2>\r\n\r\n<p><span>Import of goods in Vietnam can be understood simply as a type of importation of goods under a sales contract to Vietnam. After that, it will be sold domestically or used as raw materials for production. For example: <em>imports clothes from Taiwan to Vietnam to sell at stores; importing beef from Japan to sell at supermarkets or big stores in Vietnam,&hellip;</em></span></p>\r\n\r\n<p style=\"text-align: center;\"><span><em><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" height=\"320\" longdesc=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam.jpg\" style=\"width: 600px; height: 320px;\" title=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" width=\"600\" /></em></span></p>\r\n\r\n<p><em><strong><span>Types of procedures for importing goods in Vietnam include:</span></strong></em></p>\r\n\r\n<ul>\r\n	<li><span>Import for consumer business (goods are cleared at the border gate Customs Department).</span></li>\r\n	<li><span>Import for production business (goods are cleared at the border gate Customs Sub-Department).</span></li>\r\n	<li><span>Transfer domestic consumption from temporarily imported source.</span></li>\r\n	<li><span>Import returned export goods.</span></li>\r\n	<li><span>Business importation of foreign invested enterprises.</span></li>\r\n	<li><span>Transfer to other domestic consumption.</span></li>\r\n	<li><span>Import raw materials of export processing enterprises from abroad.</span></li>\r\n	<li><span>Import and create fixed assets of export processing enterprises.</span></li>\r\n	<li><span>Import raw materials from domestic export processing enterprises.</span></li>\r\n	<li><span>Import raw materials for processing for foreign traders.</span></li>\r\n	<li><span>Import processing materials from another contract.</span></li>\r\n	<li><span>Import raw materials for export production.</span></li>\r\n	<li><span>Input materials in tax declaration warehouse.</span></li>\r\n	<li><span>Import processed products abroad.</span></li>\r\n	<li><span>Temporary import of goods temporarily imported for re-export.</span></li>\r\n	<li><span>Temporary import of machinery and equipment to serve the project for a limited time.</span></li>\r\n	<li><span>Temporary duty-free import.</span></li>\r\n	<li><span>Other temporary entry.</span></li>\r\n	<li><span>Re-import of temporarily exported goods.</span></li>\r\n	<li><span>Goods in bonded warehouse.</span></li>\r\n	<li><span>Goods brought into the non-tariff area of ​​the border gate economic zone.</span></li>\r\n	<li><span>Other imported goods.</span></li>\r\n</ul>\r\n\r\n<h3><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong>THIEN HOANG CONSTRUCTION AND TRADING CO. </strong></span></span></h3>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Address:</strong> 982 Hung Vuong, Nhon Phu Ward, Quy Nhon City, Binh Dinh Province</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Hotline:</strong> 025 6354 8989</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Email:</strong> <a href=\"mailto:info@thienhoanggroup.com\"><span style=\"color:#0000ff;\"><em>info@thienhoanggroup.com</em> </span></a></span></strong></span></span></p>', '<p style=\"text-align:center\"><a class=\"img-box\" href=\"https://lecvietnam.com/hoat-dong/tin-tuc/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-nhu-the-nao-60.html\" style=\"text-align: center;\"><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam như thế nào?\" height=\"300\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam-4.jpg\" width=\"600\" /></a></p>\r\n\r\n<h2><span><span style=\"color:#a2c64a;font-size: 17px;\"><strong>What kind of procedure to import goods in Vietnam?</strong></span></span></h2>\r\n\r\n<p><span>Import of goods in Vietnam can be understood simply as a type of importation of goods under a sales contract to Vietnam. After that, it will be sold domestically or used as raw materials for production. For example: <em>imports clothes from Taiwan to Vietnam to sell at stores; importing beef from Japan to sell at supermarkets or big stores in Vietnam,&hellip;</em></span></p>\r\n\r\n<p style=\"text-align: center;\"><span><em><img alt=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" height=\"320\" longdesc=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" src=\"/2021_thienhoanggroup/datafiles/images/thu-tuc-nhap-khau-hang-hoa-tai-viet-nam.jpg\" style=\"width: 600px; height: 320px;\" title=\"Thủ tục nhập khẩu hàng hóa tại Việt Nam\" width=\"600\" /></em></span></p>\r\n\r\n<p><em><strong><span>Types of procedures for importing goods in Vietnam include:</span></strong></em></p>\r\n\r\n<ul>\r\n	<li><span>Import for consumer business (goods are cleared at the border gate Customs Department).</span></li>\r\n	<li><span>Import for production business (goods are cleared at the border gate Customs Sub-Department).</span></li>\r\n	<li><span>Transfer domestic consumption from temporarily imported source.</span></li>\r\n	<li><span>Import returned export goods.</span></li>\r\n	<li><span>Business importation of foreign invested enterprises.</span></li>\r\n	<li><span>Transfer to other domestic consumption.</span></li>\r\n	<li><span>Import raw materials of export processing enterprises from abroad.</span></li>\r\n	<li><span>Import and create fixed assets of export processing enterprises.</span></li>\r\n	<li><span>Import raw materials from domestic export processing enterprises.</span></li>\r\n	<li><span>Import raw materials for processing for foreign traders.</span></li>\r\n	<li><span>Import processing materials from another contract.</span></li>\r\n	<li><span>Import raw materials for export production.</span></li>\r\n	<li><span>Input materials in tax declaration warehouse.</span></li>\r\n	<li><span>Import processed products abroad.</span></li>\r\n	<li><span>Temporary import of goods temporarily imported for re-export.</span></li>\r\n	<li><span>Temporary import of machinery and equipment to serve the project for a limited time.</span></li>\r\n	<li><span>Temporary duty-free import.</span></li>\r\n	<li><span>Other temporary entry.</span></li>\r\n	<li><span>Re-import of temporarily exported goods.</span></li>\r\n	<li><span>Goods in bonded warehouse.</span></li>\r\n	<li><span>Goods brought into the non-tariff area of ​​the border gate economic zone.</span></li>\r\n	<li><span>Other imported goods.</span></li>\r\n</ul>\r\n\r\n<h3><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong>THIEN HOANG CONSTRUCTION AND TRADING CO. </strong></span></span></h3>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Address:</strong> 982 Hung Vuong, Nhon Phu Ward, Quy Nhon City, Binh Dinh Province</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Hotline:</strong> 025 6354 8989</span></strong></span></span></p>\r\n\r\n<p><span style=\"color:#a2c64a;font-size: 17px;\"><span><strong><span><strong>Email:</strong> <a href=\"mailto:info@thienhoanggroup.com\"><span style=\"color:#0000ff;\"><em>info@thienhoanggroup.com</em> </span></a></span></strong></span></span></p>', '', '', '', '', 'maritime-goods-inspection-cp-219591623838712', '', 8, '1623838712_4.png', NULL, NULL, '', 'datafiles', 1623814673, 0, 4, 6, 0, 0, 'Maritime/GOODS INSPECTION', 'Maritime/GOODS INSPECTION', '', 'Maritime/GOODS INSPECTION', 'Maritime/GOODS INSPECTION', '', 'Maritime/GOODS INSPECTION', 'Maritime/GOODS INSPECTION', NULL, 0, 1, 1, 0, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', '', '', '', '', '', NULL),
+(56, 1, 0, 'Văn Phòng HCM', '', '', 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15673.902458413477!2d106.777264!3d10.851384!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752773578cbb79%3A0x1e980136932d26d7!2zNDI5IFNvbmcgSMOgbmggWGEgTOG7mSBIw6AgTuG7mWksIEhp4buHcCBQaMO6LCBRdeG6rW4gOSwgSOG7kyBDaMOtIE1pbmgsIFZp4buHdCBOYW0!5e0!3m2!1svi!2sus!4v1736758810915!5m2!1svi!2sus\" allowfullscreen=\"\" loading=\"lazy\"', 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15673.902458413477!2d106.777264!3d10.851384!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752773578cbb79%3A0x1e980136932d26d7!2zNDI5IFNvbmcgSMOgbmggWGEgTOG7mSBIw6AgTuG7mWksIEhp4buHcCBQaMO6LCBRdeG6rW4gOSwgSOG7kyBDaMOtIE1pbmgsIFZp4buHdCBOYW0!5e0!3m2!1svi!2sus!4v1736758810915!5m2!1svi!2sus\" allowfullscreen=\"\" loading=\"lazy\"', '', '<p><strong>Địa chỉ:</strong>&nbsp;429/4 Đường Song h&agrave;nh Xa lộ H&agrave; Nội - Khu phố 7 - Phường Trường Thọ - Th&agrave;nh phố Thủ Đức - Th&agrave;nh phố Hồ Ch&iacute; Minh</p>\r\n\r\n<p><strong>Email:</strong>&nbsp;tracomeco@tracomeco.com</p>\r\n\r\n<p><strong>Điện thoại:</strong>&nbsp;028 3896 5105</p>\r\n\r\n<p><strong>Fax:</strong>&nbsp;028 3896 1440</p>', '', '', '', '', '', '592add87821ec6ae576eca5fa39deb8e', '', 3, NULL, NULL, NULL, '', 'datafiles', 1738918028, 0, 1, 8, 0, 0, 'Văn Phòng HCM', 'HCM Office', '', 'Văn Phòng HCM', 'HCM Office', '', 'Văn Phòng HCM', 'HCM Office', NULL, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', '', '', '', '', '', NULL),
+(57, 1, 0, 'Văn Phòng Hà Nội', 'Hanoi Office', '', 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15673.902458413477!2d106.777264!3d10.851384!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752773578cbb79%3A0x1e980136932d26d7!2zNDI5IFNvbmcgSMOgbmggWGEgTOG7mSBIw6AgTuG7mWksIEhp4buHcCBQaMO6LCBRdeG6rW4gOSwgSOG7kyBDaMOtIE1pbmgsIFZp4buHdCBOYW0!5e0!3m2!1svi!2sus!4v1736758810915!5m2!1svi!2sus\" allowfullscreen=\"\" loading=\"lazy\"', 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15673.902458413477!2d106.777264!3d10.851384!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752773578cbb79%3A0x1e980136932d26d7!2zNDI5IFNvbmcgSMOgbmggWGEgTOG7mSBIw6AgTuG7mWksIEhp4buHcCBQaMO6LCBRdeG6rW4gOSwgSOG7kyBDaMOtIE1pbmgsIFZp4buHdCBOYW0!5e0!3m2!1svi!2sus!4v1736758810915!5m2!1svi!2sus\" allowfullscreen=\"\" loading=\"lazy\"', '', '<p><strong>Địa chỉ:</strong>&nbsp;429/4 Đường Song h&agrave;nh Xa lộ H&agrave; Nội - Khu phố 7 - Phường Trường Thọ - Th&agrave;nh phố Thủ Đức - H&agrave; Nội</p>\r\n\r\n<p><strong>Email:</strong>&nbsp;tracomeco@tracomeco.com</p>\r\n\r\n<p><strong>Điện thoại:</strong>&nbsp;028 3896 5105</p>\r\n\r\n<p><strong>Fax:</strong>&nbsp;028 3896 1440</p>', '<p><strong>Địa chỉ:</strong>&nbsp;429/4 Đường Song h&agrave;nh Xa lộ H&agrave; Nội - Khu phố 7 - Phường Trường Thọ - Th&agrave;nh phố Thủ Đức - H&agrave; Nội</p>\r\n\r\n<p><strong>Email:</strong>&nbsp;tracomeco@tracomeco.com</p>\r\n\r\n<p><strong>Điện thoại:</strong>&nbsp;028 3896 5105</p>\r\n\r\n<p><strong>Fax:</strong>&nbsp;028 3896 1440</p>', '', '', '', '', '592add87821ec6ae576eca5fa39deb8e-cp-242631738891798', '', 2, '', NULL, NULL, '', 'datafiles', 1738925842, 0, 1, 8, 0, 0, 'Văn Phòng HCM', 'Hanoi Office', '', 'Văn Phòng HCM', 'Hanoi Office', '', 'Văn Phòng HCM', 'Hanoi Office', NULL, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL),
+(58, 1, 18, 'Thông báo vv chốt danh sách Trái chủ mã Trái phiếu TCOCH2328001 để đăng ký tập trung tại Tổng Công ty Lưu ký và Bù trừ chứng khoán Việt Nam (VSCD)', 'Notice, etc. Closing the list of bonds of TCOCH2328001 bonds for concentrated registration at Vietnam Securities Depository and Clearing Corporation (VSCD)', '', '', '', '', '', '', '', '', '', '', 'ca387fecf972ac4e95241b07ab74bb4b', '', 1, NULL, NULL, '1738903042_Master-Premium-Lists_20240511.xlsx', 'https://thacogroup.vn/storage/quan-he-co-dong/file-cong-bo-thong-tin/2023/thong-bao-vv-chot-danh-sach-trai-chu-ma-trai-phieu-tcoch2328001-de-dang-ky-tap-trung-tai-tong-cong-ty-luu-ky-va-bu-tru-chung-khoan-viet-nam-vscd/1.pdf', 'datafiles', 1738908814, 0, 2, 12, 0, 0, 'Thông báo vv chốt danh sách Trái chủ mã Trái phiếu TCOCH2328001 để đăng ký tập trung tại Tổng Công ty Lưu ký và Bù trừ chứng khoán Việt Nam (VSCD)', 'Notice, etc. Closing the list of bonds of TCOCH2328001 bonds for concentrated registration at Vietnam Securities Depository and Clearing Corporation (VSCD)', '', 'Thông báo vv chốt danh sách Trái chủ mã Trái phiếu TCOCH2328001 để đăng ký tập trung tại Tổng Công ty Lưu ký và Bù trừ chứng khoán Việt Nam (VSCD)', 'Notice, etc. Closing the list of bonds of TCOCH2328001 bonds for concentrated registration at Vietnam Securities Depository and Clearing Corporation (VSCD)', '', 'Thông báo vv chốt danh sách Trái chủ mã Trái phiếu TCOCH2328001 để đăng ký tập trung tại Tổng Công ty Lưu ký và Bù trừ chứng khoán Việt Nam (VSCD)', 'Notice, etc. Closing the list of bonds of TCOCH2328001 bonds for concentrated registration at Vietnam Securities Depository and Clearing Corporation (VSCD)', NULL, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL),
+(25, 1, 21, 'VỀ CHÚNG TÔI', 'About us', '', '', '', '', '<p><strong>C&ocirc;ng Ty Cổ Phần Cơ Kh&iacute; - X&acirc;y Dựng Giao Th&ocirc;ng (Tracomeco)</strong>&nbsp;được th&agrave;nh lập lại theo Quyết định số 2863/QĐ - BGTVT của Bộ Giao Th&ocirc;ng Vận Tải k&yacute; ng&agrave;y 10/9/2002 về việc chuyển Doanh nghiệp Nh&agrave; nước th&agrave;nh C&ocirc;ng ty Cổ phần.</p>\r\n\r\n<p>Tiền th&acirc;n của C&ocirc;ng ty l&agrave;&nbsp;<strong>H&atilde;ng thầu RMK</strong>&nbsp;do Mỹ th&agrave;nh lập từ năm 1962 v&agrave; l&agrave; một cơ sở đại tu xe m&aacute;y thi c&ocirc;ng c&ocirc;ng tr&igrave;nh v&agrave; sản xuất kết cấu th&eacute;p lớn nhất Đ&ocirc;ng Nam &Aacute; thời bấy giờ. Sau năm 1975, đứng trước nhu cầu cấp b&aacute;ch về x&acirc;y dựng v&agrave; ph&aacute;t triển ng&agrave;nh cơ kh&iacute; giao th&ocirc;ng ph&iacute;a Nam, tr&ecirc;n cơ sở h&atilde;ng thầu RMK tiếp quản sau giải ph&oacute;ng, Nh&agrave; nước v&agrave; Bộ Giao th&ocirc;ng vận tải đ&atilde; th&agrave;nh lập Nh&agrave; m&aacute;y Cơ kh&iacute; C&ocirc;ng tr&igrave;nh với chức năng sửa chữa lắp r&aacute;p xe m&aacute;y c&ocirc;ng tr&igrave;nh, &ocirc;t&ocirc; c&aacute;c loại, đ&oacute;ng v&agrave; sửa chữa t&agrave;u thủy...</p>\r\n\r\n<p>Từ đ&oacute; tới nay C&ocirc;ng ty đ&atilde; nhiều lần đổi t&ecirc;n v&agrave; t&aacute;ch ra th&agrave;nh lập c&aacute;c doanh nghiệp mới. Đến năm 1996 C&ocirc;ng ty Cơ kh&iacute; Giao th&ocirc;ng 2 được th&agrave;nh lập lại th&agrave;nh C&ocirc;ng ty c&oacute; Hội đồng quản trị. Thực hiện chủ trương cổ phần ho&aacute; c&aacute;c doanh nghiệp Nh&agrave; nước của Ch&iacute;nh phủ, th&aacute;ng 9/2003 C&ocirc;ng ty tiến h&agrave;nh cổ phần ho&aacute; th&agrave;nh lập C&ocirc;ng ty Cổ phần Cơ kh&iacute; - X&acirc;y dựng giao th&ocirc;ng (Tracomeco).</p>', '<div style=\"width: 1200px;max-width: 100%;\">\r\n<div class=\"showText_half\" style=\"width: calc(50% - 20px); margin: 10px; float: left; text-align: justify;\">\r\n<p><strong>C&ocirc;ng Ty Cổ Phần Cơ Kh&iacute; - X&acirc;y Dựng Giao Th&ocirc;ng (Tracomeco)</strong>&nbsp;được th&agrave;nh lập lại theo Quyết định số 2863/QĐ - BGTVT của Bộ Giao Th&ocirc;ng Vận Tải k&yacute; ng&agrave;y 10/9/2002 về việc chuyển Doanh nghiệp Nh&agrave; nước th&agrave;nh C&ocirc;ng ty Cổ phần.</p>\r\n\r\n<p>Tiền th&acirc;n của C&ocirc;ng ty l&agrave;&nbsp;<strong>H&atilde;ng thầu RMK</strong>&nbsp;do Mỹ th&agrave;nh lập từ năm 1962 v&agrave; l&agrave; một cơ sở đại tu xe m&aacute;y thi c&ocirc;ng c&ocirc;ng tr&igrave;nh v&agrave; sản xuất kết cấu th&eacute;p lớn nhất Đ&ocirc;ng Nam &Aacute; thời bấy giờ. Sau năm 1975, đứng trước nhu cầu cấp b&aacute;ch về x&acirc;y dựng v&agrave; ph&aacute;t triển ng&agrave;nh cơ kh&iacute; giao th&ocirc;ng ph&iacute;a Nam, tr&ecirc;n cơ sở h&atilde;ng thầu RMK tiếp quản sau giải ph&oacute;ng, Nh&agrave; nước v&agrave; Bộ Giao th&ocirc;ng vận tải đ&atilde; th&agrave;nh lập Nh&agrave; m&aacute;y Cơ kh&iacute; C&ocirc;ng tr&igrave;nh với chức năng sửa chữa lắp r&aacute;p xe m&aacute;y c&ocirc;ng tr&igrave;nh, &ocirc;t&ocirc; c&aacute;c loại, đ&oacute;ng v&agrave; sửa chữa t&agrave;u thủy...</p>\r\n\r\n<p>Từ đ&oacute; tới nay C&ocirc;ng ty đ&atilde; nhiều lần đổi t&ecirc;n v&agrave; t&aacute;ch ra th&agrave;nh lập c&aacute;c doanh nghiệp mới. Đến năm 1996 C&ocirc;ng ty Cơ kh&iacute; Giao th&ocirc;ng 2 được th&agrave;nh lập lại th&agrave;nh C&ocirc;ng ty c&oacute; Hội đồng quản trị. Thực hiện chủ trương cổ phần ho&aacute; c&aacute;c doanh nghiệp Nh&agrave; nước của Ch&iacute;nh phủ, th&aacute;ng 9/2003 C&ocirc;ng ty tiến h&agrave;nh cổ phần ho&aacute; th&agrave;nh lập C&ocirc;ng ty Cổ phần Cơ kh&iacute; - X&acirc;y dựng giao th&ocirc;ng (Tracomeco).</p>\r\n</div>\r\n</div>', '', '', '', '', 've-chung-toi', '', 1, '1738743764_6d22067a-5adb-4b32-a631-91cc7a1458a3.webp', NULL, NULL, '', 'datafiles', 1623930233, 0, 3, 1, 0, 0, 'VỀ CHÚNG TÔI', 'About us', '', 'VỀ CHÚNG TÔI', 'About us', '', 'VỀ CHÚNG TÔI', 'About us', NULL, 0, 1, 1, 1, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', '', '', '', '', '', NULL),
+(29, 1, 21, 'Sứ mệnh', 'Mission', '', 'Sứ mệnh', '', '', '<p><img alt=\"\" src=\"/2021_thienhoanggroup/datafiles/images/banner2.jpg\" style=\"width:100%;\" /></p>', '<p><img alt=\"\" src=\"/2021_thienhoanggroup/datafiles/images/banner2.jpg\" style=\"width:100%;\" /></p>', '', '', '', '', 'su-menh', '', 3, '1739248955_gt-noidung-1.png', NULL, NULL, '', 'datafiles', 1623933576, 0, 2, 1, 0, 0, 'Sứ mệnh', 'Mission', '', 'Sứ mệnh', 'Mission', '', 'Sứ mệnh', 'Mission', NULL, 0, 1, 0, 0, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', '', '', '', '', '', NULL);
+INSERT INTO `lh_baiviet` (`id`, `id_user`, `id_parent`, `tenbaiviet_vi`, `tenbaiviet_en`, `tenbaiviet_cn`, `mota_vi`, `mota_en`, `mota_cn`, `noidung_vi`, `noidung_en`, `noidung_cn`, `tags_vi`, `tags_en`, `tags_cn`, `seo_name`, `id_parent_muti`, `catasort`, `icon`, `icon_hover`, `dowload`, `dowload_text`, `duongdantin`, `ngaydang`, `capnhat`, `soluotxem`, `step`, `giatien`, `giakm`, `seo_title_vi`, `seo_title_en`, `seo_title_cn`, `seo_keywords_vi`, `seo_keywords_en`, `seo_keywords_cn`, `seo_description_vi`, `seo_description_en`, `seo_description_cn`, `opt_km`, `opt`, `opt1`, `opt2`, `opt3`, `opt4`, `opt5`, `top_video`, `p1`, `p2`, `p3`, `link_video`, `num_1`, `num_2`, `num_3`, `num_4`, `showhi`, `tinh_nang`, `thuoc_tinh_1_vi`, `thuoc_tinh_1_en`, `thuoc_tinh_2_vi`, `thuoc_tinh_2_en`, `thuoc_tinh_3_vi`, `thuoc_tinh_3_en`, `gia_tri_1_vi`, `gia_tri_2_vi`, `gia_tri_3_vi`, `thongso_vi`, `thongso_en`, `thongtin_vi`, `thongtin_en`, `ngayden`, `ngaydi`, `id_tag_multi`, `noidung2_vi`, `noidung2_en`, `noidung2_cn`, `kieudang_vi`, `kieudang_en`, `kieudang_cn`) VALUES
+(30, 1, 21, 'LĨNH VỰC KINH DOANH', 'OUR BUSINESS', '', '', '', '', '', '<div style=\"width: 1200px;max-width: 100%;\">\r\n<div class=\"showText_half\" style=\"width: calc(100% / 2 - 20px);margin: 10px;float: left;text-align: justify;\">\r\n<ul>\r\n	<li><span style=\"color:#f1c40f;\"><span style=\"font-size:20px;\"><b>BIOMASS ENERGY INDUSTRY:</b></span></span>\r\n	<p><br />\r\n	1. WOOD PELLETS: Thien Hoang Group has been manufacturer and supplier of wood pellets with international quality for biomass thermal power plants, boilers and heaters in Asia<br />\r\n	2. WOOD SHAVING &amp; SAWDUST BLOCK: The raw materials from by-products of furniture production, wood shaving &amp; sawdust block are used for the heating carpet for the animals and mushroom raising application, also used for mix with the wastes to produce fertilizers.<br />\r\n	3. WOOD CHIPS: Raw materials are taken from wood of artificial forest. Wood chips are used as the main raw materials for the paper industry of Asian markets such as China, Japan, and Korea. In addition, used burning fuel for biomass thermal power plants and boilers.<br />\r\n	<img alt=\"\" src=\"/2021_thienhoanggroup/datafiles/images/cnnlsk-900x500.jpg\" style=\"width: 100%;\" /></p>\r\n	</li>\r\n	<li><span style=\"color:#f1c40f;\"><span style=\"font-size:20px;\"><b>FORESTRY INDUSTRY:</b></span></span>\r\n	<p><br />\r\n	Most of the company&rsquo;s production and business activities are related to raw materials from artificial forest. Therefore, we always develop materials from artificial forest in parallely with the company&rsquo;s production and business activities. Artificial forest planting, management and exploitation activities are complied with international rules for sustainable forest development.<br />\r\n	<img alt=\"\" src=\"/2021_thienhoanggroup/datafiles/images/tvqltr-900x500.jpg\" style=\"width: 100%;\" /></p>\r\n	</li>\r\n</ul>\r\n</div>\r\n\r\n<div class=\"showText_half\" style=\"width: calc(100% / 2 - 20px);margin: 10px;float: left;text-align: justify;\">\r\n<ul>\r\n	<li><span style=\"color:#f1c40f;\"><span style=\"font-size:20px;\"><b>FURNITURE INDUSTRY:</b></span></span>\r\n\r\n	<p><img alt=\"\" src=\"/2021_thienhoanggroup/datafiles/images/sxvtcnt900x500.jpg\" style=\"width: 100%;\" /><br />\r\n	Thien Hoang Group is a reputable company in the field of manufacturing, designing and constructing interior and exterior furniture with many years of experience in the industry. With our enthusiasm and deep understanding and creativity, we confidently bring to our customer with aesthetical styles, elevating the value of your project at optimal costs.</p>\r\n\r\n	<p>Thien Hoang Group is a manufacturer and exporter of wicker furniture in recent years. We provide complete outdoor and indoor interior solutions with high quality wicker furniture and interior furniture with a modern but no less luxurious design</p>\r\n	</li>\r\n</ul>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><br />\r\n&nbsp;</p>\r\n\r\n<ul>\r\n	<li><span style=\"font-size:20px;\"><span style=\"color:#f1c40f;\"><b>SUPPLY CHAIN &amp; LOGISTICS:</b></span></span>\r\n\r\n	<p><img alt=\"\" src=\"/2021_thienhoanggroup/datafiles/images/900x500-logistics.jpg\" style=\"width: 100%;\" /><br />\r\n	IEH Logistics, together with ANT Shipping, which were established with the goal of connecting trade for international trade activities, has quickly become one of the emerging brands in the field of supply chain services and logistics. With the honor of being an official member of prestigious domestic and foreign freight forwarding associations: WCA, FIATA, VLA, etc. We are very proud of having accompanied the development and bringing value to all customers and partners.</p>\r\n	</li>\r\n</ul>\r\n</div>\r\n\r\n<div style=\"clear:both;\">&nbsp;</div>\r\n</div>', '', '', '', '', 'our-bussiness', '', 2, '1739246983_building.jpg', NULL, NULL, '', 'datafiles', 1623919457, 0, 1, 1, 0, 0, 'OUR BUSSINESS', 'OUR BUSINESS', '', 'OUR BUSSINESS', 'OUR BUSINESS', '', 'OUR BUSSINESS', 'OUR BUSINESS', NULL, 0, 1, 0, 0, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', '', '', '', '', '', NULL),
+(73, 1, 22, 'Cơ cấu tổ chức2', 'Organizational structure', '', 'Khối trực tiếp sản xuất & Trường học', '', '', '<div class=\"row m-0 p-20\">\r\n<div class=\"col-xl-6 m-b-20\">\r\n<div class=\"visao_box standard\">\r\n<h3>X&iacute; nghiệp &Ocirc;t&ocirc; kh&aacute;ch</h3>\r\n\r\n<p>- Chức năng nhiệm vụ: Sản xuất đ&oacute;ng mới c&aacute;c loại xe &ocirc;t&ocirc; kh&aacute;ch, &ocirc;t&ocirc; bu&yacute;t, dịch vụ bảo dưỡng, sửa chữa xe &ocirc;t&ocirc; c&aacute;c loại.</p>\r\n</div>\r\n</div>\r\n\r\n<div class=\"col-xl-6 m-b-20\">\r\n<div class=\"visao_box standard\">\r\n<h3>X&iacute; nghiệp &Ocirc;t&ocirc; tải</h3>\r\n\r\n<p>- C&oacute; chức năng nhiệm vụ: Sản xuất đ&oacute;ng mới c&aacute;c loại xe &ocirc;t&ocirc; tải, dịch vụ bảo dưỡng, sửa chữa xe &ocirc;t&ocirc; c&aacute;c loại.</p>\r\n</div>\r\n</div>\r\n\r\n<div class=\"col-xl-6 m-b-20\">\r\n<div class=\"visao_box standard\">\r\n<h3>X&iacute; nghiệp Cảng Trường Thọ</h3>\r\n\r\n<p>- C&oacute; chức năng nhiệm vụ: Khai th&aacute;c cảng s&ocirc;ng v&agrave; c&aacute;c dịch vụ li&ecirc;n quan theo đăng k&yacute; kinh doanh của c&ocirc;ng ty.</p>\r\n</div>\r\n</div>\r\n\r\n<div class=\"col-xl-6 m-b-20\">\r\n<div class=\"visao_box standard\">\r\n<h3>X&iacute; nghiệp Cơ kh&iacute; đ&oacute;ng t&agrave;u</h3>\r\n\r\n<p>- C&oacute; chức năng nhiệm vụ: Sản xuất đ&oacute;ng mới c&aacute;c loại phương tiện vận tải thủy, dịch vụ bảo dưỡng, sửa chữa phương tiện thủy c&aacute;c loại.</p>\r\n</div>\r\n</div>\r\n\r\n<div class=\"col-xl-6 m-b-20\">\r\n<div class=\"visao_box standard\">\r\n<h3>X&iacute; nghiệp Cơ kh&iacute; kết cấu th&eacute;p</h3>\r\n\r\n<p>- C&oacute; chức năng nhiệm vụ: Sản xuất kết cấu th&eacute;p c&aacute;c loại, phụ t&ugrave;ng động cơ &ocirc;t&ocirc;, gia c&ocirc;ng lắp đặt thiết bị đồng bộ.</p>\r\n</div>\r\n</div>\r\n\r\n<div class=\"col-xl-6 m-b-20\">\r\n<div class=\"visao_box standard\">\r\n<h3>X&iacute; nghiệp X&acirc;y dựng</h3>\r\n\r\n<p>- C&oacute; chức năng nhiệm vụ: X&acirc;y dựng c&ocirc;ng tr&igrave;nh giao th&ocirc;ng, c&ocirc;ng nghiệp, d&acirc;n dụng.</p>\r\n</div>\r\n</div>\r\n\r\n<div class=\"col-xl-6 m-b-20\">\r\n<div class=\"visao_box standard\">\r\n<h3>X&iacute; nghiệp Xử l&yacute; chất thải c&ocirc;ng nghiệp</h3>\r\n\r\n<p>- C&oacute; chức năng nhiệm vụ: Sản xuất than đốt từ b&ugrave;n dầu, dịch vụ c&ocirc;ng nghiệp.</p>\r\n</div>\r\n</div>\r\n\r\n<div class=\"col-xl-6 m-b-20\">\r\n<div class=\"visao_box standard\">\r\n<h3>Trường Kỹ thuật Cơ kh&iacute; Giao th&ocirc;ng</h3>\r\n\r\n<p>- C&oacute; chức năng nhiệm vụ: Đ&agrave;o tạo c&aacute;c ng&agrave;nh nghề về cơ kh&iacute; giao th&ocirc;ng.</p>\r\n</div>\r\n</div>\r\n</div>', '', '', '', '', '', 'co-cau-to-chuc-109', '', 7, NULL, NULL, NULL, '', 'datafiles', 1739259899, 0, 1, 1, 0, 0, 'Cơ cấu tổ chức', 'Organizational structure', '', 'Cơ cấu tổ chức', 'Organizational structure', '', 'Cơ cấu tổ chức', 'Organizational structure', NULL, 0, 0, 1, 0, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL),
+(74, 1, 0, 'Chất lượng phục vụ', '', '', '2', '', '', '<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit...</p>\r\n\r\n<p class=\"name-kh\"><strong>Anh Nguyễn Minh Hiếu</strong></p>', '', '', '', '', '', 'e13a07a08616ee650a7db6e171533932', '', 1, NULL, NULL, NULL, '', 'datafiles', 1739269776, 0, 1, 15, 0, 0, 'Chất lượng phục vụ', '', '', 'Chất lượng phục vụ', '', '', 'Chất lượng phục vụ', '', NULL, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', '', '', '', '', '', NULL),
+(75, 1, 0, 'Dịch vụ cảng', '', '', '4', '', '', '<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit...</p>\r\n\r\n<p class=\"name-kh\">Anh Trần Minh &Acirc;n</p>', '', '', '', '', '', '6abe7cfd61979254e3ad942ac51f3198', '', 2, NULL, NULL, NULL, '', 'datafiles', 1739269738, 0, 1, 15, 0, 0, 'Dịch vụ cảng', '', '', 'Dịch vụ cảng', '', '', 'Dịch vụ cảng', '', NULL, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', '', '', '', '', '', NULL),
+(31, 1, 21, 'Mục tiêu & Tầm nhìn', 'Goals and vision', '', '', '', '', '<p>Trải qua tr&ecirc;n 20 năm hoạt động, bằng sức mạnh đo&agrave;n kết, nhất tr&iacute; của tập thể CB-CNV lu&ocirc;n thực hiện tốt những chủ trương đ&uacute;ng đắn của Ban l&atilde;nh đạo, C&ocirc;ng ty đang hoạt động ng&agrave;y c&agrave;ng c&oacute; hiệu quả, ho&agrave;n th&agrave;nh nhiệm vụ chiến lược của Bộ v&agrave; Nh&agrave; nước giao, xứng đ&aacute;ng l&agrave; một C&ocirc;ng ty mạnh về cơ kh&iacute;, đ&aacute;p ứng nhu cầu ph&aacute;t triển c&ocirc;ng nghiệp h&oacute;a, hiện đại h&oacute;a ở ph&iacute;a Nam.</p>', '<table align=\"center\" border=\"1\" cellpadding=\"1\" cellspacing=\"1\" style=\"width:500px;\">\r\n	<tbody>\r\n		<tr>\r\n			<td>1.&nbsp;THIEN HOANG CONSTRUCTION &amp; TRADING CO., LTD</td>\r\n		</tr>\r\n		<tr>\r\n			<td>2. IEH LOGISTICS CO., LTD</td>\r\n		</tr>\r\n		<tr>\r\n			<td>3. THANH DAT WOOD CO., LTD</td>\r\n		</tr>\r\n		<tr>\r\n			<td>4. ANT SHIPPING SERVICE CO., LTD</td>\r\n		</tr>\r\n		<tr>\r\n			<td>5. THIEN HOANG FORESTRY CO., LTD</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>', '', '', '', '', 'muc-tieu-tam-nhin', '', 5, '1739249776_gt-noidung-3.png', NULL, NULL, '', 'datafiles', 1623930735, 0, 3, 1, 0, 0, 'Mục tiêu & Tầm nhìn', 'SUBSIDIARIES', '', 'Mục tiêu & Tầm nhìn', 'SUBSIDIARIES', '', 'Mục tiêu & Tầm nhìn', 'SUBSIDIARIES', NULL, 0, 1, 0, 0, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', '', '', '', '', '', NULL),
+(32, 1, 0, 'Lịch sử hình thành', 'BUSINESS STRATEGIES', '', '', '', '', '<p class=\"short-desc\">C&ocirc;ng ty Tracomeco tiền th&acirc;n l&agrave; h&atilde;ng thầu RMK hoạt động trong lĩnh vực giao th&ocirc;ng vận tải c&oacute; từ năm 1962. Từ năm 1975 đến nay c&ocirc;ng ty đ&atilde; được Bộ giao th&ocirc;ng vận tải nhiều lần th&agrave;nh lập lại doanh nghiệp v&agrave; đổi t&ecirc;n như sau:</p>\r\n\r\n<ul>\r\n	<li><i class=\"fa-regular fa-circle-check\"></i><strong>Năm 1976:</strong> Nh&agrave; m&aacute;y Cơ kh&iacute; c&ocirc;ng tr&igrave;nh - X&iacute; nghiệp li&ecirc;n hợp c&ocirc;ng tr&igrave;nh 4.</li>\r\n	<li><i class=\"fa-regular fa-circle-check\"></i><strong>Năm 1982:</strong> Nh&agrave; m&aacute;y Cơ kh&iacute; giao th&ocirc;ng 622 - Li&ecirc;n hiệp c&aacute;c x&iacute; nghiệp x&acirc;y dựng giao th&ocirc;ng khu vực 6.</li>\r\n	<li><i class=\"fa-regular fa-circle-check\"></i><strong>Năm 1986:</strong> X&iacute; nghiệp Cơ kh&iacute; giao th&ocirc;ng Vận tải 2 - Bộ giao th&ocirc;ng vận tải.</li>\r\n	<li><i class=\"fa-regular fa-circle-check\"></i><strong>Năm 1988:</strong> X&iacute; nghiệp li&ecirc;n hợp Cơ kh&iacute; giao th&ocirc;ng Vận tải 2 - Bộ giao th&ocirc;ng vận tải.</li>\r\n	<li><i class=\"fa-regular fa-circle-check\"></i><strong>Năm 1996 đến th&aacute;ng 9 năm 2003:</strong> C&ocirc;ng ty Cơ kh&iacute; giao th&ocirc;ng 2 - Bộ giao th&ocirc;ng vận tải.</li>\r\n	<li><i class=\"fa-regular fa-circle-check\"></i><strong>Th&aacute;ng 9 năm 2003 đến nay:</strong> C&ocirc;ng ty cổ phần Cơ kh&iacute; - X&acirc;y dựng giao th&ocirc;ng (C&ocirc;ng ty Tracomeco).</li>\r\n</ul>', '<div style=\"width: 1200px;max-width: 100%;\">\r\n<div class=\"showText_half\" style=\"width: calc(100% / 2 - 20px);margin: 10px;float: left;text-align: justify;\">\r\n<ul>\r\n	<li><span style=\"color:#f1c40f;\"><span style=\"font-size:20px;\"><b>TECHNOLOGICAL SOLUTIONS</b></span></span>\r\n	<p><br />\r\n	Scientific technology is one of the key factors to increase the value of the business itself as well as the company&rsquo;s competitiveness in the market.<br />\r\n	Additionally, our company:</p>\r\n\r\n	<p>&bull; Always maintains cooperation with domestic and foreign partners to get regular technical and technological support&lt;</p>\r\n\r\n	<p>&bull; Has standards and applies quality management technology to each business method, each type of product and each type of customer in order to provide you with safe products, consistent quality and services with the most economic efficiency and the most suitable time</p>\r\n	</li>\r\n</ul>\r\n<img alt=\"\" src=\"/2021_thienhoanggroup/datafiles/images/gpcn-900x500.jpg\" style=\"width: 100%;\" /></div>\r\n\r\n<div class=\"showText_half\" style=\"width: calc(100% / 2 - 20px);margin: 10px;float: left;text-align: justify;\">\r\n<ul>\r\n	<li><span style=\"color:#f1c40f;\"><span style=\"font-size:20px;\"><b>MARKETING SOLUTIONS</b></span></span>\r\n\r\n	<p><img alt=\"\" src=\"/2021_thienhoanggroup/datafiles/images/gptt-900x500.jpg\" style=\"width: 100%;\" /><br />\r\n	The factor that makes the difference between services of the same type can only be the additional services that the company offers to loyal customers.</p>\r\n\r\n	<p>Understanding customers&rsquo; expectations and offering different services shall be a sustainable competitive advantage for the company.</p>\r\n\r\n	<p>Furthermore, it is also necessary to focus on seaching market sections, collecting and processing the significant business information from the marketing systems, from the customers&rsquo; feedback and market responses to effectively serve the design and cost estimation of products and business measures, limit subjective measures, old paths.</p>\r\n	</li>\r\n</ul>\r\n</div>\r\n\r\n<div style=\"clear:both;\">&nbsp;</div>\r\n</div>', '', '', '', '', 'business-strategies', '', 6, NULL, NULL, NULL, '', 'datafiles', 1623916464, 0, 2, 1, 0, 0, 'BUSINESS STRATEGIES', 'BUSINESS STRATEGIES', '', 'BUSINESS STRATEGIES', 'BUSINESS STRATEGIES', '', 'BUSINESS STRATEGIES', 'BUSINESS STRATEGIES', NULL, 0, 0, 0, 1, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', '', '', '', '', '', NULL),
+(72, 1, 22, 'Cơ cấu tổ chức', 'Organizational structure', '', 'Khối gián tiếp', '', '', '<div class=\"row m-0 p-20\">\r\n<div class=\"col-xl-6 m-b-20\">\r\n<div class=\"visao_box standard\">\r\n<h3>Ph&ograve;ng Nh&acirc;n ch&iacute;nh</h3>\r\n\r\n<p>- C&oacute; chức năng tham mưu cho Tổng gi&aacute;m đốc về c&aacute;c hoạt động h&agrave;nh ch&iacute;nh, lao động tiền lương v&agrave; nh&acirc;n sự.</p>\r\n\r\n<p>- Thực hiện c&aacute;c nhiệm vụ về quản l&yacute; h&agrave;nh ch&iacute;nh: Trang thiết bị văn ph&ograve;ng, tổ chức hội họp trong c&ocirc;ng ty v&agrave; c&ocirc;ng t&aacute;c đối ngoại, văn thư; quản l&yacute; tổ chức v&agrave; nh&acirc;n sự: Kế hoạch nh&acirc;n sự, định mức lao động, chế độ lao động, h&igrave;nh thức trả lương, đ&agrave;o tạo nguồn nh&acirc;n lực, thi đua, khen thưởng, kỷ luật.</p>\r\n</div>\r\n</div>\r\n\r\n<div class=\"col-xl-6 m-b-20\">\r\n<div class=\"visao_box standard\">\r\n<h3>Ph&ograve;ng Kế hoạch - Đầu tư</h3>\r\n\r\n<p>- C&oacute; chức năng tham mưu cho Tổng gi&aacute;m đốc về c&aacute;c hoạt động: T&igrave;nh h&igrave;nh sản xuất kinh doanh, kế hoạch cung ứng vật tư, đầu tư.</p>\r\n\r\n<p>- Thực hiện c&aacute;c nhiệm vụ về: Kế hoạch sản xuất, đầu tư , tổng hợp sản xuất kinh doanh.</p>\r\n</div>\r\n</div>\r\n\r\n<div class=\"col-xl-6 m-b-20\">\r\n<div class=\"visao_box standard\">\r\n<h3>Ph&ograve;ng Tiếp thị - B&aacute;n h&agrave;ng</h3>\r\n\r\n<p>- C&oacute; chức năng tham mưu cho Tổng gi&aacute;m đốc về c&ocirc;ng t&aacute;c thị trường, ti&ecirc;u thụ sản phẩm.</p>\r\n\r\n<p>- Thực hiện c&aacute;c nhiệm vụ về: Tổ chức b&aacute;n h&agrave;ng, nghi&ecirc;n cứu thị trường, quản l&yacute; hệ thống ph&acirc;n phối ti&ecirc;u thụ sản phẩm, chăm s&oacute;c kh&aacute;ch h&agrave;ng.</p>\r\n</div>\r\n</div>\r\n\r\n<div class=\"col-xl-6 m-b-20\">\r\n<div class=\"visao_box standard\">\r\n<h3>Ph&ograve;ng T&agrave;i ch&iacute;nh - Kế to&aacute;n</h3>\r\n\r\n<p>- Chức năng: Theo d&otilde;i hạch to&aacute;n kịp thời đ&uacute;ng chế độ kế to&aacute;n - thống k&ecirc;, c&aacute;c nghiệp vụ kinh tế ph&aacute;t sinh trong kỳ.</p>\r\n\r\n<p>- Thực hiện c&aacute;c nhiệm vụ về: C&ocirc;ng t&aacute;c t&agrave;i ch&iacute;nh, theo d&otilde;i hạch to&aacute;n, chế độ kế to&aacute;n - t&agrave;i ch&iacute;nh doanh nghiệp, quản l&yacute; v&agrave; sử dụng vốn.</p>\r\n</div>\r\n</div>\r\n\r\n<div class=\"col-xl-6 m-b-20\">\r\n<div class=\"visao_box standard\">\r\n<h3>Ph&ograve;ng Quản l&yacute; kỹ thuật sản xuất</h3>\r\n\r\n<p>- C&oacute; chức năng tham mưu cho Tổng gi&aacute;m đốc về c&ocirc;ng t&aacute;c kỹ thuật, c&ocirc;ng nghệ, điều độ sản xuất.</p>\r\n\r\n<p>- Thực hiện c&aacute;c nhiệm vụ về: Quản l&yacute; trang thiết bị, điều độ sản xuất, giải ph&aacute;p kỹ thuật, c&ocirc;ng nghệ, nghiệm thu sản phẩm.</p>\r\n</div>\r\n</div>\r\n\r\n<div class=\"col-xl-6 m-b-20\">\r\n<div class=\"visao_box standard\">\r\n<h3>Ph&ograve;ng KCS</h3>\r\n\r\n<p>- C&oacute; chức năng tham mưu cho Tổng gi&aacute;m đốc về c&ocirc;ng t&aacute;c quản l&yacute; chất lượng sản phẩm.</p>\r\n\r\n<p>- Thực hiện c&aacute;c nhiệm vụ về: Kiểm tra nguy&ecirc;n vật liệu, vật tư phục vụ cho sản xuất; gi&aacute;m s&aacute;t qu&aacute; tr&igrave;nh sản xuất, chất lượng b&aacute;n th&agrave;nh phẩm, sản phẩm.</p>\r\n</div>\r\n</div>\r\n\r\n<div class=\"col-xl-12 m-b-20\">\r\n<div class=\"visao_box standard\">\r\n<h3>Ph&ograve;ng Bảo vệ</h3>\r\n\r\n<p>- Tham mưu cho Tổng gi&aacute;m đốc, Ban chỉ huy qu&acirc;n sự c&ocirc;ng ty về c&ocirc;ng t&aacute;c bảo vệ, giữ g&igrave;n an ninh, ph&ograve;ng ch&aacute;y chữa ch&aacute;y, thi&ecirc;n tai địch họa.</p>\r\n\r\n<p>- Thực hiện c&aacute;c nhiệm vụ về: Kiểm tra, đảm bảo an to&agrave;n cho mọi hoạt động tr&ecirc;n mặt bằng c&ocirc;ng ty v&agrave; v&ugrave;ng nước cảng của c&ocirc;ng ty; quản l&yacute; việc tr&ocirc;ng coi t&agrave;i sản; gi&aacute;m s&aacute;t, hướng dẫn kh&aacute;ch ra v&agrave;o c&ocirc;ng ty; phối hợp lực lượng tự vệ để thực hiện nhiệm vụ theo chỉ đạo của c&ocirc;ng ty, ban chỉ huy qu&acirc;n sự c&ocirc;ng ty.</p>\r\n</div>\r\n</div>\r\n</div>', '', '', '', '', '', 'co-cau-to-chuc', '', 8, NULL, NULL, NULL, '', 'datafiles', 1739274713, 0, 1, 1, 0, 0, 'Cơ cấu tổ chức', 'Organizational structure', '', 'Cơ cấu tổ chức', 'Organizational structure', '', 'Cơ cấu tổ chức', 'Organizational structure', NULL, 0, 0, 1, 0, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', '', '', '', '', '', NULL),
+(33, 1, 21, 'Giá trị cốt lõi', 'Core values', '', '', '', '', '<div style=\"width: 1200px;max-width: 100%;\">\r\n<p style=\"text-align: justify;\"><strong><span style=\"font-size:20px;\"><span style=\"color:#f1c40f;\"></span></span></strong></p>\r\n\r\n<p>Trước thực trạng ng&agrave;nh cơ kh&iacute; trong giai đoạn kh&oacute; khăn, kh&oacute; t&igrave;m kiếm việc l&agrave;m v&agrave; t&igrave;nh h&igrave;nh cạnh tranh ng&agrave;y c&agrave;ng khốc liệt của cơ chế thị trường, C&ocirc;ng ty đ&atilde; chủ động, s&aacute;ng tạo t&igrave;m kiếm việc l&agrave;m v&agrave; chuyển hướng mở rộng, đa dạng h&oacute;a c&aacute;c lĩnh vực sản xuất kinh doanh.</p>\r\n\r\n<p>Đặc biệt, trong những năm gần đ&acirc;y C&ocirc;ng ty kh&ocirc;ng chỉ sản xuất kinh doanh trong lĩnh vực cơ kh&iacute; như đại tu, sửa chữa xe m&aacute;y thi c&ocirc;ng c&ocirc;ng tr&igrave;nh, sản xuất kết cấu th&eacute;p c&aacute;c loại... m&agrave; c&ograve;n tham gia chế tạo c&aacute;c thiết bị đồng bộ, lắp đặt, x&acirc;y dựng c&aacute;c nh&agrave; m&aacute;y c&ocirc;ng nghiệp, chế tạo c&aacute;c loại xe rơ-mo&oacute;c, sửa chữa - lắp r&aacute;p &ocirc;t&ocirc;, xe m&aacute;y, thi c&ocirc;ng x&acirc;y dựng đường x&aacute;, cầu n&ocirc;ng th&ocirc;n, mở rộng c&aacute;c dịch vụ vận chuyển h&agrave;ng h&oacute;a.</p>\r\n</div>', '<div style=\"width: 1200px;max-width: 100%;\">\r\n<p style=\"text-align: justify;\"><strong><span style=\"font-size:20px;\"><span style=\"color:#f1c40f;\">HUMAN RESOURCES POLICY</span></span></strong><br />\r\n<br />\r\nThien Hoang Group considers the company&rsquo;s human resources as the most valuable asset and decisive factor for the sustainable development of the business. We focus on building and developing our staff to become a person with professional knowledge and good ethics. We support and take care of the life of each employee as a member of a family in which our big family is THIEN HOANG - The second home of all employees. We continuously train to improve qualifications, innovate professional working ways to integrate with the international environment. Promotion opportunities are always open to all members of the company based on work performance, company companionship and work ethics.<br />\r\n<img alt=\"\" src=\"/2021_thienhoanggroup/datafiles/images/csnns-900x500.jpg\" style=\"width:100%;\" /></p>\r\n\r\n<p style=\"text-align: justify;\"><strong><span style=\"font-size:20px;\"><span style=\"color:#f1c40f;\">PRODUCT QUALITY</span></span></strong><br />\r\n<br />\r\nThien Hoang Group always understands that quality and prestige are the survival of the business. Therefore, we put our highest attention to product quality assurance, along with delivery and completion progress. Certifications, international standards:</p>\r\n\r\n<ul>\r\n	<li style=\"text-align: justify;\">FSC certificate of FSC international organization<span style=\"font-family:Lucida Sans Unicode,Lucida Grande,sans-serif;\"></span></li>\r\n	<li style=\"text-align: justify;\">Product international certification: SCS Global, Intertek Global. Business activities are operated and managed by the experienced team and the professional human resources. Beside they are the young staff who are full of enthusiasm and creativity at work. We constantly improve and develop the production system as well as management to be able to upgrade the best product quality at the most competitive cost.</li>\r\n</ul>\r\n\r\n<p style=\"text-align: justify;\"><img alt=\"\" src=\"/2021_thienhoanggroup/datafiles/images/clsp-900x500.jpg\" style=\"width:100%;\" /></p>\r\n</div>', '', '', '', '', 'gia-tri-cot-loi', '', 4, '1739249708_gt-noidung-2.png', NULL, NULL, '', 'datafiles', 1623933518, 0, 2, 1, 0, 0, 'Giá trị cốt lõi', 'SUSTAINABILITY', '', 'Giá trị cốt lõi', 'SUSTAINABILITY', '', 'Giá trị cốt lõi', 'SUSTAINABILITY', NULL, 0, 1, 0, 0, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', '', '', '', '', '', NULL),
+(35, 1, 0, 'Trồng rừng', '', '', 'jkljklj kljkljklj klj klkjlj klj kljj kldgfhj guk hfilu ijljik ljkljk lnm.,mn,gh hjtfjuukhjkhgjk ygukghjkhk bn mbnmb vm nvbn mg kgjk', '', '', '<p>jkljkljkljkljkljklkjljkljkljjkllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><img alt=\"\" height=\"387\" src=\"/2021_thienhoanggroup/datafiles/images/7(1).jpg\" width=\"620\" /></p>', '', '', '', '', '', 'jkl', '', 5, '1686104446_bg-hotel.jpg', NULL, NULL, '', 'datafiles', 1686023498, 0, 7, 3, 0, 0, 'jkl', '', '', 'jkl', '', '', 'jkl', '', NULL, 0, 0, 0, 1, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL),
+(36, 1, 0, 'Bảo vệ rừng', '', '', 'jkljkljkl', '', '', '<p>jkljkljkl</p>', '', '', '', '', '', 'jkljkljkl', '', 6, '1686104994_slide-1.jpg', NULL, NULL, '', 'datafiles', 1686018594, 0, 5, 3, 0, 0, 'jkljkljkl', '', '', 'jkljkljkl', '', '', 'jkljkljkl', '', NULL, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL),
+(37, 1, 3, 'test tin tức', '', '', 'test tin tức', '', '', '<p>test tin tức</p>', '', '', '', '', '', 'test-tin-tuc', '', 12, '1686191068_7.jpg', NULL, NULL, '', 'datafiles', 1686191068, 0, 7, 5, 0, 0, 'test tin tức', '', '', 'test tin tức', '', '', 'test tin tức', '', NULL, 0, 1, 1, 1, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL),
+(38, 1, 0, 'test tuyển dụng', '', '', 'test tuyển dụng', '', '', '<p>test tuyển dụng</p>', '', '', '', '', '', 'test-tuyen-dung', '', 9, '1686191407_b1.jpg', NULL, NULL, '', 'datafiles', 1686191407, 0, 4, 6, 0, 0, 'test tuyển dụng', '', '', 'test tuyển dụng', '', '', 'test tuyển dụng', '', NULL, 0, 1, 1, 0, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL),
+(40, 1, 6, 'album 1', '', '', '', '', '', '', '', '', '', '', '', 'album-1', '', 1, '1686200335_010.gif', NULL, NULL, '', 'datafiles', 1686205765, 0, 4, 10, 0, 0, 'album 1', '', '', 'album 1', '', '', 'album 1', '', NULL, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL),
+(41, 1, 7, 'album 2', '', '', '', '', '', '', '', '', '', '', '', 'album-2', '', 2, '1686210161_room-study.jpg', NULL, NULL, '', 'datafiles', 1686210685, 0, 5, 10, 0, 0, 'album 2', '', '', 'album 2', '', '', 'album 2', '', NULL, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL),
+(42, 1, 6, 'album 3', '', '', '', '', '', '', '', '', '', '', '', 'album-3', '', 3, '1686210219_american-express.png', NULL, NULL, '', 'datafiles', 1686210219, 0, 3, 10, 0, 0, 'album 3', '', '', 'album 3', '', '', 'album 3', '', NULL, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL),
+(43, 1, 7, 'album 4', '', '', '', '', '', '', '', '', '', '', '', 'album-4', '', 4, '1686210316_water.png', NULL, NULL, '', 'datafiles', 1686210316, 0, 3, 10, 0, 0, 'album 4', '', '', 'album 4', '', '', 'album 4', '', NULL, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL),
+(59, 1, 0, 'Thông báo vv chốt danh sách Trái chủ mã Trái phiếu TCOCH2328001 để đăng ký tập trung tại Tổng Công ty Lưu ký và Bù trừ chứng khoán Việt Nam (VSCD)', '', '', '1234312', '', '', '<p>123412</p>', '', '', '', '', '', 'thong-bao-vv-chot-danh-sach-trai-chu-ma-trai-phieu-tcoch2328001-de-dang-ky-tap-trung-tai-tong-cong-ty-luu-ky-va-bu-tru-chung-khoan-viet-nam-vscd', '', 2, NULL, NULL, '1738903067_text.xlsx', '', 'datafiles', 1738921504, 0, 2, 12, 0, 0, 'Thông báo vv chốt danh sách Trái chủ mã Trái phiếu TCOCH2328001 để đăng ký tập trung tại Tổng Công ty Lưu ký và Bù trừ chứng khoán Việt Nam (VSCD)', '', '', 'Thông báo vv chốt danh sách Trái chủ mã Trái phiếu TCOCH2328001 để đăng ký tập trung tại Tổng Công ty Lưu ký và Bù trừ chứng khoán Việt Nam (VSCD)', '', '', 'Thông báo vv chốt danh sách Trái chủ mã Trái phiếu TCOCH2328001 để đăng ký tập trung tại Tổng Công ty Lưu ký và Bù trừ chứng khoán Việt Nam (VSCD)', '', NULL, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', '', '', '', '', '', NULL),
+(51, 1, 0, 'test kinh doanh', 'test business', '', 'test kinh doanh', '', '', '<p>test kinh doanh</p>', '', '', '', '', '', 'test-kinh-doanh', '', 7, NULL, NULL, NULL, '', 'datafiles', 1687761191, 0, 1, 3, 0, 0, 'test kinh doanh', 'test business', '', 'test kinh doanh', 'test business', '', 'test kinh doanh', 'test business', NULL, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL),
+(53, 1, 15, 'Universe Noble 2 Tầng Giường', '', '', '<p>Theo đại diện của nh&agrave; sản xuất, c&aacute;c linh kiện như khung gầm, động cơ, hệ thống m&aacute;y lạnh...đều nhập từ Hyundai Motors. H&atilde;ng xe H&agrave;n Quốc đồng thời chuyển giao c&ocirc;ng nghệ lắp r&aacute;p xe kh&aacute;ch giường nằm, ứng dụng c&ocirc;ng nghệ phun xốp chống ồn, h&agrave;n J&iacute;t, khử m&ugrave;i bằng đ&egrave;n cực t&iacute;m.</p>\r\n\r\n<p>D&ograve;ng xe mới c&oacute; thiết kế kiểu Universe nổi tiếng của Hyundai. Nội thất cấu tr&uacute;c gường nằm 2 tầng. Trang bị gồm m&aacute;y lạnh, tủ lạnh mini, d&agrave;n &acirc;m thanh với 4 m&agrave;n h&igrave;nh LCD, hệ thống toilet, khay đựng vật dụng tại mỗi gường.</p>\r\n\r\n<p>Xe sử dụng động cơ dầu turbo intercooler của Hyundai, 6 xi-lanh, dung t&iacute;ch 12.920 ph&acirc;n khối với c&ocirc;ng suất 380 m&atilde; lực. Hệ thống treo 6 bầu hơi, chống b&oacute; cứng phanh ABS v&agrave; camera l&ugrave;i.</p>', '', '', '<p>K&iacute;nh cửa sổ an to&agrave;n, loại k&iacute;nh trượt trong suốt gi&uacute;p h&agrave;nh kh&aacute;ch quan s&aacute;t tốt</p>\r\n\r\n<p>Cản trước rộng, vững chắc kết hợp với cụm đ&egrave;n trước kiểu d&aacute;ng hiện đại, đem lại sự an to&agrave;n khi vận chuyển trong mọi điều kiện thời tiết</p>\r\n\r\n<p>Cửa gấp tự động, vận h&agrave;nh dễ d&agrave;ng v&agrave; thuận lợi</p>\r\n\r\n<p>Khung gầm h&igrave;nh hộp</p>\r\n\r\n<p><img alt=\"\" src=\"https://template.web30s.com.vn/webdemo/2025_tracomeco/html1/delete/linhvuc/linh-vuc-100.jpg\" /></p>\r\n\r\n<h3>Đỏ cam - Trắng</h3>\r\n\r\n<p><img alt=\"\" src=\"https://template.web30s.com.vn/webdemo/2025_tracomeco/html1/delete/linhvuc/linh-vuc-100.jpg\" /></p>\r\n\r\n<h3>Đỏ - Trắng - X&aacute;m</h3>\r\n\r\n<p><img alt=\"\" src=\"https://template.web30s.com.vn/webdemo/2025_tracomeco/html1/delete/linhvuc/linh-vuc-100.jpg\" /></p>\r\n\r\n<h3>V&agrave;ng chanh - X&aacute;m</h3>\r\n\r\n<p><img alt=\"\" src=\"https://template.web30s.com.vn/webdemo/2025_tracomeco/html1/delete/linhvuc/linh-vuc-100.jpg\" /></p>\r\n\r\n<h3>Đỏ cam - Trắng</h3>\r\n\r\n<p><img alt=\"\" src=\"https://template.web30s.com.vn/webdemo/2025_tracomeco/html1/delete/linhvuc/linh-vuc-100.jpg\" /></p>\r\n\r\n<h3>Đỏ - Trắng - X&aacute;m</h3>\r\n\r\n<p><img alt=\"\" src=\"https://template.web30s.com.vn/webdemo/2025_tracomeco/html1/delete/linhvuc/linh-vuc-100.jpg\" /></p>\r\n\r\n<h3>V&agrave;ng chanh - X&aacute;m</h3>', '', '', '', '', '', 'universe-noble-2-tang-giuong', '15', 8, NULL, NULL, NULL, '', 'datafiles', 1738752021, 0, 2, 9, 0, 0, 'Universe Noble 2 Tầng Giường', '', '', 'Universe Noble 2 Tầng Giường', '', '', 'Universe Noble 2 Tầng Giường', '', NULL, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '<table>\r\n	<tbody>\r\n		<tr>\r\n			<td width=\"650\">Model County</td>\r\n			<td width=\"150\">Limousine</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Khung gầm (Base Chassic): Hyundai County Long Body</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Nguồn gốc, xuất xứ: Nhập khẩu 100% từ Hyundai Motor H&agrave;n Quốc</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Số chổ ngồi / Seat Capacity</td>\r\n			<td width=\"150\">16 - 19 - 25 - 29</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">K&iacute;ch thước tổng thể (D x R x C) / Overall dimensions (L x W x H) (mm)</td>\r\n			<td width=\"150\">7.080 x 2.060 x 2.740</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Độ d&agrave;i cơ sở / Wheel Base (mm)</td>\r\n			<td width=\"150\">4.085</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Tốc độ tối đa / Max. Speed (Km/h)</td>\r\n			<td width=\"150\">111</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Trọng lượng to&agrave;n tải / Gross Vehicle Weight (Kg)</td>\r\n			<td width=\"150\">6190</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Động cơ Model D4DD - Phun nhi&ecirc;n liệu điện tử thế hệ mới</p>\r\n\r\n			<p>Engine Model D4DD - The New CRDi (Common Rail Direct Injection)</p>\r\n			</td>\r\n			<td width=\"150\">D4DD - CRD</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">C&ocirc;ng suất động cơ / Max. Power/Torque (PS/rpm)</td>\r\n			<td width=\"150\">140/2.800</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Dung t&iacute;ch động cơ / Displacement (cc)</td>\r\n			<td width=\"150\">3.907</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Ti&ecirc;u chuẩn kh&iacute; thải / Emission Level</td>\r\n			<td width=\"150\">Euro-III</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Hệ thống phanh ph&iacute;a trước v&agrave; ph&iacute;a sau l&agrave; kiểu tang trống mạch k&eacute;p thủy lực c&oacute; trợ lực ch&acirc;n kh&ocirc;ng</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Phanh sử dụng hệ thống chống b&oacute; cứng phanh Hyundai</p>\r\n\r\n			<p>ABS ( Anti-Lock Brake System) - dạng phanh đĩa</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai - Option</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Cửa kh&aacute;ch: loại gấp - đ&oacute;ng mở bằng điện</p>\r\n\r\n			<p>Passenger Door: Folding type door - electric operation</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Cửa kh&aacute;ch (Gold): loại trượt ra - đ&oacute;ng mở bằng điện</p>\r\n\r\n			<p>Passenger Door: Swing out type door - electric operation</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai - Option</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Ghế loại bố tr&iacute; 3 x 1 c&oacute; bật ngả, c&oacute; d&acirc;y an to&agrave;n cho từng ghế</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Cửa sổ k&iacute;nh an to&agrave;n loại trượt / Safe Glasses, Slide type</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Cửa sổ k&iacute;nh an to&agrave;n loại liền / Safe Glasses, Fixed type</td>\r\n			<td width=\"150\">Hyundai - Option</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Cốp để h&agrave;nh l&yacute; ph&iacute;a sau (hầm h&agrave;ng) nguy&ecirc;n bản gần nửa khối</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Cốp để h&agrave;nh l&yacute; ph&iacute;a sau (hầm h&agrave;ng) thiết kế mới, lớn gấp 3 lần</td>\r\n			<td width=\"150\">Hyundai - Option</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Hệ thống phanh kh&iacute; xả / Exhaust Brake</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">B&igrave;nh ắc quy 12 Volts-80AH Nhập khẩu / Battery Imported</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">B&aacute;nh xe: 4 x 2, sau b&aacute;nh đ&ocirc;i, trước b&aacute;nh đơn, lốp 7.00R16-12PR</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Th&ugrave;ng nhi&ecirc;n liệu / Fuel Tank</td>\r\n			<td width=\"150\">95 Liter</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Điều h&ograve;a nhiệt độ loại 01 m&aacute;y n&eacute;n c&ocirc;ng suất 10.000 Kcal</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Điều h&ograve;a nhiệt độ loại 02 m&aacute;y n&eacute;n c&ocirc;ng suất 13.000 Kcal</td>\r\n			<td width=\"150\">Hyundai - Option</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Th&acirc;n xe: 100% linh kiện ch&iacute;nh h&atilde;ng Hyundai</p>\r\n\r\n			<p>Body: Genuine part imported from Hyundai Motor</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">K&iacute;nh chắn gi&oacute;: loại k&iacute;nh an to&agrave;n / Wind shield glasses: Safe glasses</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>100% Nội ngoại thất nhập khẩu từ Hyundai ch&iacute;nh h&atilde;ng</p>\r\n\r\n			<p>Exterior &amp; Interior Modern Limousine, imported from Hyundai</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Tay l&aacute;i trợ lực gật g&ugrave;, kh&oacute;a trung t&acirc;m, điều khiển độ nghi&ecirc;ng tay l&aacute;i theo 4 hướng</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Cửa gi&oacute; điều h&ograve;a, đ&egrave;n đọc s&aacute;ch đến từng h&agrave;nh kh&aacute;ch</p>\r\n\r\n			<p>Louvers and Reading lamp are installed over each passenger seat</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Đ&egrave;n trần / Lamp head</td>\r\n			<td width=\"150\">Limousine</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Ghế loại bố tr&iacute; 2 x 2 Simily (da) hoặc Nỉ (vải) c&oacute; bật ngả</td>\r\n			<td width=\"150\">Option</td>\r\n		</tr>\r\n	</tbody>\r\n</table>', '', '', '', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL),
+(54, 1, 0, 'Universe Noble 2 Tầng Giường', '', '', '<p>Theo đại diện của nh&agrave; sản xuất, c&aacute;c linh kiện như khung gầm, động cơ, hệ thống m&aacute;y lạnh...đều nhập từ Hyundai Motors. H&atilde;ng xe H&agrave;n Quốc đồng thời chuyển giao c&ocirc;ng nghệ lắp r&aacute;p xe kh&aacute;ch giường nằm, ứng dụng c&ocirc;ng nghệ phun xốp chống ồn, h&agrave;n J&iacute;t, khử m&ugrave;i bằng đ&egrave;n cực t&iacute;m.</p>\r\n\r\n<p>D&ograve;ng xe mới c&oacute; thiết kế kiểu Universe nổi tiếng của Hyundai. Nội thất cấu tr&uacute;c gường nằm 2 tầng. Trang bị gồm m&aacute;y lạnh, tủ lạnh mini, d&agrave;n &acirc;m thanh với 4 m&agrave;n h&igrave;nh LCD, hệ thống toilet, khay đựng vật dụng tại mỗi gường.</p>\r\n\r\n<p>Xe sử dụng động cơ dầu turbo intercooler của Hyundai, 6 xi-lanh, dung t&iacute;ch 12.920 ph&acirc;n khối với c&ocirc;ng suất 380 m&atilde; lực. Hệ thống treo 6 bầu hơi, chống b&oacute; cứng phanh ABS v&agrave; camera l&ugrave;i.</p>', '', '', '<p>K&iacute;nh cửa sổ an to&agrave;n, loại k&iacute;nh trượt trong suốt gi&uacute;p h&agrave;nh kh&aacute;ch quan s&aacute;t tốt</p>\r\n\r\n<p>Cản trước rộng, vững chắc kết hợp với cụm đ&egrave;n trước kiểu d&aacute;ng hiện đại, đem lại sự an to&agrave;n khi vận chuyển trong mọi điều kiện thời tiết</p>\r\n\r\n<p>Cửa gấp tự động, vận h&agrave;nh dễ d&agrave;ng v&agrave; thuận lợi</p>\r\n\r\n<p>Khung gầm h&igrave;nh hộp</p>\r\n\r\n<p><img alt=\"\" src=\"https://template.web30s.com.vn/webdemo/2025_tracomeco/html1/delete/linhvuc/linh-vuc-100.jpg\" /></p>\r\n\r\n<h3>Đỏ cam - Trắng</h3>\r\n\r\n<p><img alt=\"\" src=\"https://template.web30s.com.vn/webdemo/2025_tracomeco/html1/delete/linhvuc/linh-vuc-100.jpg\" /></p>\r\n\r\n<h3>Đỏ - Trắng - X&aacute;m</h3>\r\n\r\n<p><img alt=\"\" src=\"https://template.web30s.com.vn/webdemo/2025_tracomeco/html1/delete/linhvuc/linh-vuc-100.jpg\" /></p>\r\n\r\n<h3>V&agrave;ng chanh - X&aacute;m</h3>\r\n\r\n<p><img alt=\"\" src=\"https://template.web30s.com.vn/webdemo/2025_tracomeco/html1/delete/linhvuc/linh-vuc-100.jpg\" /></p>\r\n\r\n<h3>Đỏ cam - Trắng</h3>\r\n\r\n<p><img alt=\"\" src=\"https://template.web30s.com.vn/webdemo/2025_tracomeco/html1/delete/linhvuc/linh-vuc-100.jpg\" /></p>\r\n\r\n<h3>Đỏ - Trắng - X&aacute;m</h3>\r\n\r\n<p><img alt=\"\" src=\"https://template.web30s.com.vn/webdemo/2025_tracomeco/html1/delete/linhvuc/linh-vuc-100.jpg\" /></p>\r\n\r\n<h3>V&agrave;ng chanh - X&aacute;m</h3>', '', '', '', '', '', 'universe-noble-2-tang-giuong-cp-758221738813375', '', 9, '1738912702_linh-vuc-100.jpg', NULL, NULL, '', 'datafiles', 1738740178, 0, 5, 9, 0, 0, 'Universe Noble 2 Tầng Giường', '', '', 'Universe Noble 2 Tầng Giường', '', '', 'Universe Noble 2 Tầng Giường', '', NULL, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '<table>\r\n	<tbody>\r\n		<tr>\r\n			<td width=\"650\">Model County</td>\r\n			<td width=\"150\">Limousine</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Khung gầm (Base Chassic): Hyundai County Long Body</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Nguồn gốc, xuất xứ: Nhập khẩu 100% từ Hyundai Motor H&agrave;n Quốc</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Số chổ ngồi / Seat Capacity</td>\r\n			<td width=\"150\">16 - 19 - 25 - 29</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">K&iacute;ch thước tổng thể (D x R x C) / Overall dimensions (L x W x H) (mm)</td>\r\n			<td width=\"150\">7.080 x 2.060 x 2.740</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Độ d&agrave;i cơ sở / Wheel Base (mm)</td>\r\n			<td width=\"150\">4.085</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Tốc độ tối đa / Max. Speed (Km/h)</td>\r\n			<td width=\"150\">111</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Trọng lượng to&agrave;n tải / Gross Vehicle Weight (Kg)</td>\r\n			<td width=\"150\">6190</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Động cơ Model D4DD - Phun nhi&ecirc;n liệu điện tử thế hệ mới</p>\r\n\r\n			<p>Engine Model D4DD - The New CRDi (Common Rail Direct Injection)</p>\r\n			</td>\r\n			<td width=\"150\">D4DD - CRD</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">C&ocirc;ng suất động cơ / Max. Power/Torque (PS/rpm)</td>\r\n			<td width=\"150\">140/2.800</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Dung t&iacute;ch động cơ / Displacement (cc)</td>\r\n			<td width=\"150\">3.907</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Ti&ecirc;u chuẩn kh&iacute; thải / Emission Level</td>\r\n			<td width=\"150\">Euro-III</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Hệ thống phanh ph&iacute;a trước v&agrave; ph&iacute;a sau l&agrave; kiểu tang trống mạch k&eacute;p thủy lực c&oacute; trợ lực ch&acirc;n kh&ocirc;ng</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Phanh sử dụng hệ thống chống b&oacute; cứng phanh Hyundai</p>\r\n\r\n			<p>ABS ( Anti-Lock Brake System) - dạng phanh đĩa</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai - Option</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Cửa kh&aacute;ch: loại gấp - đ&oacute;ng mở bằng điện</p>\r\n\r\n			<p>Passenger Door: Folding type door - electric operation</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Cửa kh&aacute;ch (Gold): loại trượt ra - đ&oacute;ng mở bằng điện</p>\r\n\r\n			<p>Passenger Door: Swing out type door - electric operation</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai - Option</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Ghế loại bố tr&iacute; 3 x 1 c&oacute; bật ngả, c&oacute; d&acirc;y an to&agrave;n cho từng ghế</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Cửa sổ k&iacute;nh an to&agrave;n loại trượt / Safe Glasses, Slide type</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Cửa sổ k&iacute;nh an to&agrave;n loại liền / Safe Glasses, Fixed type</td>\r\n			<td width=\"150\">Hyundai - Option</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Cốp để h&agrave;nh l&yacute; ph&iacute;a sau (hầm h&agrave;ng) nguy&ecirc;n bản gần nửa khối</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Cốp để h&agrave;nh l&yacute; ph&iacute;a sau (hầm h&agrave;ng) thiết kế mới, lớn gấp 3 lần</td>\r\n			<td width=\"150\">Hyundai - Option</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Hệ thống phanh kh&iacute; xả / Exhaust Brake</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">B&igrave;nh ắc quy 12 Volts-80AH Nhập khẩu / Battery Imported</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">B&aacute;nh xe: 4 x 2, sau b&aacute;nh đ&ocirc;i, trước b&aacute;nh đơn, lốp 7.00R16-12PR</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Th&ugrave;ng nhi&ecirc;n liệu / Fuel Tank</td>\r\n			<td width=\"150\">95 Liter</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Điều h&ograve;a nhiệt độ loại 01 m&aacute;y n&eacute;n c&ocirc;ng suất 10.000 Kcal</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Điều h&ograve;a nhiệt độ loại 02 m&aacute;y n&eacute;n c&ocirc;ng suất 13.000 Kcal</td>\r\n			<td width=\"150\">Hyundai - Option</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Th&acirc;n xe: 100% linh kiện ch&iacute;nh h&atilde;ng Hyundai</p>\r\n\r\n			<p>Body: Genuine part imported from Hyundai Motor</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">K&iacute;nh chắn gi&oacute;: loại k&iacute;nh an to&agrave;n / Wind shield glasses: Safe glasses</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>100% Nội ngoại thất nhập khẩu từ Hyundai ch&iacute;nh h&atilde;ng</p>\r\n\r\n			<p>Exterior &amp; Interior Modern Limousine, imported from Hyundai</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Tay l&aacute;i trợ lực gật g&ugrave;, kh&oacute;a trung t&acirc;m, điều khiển độ nghi&ecirc;ng tay l&aacute;i theo 4 hướng</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Cửa gi&oacute; điều h&ograve;a, đ&egrave;n đọc s&aacute;ch đến từng h&agrave;nh kh&aacute;ch</p>\r\n\r\n			<p>Louvers and Reading lamp are installed over each passenger seat</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Đ&egrave;n trần / Lamp head</td>\r\n			<td width=\"150\">Limousine</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Ghế loại bố tr&iacute; 2 x 2 Simily (da) hoặc Nỉ (vải) c&oacute; bật ngả</td>\r\n			<td width=\"150\">Option</td>\r\n		</tr>\r\n	</tbody>\r\n</table>', '', '', '', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL),
+(55, 1, 0, 'Về chúng tôi tracomeco', '', '', '', '', '', '<p><strong>Địa chỉ:</strong>&nbsp;429/4 Đường Song h&agrave;nh Xa lộ H&agrave; Nội - Khu phố 7 - Phường Trường Thọ - Th&agrave;nh phố Thủ Đức - Th&agrave;nh phố Hồ Ch&iacute; Minh</p>\r\n\r\n<p><strong>Email:</strong>&nbsp;tracomeco@tracomeco.com</p>\r\n\r\n<p><strong>Điện thoại:</strong>&nbsp;028 3896 5105</p>\r\n\r\n<p><strong>Fax:</strong>&nbsp;028 3896 1440</p>\r\n\r\n<ul>\r\n</ul>', '', '', '', '', '', '2438917e36c235d228798c14e1178630', '', 1, NULL, NULL, NULL, '', 'datafiles', 1738836771, 0, 1, 8, 0, 0, 'Về chúng tôi tracomeco', '', '', 'Về chúng tôi tracomeco', '', '', 'Về chúng tôi tracomeco', '', NULL, 0, 1, 0, 0, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `lh_baiviet` (`id`, `id_user`, `id_parent`, `tenbaiviet_vi`, `tenbaiviet_en`, `tenbaiviet_cn`, `mota_vi`, `mota_en`, `mota_cn`, `noidung_vi`, `noidung_en`, `noidung_cn`, `tags_vi`, `tags_en`, `tags_cn`, `seo_name`, `id_parent_muti`, `catasort`, `icon`, `icon_hover`, `dowload`, `dowload_text`, `duongdantin`, `ngaydang`, `capnhat`, `soluotxem`, `step`, `giatien`, `giakm`, `seo_title_vi`, `seo_title_en`, `seo_title_cn`, `seo_keywords_vi`, `seo_keywords_en`, `seo_keywords_cn`, `seo_description_vi`, `seo_description_en`, `seo_description_cn`, `opt_km`, `opt`, `opt1`, `opt2`, `opt3`, `opt4`, `opt5`, `top_video`, `p1`, `p2`, `p3`, `link_video`, `num_1`, `num_2`, `num_3`, `num_4`, `showhi`, `tinh_nang`, `thuoc_tinh_1_vi`, `thuoc_tinh_1_en`, `thuoc_tinh_2_vi`, `thuoc_tinh_2_en`, `thuoc_tinh_3_vi`, `thuoc_tinh_3_en`, `gia_tri_1_vi`, `gia_tri_2_vi`, `gia_tri_3_vi`, `thongso_vi`, `thongso_en`, `thongtin_vi`, `thongtin_en`, `ngayden`, `ngaydi`, `id_tag_multi`, `noidung2_vi`, `noidung2_en`, `noidung2_cn`, `kieudang_vi`, `kieudang_en`, `kieudang_cn`) VALUES
+(60, 1, 15, 'Universe Noble 2 Tầng Giường', '', '', '<p>Theo đại diện của nh&agrave; sản xuất, c&aacute;c linh kiện như khung gầm, động cơ, hệ thống m&aacute;y lạnh...đều nhập từ Hyundai Motors. H&atilde;ng xe H&agrave;n Quốc đồng thời chuyển giao c&ocirc;ng nghệ lắp r&aacute;p xe kh&aacute;ch giường nằm, ứng dụng c&ocirc;ng nghệ phun xốp chống ồn, h&agrave;n J&iacute;t, khử m&ugrave;i bằng đ&egrave;n cực t&iacute;m.</p>\r\n\r\n<p>D&ograve;ng xe mới c&oacute; thiết kế kiểu Universe nổi tiếng của Hyundai. Nội thất cấu tr&uacute;c gường nằm 2 tầng. Trang bị gồm m&aacute;y lạnh, tủ lạnh mini, d&agrave;n &acirc;m thanh với 4 m&agrave;n h&igrave;nh LCD, hệ thống toilet, khay đựng vật dụng tại mỗi gường.</p>\r\n\r\n<p>Xe sử dụng động cơ dầu turbo intercooler của Hyundai, 6 xi-lanh, dung t&iacute;ch 12.920 ph&acirc;n khối với c&ocirc;ng suất 380 m&atilde; lực. Hệ thống treo 6 bầu hơi, chống b&oacute; cứng phanh ABS v&agrave; camera l&ugrave;i.</p>', '', '', '<p>K&iacute;nh cửa sổ an to&agrave;n, loại k&iacute;nh trượt trong suốt gi&uacute;p h&agrave;nh kh&aacute;ch quan s&aacute;t tốt</p>\r\n\r\n<p>Cản trước rộng, vững chắc kết hợp với cụm đ&egrave;n trước kiểu d&aacute;ng hiện đại, đem lại sự an to&agrave;n khi vận chuyển trong mọi điều kiện thời tiết</p>\r\n\r\n<p>Cửa gấp tự động, vận h&agrave;nh dễ d&agrave;ng v&agrave; thuận lợi</p>\r\n\r\n<p>Khung gầm h&igrave;nh hộp</p>\r\n\r\n<p><img alt=\"\" src=\"https://template.web30s.com.vn/webdemo/2025_tracomeco/html1/delete/linhvuc/linh-vuc-100.jpg\" /></p>\r\n\r\n<h3>Đỏ cam - Trắng</h3>\r\n\r\n<p><img alt=\"\" src=\"https://template.web30s.com.vn/webdemo/2025_tracomeco/html1/delete/linhvuc/linh-vuc-100.jpg\" /></p>\r\n\r\n<h3>Đỏ - Trắng - X&aacute;m</h3>\r\n\r\n<p><img alt=\"\" src=\"https://template.web30s.com.vn/webdemo/2025_tracomeco/html1/delete/linhvuc/linh-vuc-100.jpg\" /></p>\r\n\r\n<h3>V&agrave;ng chanh - X&aacute;m</h3>\r\n\r\n<p><img alt=\"\" src=\"https://template.web30s.com.vn/webdemo/2025_tracomeco/html1/delete/linhvuc/linh-vuc-100.jpg\" /></p>\r\n\r\n<h3>Đỏ cam - Trắng</h3>\r\n\r\n<p><img alt=\"\" src=\"https://template.web30s.com.vn/webdemo/2025_tracomeco/html1/delete/linhvuc/linh-vuc-100.jpg\" /></p>\r\n\r\n<h3>Đỏ - Trắng - X&aacute;m</h3>\r\n\r\n<p><img alt=\"\" src=\"https://template.web30s.com.vn/webdemo/2025_tracomeco/html1/delete/linhvuc/linh-vuc-100.jpg\" /></p>\r\n\r\n<h3>V&agrave;ng chanh - X&aacute;m</h3>', '', '', '', '', '', 'universe-noble-2-tang-giuong-cp-459601738912789', '', 10, '1738912868_linhvuc-mask.png', NULL, NULL, '', 'datafiles', 1738740526, 0, 6, 9, 0, 0, 'Universe Noble 2 Tầng Giường', '', '', 'Universe Noble 2 Tầng Giường', '', '', 'Universe Noble 2 Tầng Giường', '', NULL, 0, 0, 1, 0, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '<table>\r\n	<tbody>\r\n		<tr>\r\n			<td width=\"650\">Model County</td>\r\n			<td width=\"150\">Limousine</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Khung gầm (Base Chassic): Hyundai County Long Body</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Nguồn gốc, xuất xứ: Nhập khẩu 100% từ Hyundai Motor H&agrave;n Quốc</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Số chổ ngồi / Seat Capacity</td>\r\n			<td width=\"150\">16 - 19 - 25 - 29</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">K&iacute;ch thước tổng thể (D x R x C) / Overall dimensions (L x W x H) (mm)</td>\r\n			<td width=\"150\">7.080 x 2.060 x 2.740</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Độ d&agrave;i cơ sở / Wheel Base (mm)</td>\r\n			<td width=\"150\">4.085</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Tốc độ tối đa / Max. Speed (Km/h)</td>\r\n			<td width=\"150\">111</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Trọng lượng to&agrave;n tải / Gross Vehicle Weight (Kg)</td>\r\n			<td width=\"150\">6190</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Động cơ Model D4DD - Phun nhi&ecirc;n liệu điện tử thế hệ mới</p>\r\n\r\n			<p>Engine Model D4DD - The New CRDi (Common Rail Direct Injection)</p>\r\n			</td>\r\n			<td width=\"150\">D4DD - CRD</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">C&ocirc;ng suất động cơ / Max. Power/Torque (PS/rpm)</td>\r\n			<td width=\"150\">140/2.800</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Dung t&iacute;ch động cơ / Displacement (cc)</td>\r\n			<td width=\"150\">3.907</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Ti&ecirc;u chuẩn kh&iacute; thải / Emission Level</td>\r\n			<td width=\"150\">Euro-III</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Hệ thống phanh ph&iacute;a trước v&agrave; ph&iacute;a sau l&agrave; kiểu tang trống mạch k&eacute;p thủy lực c&oacute; trợ lực ch&acirc;n kh&ocirc;ng</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Phanh sử dụng hệ thống chống b&oacute; cứng phanh Hyundai</p>\r\n\r\n			<p>ABS ( Anti-Lock Brake System) - dạng phanh đĩa</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai - Option</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Cửa kh&aacute;ch: loại gấp - đ&oacute;ng mở bằng điện</p>\r\n\r\n			<p>Passenger Door: Folding type door - electric operation</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Cửa kh&aacute;ch (Gold): loại trượt ra - đ&oacute;ng mở bằng điện</p>\r\n\r\n			<p>Passenger Door: Swing out type door - electric operation</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai - Option</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Ghế loại bố tr&iacute; 3 x 1 c&oacute; bật ngả, c&oacute; d&acirc;y an to&agrave;n cho từng ghế</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Cửa sổ k&iacute;nh an to&agrave;n loại trượt / Safe Glasses, Slide type</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Cửa sổ k&iacute;nh an to&agrave;n loại liền / Safe Glasses, Fixed type</td>\r\n			<td width=\"150\">Hyundai - Option</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Cốp để h&agrave;nh l&yacute; ph&iacute;a sau (hầm h&agrave;ng) nguy&ecirc;n bản gần nửa khối</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Cốp để h&agrave;nh l&yacute; ph&iacute;a sau (hầm h&agrave;ng) thiết kế mới, lớn gấp 3 lần</td>\r\n			<td width=\"150\">Hyundai - Option</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Hệ thống phanh kh&iacute; xả / Exhaust Brake</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">B&igrave;nh ắc quy 12 Volts-80AH Nhập khẩu / Battery Imported</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">B&aacute;nh xe: 4 x 2, sau b&aacute;nh đ&ocirc;i, trước b&aacute;nh đơn, lốp 7.00R16-12PR</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Th&ugrave;ng nhi&ecirc;n liệu / Fuel Tank</td>\r\n			<td width=\"150\">95 Liter</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Điều h&ograve;a nhiệt độ loại 01 m&aacute;y n&eacute;n c&ocirc;ng suất 10.000 Kcal</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Điều h&ograve;a nhiệt độ loại 02 m&aacute;y n&eacute;n c&ocirc;ng suất 13.000 Kcal</td>\r\n			<td width=\"150\">Hyundai - Option</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Th&acirc;n xe: 100% linh kiện ch&iacute;nh h&atilde;ng Hyundai</p>\r\n\r\n			<p>Body: Genuine part imported from Hyundai Motor</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">K&iacute;nh chắn gi&oacute;: loại k&iacute;nh an to&agrave;n / Wind shield glasses: Safe glasses</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>100% Nội ngoại thất nhập khẩu từ Hyundai ch&iacute;nh h&atilde;ng</p>\r\n\r\n			<p>Exterior &amp; Interior Modern Limousine, imported from Hyundai</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Tay l&aacute;i trợ lực gật g&ugrave;, kh&oacute;a trung t&acirc;m, điều khiển độ nghi&ecirc;ng tay l&aacute;i theo 4 hướng</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Cửa gi&oacute; điều h&ograve;a, đ&egrave;n đọc s&aacute;ch đến từng h&agrave;nh kh&aacute;ch</p>\r\n\r\n			<p>Louvers and Reading lamp are installed over each passenger seat</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Đ&egrave;n trần / Lamp head</td>\r\n			<td width=\"150\">Limousine</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Ghế loại bố tr&iacute; 2 x 2 Simily (da) hoặc Nỉ (vải) c&oacute; bật ngả</td>\r\n			<td width=\"150\">Option</td>\r\n		</tr>\r\n	</tbody>\r\n</table>', '', '', '', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL),
+(61, 1, 15, 'Universe Noble 2 Tầng Giường', '', '', '<p>Theo đại diện của nh&agrave; sản xuất, c&aacute;c linh kiện như khung gầm, động cơ, hệ thống m&aacute;y lạnh...đều nhập từ Hyundai Motors. H&atilde;ng xe H&agrave;n Quốc đồng thời chuyển giao c&ocirc;ng nghệ lắp r&aacute;p xe kh&aacute;ch giường nằm, ứng dụng c&ocirc;ng nghệ phun xốp chống ồn, h&agrave;n J&iacute;t, khử m&ugrave;i bằng đ&egrave;n cực t&iacute;m.</p>\r\n\r\n<p>D&ograve;ng xe mới c&oacute; thiết kế kiểu Universe nổi tiếng của Hyundai. Nội thất cấu tr&uacute;c gường nằm 2 tầng. Trang bị gồm m&aacute;y lạnh, tủ lạnh mini, d&agrave;n &acirc;m thanh với 4 m&agrave;n h&igrave;nh LCD, hệ thống toilet, khay đựng vật dụng tại mỗi gường.</p>\r\n\r\n<p>Xe sử dụng động cơ dầu turbo intercooler của Hyundai, 6 xi-lanh, dung t&iacute;ch 12.920 ph&acirc;n khối với c&ocirc;ng suất 380 m&atilde; lực. Hệ thống treo 6 bầu hơi, chống b&oacute; cứng phanh ABS v&agrave; camera l&ugrave;i.</p>', '', '', '<p>1</p>', '', '', '', '', '', 'universe-noble-2-tang-giuong-cp-684051738912877', '15', 11, '', NULL, NULL, '', 'datafiles', 1738757837, 0, 5, 9, 0, 0, 'Universe Noble 2 Tầng Giường', '', '', 'Universe Noble 2 Tầng Giường', '', '', 'Universe Noble 2 Tầng Giường', '', NULL, 0, 0, 1, 0, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '<table>\r\n	<tbody>\r\n		<tr>\r\n			<td width=\"650\">Model County</td>\r\n			<td width=\"150\">Limousine</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Khung gầm (Base Chassic): Hyundai County Long Body</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Nguồn gốc, xuất xứ: Nhập khẩu 100% từ Hyundai Motor H&agrave;n Quốc</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Số chổ ngồi / Seat Capacity</td>\r\n			<td width=\"150\">16 - 19 - 25 - 29</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">K&iacute;ch thước tổng thể (D x R x C) / Overall dimensions (L x W x H) (mm)</td>\r\n			<td width=\"150\">7.080 x 2.060 x 2.740</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Độ d&agrave;i cơ sở / Wheel Base (mm)</td>\r\n			<td width=\"150\">4.085</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Tốc độ tối đa / Max. Speed (Km/h)</td>\r\n			<td width=\"150\">111</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Trọng lượng to&agrave;n tải / Gross Vehicle Weight (Kg)</td>\r\n			<td width=\"150\">6190</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Động cơ Model D4DD - Phun nhi&ecirc;n liệu điện tử thế hệ mới</p>\r\n\r\n			<p>Engine Model D4DD - The New CRDi (Common Rail Direct Injection)</p>\r\n			</td>\r\n			<td width=\"150\">D4DD - CRD</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">C&ocirc;ng suất động cơ / Max. Power/Torque (PS/rpm)</td>\r\n			<td width=\"150\">140/2.800</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Dung t&iacute;ch động cơ / Displacement (cc)</td>\r\n			<td width=\"150\">3.907</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Ti&ecirc;u chuẩn kh&iacute; thải / Emission Level</td>\r\n			<td width=\"150\">Euro-III</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Hệ thống phanh ph&iacute;a trước v&agrave; ph&iacute;a sau l&agrave; kiểu tang trống mạch k&eacute;p thủy lực c&oacute; trợ lực ch&acirc;n kh&ocirc;ng</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Phanh sử dụng hệ thống chống b&oacute; cứng phanh Hyundai</p>\r\n\r\n			<p>ABS ( Anti-Lock Brake System) - dạng phanh đĩa</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai - Option</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Cửa kh&aacute;ch: loại gấp - đ&oacute;ng mở bằng điện</p>\r\n\r\n			<p>Passenger Door: Folding type door - electric operation</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Cửa kh&aacute;ch (Gold): loại trượt ra - đ&oacute;ng mở bằng điện</p>\r\n\r\n			<p>Passenger Door: Swing out type door - electric operation</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai - Option</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Ghế loại bố tr&iacute; 3 x 1 c&oacute; bật ngả, c&oacute; d&acirc;y an to&agrave;n cho từng ghế</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Cửa sổ k&iacute;nh an to&agrave;n loại trượt / Safe Glasses, Slide type</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Cửa sổ k&iacute;nh an to&agrave;n loại liền / Safe Glasses, Fixed type</td>\r\n			<td width=\"150\">Hyundai - Option</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Cốp để h&agrave;nh l&yacute; ph&iacute;a sau (hầm h&agrave;ng) nguy&ecirc;n bản gần nửa khối</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Cốp để h&agrave;nh l&yacute; ph&iacute;a sau (hầm h&agrave;ng) thiết kế mới, lớn gấp 3 lần</td>\r\n			<td width=\"150\">Hyundai - Option</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Hệ thống phanh kh&iacute; xả / Exhaust Brake</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">B&igrave;nh ắc quy 12 Volts-80AH Nhập khẩu / Battery Imported</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">B&aacute;nh xe: 4 x 2, sau b&aacute;nh đ&ocirc;i, trước b&aacute;nh đơn, lốp 7.00R16-12PR</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Th&ugrave;ng nhi&ecirc;n liệu / Fuel Tank</td>\r\n			<td width=\"150\">95 Liter</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Điều h&ograve;a nhiệt độ loại 01 m&aacute;y n&eacute;n c&ocirc;ng suất 10.000 Kcal</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Điều h&ograve;a nhiệt độ loại 02 m&aacute;y n&eacute;n c&ocirc;ng suất 13.000 Kcal</td>\r\n			<td width=\"150\">Hyundai - Option</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Th&acirc;n xe: 100% linh kiện ch&iacute;nh h&atilde;ng Hyundai</p>\r\n\r\n			<p>Body: Genuine part imported from Hyundai Motor</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">K&iacute;nh chắn gi&oacute;: loại k&iacute;nh an to&agrave;n / Wind shield glasses: Safe glasses</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>100% Nội ngoại thất nhập khẩu từ Hyundai ch&iacute;nh h&atilde;ng</p>\r\n\r\n			<p>Exterior &amp; Interior Modern Limousine, imported from Hyundai</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Tay l&aacute;i trợ lực gật g&ugrave;, kh&oacute;a trung t&acirc;m, điều khiển độ nghi&ecirc;ng tay l&aacute;i theo 4 hướng</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Cửa gi&oacute; điều h&ograve;a, đ&egrave;n đọc s&aacute;ch đến từng h&agrave;nh kh&aacute;ch</p>\r\n\r\n			<p>Louvers and Reading lamp are installed over each passenger seat</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Đ&egrave;n trần / Lamp head</td>\r\n			<td width=\"150\">Limousine</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Ghế loại bố tr&iacute; 2 x 2 Simily (da) hoặc Nỉ (vải) c&oacute; bật ngả</td>\r\n			<td width=\"150\">Option</td>\r\n		</tr>\r\n	</tbody>\r\n</table>', '', '', '', 0, 0, '', '<p>121</p>', '', '', '<p>kieu dang</p>', '', NULL),
+(62, 1, 15, 'Universe Noble 2 Tầng Giường', NULL, NULL, '<p>Theo đại diện của nh&agrave; sản xuất, c&aacute;c linh kiện như khung gầm, động cơ, hệ thống m&aacute;y lạnh...đều nhập từ Hyundai Motors. H&atilde;ng xe H&agrave;n Quốc đồng thời chuyển giao c&ocirc;ng nghệ lắp r&aacute;p xe kh&aacute;ch giường nằm, ứng dụng c&ocirc;ng nghệ phun xốp chống ồn, h&agrave;n J&iacute;t, khử m&ugrave;i bằng đ&egrave;n cực t&iacute;m.</p>\r\n\r\n<p>D&ograve;ng xe mới c&oacute; thiết kế kiểu Universe nổi tiếng của Hyundai. Nội thất cấu tr&uacute;c gường nằm 2 tầng. Trang bị gồm m&aacute;y lạnh, tủ lạnh mini, d&agrave;n &acirc;m thanh với 4 m&agrave;n h&igrave;nh LCD, hệ thống toilet, khay đựng vật dụng tại mỗi gường.</p>\r\n\r\n<p>Xe sử dụng động cơ dầu turbo intercooler của Hyundai, 6 xi-lanh, dung t&iacute;ch 12.920 ph&acirc;n khối với c&ocirc;ng suất 380 m&atilde; lực. Hệ thống treo 6 bầu hơi, chống b&oacute; cứng phanh ABS v&agrave; camera l&ugrave;i.</p>', NULL, NULL, '<p>K&iacute;nh cửa sổ an to&agrave;n, loại k&iacute;nh trượt trong suốt gi&uacute;p h&agrave;nh kh&aacute;ch quan s&aacute;t tốt</p>\r\n\r\n<p>Cản trước rộng, vững chắc kết hợp với cụm đ&egrave;n trước kiểu d&aacute;ng hiện đại, đem lại sự an to&agrave;n khi vận chuyển trong mọi điều kiện thời tiết</p>\r\n\r\n<p>Cửa gấp tự động, vận h&agrave;nh dễ d&agrave;ng v&agrave; thuận lợi</p>\r\n\r\n<p>Khung gầm h&igrave;nh hộp</p>\r\n\r\n<p><img alt=\"\" src=\"https://template.web30s.com.vn/webdemo/2025_tracomeco/html1/delete/linhvuc/linh-vuc-100.jpg\" /></p>\r\n\r\n<h3>Đỏ cam - Trắng</h3>\r\n\r\n<p><img alt=\"\" src=\"https://template.web30s.com.vn/webdemo/2025_tracomeco/html1/delete/linhvuc/linh-vuc-100.jpg\" /></p>\r\n\r\n<h3>Đỏ - Trắng - X&aacute;m</h3>\r\n\r\n<p><img alt=\"\" src=\"https://template.web30s.com.vn/webdemo/2025_tracomeco/html1/delete/linhvuc/linh-vuc-100.jpg\" /></p>\r\n\r\n<h3>V&agrave;ng chanh - X&aacute;m</h3>\r\n\r\n<p><img alt=\"\" src=\"https://template.web30s.com.vn/webdemo/2025_tracomeco/html1/delete/linhvuc/linh-vuc-100.jpg\" /></p>\r\n\r\n<h3>Đỏ cam - Trắng</h3>\r\n\r\n<p><img alt=\"\" src=\"https://template.web30s.com.vn/webdemo/2025_tracomeco/html1/delete/linhvuc/linh-vuc-100.jpg\" /></p>\r\n\r\n<h3>Đỏ - Trắng - X&aacute;m</h3>\r\n\r\n<p><img alt=\"\" src=\"https://template.web30s.com.vn/webdemo/2025_tracomeco/html1/delete/linhvuc/linh-vuc-100.jpg\" /></p>\r\n\r\n<h3>V&agrave;ng chanh - X&aacute;m</h3>', NULL, NULL, NULL, NULL, NULL, 'universe-noble-2-tang-giuong-cp-633191738912877', '15', 10, '', NULL, NULL, NULL, 'datafiles', 1738739902, 0, 2, 9, 0, 0, 'Universe Noble 2 Tầng Giường', NULL, NULL, 'Universe Noble 2 Tầng Giường', NULL, NULL, 'Universe Noble 2 Tầng Giường', NULL, NULL, 0, 0, 1, 0, 0, 0, 0, 0, NULL, 0, NULL, NULL, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '<table>\r\n	<tbody>\r\n		<tr>\r\n			<td width=\"650\">Model County</td>\r\n			<td width=\"150\">Limousine</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Khung gầm (Base Chassic): Hyundai County Long Body</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Nguồn gốc, xuất xứ: Nhập khẩu 100% từ Hyundai Motor H&agrave;n Quốc</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Số chổ ngồi / Seat Capacity</td>\r\n			<td width=\"150\">16 - 19 - 25 - 29</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">K&iacute;ch thước tổng thể (D x R x C) / Overall dimensions (L x W x H) (mm)</td>\r\n			<td width=\"150\">7.080 x 2.060 x 2.740</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Độ d&agrave;i cơ sở / Wheel Base (mm)</td>\r\n			<td width=\"150\">4.085</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Tốc độ tối đa / Max. Speed (Km/h)</td>\r\n			<td width=\"150\">111</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Trọng lượng to&agrave;n tải / Gross Vehicle Weight (Kg)</td>\r\n			<td width=\"150\">6190</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Động cơ Model D4DD - Phun nhi&ecirc;n liệu điện tử thế hệ mới</p>\r\n\r\n			<p>Engine Model D4DD - The New CRDi (Common Rail Direct Injection)</p>\r\n			</td>\r\n			<td width=\"150\">D4DD - CRD</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">C&ocirc;ng suất động cơ / Max. Power/Torque (PS/rpm)</td>\r\n			<td width=\"150\">140/2.800</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Dung t&iacute;ch động cơ / Displacement (cc)</td>\r\n			<td width=\"150\">3.907</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Ti&ecirc;u chuẩn kh&iacute; thải / Emission Level</td>\r\n			<td width=\"150\">Euro-III</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Hệ thống phanh ph&iacute;a trước v&agrave; ph&iacute;a sau l&agrave; kiểu tang trống mạch k&eacute;p thủy lực c&oacute; trợ lực ch&acirc;n kh&ocirc;ng</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Phanh sử dụng hệ thống chống b&oacute; cứng phanh Hyundai</p>\r\n\r\n			<p>ABS ( Anti-Lock Brake System) - dạng phanh đĩa</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai - Option</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Cửa kh&aacute;ch: loại gấp - đ&oacute;ng mở bằng điện</p>\r\n\r\n			<p>Passenger Door: Folding type door - electric operation</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Cửa kh&aacute;ch (Gold): loại trượt ra - đ&oacute;ng mở bằng điện</p>\r\n\r\n			<p>Passenger Door: Swing out type door - electric operation</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai - Option</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Ghế loại bố tr&iacute; 3 x 1 c&oacute; bật ngả, c&oacute; d&acirc;y an to&agrave;n cho từng ghế</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Cửa sổ k&iacute;nh an to&agrave;n loại trượt / Safe Glasses, Slide type</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Cửa sổ k&iacute;nh an to&agrave;n loại liền / Safe Glasses, Fixed type</td>\r\n			<td width=\"150\">Hyundai - Option</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Cốp để h&agrave;nh l&yacute; ph&iacute;a sau (hầm h&agrave;ng) nguy&ecirc;n bản gần nửa khối</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Cốp để h&agrave;nh l&yacute; ph&iacute;a sau (hầm h&agrave;ng) thiết kế mới, lớn gấp 3 lần</td>\r\n			<td width=\"150\">Hyundai - Option</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Hệ thống phanh kh&iacute; xả / Exhaust Brake</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">B&igrave;nh ắc quy 12 Volts-80AH Nhập khẩu / Battery Imported</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">B&aacute;nh xe: 4 x 2, sau b&aacute;nh đ&ocirc;i, trước b&aacute;nh đơn, lốp 7.00R16-12PR</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Th&ugrave;ng nhi&ecirc;n liệu / Fuel Tank</td>\r\n			<td width=\"150\">95 Liter</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Điều h&ograve;a nhiệt độ loại 01 m&aacute;y n&eacute;n c&ocirc;ng suất 10.000 Kcal</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Điều h&ograve;a nhiệt độ loại 02 m&aacute;y n&eacute;n c&ocirc;ng suất 13.000 Kcal</td>\r\n			<td width=\"150\">Hyundai - Option</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Th&acirc;n xe: 100% linh kiện ch&iacute;nh h&atilde;ng Hyundai</p>\r\n\r\n			<p>Body: Genuine part imported from Hyundai Motor</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">K&iacute;nh chắn gi&oacute;: loại k&iacute;nh an to&agrave;n / Wind shield glasses: Safe glasses</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>100% Nội ngoại thất nhập khẩu từ Hyundai ch&iacute;nh h&atilde;ng</p>\r\n\r\n			<p>Exterior &amp; Interior Modern Limousine, imported from Hyundai</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Tay l&aacute;i trợ lực gật g&ugrave;, kh&oacute;a trung t&acirc;m, điều khiển độ nghi&ecirc;ng tay l&aacute;i theo 4 hướng</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Cửa gi&oacute; điều h&ograve;a, đ&egrave;n đọc s&aacute;ch đến từng h&agrave;nh kh&aacute;ch</p>\r\n\r\n			<p>Louvers and Reading lamp are installed over each passenger seat</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Đ&egrave;n trần / Lamp head</td>\r\n			<td width=\"150\">Limousine</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Ghế loại bố tr&iacute; 2 x 2 Simily (da) hoặc Nỉ (vải) c&oacute; bật ngả</td>\r\n			<td width=\"150\">Option</td>\r\n		</tr>\r\n	</tbody>\r\n</table>', NULL, NULL, NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(63, 1, 15, 'Universe Noble 2 Tầng Giường', NULL, NULL, '<p>Theo đại diện của nh&agrave; sản xuất, c&aacute;c linh kiện như khung gầm, động cơ, hệ thống m&aacute;y lạnh...đều nhập từ Hyundai Motors. H&atilde;ng xe H&agrave;n Quốc đồng thời chuyển giao c&ocirc;ng nghệ lắp r&aacute;p xe kh&aacute;ch giường nằm, ứng dụng c&ocirc;ng nghệ phun xốp chống ồn, h&agrave;n J&iacute;t, khử m&ugrave;i bằng đ&egrave;n cực t&iacute;m.</p>\r\n\r\n<p>D&ograve;ng xe mới c&oacute; thiết kế kiểu Universe nổi tiếng của Hyundai. Nội thất cấu tr&uacute;c gường nằm 2 tầng. Trang bị gồm m&aacute;y lạnh, tủ lạnh mini, d&agrave;n &acirc;m thanh với 4 m&agrave;n h&igrave;nh LCD, hệ thống toilet, khay đựng vật dụng tại mỗi gường.</p>\r\n\r\n<p>Xe sử dụng động cơ dầu turbo intercooler của Hyundai, 6 xi-lanh, dung t&iacute;ch 12.920 ph&acirc;n khối với c&ocirc;ng suất 380 m&atilde; lực. Hệ thống treo 6 bầu hơi, chống b&oacute; cứng phanh ABS v&agrave; camera l&ugrave;i.</p>', NULL, NULL, '<p>K&iacute;nh cửa sổ an to&agrave;n, loại k&iacute;nh trượt trong suốt gi&uacute;p h&agrave;nh kh&aacute;ch quan s&aacute;t tốt</p>\r\n\r\n<p>Cản trước rộng, vững chắc kết hợp với cụm đ&egrave;n trước kiểu d&aacute;ng hiện đại, đem lại sự an to&agrave;n khi vận chuyển trong mọi điều kiện thời tiết</p>\r\n\r\n<p>Cửa gấp tự động, vận h&agrave;nh dễ d&agrave;ng v&agrave; thuận lợi</p>\r\n\r\n<p>Khung gầm h&igrave;nh hộp</p>\r\n\r\n<p><img alt=\"\" src=\"https://template.web30s.com.vn/webdemo/2025_tracomeco/html1/delete/linhvuc/linh-vuc-100.jpg\" /></p>\r\n\r\n<h3>Đỏ cam - Trắng</h3>\r\n\r\n<p><img alt=\"\" src=\"https://template.web30s.com.vn/webdemo/2025_tracomeco/html1/delete/linhvuc/linh-vuc-100.jpg\" /></p>\r\n\r\n<h3>Đỏ - Trắng - X&aacute;m</h3>\r\n\r\n<p><img alt=\"\" src=\"https://template.web30s.com.vn/webdemo/2025_tracomeco/html1/delete/linhvuc/linh-vuc-100.jpg\" /></p>\r\n\r\n<h3>V&agrave;ng chanh - X&aacute;m</h3>\r\n\r\n<p><img alt=\"\" src=\"https://template.web30s.com.vn/webdemo/2025_tracomeco/html1/delete/linhvuc/linh-vuc-100.jpg\" /></p>\r\n\r\n<h3>Đỏ cam - Trắng</h3>\r\n\r\n<p><img alt=\"\" src=\"https://template.web30s.com.vn/webdemo/2025_tracomeco/html1/delete/linhvuc/linh-vuc-100.jpg\" /></p>\r\n\r\n<h3>Đỏ - Trắng - X&aacute;m</h3>\r\n\r\n<p><img alt=\"\" src=\"https://template.web30s.com.vn/webdemo/2025_tracomeco/html1/delete/linhvuc/linh-vuc-100.jpg\" /></p>\r\n\r\n<h3>V&agrave;ng chanh - X&aacute;m</h3>', NULL, NULL, NULL, NULL, NULL, 'universe-noble-2-tang-giuong-cp-461331738912877', '15', 9, '', NULL, NULL, NULL, 'datafiles', 1738752021, 0, 2, 9, 0, 0, 'Universe Noble 2 Tầng Giường', NULL, NULL, 'Universe Noble 2 Tầng Giường', NULL, NULL, 'Universe Noble 2 Tầng Giường', NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, NULL, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '<table>\r\n	<tbody>\r\n		<tr>\r\n			<td width=\"650\">Model County</td>\r\n			<td width=\"150\">Limousine</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Khung gầm (Base Chassic): Hyundai County Long Body</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Nguồn gốc, xuất xứ: Nhập khẩu 100% từ Hyundai Motor H&agrave;n Quốc</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Số chổ ngồi / Seat Capacity</td>\r\n			<td width=\"150\">16 - 19 - 25 - 29</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">K&iacute;ch thước tổng thể (D x R x C) / Overall dimensions (L x W x H) (mm)</td>\r\n			<td width=\"150\">7.080 x 2.060 x 2.740</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Độ d&agrave;i cơ sở / Wheel Base (mm)</td>\r\n			<td width=\"150\">4.085</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Tốc độ tối đa / Max. Speed (Km/h)</td>\r\n			<td width=\"150\">111</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Trọng lượng to&agrave;n tải / Gross Vehicle Weight (Kg)</td>\r\n			<td width=\"150\">6190</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Động cơ Model D4DD - Phun nhi&ecirc;n liệu điện tử thế hệ mới</p>\r\n\r\n			<p>Engine Model D4DD - The New CRDi (Common Rail Direct Injection)</p>\r\n			</td>\r\n			<td width=\"150\">D4DD - CRD</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">C&ocirc;ng suất động cơ / Max. Power/Torque (PS/rpm)</td>\r\n			<td width=\"150\">140/2.800</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Dung t&iacute;ch động cơ / Displacement (cc)</td>\r\n			<td width=\"150\">3.907</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Ti&ecirc;u chuẩn kh&iacute; thải / Emission Level</td>\r\n			<td width=\"150\">Euro-III</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Hệ thống phanh ph&iacute;a trước v&agrave; ph&iacute;a sau l&agrave; kiểu tang trống mạch k&eacute;p thủy lực c&oacute; trợ lực ch&acirc;n kh&ocirc;ng</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Phanh sử dụng hệ thống chống b&oacute; cứng phanh Hyundai</p>\r\n\r\n			<p>ABS ( Anti-Lock Brake System) - dạng phanh đĩa</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai - Option</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Cửa kh&aacute;ch: loại gấp - đ&oacute;ng mở bằng điện</p>\r\n\r\n			<p>Passenger Door: Folding type door - electric operation</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Cửa kh&aacute;ch (Gold): loại trượt ra - đ&oacute;ng mở bằng điện</p>\r\n\r\n			<p>Passenger Door: Swing out type door - electric operation</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai - Option</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Ghế loại bố tr&iacute; 3 x 1 c&oacute; bật ngả, c&oacute; d&acirc;y an to&agrave;n cho từng ghế</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Cửa sổ k&iacute;nh an to&agrave;n loại trượt / Safe Glasses, Slide type</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Cửa sổ k&iacute;nh an to&agrave;n loại liền / Safe Glasses, Fixed type</td>\r\n			<td width=\"150\">Hyundai - Option</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Cốp để h&agrave;nh l&yacute; ph&iacute;a sau (hầm h&agrave;ng) nguy&ecirc;n bản gần nửa khối</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Cốp để h&agrave;nh l&yacute; ph&iacute;a sau (hầm h&agrave;ng) thiết kế mới, lớn gấp 3 lần</td>\r\n			<td width=\"150\">Hyundai - Option</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Hệ thống phanh kh&iacute; xả / Exhaust Brake</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">B&igrave;nh ắc quy 12 Volts-80AH Nhập khẩu / Battery Imported</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">B&aacute;nh xe: 4 x 2, sau b&aacute;nh đ&ocirc;i, trước b&aacute;nh đơn, lốp 7.00R16-12PR</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Th&ugrave;ng nhi&ecirc;n liệu / Fuel Tank</td>\r\n			<td width=\"150\">95 Liter</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Điều h&ograve;a nhiệt độ loại 01 m&aacute;y n&eacute;n c&ocirc;ng suất 10.000 Kcal</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Điều h&ograve;a nhiệt độ loại 02 m&aacute;y n&eacute;n c&ocirc;ng suất 13.000 Kcal</td>\r\n			<td width=\"150\">Hyundai - Option</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Th&acirc;n xe: 100% linh kiện ch&iacute;nh h&atilde;ng Hyundai</p>\r\n\r\n			<p>Body: Genuine part imported from Hyundai Motor</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">K&iacute;nh chắn gi&oacute;: loại k&iacute;nh an to&agrave;n / Wind shield glasses: Safe glasses</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>100% Nội ngoại thất nhập khẩu từ Hyundai ch&iacute;nh h&atilde;ng</p>\r\n\r\n			<p>Exterior &amp; Interior Modern Limousine, imported from Hyundai</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Tay l&aacute;i trợ lực gật g&ugrave;, kh&oacute;a trung t&acirc;m, điều khiển độ nghi&ecirc;ng tay l&aacute;i theo 4 hướng</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Cửa gi&oacute; điều h&ograve;a, đ&egrave;n đọc s&aacute;ch đến từng h&agrave;nh kh&aacute;ch</p>\r\n\r\n			<p>Louvers and Reading lamp are installed over each passenger seat</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Đ&egrave;n trần / Lamp head</td>\r\n			<td width=\"150\">Limousine</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Ghế loại bố tr&iacute; 2 x 2 Simily (da) hoặc Nỉ (vải) c&oacute; bật ngả</td>\r\n			<td width=\"150\">Option</td>\r\n		</tr>\r\n	</tbody>\r\n</table>', NULL, NULL, NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(64, 1, 15, 'Universe Noble 2 Tầng Giường', NULL, NULL, '<p>Theo đại diện của nh&agrave; sản xuất, c&aacute;c linh kiện như khung gầm, động cơ, hệ thống m&aacute;y lạnh...đều nhập từ Hyundai Motors. H&atilde;ng xe H&agrave;n Quốc đồng thời chuyển giao c&ocirc;ng nghệ lắp r&aacute;p xe kh&aacute;ch giường nằm, ứng dụng c&ocirc;ng nghệ phun xốp chống ồn, h&agrave;n J&iacute;t, khử m&ugrave;i bằng đ&egrave;n cực t&iacute;m.</p>\r\n\r\n<p>D&ograve;ng xe mới c&oacute; thiết kế kiểu Universe nổi tiếng của Hyundai. Nội thất cấu tr&uacute;c gường nằm 2 tầng. Trang bị gồm m&aacute;y lạnh, tủ lạnh mini, d&agrave;n &acirc;m thanh với 4 m&agrave;n h&igrave;nh LCD, hệ thống toilet, khay đựng vật dụng tại mỗi gường.</p>\r\n\r\n<p>Xe sử dụng động cơ dầu turbo intercooler của Hyundai, 6 xi-lanh, dung t&iacute;ch 12.920 ph&acirc;n khối với c&ocirc;ng suất 380 m&atilde; lực. Hệ thống treo 6 bầu hơi, chống b&oacute; cứng phanh ABS v&agrave; camera l&ugrave;i.</p>', NULL, NULL, '<p>K&iacute;nh cửa sổ an to&agrave;n, loại k&iacute;nh trượt trong suốt gi&uacute;p h&agrave;nh kh&aacute;ch quan s&aacute;t tốt</p>\r\n\r\n<p>Cản trước rộng, vững chắc kết hợp với cụm đ&egrave;n trước kiểu d&aacute;ng hiện đại, đem lại sự an to&agrave;n khi vận chuyển trong mọi điều kiện thời tiết</p>\r\n\r\n<p>Cửa gấp tự động, vận h&agrave;nh dễ d&agrave;ng v&agrave; thuận lợi</p>\r\n\r\n<p>Khung gầm h&igrave;nh hộp</p>\r\n\r\n<p><img alt=\"\" src=\"https://template.web30s.com.vn/webdemo/2025_tracomeco/html1/delete/linhvuc/linh-vuc-100.jpg\" /></p>\r\n\r\n<h3>Đỏ cam - Trắng</h3>\r\n\r\n<p><img alt=\"\" src=\"https://template.web30s.com.vn/webdemo/2025_tracomeco/html1/delete/linhvuc/linh-vuc-100.jpg\" /></p>\r\n\r\n<h3>Đỏ - Trắng - X&aacute;m</h3>\r\n\r\n<p><img alt=\"\" src=\"https://template.web30s.com.vn/webdemo/2025_tracomeco/html1/delete/linhvuc/linh-vuc-100.jpg\" /></p>\r\n\r\n<h3>V&agrave;ng chanh - X&aacute;m</h3>\r\n\r\n<p><img alt=\"\" src=\"https://template.web30s.com.vn/webdemo/2025_tracomeco/html1/delete/linhvuc/linh-vuc-100.jpg\" /></p>\r\n\r\n<h3>Đỏ cam - Trắng</h3>\r\n\r\n<p><img alt=\"\" src=\"https://template.web30s.com.vn/webdemo/2025_tracomeco/html1/delete/linhvuc/linh-vuc-100.jpg\" /></p>\r\n\r\n<h3>Đỏ - Trắng - X&aacute;m</h3>\r\n\r\n<p><img alt=\"\" src=\"https://template.web30s.com.vn/webdemo/2025_tracomeco/html1/delete/linhvuc/linh-vuc-100.jpg\" /></p>\r\n\r\n<h3>V&agrave;ng chanh - X&aacute;m</h3>', NULL, NULL, NULL, NULL, NULL, 'universe-noble-2-tang-giuong-cp-951621738912881', '15', 10, '', NULL, NULL, NULL, 'datafiles', 1738739902, 0, 6, 9, 0, 0, 'Universe Noble 2 Tầng Giường', NULL, NULL, 'Universe Noble 2 Tầng Giường', NULL, NULL, 'Universe Noble 2 Tầng Giường', NULL, NULL, 0, 0, 1, 0, 0, 0, 0, 0, NULL, 0, NULL, NULL, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '<table>\r\n	<tbody>\r\n		<tr>\r\n			<td width=\"650\">Model County</td>\r\n			<td width=\"150\">Limousine</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Khung gầm (Base Chassic): Hyundai County Long Body</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Nguồn gốc, xuất xứ: Nhập khẩu 100% từ Hyundai Motor H&agrave;n Quốc</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Số chổ ngồi / Seat Capacity</td>\r\n			<td width=\"150\">16 - 19 - 25 - 29</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">K&iacute;ch thước tổng thể (D x R x C) / Overall dimensions (L x W x H) (mm)</td>\r\n			<td width=\"150\">7.080 x 2.060 x 2.740</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Độ d&agrave;i cơ sở / Wheel Base (mm)</td>\r\n			<td width=\"150\">4.085</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Tốc độ tối đa / Max. Speed (Km/h)</td>\r\n			<td width=\"150\">111</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Trọng lượng to&agrave;n tải / Gross Vehicle Weight (Kg)</td>\r\n			<td width=\"150\">6190</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Động cơ Model D4DD - Phun nhi&ecirc;n liệu điện tử thế hệ mới</p>\r\n\r\n			<p>Engine Model D4DD - The New CRDi (Common Rail Direct Injection)</p>\r\n			</td>\r\n			<td width=\"150\">D4DD - CRD</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">C&ocirc;ng suất động cơ / Max. Power/Torque (PS/rpm)</td>\r\n			<td width=\"150\">140/2.800</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Dung t&iacute;ch động cơ / Displacement (cc)</td>\r\n			<td width=\"150\">3.907</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Ti&ecirc;u chuẩn kh&iacute; thải / Emission Level</td>\r\n			<td width=\"150\">Euro-III</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Hệ thống phanh ph&iacute;a trước v&agrave; ph&iacute;a sau l&agrave; kiểu tang trống mạch k&eacute;p thủy lực c&oacute; trợ lực ch&acirc;n kh&ocirc;ng</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Phanh sử dụng hệ thống chống b&oacute; cứng phanh Hyundai</p>\r\n\r\n			<p>ABS ( Anti-Lock Brake System) - dạng phanh đĩa</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai - Option</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Cửa kh&aacute;ch: loại gấp - đ&oacute;ng mở bằng điện</p>\r\n\r\n			<p>Passenger Door: Folding type door - electric operation</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Cửa kh&aacute;ch (Gold): loại trượt ra - đ&oacute;ng mở bằng điện</p>\r\n\r\n			<p>Passenger Door: Swing out type door - electric operation</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai - Option</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Ghế loại bố tr&iacute; 3 x 1 c&oacute; bật ngả, c&oacute; d&acirc;y an to&agrave;n cho từng ghế</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Cửa sổ k&iacute;nh an to&agrave;n loại trượt / Safe Glasses, Slide type</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Cửa sổ k&iacute;nh an to&agrave;n loại liền / Safe Glasses, Fixed type</td>\r\n			<td width=\"150\">Hyundai - Option</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Cốp để h&agrave;nh l&yacute; ph&iacute;a sau (hầm h&agrave;ng) nguy&ecirc;n bản gần nửa khối</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Cốp để h&agrave;nh l&yacute; ph&iacute;a sau (hầm h&agrave;ng) thiết kế mới, lớn gấp 3 lần</td>\r\n			<td width=\"150\">Hyundai - Option</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Hệ thống phanh kh&iacute; xả / Exhaust Brake</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">B&igrave;nh ắc quy 12 Volts-80AH Nhập khẩu / Battery Imported</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">B&aacute;nh xe: 4 x 2, sau b&aacute;nh đ&ocirc;i, trước b&aacute;nh đơn, lốp 7.00R16-12PR</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Th&ugrave;ng nhi&ecirc;n liệu / Fuel Tank</td>\r\n			<td width=\"150\">95 Liter</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Điều h&ograve;a nhiệt độ loại 01 m&aacute;y n&eacute;n c&ocirc;ng suất 10.000 Kcal</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Điều h&ograve;a nhiệt độ loại 02 m&aacute;y n&eacute;n c&ocirc;ng suất 13.000 Kcal</td>\r\n			<td width=\"150\">Hyundai - Option</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Th&acirc;n xe: 100% linh kiện ch&iacute;nh h&atilde;ng Hyundai</p>\r\n\r\n			<p>Body: Genuine part imported from Hyundai Motor</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">K&iacute;nh chắn gi&oacute;: loại k&iacute;nh an to&agrave;n / Wind shield glasses: Safe glasses</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>100% Nội ngoại thất nhập khẩu từ Hyundai ch&iacute;nh h&atilde;ng</p>\r\n\r\n			<p>Exterior &amp; Interior Modern Limousine, imported from Hyundai</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Tay l&aacute;i trợ lực gật g&ugrave;, kh&oacute;a trung t&acirc;m, điều khiển độ nghi&ecirc;ng tay l&aacute;i theo 4 hướng</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Cửa gi&oacute; điều h&ograve;a, đ&egrave;n đọc s&aacute;ch đến từng h&agrave;nh kh&aacute;ch</p>\r\n\r\n			<p>Louvers and Reading lamp are installed over each passenger seat</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Đ&egrave;n trần / Lamp head</td>\r\n			<td width=\"150\">Limousine</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Ghế loại bố tr&iacute; 2 x 2 Simily (da) hoặc Nỉ (vải) c&oacute; bật ngả</td>\r\n			<td width=\"150\">Option</td>\r\n		</tr>\r\n	</tbody>\r\n</table>', NULL, NULL, NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `lh_baiviet` (`id`, `id_user`, `id_parent`, `tenbaiviet_vi`, `tenbaiviet_en`, `tenbaiviet_cn`, `mota_vi`, `mota_en`, `mota_cn`, `noidung_vi`, `noidung_en`, `noidung_cn`, `tags_vi`, `tags_en`, `tags_cn`, `seo_name`, `id_parent_muti`, `catasort`, `icon`, `icon_hover`, `dowload`, `dowload_text`, `duongdantin`, `ngaydang`, `capnhat`, `soluotxem`, `step`, `giatien`, `giakm`, `seo_title_vi`, `seo_title_en`, `seo_title_cn`, `seo_keywords_vi`, `seo_keywords_en`, `seo_keywords_cn`, `seo_description_vi`, `seo_description_en`, `seo_description_cn`, `opt_km`, `opt`, `opt1`, `opt2`, `opt3`, `opt4`, `opt5`, `top_video`, `p1`, `p2`, `p3`, `link_video`, `num_1`, `num_2`, `num_3`, `num_4`, `showhi`, `tinh_nang`, `thuoc_tinh_1_vi`, `thuoc_tinh_1_en`, `thuoc_tinh_2_vi`, `thuoc_tinh_2_en`, `thuoc_tinh_3_vi`, `thuoc_tinh_3_en`, `gia_tri_1_vi`, `gia_tri_2_vi`, `gia_tri_3_vi`, `thongso_vi`, `thongso_en`, `thongtin_vi`, `thongtin_en`, `ngayden`, `ngaydi`, `id_tag_multi`, `noidung2_vi`, `noidung2_en`, `noidung2_cn`, `kieudang_vi`, `kieudang_en`, `kieudang_cn`) VALUES
+(65, 1, 15, 'Universe Noble 2 Tầng Giường', NULL, NULL, '<p>Theo đại diện của nh&agrave; sản xuất, c&aacute;c linh kiện như khung gầm, động cơ, hệ thống m&aacute;y lạnh...đều nhập từ Hyundai Motors. H&atilde;ng xe H&agrave;n Quốc đồng thời chuyển giao c&ocirc;ng nghệ lắp r&aacute;p xe kh&aacute;ch giường nằm, ứng dụng c&ocirc;ng nghệ phun xốp chống ồn, h&agrave;n J&iacute;t, khử m&ugrave;i bằng đ&egrave;n cực t&iacute;m.</p>\r\n\r\n<p>D&ograve;ng xe mới c&oacute; thiết kế kiểu Universe nổi tiếng của Hyundai. Nội thất cấu tr&uacute;c gường nằm 2 tầng. Trang bị gồm m&aacute;y lạnh, tủ lạnh mini, d&agrave;n &acirc;m thanh với 4 m&agrave;n h&igrave;nh LCD, hệ thống toilet, khay đựng vật dụng tại mỗi gường.</p>\r\n\r\n<p>Xe sử dụng động cơ dầu turbo intercooler của Hyundai, 6 xi-lanh, dung t&iacute;ch 12.920 ph&acirc;n khối với c&ocirc;ng suất 380 m&atilde; lực. Hệ thống treo 6 bầu hơi, chống b&oacute; cứng phanh ABS v&agrave; camera l&ugrave;i.</p>', NULL, NULL, '<p>K&iacute;nh cửa sổ an to&agrave;n, loại k&iacute;nh trượt trong suốt gi&uacute;p h&agrave;nh kh&aacute;ch quan s&aacute;t tốt</p>\r\n\r\n<p>Cản trước rộng, vững chắc kết hợp với cụm đ&egrave;n trước kiểu d&aacute;ng hiện đại, đem lại sự an to&agrave;n khi vận chuyển trong mọi điều kiện thời tiết</p>\r\n\r\n<p>Cửa gấp tự động, vận h&agrave;nh dễ d&agrave;ng v&agrave; thuận lợi</p>\r\n\r\n<p>Khung gầm h&igrave;nh hộp</p>\r\n\r\n<p><img alt=\"\" src=\"https://template.web30s.com.vn/webdemo/2025_tracomeco/html1/delete/linhvuc/linh-vuc-100.jpg\" /></p>\r\n\r\n<h3>Đỏ cam - Trắng</h3>\r\n\r\n<p><img alt=\"\" src=\"https://template.web30s.com.vn/webdemo/2025_tracomeco/html1/delete/linhvuc/linh-vuc-100.jpg\" /></p>\r\n\r\n<h3>Đỏ - Trắng - X&aacute;m</h3>\r\n\r\n<p><img alt=\"\" src=\"https://template.web30s.com.vn/webdemo/2025_tracomeco/html1/delete/linhvuc/linh-vuc-100.jpg\" /></p>\r\n\r\n<h3>V&agrave;ng chanh - X&aacute;m</h3>\r\n\r\n<p><img alt=\"\" src=\"https://template.web30s.com.vn/webdemo/2025_tracomeco/html1/delete/linhvuc/linh-vuc-100.jpg\" /></p>\r\n\r\n<h3>Đỏ cam - Trắng</h3>\r\n\r\n<p><img alt=\"\" src=\"https://template.web30s.com.vn/webdemo/2025_tracomeco/html1/delete/linhvuc/linh-vuc-100.jpg\" /></p>\r\n\r\n<h3>Đỏ - Trắng - X&aacute;m</h3>\r\n\r\n<p><img alt=\"\" src=\"https://template.web30s.com.vn/webdemo/2025_tracomeco/html1/delete/linhvuc/linh-vuc-100.jpg\" /></p>\r\n\r\n<h3>V&agrave;ng chanh - X&aacute;m</h3>', NULL, NULL, NULL, NULL, NULL, 'universe-noble-2-tang-giuong-cp-354141738912881', '15', 9, '', NULL, NULL, NULL, 'datafiles', 1738752021, 0, 2, 9, 0, 0, 'Universe Noble 2 Tầng Giường', NULL, NULL, 'Universe Noble 2 Tầng Giường', NULL, NULL, 'Universe Noble 2 Tầng Giường', NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, NULL, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '<table>\r\n	<tbody>\r\n		<tr>\r\n			<td width=\"650\">Model County</td>\r\n			<td width=\"150\">Limousine</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Khung gầm (Base Chassic): Hyundai County Long Body</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Nguồn gốc, xuất xứ: Nhập khẩu 100% từ Hyundai Motor H&agrave;n Quốc</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Số chổ ngồi / Seat Capacity</td>\r\n			<td width=\"150\">16 - 19 - 25 - 29</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">K&iacute;ch thước tổng thể (D x R x C) / Overall dimensions (L x W x H) (mm)</td>\r\n			<td width=\"150\">7.080 x 2.060 x 2.740</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Độ d&agrave;i cơ sở / Wheel Base (mm)</td>\r\n			<td width=\"150\">4.085</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Tốc độ tối đa / Max. Speed (Km/h)</td>\r\n			<td width=\"150\">111</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Trọng lượng to&agrave;n tải / Gross Vehicle Weight (Kg)</td>\r\n			<td width=\"150\">6190</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Động cơ Model D4DD - Phun nhi&ecirc;n liệu điện tử thế hệ mới</p>\r\n\r\n			<p>Engine Model D4DD - The New CRDi (Common Rail Direct Injection)</p>\r\n			</td>\r\n			<td width=\"150\">D4DD - CRD</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">C&ocirc;ng suất động cơ / Max. Power/Torque (PS/rpm)</td>\r\n			<td width=\"150\">140/2.800</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Dung t&iacute;ch động cơ / Displacement (cc)</td>\r\n			<td width=\"150\">3.907</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Ti&ecirc;u chuẩn kh&iacute; thải / Emission Level</td>\r\n			<td width=\"150\">Euro-III</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Hệ thống phanh ph&iacute;a trước v&agrave; ph&iacute;a sau l&agrave; kiểu tang trống mạch k&eacute;p thủy lực c&oacute; trợ lực ch&acirc;n kh&ocirc;ng</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Phanh sử dụng hệ thống chống b&oacute; cứng phanh Hyundai</p>\r\n\r\n			<p>ABS ( Anti-Lock Brake System) - dạng phanh đĩa</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai - Option</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Cửa kh&aacute;ch: loại gấp - đ&oacute;ng mở bằng điện</p>\r\n\r\n			<p>Passenger Door: Folding type door - electric operation</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Cửa kh&aacute;ch (Gold): loại trượt ra - đ&oacute;ng mở bằng điện</p>\r\n\r\n			<p>Passenger Door: Swing out type door - electric operation</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai - Option</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Ghế loại bố tr&iacute; 3 x 1 c&oacute; bật ngả, c&oacute; d&acirc;y an to&agrave;n cho từng ghế</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Cửa sổ k&iacute;nh an to&agrave;n loại trượt / Safe Glasses, Slide type</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Cửa sổ k&iacute;nh an to&agrave;n loại liền / Safe Glasses, Fixed type</td>\r\n			<td width=\"150\">Hyundai - Option</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Cốp để h&agrave;nh l&yacute; ph&iacute;a sau (hầm h&agrave;ng) nguy&ecirc;n bản gần nửa khối</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Cốp để h&agrave;nh l&yacute; ph&iacute;a sau (hầm h&agrave;ng) thiết kế mới, lớn gấp 3 lần</td>\r\n			<td width=\"150\">Hyundai - Option</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Hệ thống phanh kh&iacute; xả / Exhaust Brake</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">B&igrave;nh ắc quy 12 Volts-80AH Nhập khẩu / Battery Imported</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">B&aacute;nh xe: 4 x 2, sau b&aacute;nh đ&ocirc;i, trước b&aacute;nh đơn, lốp 7.00R16-12PR</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Th&ugrave;ng nhi&ecirc;n liệu / Fuel Tank</td>\r\n			<td width=\"150\">95 Liter</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Điều h&ograve;a nhiệt độ loại 01 m&aacute;y n&eacute;n c&ocirc;ng suất 10.000 Kcal</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Điều h&ograve;a nhiệt độ loại 02 m&aacute;y n&eacute;n c&ocirc;ng suất 13.000 Kcal</td>\r\n			<td width=\"150\">Hyundai - Option</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Th&acirc;n xe: 100% linh kiện ch&iacute;nh h&atilde;ng Hyundai</p>\r\n\r\n			<p>Body: Genuine part imported from Hyundai Motor</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">K&iacute;nh chắn gi&oacute;: loại k&iacute;nh an to&agrave;n / Wind shield glasses: Safe glasses</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>100% Nội ngoại thất nhập khẩu từ Hyundai ch&iacute;nh h&atilde;ng</p>\r\n\r\n			<p>Exterior &amp; Interior Modern Limousine, imported from Hyundai</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Tay l&aacute;i trợ lực gật g&ugrave;, kh&oacute;a trung t&acirc;m, điều khiển độ nghi&ecirc;ng tay l&aacute;i theo 4 hướng</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">\r\n			<p>Cửa gi&oacute; điều h&ograve;a, đ&egrave;n đọc s&aacute;ch đến từng h&agrave;nh kh&aacute;ch</p>\r\n\r\n			<p>Louvers and Reading lamp are installed over each passenger seat</p>\r\n			</td>\r\n			<td width=\"150\">Hyundai</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Đ&egrave;n trần / Lamp head</td>\r\n			<td width=\"150\">Limousine</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"650\">Ghế loại bố tr&iacute; 2 x 2 Simily (da) hoặc Nỉ (vải) c&oacute; bật ngả</td>\r\n			<td width=\"150\">Option</td>\r\n		</tr>\r\n	</tbody>\r\n</table>', NULL, NULL, NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(66, 1, 0, 'Sản phẩm', '', '', '', '', '', '', '', '', '', '', '', 'san-pham', '', 1, '1739237079_linh-vuc-12.jpg', NULL, NULL, '', 'datafiles', 1739154208, 0, 2, 13, 0, 0, 'Sản phẩm', '', '', 'Sản phẩm', '', '', 'Sản phẩm', '', NULL, 0, 0, 0, 0, 0, 0, 0, 0, 'https://www.youtube.com/embed/y_vz8M73jyY?si=X8EU83Tv5wDc4pe-', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL),
+(67, 1, 0, 'Sản phẩm', '', '', '', '', '', '', '', '', '', '', '', 'san-pham-cp-860371739237083', '', 2, '1739237112_linh-vuc-12.jpg', NULL, NULL, '', 'datafiles', 1739154216, 0, 2, 13, 0, 0, 'Sản phẩm', '', '', 'Sản phẩm', '', '', 'Sản phẩm', '', NULL, 0, 0, 0, 0, 0, 0, 0, 0, 'https://www.youtube.com/embed/y_vz8M73jyY?si=X8EU83Tv5wDc4pe-', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL),
+(68, 1, 0, 'Sản phẩm', '', '', '', '', '', '', '', '', '', '', '', 'san-pham-cp-333781739237085', '', 3, '1739237112_linh-vuc-12.jpg', NULL, NULL, '', 'datafiles', 1739154229, 0, 2, 13, 0, 0, 'Sản phẩm', '', '', 'Sản phẩm', '', '', 'Sản phẩm', '', NULL, 0, 0, 0, 0, 0, 0, 0, 0, 'https://www.youtube.com/embed/y_vz8M73jyY?si=X8EU83Tv5wDc4pe-', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL),
+(69, 1, 0, 'Sản phẩm', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'san-pham-cp-755531739237089', NULL, 4, '', NULL, NULL, NULL, 'datafiles', 1739175520, 0, 2, 13, 0, 0, 'Sản phẩm', NULL, NULL, 'Sản phẩm', NULL, NULL, 'Sản phẩm', NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 'https://www.youtube.com/results?search_query=lcd', 0, NULL, NULL, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(70, 1, 0, 'Sản phẩm', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'san-pham-cp-272691739237089', NULL, 3, '', NULL, NULL, NULL, 'datafiles', 1739175520, 0, 2, 13, 0, 0, 'Sản phẩm', NULL, NULL, 'Sản phẩm', NULL, NULL, 'Sản phẩm', NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 'https://www.youtube.com/results?search_query=lcd', 0, NULL, NULL, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(71, 1, 0, 'Sản phẩm', '', '', '', '', '', '', '', '', '', '', '', 'san-pham-cp-470301739237089', '', 2, '1739237112_linh-vuc-12.jpg', NULL, NULL, '', 'datafiles', 1739154222, 0, 2, 13, 0, 0, 'Sản phẩm', '', '', 'Sản phẩm', '', '', 'Sản phẩm', '', NULL, 0, 0, 0, 0, 0, 0, 0, 0, 'https://www.youtube.com/embed/y_vz8M73jyY?si=X8EU83Tv5wDc4pe-', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL),
+(76, 1, 0, 'Cơ khí & Công nghiệp hỗ trợ', 'Mechanical & supporting industry', '', '5', '4', '', '<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit...</p>\r\n\r\n<p class=\"name-kh\">Chị Nguyễn Thị Mỹ Linh</p>', '', '', '', '', '', 'a1ce1a6d66406711bafdb1147828ca19', '', 3, NULL, NULL, NULL, '', 'datafiles', 1739269742, 0, 1, 15, 0, 0, 'Cơ khí & Công nghiệp hỗ trợ', 'Mechanical & supporting industry', '', 'Cơ khí & Công nghiệp hỗ trợ', 'Mechanical & supporting industry', '', 'Cơ khí & Công nghiệp hỗ trợ', 'Mechanical & supporting industry', NULL, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', '', '', '', '', '', NULL),
+(77, 1, 0, 'Hỗ trợ tuyệt vời', '', '', '1', '', '', '<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit...</p>\r\n\r\n<p class=\"name-kh\">Chị Nguyễn Thị Mỹ Linh</p>', '', '', '', '', '', '2d39ab7f84f3cb5069b83c0089ec99cf', '', 4, NULL, NULL, NULL, '', 'datafiles', 1739269725, 0, 1, 15, 0, 0, 'Hỗ trợ tuyệt vời', '', '', 'Hỗ trợ tuyệt vời', '', '', 'Hỗ trợ tuyệt vời', '', NULL, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, '', '', 0, 0, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', '', '', '', '', '', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_baiviet_chitiet`
+--
+
+CREATE TABLE `lh_baiviet_chitiet` (
+  `id` int(11) NOT NULL,
+  `id_parent` int(11) NOT NULL DEFAULT '0',
+  `tenbaiviet_vi` varchar(255) DEFAULT NULL,
+  `tenbaiviet_en` varchar(255) DEFAULT NULL,
+  `noidung_vi` text,
+  `noidung_en` text,
+  `step` int(11) NOT NULL DEFAULT '0',
+  `seo_name` varchar(255) DEFAULT NULL,
+  `catasort` int(11) NOT NULL DEFAULT '0',
+  `showhi` tinyint(1) NOT NULL DEFAULT '1',
+  `duongdantin` varchar(255) DEFAULT NULL,
+  `icon` varchar(255) DEFAULT NULL,
+  `dowload` varchar(255) DEFAULT NULL,
+  `dowload_text` varchar(255) DEFAULT NULL,
+  `seo_title_vi` varchar(255) DEFAULT NULL,
+  `seo_title_en` varchar(255) DEFAULT NULL,
+  `seo_keywords_vi` varchar(255) DEFAULT NULL,
+  `seo_keywords_en` varchar(255) DEFAULT NULL,
+  `seo_description_vi` varchar(255) DEFAULT NULL,
+  `seo_description_en` varchar(255) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `lh_baiviet_chitiet`
+--
+
+INSERT INTO `lh_baiviet_chitiet` (`id`, `id_parent`, `tenbaiviet_vi`, `tenbaiviet_en`, `noidung_vi`, `noidung_en`, `step`, `seo_name`, `catasort`, `showhi`, `duongdantin`, `icon`, `dowload`, `dowload_text`, `seo_title_vi`, `seo_title_en`, `seo_keywords_vi`, `seo_keywords_en`, `seo_description_vi`, `seo_description_en`) VALUES
+(1, 1, 'VIÊN NÉN GỖ', 'WOOD PELLETS', '<p>Thiện Ho&agrave;ng l&agrave; nh&agrave; sản xuất v&agrave; cung cấp vi&ecirc;n n&eacute;n gỗ với chất lượng quốc tế cho nh&agrave; m&aacute;y nhiệt điện sinh khối, l&ograve; hơi v&agrave; l&ograve; sưởi ấm c&aacute;c thị trường Ch&acirc;u &Aacute;, Ch&acirc;u&nbsp;&Acirc;u&nbsp;như Nhật Bản, H&agrave;n Quốc...</p>', '<p>Thien Hoang Group has been manufacturer and supplier of wood pellets with international quality for biomass thermal power plants, boilers and heaters in Asia such as Japan, Korea... and European markets.</p>', 0, 'wood-pellets', 1, 1, 'datafiles', '1623829988_1.jpg', NULL, '', 'WOOD PELLETS', 'WOOD PELLETS', 'WOOD PELLETS', 'WOOD PELLETS', 'WOOD PELLETS', 'WOOD PELLETS'),
+(9, 35, 'bmhmgm', '', '<p>bmhmgm</p>', '', 0, 'bmhmgm', 1, 1, 'datafiles', '1686026180_logo.jpg', NULL, '', 'bmhmgm', '', 'bmhmgm', '', 'bmhmgm', ''),
+(6, 1, 'DĂM BÀO, MÙN CƯA ÉP KHỐI', 'WOOD SHAVING & SAWDUST BLOCK', '<p>Với nguy&ecirc;n liệu ch&iacute;nh từ c&aacute;c phế phẩm từ hoạt động sản xuất gỗ. Dăm b&agrave;o, m&ugrave;n cưa &eacute;p khối l&agrave; sản phẩm được ứng dụng ch&iacute;nh cho việc trồng nấm, l&oacute;t chuồng động vật. Ngo&agrave;i ra c&ograve;n được sử dụng để trộn với c&aacute;c chất thải kh&aacute;c để l&agrave;m ph&acirc;n b&oacute;n v&ocirc; cơ.</p>', '<p>The raw materials from by-products of furniture production, wood shaving &amp; sawdust block are used for the heating carpet for the animals and mushroom raising application, also used for mix with the wastes to produce fertilizers.</p>', 0, 'dam-go', 2, 1, 'datafiles', '1628963373_dam-bao-ep-khoi-6-cr-1200x630.jpg', NULL, '', 'DĂM GỖ', 'DĂM GỖ', 'DĂM GỖ', 'DĂM GỖ', 'DĂM GỖ', 'DĂM GỖ'),
+(2, 1, 'DĂM GỖ', 'WOOD CHIPS', '<p>Nguy&ecirc;n liệu được lấy từ nguồn gỗ rừng trồng, dăm gỗ được sử dụng l&agrave;m nguy&ecirc;n liệu ch&iacute;nh cho ng&agrave;nh c&ocirc;ng nghiệp giấy của thị trường Ch&acirc;u &Aacute; như Trung Quốc, Nhật Bản, H&agrave;n Quốc. Ngo&agrave;i ra cũng l&agrave; nhi&ecirc;n liệu cung cấp cho c&aacute;c nh&agrave; m&aacute;y nhiệt điện sinh khối v&agrave; l&ograve; hơi.</p>', '<p>Raw materials are taken from wood of artificial forest. Wood chips are used as the main raw materials for the paper industry of Asian markets such as China, Japan, and Korea. In addition, used burning fuel for biomass thermal power plants and boiler</p>', 0, 'wood-briquette', 3, 1, 'datafiles', '1629083998_wood-chip-wood-pulp-from-vietnam-at.jpg', NULL, '', 'WOOD BRIQUETTE', 'WOOD BRIQUETTE', 'WOOD BRIQUETTE', 'WOOD BRIQUETTE', 'WOOD BRIQUETTE', 'WOOD BRIQUETTE'),
+(3, 29, 'GIÁ TRỊ CỐT LÕI', 'CORE VALUES', '<p>Đối với kh&aacute;ch h&agrave;ng: Mang lại gi&aacute; trị v&agrave; sự h&agrave;i l&ograve;ng cho kh&aacute;ch h&agrave;ng. S&aacute;ng tạo, tr&iacute; tuệ v&agrave; kh&ocirc;ng ngừng cải tiến để n&acirc;ng cao chất lượng sản phẩm v&agrave; dịch vụ. Đối với c&aacute;n bộ nh&acirc;n vi&ecirc;n: T&agrave;i sản lớn nhất của c&ocirc;ng ty l&agrave; đội ngũ nh&acirc;n vi&ecirc;n trẻ, nhiệt huyết. Mang tới cho c&aacute;n bộ nh&acirc;n vi&ecirc;n m&ocirc;i trường l&agrave;m việc năng động, s&aacute;ng tạo, chuy&ecirc;n nghiệp.</p>', '<p>For customers: Bringing the value and satisfaction for customers. Being creative and continuously improving the quality of our products and services.</p>\r\n\r\n<p>For staffs and employees: Young, enthusiastic staffs are our substantial asset which bring employees a dynamic, cre-ative and professional working environment</p>', 0, 'core-values', 1, 1, 'datafiles', '1629196442_gia-tri-500x300.jpg', NULL, '', 'CORE VALUES', 'CORE VALUES', 'CORE VALUES', 'CORE VALUES', 'CORE VALUES', 'CORE VALUES'),
+(4, 29, 'SỨ MỆNH', 'MISSION', '<p>Đối với kh&aacute;ch h&agrave;ng: Mang tới gi&aacute; trị ph&aacute;t triển bền vững cho kh&aacute;ch h&agrave;ng với sản phẩm tốt nhất. Hệ thống dịch vụ chuy&ecirc;n nghiệp, ho&agrave;n hảo, tận t&igrave;nh với mức chi ph&iacute; ph&ugrave; hợp. Mang lại cuộc sống sung t&uacute;c v&agrave; hạnh ph&uacute;c cho c&aacute;n bộ nh&acirc;n vi&ecirc;n c&ocirc;ng ty. Mang lại cuộc sống an l&agrave;nh, ph&aacute;t triển phồn thịnh cho x&atilde; hội. </p>', '<p>Bringing sustainable development value to our customers with the best products, professional service system with reasonable cost. Bringing prosperity and happiness to the employees of the company. Bringing a peaceful life, prosperity to society.</p>', 0, 'mission', 2, 1, 'datafiles', '1629196548_su-menhi-500x300.jpg', NULL, '', 'MISSION', 'MISSION', 'MISSION', 'MISSION', 'MISSION', 'MISSION'),
+(5, 29, 'TẦM NHÌN', 'VISION', '<p>Trở th&agrave;nh tập đo&agrave;n đa ng&agrave;nh nghề v&agrave; dẫn đầu trong lĩnh vực năng lượng sinh khối. L&agrave; đối t&aacute;c kinh doanh uy t&iacute;n mang lại gi&aacute; trị ph&aacute;t triển bền vững cho Qu&yacute; kh&aacute;ch h&agrave;ng. &nbsp;</p>', '<p>Become a multi-industry corporation and a leader in the field of biomass energy. To be a reputable business partner that brings sustainable development values to customers.</p>', 0, 'vision', 3, 1, 'datafiles', '1629194173_tam-nhin-250x150.jpg', NULL, '', 'VISION', 'VISION', 'VISION', 'VISION', 'VISION', 'VISION'),
+(10, 25, 'banner 1', '', '', '', 0, 'banner-1', 1, 1, 'datafiles', '1738743855_ab-1.jpg', NULL, '', 'banner 1', '', 'banner 1', '', 'banner 1', ''),
+(11, 25, 'banner 2', '', '', '', 0, 'banner-2', 2, 1, 'datafiles', '1738743898_ab-2.jpg', NULL, '', 'banner 2', '', 'banner 2', '', 'banner 2', ''),
+(12, 25, 'banner 3', '', '', '', 0, 'ban', 3, 1, 'datafiles', '1738743928_ab-3.jpg', NULL, '', 'ban', '', 'ban', '', 'ban', '');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_baiviet_img`
+--
+
+CREATE TABLE `lh_baiviet_img` (
+  `id` int(11) NOT NULL,
+  `id_parent` int(11) NOT NULL DEFAULT '0',
+  `icon` varchar(255) DEFAULT NULL,
+  `tenbaiviet_vi` varchar(255) DEFAULT NULL,
+  `tenbaiviet_en` varchar(255) DEFAULT NULL,
+  `sort` int(11) NOT NULL DEFAULT '0',
+  `duongdantin` varchar(255) DEFAULT NULL,
+  `the_loai` tinyint(4) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `lh_baiviet_img`
+--
+
+INSERT INTO `lh_baiviet_img` (`id`, `id_parent`, `icon`, `tenbaiviet_vi`, `tenbaiviet_en`, `sort`, `duongdantin`, `the_loai`) VALUES
+(1, 40, '1686205763_b3.jpg', NULL, NULL, 0, 'datafiles', 0),
+(2, 40, '1686205763_b2.jpg', NULL, NULL, 1, 'datafiles', 0),
+(3, 40, '1686205763_b1.jpg', NULL, NULL, 2, 'datafiles', 0),
+(4, 40, '1686205764_3.jpg', NULL, NULL, 3, 'datafiles', 0),
+(5, 40, '1686205764_014.jpg', NULL, NULL, 4, 'datafiles', 0),
+(6, 41, '1686210154_wireless-router.png', NULL, NULL, 0, 'datafiles', 0),
+(7, 41, '1686210155_bookshelf.png', NULL, NULL, 1, 'datafiles', 0),
+(8, 41, '1686210155_economy.png', NULL, NULL, 2, 'datafiles', 0),
+(9, 41, '1686210155_book.png', NULL, NULL, 3, 'datafiles', 0),
+(10, 41, '1686210156_eng.png', NULL, NULL, 4, 'datafiles', 0),
+(11, 41, '1686210156_briefcase.png', NULL, NULL, 5, 'datafiles', 0),
+(12, 41, '1686210156_handshake.png', NULL, NULL, 6, 'datafiles', 0),
+(13, 41, '1686210156_img-about-home.png', NULL, NULL, 7, 'datafiles', 0),
+(14, 42, '1686210214_1619081392_inner_header-3.jpg', NULL, NULL, 0, 'datafiles', 0),
+(15, 42, '1686210214_customer-service.png', NULL, NULL, 1, 'datafiles', 0),
+(16, 42, '1686210215_7.jpg', NULL, NULL, 2, 'datafiles', 0),
+(17, 42, '1686210215_1.jpg', NULL, NULL, 3, 'datafiles', 0),
+(18, 42, '1686210216_b3.jpg', NULL, NULL, 4, 'datafiles', 0),
+(19, 42, '1686210216_b2.jpg', NULL, NULL, 5, 'datafiles', 0),
+(20, 42, '1686210216_b1.jpg', NULL, NULL, 6, 'datafiles', 0),
+(21, 42, '1686210216_3.jpg', NULL, NULL, 7, 'datafiles', 0),
+(22, 43, '1686210289_paypal.png', NULL, NULL, 0, 'datafiles', 0),
+(23, 43, '1686210290_MasterCard_Logo.png', NULL, NULL, 1, 'datafiles', 0),
+(24, 43, '1686210290_american-express.png', NULL, NULL, 2, 'datafiles', 0),
+(25, 43, '1686210290_visa.png', NULL, NULL, 3, 'datafiles', 0),
+(26, 43, '1686210290_logo.png', NULL, NULL, 4, 'datafiles', 0),
+(27, 43, '1686210294_slide-1.jpg', NULL, NULL, 5, 'datafiles', 0),
+(28, 43, '1686210300_slide-3.jpg', NULL, NULL, 6, 'datafiles', 0),
+(29, 43, '1686210307_slide-2.jpg', NULL, NULL, 7, 'datafiles', 0),
+(101, 60, '1738912866_linh-vuc-14.jpg', NULL, NULL, 5, 'datafiles', 0),
+(102, 60, '1738912866_linh-vuc-13.jpg', NULL, NULL, 6, 'datafiles', 0),
+(103, 25, '1739242695_ab-1.jpg', NULL, NULL, 2, 'datafiles', 0),
+(104, 25, '1739242695_ab-3.jpg', NULL, NULL, 0, 'datafiles', 0),
+(106, 25, '1739446916_ab-2.jpg', NULL, NULL, 1, 'datafiles', 0),
+(107, 32, '1739778863_ab-3.jpg', NULL, NULL, 0, 'datafiles', 0),
+(108, 32, '1739778863_ab-2.jpg', NULL, NULL, 1, 'datafiles', 0),
+(109, 32, '1739778863_ab-1.jpg', NULL, NULL, 2, 'datafiles', 0),
+(100, 60, '1738912866_linh-vuc-101.jpg', NULL, NULL, 4, 'datafiles', 0),
+(91, 54, '1738912692_linh-vuc-102.jpg', NULL, NULL, 0, 'datafiles', 0),
+(92, 54, '1738912692_linh-vuc-101.jpg', NULL, NULL, 1, 'datafiles', 0),
+(93, 54, '1738912693_linh-vuc-12.jpg', NULL, NULL, 2, 'datafiles', 0),
+(94, 54, '1738912693_linh-vuc-11.jpg', NULL, NULL, 3, 'datafiles', 0),
+(95, 54, '1738912693_linh-vuc-10.jpg', NULL, NULL, 4, 'datafiles', 0),
+(96, 60, '1738912865_linhvuc-3.jpg', NULL, NULL, 0, 'datafiles', 0),
+(97, 60, '1738912866_linhvuc-2.jpg', NULL, NULL, 1, 'datafiles', 0),
+(98, 60, '1738912866_linhvuc-1.jpg', NULL, NULL, 2, 'datafiles', 0),
+(99, 60, '1738912866_linh-vuc-102.jpg', NULL, NULL, 3, 'datafiles', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_baiviet_nhomgia`
+--
+
+CREATE TABLE `lh_baiviet_nhomgia` (
+  `id` int(11) NOT NULL,
+  `id_parent` int(11) NOT NULL DEFAULT '0',
+  `tenbaiviet_vi` varchar(255) DEFAULT NULL,
+  `tenbaiviet_en` varchar(255) DEFAULT NULL,
+  `catasort` int(11) NOT NULL DEFAULT '0',
+  `showhi` tinyint(4) NOT NULL DEFAULT '1',
+  `step` int(11) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `lh_baiviet_nhomgia`
+--
+
+INSERT INTO `lh_baiviet_nhomgia` (`id`, `id_parent`, `tenbaiviet_vi`, `tenbaiviet_en`, `catasort`, `showhi`, `step`) VALUES
+(2, 0, 'Chai (100cl)', 'Chai (100cl)', 2, 1, 2),
+(3, 0, 'Chai (150cl)', 'Chai (150cl)', 3, 1, 2),
+(4, 0, 'Chai (75cl)', 'Chai (75cl)', 1, 1, 2),
+(5, 0, 'giá sp', '', 1, 1, 9);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_baiviet_sao`
+--
+
+CREATE TABLE `lh_baiviet_sao` (
+  `id` int(11) NOT NULL,
+  `id_baiviet` int(11) NOT NULL DEFAULT '0',
+  `sao_1` int(11) NOT NULL DEFAULT '0',
+  `sao_2` int(11) NOT NULL DEFAULT '0',
+  `sao_3` int(11) NOT NULL DEFAULT '0',
+  `sao_4` int(11) NOT NULL DEFAULT '0',
+  `sao_5` int(11) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `lh_baiviet_sao`
+--
+
+INSERT INTO `lh_baiviet_sao` (`id`, `id_baiviet`, `sao_1`, `sao_2`, `sao_3`, `sao_4`, `sao_5`) VALUES
+(1, 47, 0, 0, 0, 0, 1),
+(2, 46, 0, 0, 1, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_baiviet_select_nhomgia`
+--
+
+CREATE TABLE `lh_baiviet_select_nhomgia` (
+  `id` int(11) NOT NULL,
+  `id_baiviet` int(11) NOT NULL DEFAULT '0',
+  `id_nhomgia` int(11) NOT NULL DEFAULT '0',
+  `id_val` varchar(255) DEFAULT NULL,
+  `showhi` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `lh_baiviet_select_nhomgia`
+--
+
+INSERT INTO `lh_baiviet_select_nhomgia` (`id`, `id_baiviet`, `id_nhomgia`, `id_val`, `showhi`) VALUES
+(372, 139, 3, '1500000', 1),
+(371, 139, 2, '1250000', 1),
+(370, 139, 4, '1000000', 1),
+(369, 138, 3, '1500000', 1),
+(368, 138, 2, '1250000', 1),
+(367, 138, 4, '1000000', 1),
+(374, 140, 2, '1250000', 1),
+(373, 140, 4, '1000000', 1),
+(376, 141, 4, '1000000', 1),
+(375, 140, 3, '1500000', 1),
+(378, 141, 3, '1500000', 1),
+(377, 141, 2, '1250000', 1),
+(383, 143, 2, '1250000', 1),
+(382, 143, 4, '1000000', 1),
+(390, 145, 3, '1500000', 1),
+(389, 145, 2, '1250000', 1),
+(401, 149, 2, '1250000', 1),
+(400, 149, 4, '1000000', 1),
+(411, 152, 3, '1500000', 1),
+(410, 152, 2, '1250000', 1),
+(423, 156, 3, '1500000', 1),
+(422, 156, 2, '1250000', 1),
+(434, 160, 2, '1250000', 1),
+(433, 160, 4, '1000000', 1),
+(446, 164, 2, '1250000', 1),
+(445, 164, 4, '1000000', 1),
+(2301, 171, 4, '1000000', 1),
+(2300, 171, 2, '1250000', 1),
+(2299, 171, 3, '1500000', 1),
+(2308, 174, 3, '1500000', 1),
+(2307, 173, 4, '1000000', 1),
+(2314, 176, 3, '1500000', 1),
+(94, 135, 4, '1000000', 1),
+(2293, 169, 3, '1500000', 1),
+(2292, 168, 4, '1000000', 1),
+(2291, 168, 2, '1250000', 1),
+(95, 135, 2, '1250000', 1),
+(96, 135, 3, '1500000', 1),
+(97, 136, 4, '1000000', 1),
+(98, 136, 2, '1250000', 1),
+(99, 136, 3, '1500000', 1),
+(100, 137, 4, '1000000', 1),
+(101, 137, 2, '1250000', 1),
+(102, 137, 3, '1500000', 1),
+(381, 142, 3, '1500000', 1),
+(380, 142, 2, '1250000', 1),
+(379, 142, 4, '1000000', 1),
+(388, 145, 4, '1000000', 1),
+(387, 144, 3, '1500000', 1),
+(386, 144, 2, '1250000', 1),
+(385, 144, 4, '1000000', 1),
+(384, 143, 3, '1500000', 1),
+(421, 156, 4, '1000000', 1),
+(420, 155, 3, '1500000', 1),
+(432, 159, 3, '1500000', 1),
+(431, 159, 2, '1250000', 1),
+(444, 163, 3, '1500000', 1),
+(443, 163, 2, '1250000', 1),
+(456, 167, 3, '1500000', 1),
+(455, 167, 2, '1250000', 1),
+(466, 171, 4, '1000000', 1),
+(465, 170, 3, '1500000', 1),
+(399, 148, 3, '1500000', 1),
+(398, 148, 2, '1250000', 1),
+(397, 148, 4, '1000000', 1),
+(396, 147, 3, '1500000', 1),
+(395, 147, 2, '1250000', 1),
+(394, 147, 4, '1000000', 1),
+(393, 146, 3, '1500000', 1),
+(392, 146, 2, '1250000', 1),
+(391, 146, 4, '1000000', 1),
+(409, 152, 4, '1000000', 1),
+(408, 151, 3, '1500000', 1),
+(407, 151, 2, '1250000', 1),
+(406, 151, 4, '1000000', 1),
+(405, 150, 3, '1500000', 1),
+(404, 150, 2, '1250000', 1),
+(403, 150, 4, '1000000', 1),
+(402, 149, 3, '1500000', 1),
+(419, 155, 2, '1250000', 1),
+(418, 155, 4, '1000000', 1),
+(417, 154, 3, '1500000', 1),
+(416, 154, 2, '1250000', 1),
+(415, 154, 4, '1000000', 1),
+(414, 153, 3, '1500000', 1),
+(413, 153, 2, '1250000', 1),
+(412, 153, 4, '1000000', 1),
+(430, 159, 4, '1000000', 1),
+(429, 158, 3, '1500000', 1),
+(428, 158, 2, '1250000', 1),
+(427, 158, 4, '1000000', 1),
+(426, 157, 3, '1500000', 1),
+(425, 157, 2, '1250000', 1),
+(424, 157, 4, '1000000', 1),
+(442, 163, 4, '1000000', 1),
+(441, 162, 3, '1500000', 1),
+(440, 162, 2, '1250000', 1),
+(439, 162, 4, '1000000', 1),
+(438, 161, 3, '1500000', 1),
+(437, 161, 2, '1250000', 1),
+(436, 161, 4, '1000000', 1),
+(435, 160, 3, '1500000', 1),
+(454, 167, 4, '1000000', 1),
+(453, 166, 3, '1500000', 1),
+(452, 166, 2, '1250000', 1),
+(451, 166, 4, '1000000', 1),
+(450, 165, 3, '1500000', 1),
+(449, 165, 2, '1250000', 1),
+(448, 165, 4, '1000000', 1),
+(447, 164, 3, '1500000', 1),
+(464, 170, 2, '1250000', 1),
+(463, 170, 4, '1000000', 1),
+(462, 169, 3, '1500000', 1),
+(461, 169, 2, '1250000', 1),
+(460, 169, 4, '1000000', 1),
+(459, 168, 3, '1500000', 1),
+(458, 168, 2, '1250000', 1),
+(457, 168, 4, '1000000', 1),
+(474, 173, 3, '1500000', 1),
+(473, 173, 2, '1250000', 1),
+(472, 173, 4, '1000000', 1),
+(471, 172, 3, '1500000', 1),
+(470, 172, 2, '1250000', 1),
+(469, 172, 4, '1000000', 1),
+(468, 171, 3, '1500000', 1),
+(467, 171, 2, '1250000', 1),
+(482, 176, 2, '1250000', 1),
+(481, 176, 4, '1000000', 1),
+(480, 175, 3, '1500000', 1),
+(479, 175, 2, '1250000', 1),
+(478, 175, 4, '1000000', 1),
+(477, 174, 3, '1500000', 1),
+(476, 174, 2, '1250000', 1),
+(475, 174, 4, '1000000', 1),
+(486, 177, 3, '1500000', 1),
+(485, 177, 2, '1250000', 1),
+(484, 177, 4, '1000000', 1),
+(483, 176, 3, '1500000', 1),
+(2265, 158, 4, '1000000', 1),
+(2264, 158, 2, '1250000', 1),
+(2263, 158, 3, '1500000', 1),
+(2262, 155, 4, '1000000', 1),
+(2261, 155, 2, '1250000', 1),
+(2260, 155, 3, '1500000', 1),
+(2270, 160, 2, '1250000', 1),
+(2269, 160, 3, '1500000', 1),
+(2268, 159, 4, '1000000', 1),
+(2267, 159, 2, '1250000', 1),
+(2266, 159, 3, '1500000', 1),
+(2275, 162, 3, '1500000', 1),
+(2274, 161, 4, '1000000', 1),
+(2273, 161, 2, '1250000', 1),
+(2272, 161, 3, '1500000', 1),
+(2271, 160, 4, '1000000', 1),
+(2280, 163, 4, '1000000', 1),
+(2279, 163, 2, '1250000', 1),
+(2278, 163, 3, '1500000', 1),
+(2277, 162, 4, '1000000', 1),
+(2276, 162, 2, '1250000', 1),
+(2285, 165, 2, '1250000', 1),
+(2284, 165, 3, '1500000', 1),
+(2283, 164, 4, '1000000', 1),
+(2282, 164, 2, '1250000', 1),
+(2281, 164, 3, '1500000', 1),
+(2290, 168, 3, '1500000', 1),
+(2289, 167, 4, '1000000', 1),
+(2288, 167, 2, '1250000', 1),
+(2287, 167, 3, '1500000', 1),
+(2286, 165, 4, '1000000', 1),
+(2298, 170, 4, '1000000', 1),
+(2297, 170, 2, '1250000', 1),
+(2296, 170, 3, '1500000', 1),
+(2295, 169, 4, '1000000', 1),
+(2294, 169, 2, '1250000', 1),
+(2306, 173, 2, '1250000', 1),
+(2305, 173, 3, '1500000', 1),
+(2304, 172, 4, '1000000', 1),
+(2303, 172, 2, '1250000', 1),
+(2302, 172, 3, '1500000', 1),
+(2313, 175, 4, '1000000', 1),
+(2312, 175, 2, '1250000', 1),
+(2311, 175, 3, '1500000', 1),
+(2310, 174, 4, '1000000', 1),
+(2309, 174, 2, '1250000', 1),
+(2316, 176, 4, '1000000', 1),
+(2315, 176, 2, '1250000', 1),
+(1207, 75, 4, '1000000', 1),
+(1208, 75, 2, '1250000', 1),
+(1209, 75, 3, '1500000', 1),
+(1210, 75, 4, '1000000', 1),
+(1211, 75, 2, '1250000', 1),
+(1212, 75, 3, '1500000', 1),
+(1213, 75, 4, '1000000', 1),
+(1214, 75, 2, '1250000', 1),
+(1215, 75, 3, '1500000', 1),
+(1216, 75, 4, '1000000', 1),
+(1217, 75, 2, '1250000', 1),
+(1218, 75, 3, '1500000', 1),
+(1219, 75, 4, '1000000', 1),
+(1220, 75, 2, '1250000', 1),
+(1221, 75, 3, '1500000', 1),
+(1222, 75, 4, '1000000', 1),
+(1223, 75, 2, '1250000', 1),
+(1224, 75, 3, '1500000', 1),
+(1225, 75, 4, '1000000', 1),
+(1226, 75, 2, '1250000', 1),
+(1227, 75, 3, '1500000', 1),
+(1228, 75, 4, '1000000', 1),
+(1229, 75, 2, '1250000', 1),
+(1230, 75, 3, '1500000', 1),
+(1231, 75, 4, '1000000', 1),
+(1232, 75, 2, '1250000', 1),
+(1233, 75, 3, '1500000', 1),
+(1450, 84, 4, '1000000', 1),
+(1451, 84, 2, '1250000', 1),
+(1452, 84, 3, '1500000', 1),
+(1453, 84, 4, '1000000', 1),
+(1454, 84, 2, '1250000', 1),
+(1455, 84, 3, '1500000', 1),
+(1456, 84, 4, '1000000', 1),
+(1457, 84, 2, '1250000', 1),
+(1458, 84, 3, '1500000', 1),
+(1459, 84, 4, '1000000', 1),
+(1460, 84, 2, '1250000', 1),
+(1461, 84, 3, '1500000', 1),
+(1462, 84, 4, '1000000', 1),
+(1463, 84, 2, '1250000', 1),
+(1464, 84, 3, '1500000', 1),
+(1465, 84, 4, '1000000', 1),
+(1466, 84, 2, '1250000', 1),
+(1467, 84, 3, '1500000', 1),
+(1468, 84, 4, '1000000', 1),
+(1469, 84, 2, '1250000', 1),
+(1470, 84, 3, '1500000', 1),
+(1471, 84, 4, '1000000', 1),
+(1472, 84, 2, '1250000', 1),
+(1473, 84, 3, '1500000', 1),
+(1474, 84, 4, '1000000', 1),
+(1475, 84, 2, '1250000', 1),
+(1476, 84, 3, '1500000', 1),
+(1477, 85, 4, '1000000', 1),
+(1478, 85, 2, '1250000', 1),
+(1479, 85, 3, '1500000', 1),
+(1480, 85, 4, '1000000', 1),
+(1481, 85, 2, '1250000', 1),
+(1482, 85, 3, '1500000', 1),
+(1483, 85, 4, '1000000', 1),
+(1484, 85, 2, '1250000', 1),
+(1485, 85, 3, '1500000', 1),
+(1486, 85, 4, '1000000', 1),
+(1487, 85, 2, '1250000', 1),
+(1488, 85, 3, '1500000', 1),
+(1489, 85, 4, '1000000', 1),
+(1490, 85, 2, '1250000', 1),
+(1491, 85, 3, '1500000', 1),
+(1492, 85, 4, '1000000', 1),
+(1493, 85, 2, '1250000', 1),
+(1494, 85, 3, '1500000', 1),
+(1495, 85, 4, '1000000', 1),
+(1496, 85, 2, '1250000', 1),
+(1497, 85, 3, '1500000', 1),
+(1498, 85, 4, '1000000', 1),
+(1499, 85, 2, '1250000', 1),
+(1500, 85, 3, '1500000', 1),
+(1501, 85, 4, '1000000', 1),
+(1502, 85, 2, '1250000', 1),
+(1503, 85, 3, '1500000', 1),
+(1504, 86, 4, '1000000', 1),
+(1505, 86, 2, '1250000', 1),
+(1506, 86, 3, '1500000', 1),
+(1507, 86, 4, '1000000', 1),
+(1508, 86, 2, '1250000', 1),
+(1509, 86, 3, '1500000', 1),
+(1510, 86, 4, '1000000', 1),
+(1511, 86, 2, '1250000', 1),
+(1512, 86, 3, '1500000', 1),
+(1513, 86, 4, '1000000', 1),
+(1514, 86, 2, '1250000', 1),
+(1515, 86, 3, '1500000', 1),
+(1516, 86, 4, '1000000', 1),
+(1517, 86, 2, '1250000', 1),
+(1518, 86, 3, '1500000', 1),
+(1519, 86, 4, '1000000', 1),
+(1520, 86, 2, '1250000', 1),
+(1521, 86, 3, '1500000', 1),
+(1522, 86, 4, '1000000', 1),
+(1523, 86, 2, '1250000', 1),
+(1524, 86, 3, '1500000', 1),
+(1525, 86, 4, '1000000', 1),
+(1526, 86, 2, '1250000', 1),
+(1527, 86, 3, '1500000', 1),
+(1528, 86, 4, '1000000', 1),
+(1529, 86, 2, '1250000', 1),
+(1530, 86, 3, '1500000', 1),
+(1531, 87, 4, '1000000', 1),
+(1532, 87, 2, '1250000', 1),
+(1533, 87, 3, '1500000', 1),
+(1534, 87, 4, '1000000', 1),
+(1535, 87, 2, '1250000', 1),
+(1536, 87, 3, '1500000', 1),
+(1537, 87, 4, '1000000', 1),
+(1538, 87, 2, '1250000', 1),
+(1539, 87, 3, '1500000', 1),
+(1540, 87, 4, '1000000', 1),
+(1541, 87, 2, '1250000', 1),
+(1542, 87, 3, '1500000', 1),
+(1543, 87, 4, '1000000', 1),
+(1544, 87, 2, '1250000', 1),
+(1545, 87, 3, '1500000', 1),
+(1546, 87, 4, '1000000', 1),
+(1547, 87, 2, '1250000', 1),
+(1548, 87, 3, '1500000', 1),
+(1549, 87, 4, '1000000', 1),
+(1550, 87, 2, '1250000', 1),
+(1551, 87, 3, '1500000', 1),
+(1552, 87, 4, '1000000', 1),
+(1553, 87, 2, '1250000', 1),
+(1554, 87, 3, '1500000', 1),
+(1555, 87, 4, '1000000', 1),
+(1556, 87, 2, '1250000', 1),
+(1557, 87, 3, '1500000', 1),
+(1558, 88, 4, '1000000', 1),
+(1559, 88, 2, '1250000', 1),
+(1560, 88, 3, '1500000', 1),
+(1561, 88, 4, '1000000', 1),
+(1562, 88, 2, '1250000', 1),
+(1563, 88, 3, '1500000', 1),
+(1564, 88, 4, '1000000', 1),
+(1565, 88, 2, '1250000', 1),
+(1566, 88, 3, '1500000', 1),
+(1567, 88, 4, '1000000', 1),
+(1568, 88, 2, '1250000', 1),
+(1569, 88, 3, '1500000', 1),
+(1570, 88, 4, '1000000', 1),
+(1571, 88, 2, '1250000', 1),
+(1572, 88, 3, '1500000', 1),
+(1573, 88, 4, '1000000', 1),
+(1574, 88, 2, '1250000', 1),
+(1575, 88, 3, '1500000', 1),
+(1576, 88, 4, '1000000', 1),
+(1577, 88, 2, '1250000', 1),
+(1578, 88, 3, '1500000', 1),
+(1579, 88, 4, '1000000', 1),
+(1580, 88, 2, '1250000', 1),
+(1581, 88, 3, '1500000', 1),
+(1582, 88, 4, '1000000', 1),
+(1583, 88, 2, '1250000', 1),
+(1584, 88, 3, '1500000', 1),
+(1585, 89, 4, '1000000', 1),
+(1586, 89, 2, '1250000', 1),
+(1587, 89, 3, '1500000', 1),
+(1588, 89, 4, '1000000', 1),
+(1589, 89, 2, '1250000', 1),
+(1590, 89, 3, '1500000', 1),
+(1591, 89, 4, '1000000', 1),
+(1592, 89, 2, '1250000', 1),
+(1593, 89, 3, '1500000', 1),
+(1594, 89, 4, '1000000', 1),
+(1595, 89, 2, '1250000', 1),
+(1596, 89, 3, '1500000', 1),
+(1597, 89, 4, '1000000', 1),
+(1598, 89, 2, '1250000', 1),
+(1599, 89, 3, '1500000', 1),
+(1600, 89, 4, '1000000', 1),
+(1601, 89, 2, '1250000', 1),
+(1602, 89, 3, '1500000', 1),
+(1603, 89, 4, '1000000', 1),
+(1604, 89, 2, '1250000', 1),
+(1605, 89, 3, '1500000', 1),
+(1606, 89, 4, '1000000', 1),
+(1607, 89, 2, '1250000', 1),
+(1608, 89, 3, '1500000', 1),
+(1609, 89, 4, '1000000', 1),
+(1610, 89, 2, '1250000', 1),
+(1611, 89, 3, '1500000', 1),
+(1612, 90, 4, '1000000', 1),
+(1613, 90, 2, '1250000', 1),
+(1614, 90, 3, '1500000', 1),
+(1615, 90, 4, '1000000', 1),
+(1616, 90, 2, '1250000', 1),
+(1617, 90, 3, '1500000', 1),
+(1618, 90, 4, '1000000', 1),
+(1619, 90, 2, '1250000', 1),
+(1620, 90, 3, '1500000', 1),
+(1621, 90, 4, '1000000', 1),
+(1622, 90, 2, '1250000', 1),
+(1623, 90, 3, '1500000', 1),
+(1624, 90, 4, '1000000', 1),
+(1625, 90, 2, '1250000', 1),
+(1626, 90, 3, '1500000', 1),
+(1627, 90, 4, '1000000', 1),
+(1628, 90, 2, '1250000', 1),
+(1629, 90, 3, '1500000', 1),
+(1630, 90, 4, '1000000', 1),
+(1631, 90, 2, '1250000', 1),
+(1632, 90, 3, '1500000', 1),
+(1633, 90, 4, '1000000', 1),
+(1634, 90, 2, '1250000', 1),
+(1635, 90, 3, '1500000', 1),
+(1636, 90, 4, '1000000', 1),
+(1637, 90, 2, '1250000', 1),
+(1638, 90, 3, '1500000', 1),
+(1639, 91, 4, '1000000', 1),
+(1640, 91, 2, '1250000', 1),
+(1641, 91, 3, '1500000', 1),
+(1642, 91, 4, '1000000', 1),
+(1643, 91, 2, '1250000', 1),
+(1644, 91, 3, '1500000', 1),
+(1645, 91, 4, '1000000', 1),
+(1646, 91, 2, '1250000', 1),
+(1647, 91, 3, '1500000', 1),
+(1648, 91, 4, '1000000', 1),
+(1649, 91, 2, '1250000', 1),
+(1650, 91, 3, '1500000', 1),
+(1651, 91, 4, '1000000', 1),
+(1652, 91, 2, '1250000', 1),
+(1653, 91, 3, '1500000', 1),
+(1654, 91, 4, '1000000', 1),
+(1655, 91, 2, '1250000', 1),
+(1656, 91, 3, '1500000', 1),
+(1657, 91, 4, '1000000', 1),
+(1658, 91, 2, '1250000', 1),
+(1659, 91, 3, '1500000', 1),
+(1660, 91, 4, '1000000', 1),
+(1661, 91, 2, '1250000', 1),
+(1662, 91, 3, '1500000', 1),
+(1663, 91, 4, '1000000', 1),
+(1664, 91, 2, '1250000', 1),
+(1665, 91, 3, '1500000', 1),
+(1666, 92, 4, '1000000', 1),
+(1667, 92, 2, '1250000', 1),
+(1668, 92, 3, '1500000', 1),
+(1669, 92, 4, '1000000', 1),
+(1670, 92, 2, '1250000', 1),
+(1671, 92, 3, '1500000', 1),
+(1672, 92, 4, '1000000', 1),
+(1673, 92, 2, '1250000', 1),
+(1674, 92, 3, '1500000', 1),
+(1675, 92, 4, '1000000', 1),
+(1676, 92, 2, '1250000', 1),
+(1677, 92, 3, '1500000', 1),
+(1678, 92, 4, '1000000', 1),
+(1679, 92, 2, '1250000', 1),
+(1680, 92, 3, '1500000', 1),
+(1681, 92, 4, '1000000', 1),
+(1682, 92, 2, '1250000', 1),
+(1683, 92, 3, '1500000', 1),
+(1684, 92, 4, '1000000', 1),
+(1685, 92, 2, '1250000', 1),
+(1686, 92, 3, '1500000', 1),
+(1687, 92, 4, '1000000', 1),
+(1688, 92, 2, '1250000', 1),
+(1689, 92, 3, '1500000', 1),
+(1690, 92, 4, '1000000', 1),
+(1691, 92, 2, '1250000', 1),
+(1692, 92, 3, '1500000', 1),
+(1693, 93, 4, '1000000', 1),
+(1694, 93, 2, '1250000', 1),
+(1695, 93, 3, '1500000', 1),
+(1696, 93, 4, '1000000', 1),
+(1697, 93, 2, '1250000', 1),
+(1698, 93, 3, '1500000', 1),
+(1699, 93, 4, '1000000', 1),
+(1700, 93, 2, '1250000', 1),
+(1701, 93, 3, '1500000', 1),
+(1702, 93, 4, '1000000', 1),
+(1703, 93, 2, '1250000', 1),
+(1704, 93, 3, '1500000', 1),
+(1705, 93, 4, '1000000', 1),
+(1706, 93, 2, '1250000', 1),
+(1707, 93, 3, '1500000', 1),
+(1708, 93, 4, '1000000', 1),
+(1709, 93, 2, '1250000', 1),
+(1710, 93, 3, '1500000', 1),
+(1711, 93, 4, '1000000', 1),
+(1712, 93, 2, '1250000', 1),
+(1713, 93, 3, '1500000', 1),
+(1714, 93, 4, '1000000', 1),
+(1715, 93, 2, '1250000', 1),
+(1716, 93, 3, '1500000', 1),
+(1717, 93, 4, '1000000', 1),
+(1718, 93, 2, '1250000', 1),
+(1719, 93, 3, '1500000', 1),
+(1720, 94, 4, '1000000', 1),
+(1721, 94, 2, '1250000', 1),
+(1722, 94, 3, '1500000', 1),
+(1723, 94, 4, '1000000', 1),
+(1724, 94, 2, '1250000', 1),
+(1725, 94, 3, '1500000', 1),
+(1726, 94, 4, '1000000', 1),
+(1727, 94, 2, '1250000', 1),
+(1728, 94, 3, '1500000', 1),
+(1729, 94, 4, '1000000', 1),
+(1730, 94, 2, '1250000', 1),
+(1731, 94, 3, '1500000', 1),
+(1732, 94, 4, '1000000', 1),
+(1733, 94, 2, '1250000', 1),
+(1734, 94, 3, '1500000', 1),
+(1735, 94, 4, '1000000', 1),
+(1736, 94, 2, '1250000', 1),
+(1737, 94, 3, '1500000', 1),
+(1738, 94, 4, '1000000', 1),
+(1739, 94, 2, '1250000', 1),
+(1740, 94, 3, '1500000', 1),
+(1741, 94, 4, '1000000', 1),
+(1742, 94, 2, '1250000', 1),
+(1743, 94, 3, '1500000', 1),
+(1744, 94, 4, '1000000', 1),
+(1745, 94, 2, '1250000', 1),
+(1746, 94, 3, '1500000', 1),
+(1747, 95, 4, '1000000', 1),
+(1748, 95, 2, '1250000', 1),
+(1749, 95, 3, '1500000', 1),
+(1750, 95, 4, '1000000', 1),
+(1751, 95, 2, '1250000', 1),
+(1752, 95, 3, '1500000', 1),
+(1753, 95, 4, '1000000', 1),
+(1754, 95, 2, '1250000', 1),
+(1755, 95, 3, '1500000', 1),
+(1756, 95, 4, '1000000', 1),
+(1757, 95, 2, '1250000', 1),
+(1758, 95, 3, '1500000', 1),
+(1759, 95, 4, '1000000', 1),
+(1760, 95, 2, '1250000', 1),
+(1761, 95, 3, '1500000', 1),
+(1762, 95, 4, '1000000', 1),
+(1763, 95, 2, '1250000', 1),
+(1764, 95, 3, '1500000', 1),
+(1765, 95, 4, '1000000', 1),
+(1766, 95, 2, '1250000', 1),
+(1767, 95, 3, '1500000', 1),
+(1768, 95, 4, '1000000', 1),
+(1769, 95, 2, '1250000', 1),
+(1770, 95, 3, '1500000', 1),
+(1771, 95, 4, '1000000', 1),
+(1772, 95, 2, '1250000', 1),
+(1773, 95, 3, '1500000', 1),
+(1774, 96, 4, '1000000', 1),
+(1775, 96, 2, '1250000', 1),
+(1776, 96, 3, '1500000', 1),
+(1777, 96, 4, '1000000', 1),
+(1778, 96, 2, '1250000', 1),
+(1779, 96, 3, '1500000', 1),
+(1780, 96, 4, '1000000', 1),
+(1781, 96, 2, '1250000', 1),
+(1782, 96, 3, '1500000', 1),
+(1783, 96, 4, '1000000', 1),
+(1784, 96, 2, '1250000', 1),
+(1785, 96, 3, '1500000', 1),
+(1786, 96, 4, '1000000', 1),
+(1787, 96, 2, '1250000', 1),
+(1788, 96, 3, '1500000', 1),
+(1789, 96, 4, '1000000', 1),
+(1790, 96, 2, '1250000', 1),
+(1791, 96, 3, '1500000', 1),
+(1792, 96, 4, '1000000', 1),
+(1793, 96, 2, '1250000', 1),
+(1794, 96, 3, '1500000', 1),
+(1795, 96, 4, '1000000', 1),
+(1796, 96, 2, '1250000', 1),
+(1797, 96, 3, '1500000', 1),
+(1798, 96, 4, '1000000', 1),
+(1799, 96, 2, '1250000', 1),
+(1800, 96, 3, '1500000', 1),
+(1801, 97, 4, '1000000', 1),
+(1802, 97, 2, '1250000', 1),
+(1803, 97, 3, '1500000', 1),
+(1804, 97, 4, '1000000', 1),
+(1805, 97, 2, '1250000', 1),
+(1806, 97, 3, '1500000', 1),
+(1807, 97, 4, '1000000', 1),
+(1808, 97, 2, '1250000', 1),
+(1809, 97, 3, '1500000', 1),
+(1810, 97, 4, '1000000', 1),
+(1811, 97, 2, '1250000', 1),
+(1812, 97, 3, '1500000', 1),
+(1813, 97, 4, '1000000', 1),
+(1814, 97, 2, '1250000', 1),
+(1815, 97, 3, '1500000', 1),
+(1816, 97, 4, '1000000', 1),
+(1817, 97, 2, '1250000', 1),
+(1818, 97, 3, '1500000', 1),
+(1819, 97, 4, '1000000', 1),
+(1820, 97, 2, '1250000', 1),
+(1821, 97, 3, '1500000', 1),
+(1822, 97, 4, '1000000', 1),
+(1823, 97, 2, '1250000', 1),
+(1824, 97, 3, '1500000', 1),
+(1825, 97, 4, '1000000', 1),
+(1826, 97, 2, '1250000', 1),
+(1827, 97, 3, '1500000', 1),
+(1828, 98, 4, '1000000', 1),
+(1829, 98, 2, '1250000', 1),
+(1830, 98, 3, '1500000', 1),
+(1831, 98, 4, '1000000', 1),
+(1832, 98, 2, '1250000', 1),
+(1833, 98, 3, '1500000', 1),
+(1834, 98, 4, '1000000', 1),
+(1835, 98, 2, '1250000', 1),
+(1836, 98, 3, '1500000', 1),
+(1837, 98, 4, '1000000', 1),
+(1838, 98, 2, '1250000', 1),
+(1839, 98, 3, '1500000', 1),
+(1840, 98, 4, '1000000', 1),
+(1841, 98, 2, '1250000', 1),
+(1842, 98, 3, '1500000', 1),
+(1843, 98, 4, '1000000', 1),
+(1844, 98, 2, '1250000', 1),
+(1845, 98, 3, '1500000', 1),
+(1846, 98, 4, '1000000', 1),
+(1847, 98, 2, '1250000', 1),
+(1848, 98, 3, '1500000', 1),
+(1849, 98, 4, '1000000', 1),
+(1850, 98, 2, '1250000', 1),
+(1851, 98, 3, '1500000', 1),
+(1852, 98, 4, '1000000', 1),
+(1853, 98, 2, '1250000', 1),
+(1854, 98, 3, '1500000', 1),
+(1855, 99, 4, '1000000', 1),
+(1856, 99, 2, '1250000', 1),
+(1857, 99, 3, '1500000', 1),
+(1858, 99, 4, '1000000', 1),
+(1859, 99, 2, '1250000', 1),
+(1860, 99, 3, '1500000', 1),
+(1861, 99, 4, '1000000', 1),
+(1862, 99, 2, '1250000', 1),
+(1863, 99, 3, '1500000', 1),
+(1864, 99, 4, '1000000', 1),
+(1865, 99, 2, '1250000', 1),
+(1866, 99, 3, '1500000', 1),
+(1867, 99, 4, '1000000', 1),
+(1868, 99, 2, '1250000', 1),
+(1869, 99, 3, '1500000', 1),
+(1870, 99, 4, '1000000', 1),
+(1871, 99, 2, '1250000', 1),
+(1872, 99, 3, '1500000', 1),
+(1873, 99, 4, '1000000', 1),
+(1874, 99, 2, '1250000', 1),
+(1875, 99, 3, '1500000', 1),
+(1876, 99, 4, '1000000', 1),
+(1877, 99, 2, '1250000', 1),
+(1878, 99, 3, '1500000', 1),
+(1879, 99, 4, '1000000', 1),
+(1880, 99, 2, '1250000', 1),
+(1881, 99, 3, '1500000', 1),
+(1882, 100, 4, '1000000', 1),
+(1883, 100, 2, '1250000', 1),
+(1884, 100, 3, '1500000', 1),
+(1885, 100, 4, '1000000', 1),
+(1886, 100, 2, '1250000', 1),
+(1887, 100, 3, '1500000', 1),
+(1888, 100, 4, '1000000', 1),
+(1889, 100, 2, '1250000', 1),
+(1890, 100, 3, '1500000', 1),
+(1891, 100, 4, '1000000', 1),
+(1892, 100, 2, '1250000', 1),
+(1893, 100, 3, '1500000', 1),
+(1894, 100, 4, '1000000', 1),
+(1895, 100, 2, '1250000', 1),
+(1896, 100, 3, '1500000', 1),
+(1897, 100, 4, '1000000', 1),
+(1898, 100, 2, '1250000', 1),
+(1899, 100, 3, '1500000', 1),
+(1900, 100, 4, '1000000', 1),
+(1901, 100, 2, '1250000', 1),
+(1902, 100, 3, '1500000', 1),
+(1903, 100, 4, '1000000', 1),
+(1904, 100, 2, '1250000', 1),
+(1905, 100, 3, '1500000', 1),
+(1906, 100, 4, '1000000', 1),
+(1907, 100, 2, '1250000', 1),
+(1908, 100, 3, '1500000', 1),
+(1909, 101, 4, '1000000', 1),
+(1910, 101, 2, '1250000', 1),
+(1911, 101, 3, '1500000', 1),
+(1912, 101, 4, '1000000', 1),
+(1913, 101, 2, '1250000', 1),
+(1914, 101, 3, '1500000', 1),
+(1915, 101, 4, '1000000', 1),
+(1916, 101, 2, '1250000', 1),
+(1917, 101, 3, '1500000', 1),
+(1918, 101, 4, '1000000', 1),
+(1919, 101, 2, '1250000', 1),
+(1920, 101, 3, '1500000', 1),
+(1921, 101, 4, '1000000', 1),
+(1922, 101, 2, '1250000', 1),
+(1923, 101, 3, '1500000', 1),
+(1924, 101, 4, '1000000', 1),
+(1925, 101, 2, '1250000', 1),
+(1926, 101, 3, '1500000', 1),
+(1927, 101, 4, '1000000', 1),
+(1928, 101, 2, '1250000', 1),
+(1929, 101, 3, '1500000', 1),
+(1930, 101, 4, '1000000', 1),
+(1931, 101, 2, '1250000', 1),
+(1932, 101, 3, '1500000', 1),
+(1933, 101, 4, '1000000', 1),
+(1934, 101, 2, '1250000', 1),
+(1935, 101, 3, '1500000', 1),
+(1936, 102, 4, '1000000', 1),
+(1937, 102, 2, '1250000', 1),
+(1938, 102, 3, '1500000', 1),
+(1939, 102, 4, '1000000', 1),
+(1940, 102, 2, '1250000', 1),
+(1941, 102, 3, '1500000', 1),
+(1942, 102, 4, '1000000', 1),
+(1943, 102, 2, '1250000', 1),
+(1944, 102, 3, '1500000', 1),
+(1945, 102, 4, '1000000', 1),
+(1946, 102, 2, '1250000', 1),
+(1947, 102, 3, '1500000', 1),
+(1948, 102, 4, '1000000', 1),
+(1949, 102, 2, '1250000', 1),
+(1950, 102, 3, '1500000', 1),
+(1951, 102, 4, '1000000', 1),
+(1952, 102, 2, '1250000', 1),
+(1953, 102, 3, '1500000', 1),
+(1954, 102, 4, '1000000', 1),
+(1955, 102, 2, '1250000', 1),
+(1956, 102, 3, '1500000', 1),
+(1957, 102, 4, '1000000', 1),
+(1958, 102, 2, '1250000', 1),
+(1959, 102, 3, '1500000', 1),
+(1960, 102, 4, '1000000', 1),
+(1961, 102, 2, '1250000', 1),
+(1962, 102, 3, '1500000', 1),
+(1990, 104, 4, '1000000', 1),
+(1991, 104, 2, '1250000', 1),
+(1992, 104, 3, '1500000', 1),
+(1993, 104, 4, '1000000', 1),
+(1994, 104, 2, '1250000', 1),
+(1995, 104, 3, '1500000', 1),
+(1996, 104, 4, '1000000', 1),
+(1997, 104, 2, '1250000', 1),
+(1998, 104, 3, '1500000', 1),
+(1999, 104, 4, '1000000', 1),
+(2000, 104, 2, '1250000', 1),
+(2001, 104, 3, '1500000', 1),
+(2002, 104, 4, '1000000', 1),
+(2003, 104, 2, '1250000', 1),
+(2004, 104, 3, '1500000', 1),
+(2005, 104, 4, '1000000', 1),
+(2006, 104, 2, '1250000', 1),
+(2007, 104, 3, '1500000', 1),
+(2008, 104, 4, '1000000', 1),
+(2009, 104, 2, '1250000', 1),
+(2010, 104, 3, '1500000', 1),
+(2011, 104, 4, '1000000', 1),
+(2012, 104, 2, '1250000', 1),
+(2013, 104, 3, '1500000', 1),
+(2014, 104, 4, '1000000', 1),
+(2015, 104, 2, '1250000', 1),
+(2016, 104, 3, '1500000', 1),
+(2017, 105, 4, '1000000', 1),
+(2018, 105, 2, '1250000', 1),
+(2019, 105, 3, '1500000', 1),
+(2020, 105, 4, '1000000', 1),
+(2021, 105, 2, '1250000', 1),
+(2022, 105, 3, '1500000', 1),
+(2023, 105, 4, '1000000', 1),
+(2024, 105, 2, '1250000', 1),
+(2025, 105, 3, '1500000', 1),
+(2026, 105, 4, '1000000', 1),
+(2027, 105, 2, '1250000', 1),
+(2028, 105, 3, '1500000', 1),
+(2029, 105, 4, '1000000', 1),
+(2030, 105, 2, '1250000', 1),
+(2031, 105, 3, '1500000', 1),
+(2032, 105, 4, '1000000', 1),
+(2033, 105, 2, '1250000', 1),
+(2034, 105, 3, '1500000', 1),
+(2035, 105, 4, '1000000', 1),
+(2036, 105, 2, '1250000', 1),
+(2037, 105, 3, '1500000', 1),
+(2038, 105, 4, '1000000', 1),
+(2039, 105, 2, '1250000', 1),
+(2040, 105, 3, '1500000', 1),
+(2041, 105, 4, '1000000', 1),
+(2042, 105, 2, '1250000', 1),
+(2043, 105, 3, '1500000', 1),
+(2044, 106, 4, '1000000', 1),
+(2045, 106, 2, '1250000', 1),
+(2046, 106, 3, '1500000', 1),
+(2047, 106, 4, '1000000', 1),
+(2048, 106, 2, '1250000', 1),
+(2049, 106, 3, '1500000', 1),
+(2050, 106, 4, '1000000', 1),
+(2051, 106, 2, '1250000', 1),
+(2052, 106, 3, '1500000', 1),
+(2053, 106, 4, '1000000', 1),
+(2054, 106, 2, '1250000', 1),
+(2055, 106, 3, '1500000', 1),
+(2056, 106, 4, '1000000', 1),
+(2057, 106, 2, '1250000', 1),
+(2058, 106, 3, '1500000', 1),
+(2059, 106, 4, '1000000', 1),
+(2060, 106, 2, '1250000', 1),
+(2061, 106, 3, '1500000', 1),
+(2062, 106, 4, '1000000', 1),
+(2063, 106, 2, '1250000', 1),
+(2064, 106, 3, '1500000', 1),
+(2065, 106, 4, '1000000', 1),
+(2066, 106, 2, '1250000', 1),
+(2067, 106, 3, '1500000', 1),
+(2068, 106, 4, '1000000', 1),
+(2069, 106, 2, '1250000', 1),
+(2070, 106, 3, '1500000', 1),
+(2071, 107, 4, '1000000', 1),
+(2072, 107, 2, '1250000', 1),
+(2073, 107, 3, '1500000', 1),
+(2074, 107, 4, '1000000', 1),
+(2075, 107, 2, '1250000', 1),
+(2076, 107, 3, '1500000', 1),
+(2077, 107, 4, '1000000', 1),
+(2078, 107, 2, '1250000', 1),
+(2079, 107, 3, '1500000', 1),
+(2080, 107, 4, '1000000', 1),
+(2081, 107, 2, '1250000', 1),
+(2082, 107, 3, '1500000', 1),
+(2083, 107, 4, '1000000', 1),
+(2084, 107, 2, '1250000', 1),
+(2085, 107, 3, '1500000', 1),
+(2086, 107, 4, '1000000', 1),
+(2087, 107, 2, '1250000', 1),
+(2088, 107, 3, '1500000', 1),
+(2089, 107, 4, '1000000', 1),
+(2090, 107, 2, '1250000', 1),
+(2091, 107, 3, '1500000', 1),
+(2092, 107, 4, '1000000', 1),
+(2093, 107, 2, '1250000', 1),
+(2094, 107, 3, '1500000', 1),
+(2095, 107, 4, '1000000', 1),
+(2096, 107, 2, '1250000', 1),
+(2097, 107, 3, '1500000', 1),
+(2206, 112, 4, '1000000', 1),
+(2207, 112, 2, '1250000', 1),
+(2208, 112, 3, '1500000', 1),
+(2209, 112, 4, '1000000', 1),
+(2210, 112, 2, '1250000', 1),
+(2211, 112, 3, '1500000', 1),
+(2212, 112, 4, '1000000', 1),
+(2213, 112, 2, '1250000', 1),
+(2214, 112, 3, '1500000', 1),
+(2215, 112, 4, '1000000', 1),
+(2216, 112, 2, '1250000', 1),
+(2217, 112, 3, '1500000', 1),
+(2218, 112, 4, '1000000', 1),
+(2219, 112, 2, '1250000', 1),
+(2220, 112, 3, '1500000', 1),
+(2221, 112, 4, '1000000', 1),
+(2222, 112, 2, '1250000', 1),
+(2223, 112, 3, '1500000', 1),
+(2224, 112, 4, '1000000', 1),
+(2225, 112, 2, '1250000', 1),
+(2226, 112, 3, '1500000', 1),
+(2227, 112, 4, '1000000', 1),
+(2228, 112, 2, '1250000', 1),
+(2229, 112, 3, '1500000', 1),
+(2230, 112, 4, '1000000', 1),
+(2231, 112, 2, '1250000', 1),
+(2232, 112, 3, '1500000', 1),
+(2233, 113, 4, '1000000', 1),
+(2234, 113, 2, '1250000', 1),
+(2235, 113, 3, '1500000', 1),
+(2236, 113, 4, '1000000', 1),
+(2237, 113, 2, '1250000', 1),
+(2238, 113, 3, '1500000', 1),
+(2239, 113, 4, '1000000', 1),
+(2240, 113, 2, '1250000', 1),
+(2241, 113, 3, '1500000', 1),
+(2242, 113, 4, '1000000', 1),
+(2243, 113, 2, '1250000', 1),
+(2244, 113, 3, '1500000', 1),
+(2245, 113, 4, '1000000', 1),
+(2246, 113, 2, '1250000', 1),
+(2247, 113, 3, '1500000', 1),
+(2248, 113, 4, '1000000', 1),
+(2249, 113, 2, '1250000', 1),
+(2250, 113, 3, '1500000', 1),
+(2251, 113, 4, '1000000', 1),
+(2252, 113, 2, '1250000', 1),
+(2253, 113, 3, '1500000', 1),
+(2254, 113, 4, '1000000', 1),
+(2255, 113, 2, '1250000', 1),
+(2256, 113, 3, '1500000', 1),
+(2257, 113, 4, '1000000', 1),
+(2258, 113, 2, '1250000', 1),
+(2259, 113, 3, '1500000', 1),
+(2722, 75, 4, '1000000', 1),
+(2723, 75, 2, '1250000', 1),
+(2724, 75, 3, '1500000', 1),
+(2725, 75, 4, '1000000', 1),
+(2726, 75, 2, '1250000', 1),
+(2727, 75, 3, '1500000', 1),
+(2728, 75, 4, '1000000', 1),
+(2729, 75, 2, '1250000', 1),
+(2730, 75, 3, '1500000', 1),
+(2731, 75, 4, '1000000', 1),
+(2732, 75, 2, '1250000', 1),
+(2733, 75, 3, '1500000', 1),
+(2734, 75, 4, '1000000', 1),
+(2735, 75, 2, '1250000', 1),
+(2736, 75, 3, '1500000', 1),
+(2737, 75, 4, '1000000', 1),
+(2738, 75, 2, '1250000', 1),
+(2739, 75, 3, '1500000', 1),
+(2740, 75, 4, '1000000', 1),
+(2741, 75, 2, '1250000', 1),
+(2742, 75, 3, '1500000', 1),
+(2743, 75, 4, '1000000', 1),
+(2744, 75, 2, '1250000', 1),
+(2745, 75, 3, '1500000', 1),
+(2746, 75, 4, '1000000', 1),
+(2747, 75, 2, '1250000', 1),
+(2748, 75, 3, '1500000', 1),
+(2749, 75, 4, '1000000', 1),
+(2750, 75, 2, '1250000', 1),
+(2751, 75, 3, '1500000', 1),
+(2752, 75, 4, '1000000', 1),
+(2753, 75, 2, '1250000', 1),
+(2754, 75, 3, '1500000', 1),
+(2755, 75, 4, '1000000', 1),
+(2756, 75, 2, '1250000', 1),
+(2757, 75, 3, '1500000', 1),
+(2758, 75, 4, '1000000', 1),
+(2759, 75, 2, '1250000', 1),
+(2760, 75, 3, '1500000', 1),
+(2761, 75, 4, '1000000', 1),
+(2762, 75, 2, '1250000', 1),
+(2763, 75, 3, '1500000', 1),
+(2764, 75, 4, '1000000', 1),
+(2765, 75, 2, '1250000', 1),
+(2766, 75, 3, '1500000', 1),
+(2767, 75, 4, '1000000', 1),
+(2768, 75, 2, '1250000', 1),
+(2769, 75, 3, '1500000', 1),
+(2770, 75, 4, '1000000', 1),
+(2771, 75, 2, '1250000', 1),
+(2772, 75, 3, '1500000', 1),
+(2773, 75, 4, '1000000', 1),
+(2774, 75, 2, '1250000', 1),
+(2775, 75, 3, '1500000', 1),
+(3073, 85, 4, '1000000', 1),
+(3074, 85, 2, '1250000', 1),
+(3075, 85, 3, '1500000', 1),
+(3076, 85, 4, '1000000', 1),
+(3077, 85, 2, '1250000', 1),
+(3078, 85, 3, '1500000', 1),
+(3079, 85, 4, '1000000', 1),
+(3080, 85, 2, '1250000', 1),
+(3081, 85, 3, '1500000', 1),
+(3082, 85, 4, '1000000', 1),
+(3083, 85, 2, '1250000', 1),
+(3084, 85, 3, '1500000', 1),
+(3085, 85, 4, '1000000', 1),
+(3086, 85, 2, '1250000', 1),
+(3087, 85, 3, '1500000', 1),
+(3088, 85, 4, '1000000', 1),
+(3089, 85, 2, '1250000', 1),
+(3090, 85, 3, '1500000', 1),
+(3091, 85, 4, '1000000', 1),
+(3092, 85, 2, '1250000', 1),
+(3093, 85, 3, '1500000', 1),
+(3094, 85, 4, '1000000', 1),
+(3095, 85, 2, '1250000', 1),
+(3096, 85, 3, '1500000', 1),
+(3097, 85, 4, '1000000', 1),
+(3098, 85, 2, '1250000', 1),
+(3099, 85, 3, '1500000', 1),
+(3100, 86, 4, '1000000', 1),
+(3101, 86, 2, '1250000', 1),
+(3102, 86, 3, '1500000', 1),
+(3103, 86, 4, '1000000', 1),
+(3104, 86, 2, '1250000', 1),
+(3105, 86, 3, '1500000', 1),
+(3106, 86, 4, '1000000', 1),
+(3107, 86, 2, '1250000', 1),
+(3108, 86, 3, '1500000', 1),
+(3109, 86, 4, '1000000', 1),
+(3110, 86, 2, '1250000', 1),
+(3111, 86, 3, '1500000', 1),
+(3112, 86, 4, '1000000', 1),
+(3113, 86, 2, '1250000', 1),
+(3114, 86, 3, '1500000', 1),
+(3115, 86, 4, '1000000', 1),
+(3116, 86, 2, '1250000', 1),
+(3117, 86, 3, '1500000', 1),
+(3118, 86, 4, '1000000', 1),
+(3119, 86, 2, '1250000', 1),
+(3120, 86, 3, '1500000', 1),
+(3121, 86, 4, '1000000', 1),
+(3122, 86, 2, '1250000', 1),
+(3123, 86, 3, '1500000', 1),
+(3124, 86, 4, '1000000', 1),
+(3125, 86, 2, '1250000', 1),
+(3126, 86, 3, '1500000', 1),
+(3127, 87, 4, '1000000', 1),
+(3128, 87, 2, '1250000', 1),
+(3129, 87, 3, '1500000', 1),
+(3130, 87, 4, '1000000', 1),
+(3131, 87, 2, '1250000', 1),
+(3132, 87, 3, '1500000', 1),
+(3133, 87, 4, '1000000', 1),
+(3134, 87, 2, '1250000', 1),
+(3135, 87, 3, '1500000', 1),
+(3136, 87, 4, '1000000', 1),
+(3137, 87, 2, '1250000', 1),
+(3138, 87, 3, '1500000', 1),
+(3139, 87, 4, '1000000', 1),
+(3140, 87, 2, '1250000', 1),
+(3141, 87, 3, '1500000', 1),
+(3142, 87, 4, '1000000', 1),
+(3143, 87, 2, '1250000', 1),
+(3144, 87, 3, '1500000', 1),
+(3145, 87, 4, '1000000', 1),
+(3146, 87, 2, '1250000', 1),
+(3147, 87, 3, '1500000', 1),
+(3148, 87, 4, '1000000', 1),
+(3149, 87, 2, '1250000', 1),
+(3150, 87, 3, '1500000', 1),
+(3151, 87, 4, '1000000', 1),
+(3152, 87, 2, '1250000', 1),
+(3153, 87, 3, '1500000', 1),
+(3154, 88, 4, '1000000', 1),
+(3155, 88, 2, '1250000', 1),
+(3156, 88, 3, '1500000', 1),
+(3157, 88, 4, '1000000', 1),
+(3158, 88, 2, '1250000', 1),
+(3159, 88, 3, '1500000', 1),
+(3160, 88, 4, '1000000', 1),
+(3161, 88, 2, '1250000', 1),
+(3162, 88, 3, '1500000', 1),
+(3163, 88, 4, '1000000', 1),
+(3164, 88, 2, '1250000', 1),
+(3165, 88, 3, '1500000', 1),
+(3166, 88, 4, '1000000', 1),
+(3167, 88, 2, '1250000', 1),
+(3168, 88, 3, '1500000', 1),
+(3169, 88, 4, '1000000', 1),
+(3170, 88, 2, '1250000', 1),
+(3171, 88, 3, '1500000', 1),
+(3172, 88, 4, '1000000', 1),
+(3173, 88, 2, '1250000', 1),
+(3174, 88, 3, '1500000', 1),
+(3175, 88, 4, '1000000', 1),
+(3176, 88, 2, '1250000', 1),
+(3177, 88, 3, '1500000', 1),
+(3178, 88, 4, '1000000', 1),
+(3179, 88, 2, '1250000', 1),
+(3180, 88, 3, '1500000', 1),
+(3181, 89, 4, '1000000', 1),
+(3182, 89, 2, '1250000', 1),
+(3183, 89, 3, '1500000', 1),
+(3184, 89, 4, '1000000', 1),
+(3185, 89, 2, '1250000', 1),
+(3186, 89, 3, '1500000', 1),
+(3187, 89, 4, '1000000', 1),
+(3188, 89, 2, '1250000', 1),
+(3189, 89, 3, '1500000', 1),
+(3190, 89, 4, '1000000', 1),
+(3191, 89, 2, '1250000', 1),
+(3192, 89, 3, '1500000', 1),
+(3193, 89, 4, '1000000', 1),
+(3194, 89, 2, '1250000', 1),
+(3195, 89, 3, '1500000', 1),
+(3196, 89, 4, '1000000', 1),
+(3197, 89, 2, '1250000', 1),
+(3198, 89, 3, '1500000', 1),
+(3199, 89, 4, '1000000', 1),
+(3200, 89, 2, '1250000', 1),
+(3201, 89, 3, '1500000', 1),
+(3202, 89, 4, '1000000', 1),
+(3203, 89, 2, '1250000', 1),
+(3204, 89, 3, '1500000', 1),
+(3205, 89, 4, '1000000', 1),
+(3206, 89, 2, '1250000', 1),
+(3207, 89, 3, '1500000', 1),
+(3208, 90, 4, '1000000', 1),
+(3209, 90, 2, '1250000', 1),
+(3210, 90, 3, '1500000', 1),
+(3211, 90, 4, '1000000', 1),
+(3212, 90, 2, '1250000', 1),
+(3213, 90, 3, '1500000', 1),
+(3214, 90, 4, '1000000', 1),
+(3215, 90, 2, '1250000', 1),
+(3216, 90, 3, '1500000', 1),
+(3217, 90, 4, '1000000', 1),
+(3218, 90, 2, '1250000', 1),
+(3219, 90, 3, '1500000', 1),
+(3220, 90, 4, '1000000', 1),
+(3221, 90, 2, '1250000', 1),
+(3222, 90, 3, '1500000', 1),
+(3223, 90, 4, '1000000', 1),
+(3224, 90, 2, '1250000', 1),
+(3225, 90, 3, '1500000', 1),
+(3226, 90, 4, '1000000', 1),
+(3227, 90, 2, '1250000', 1),
+(3228, 90, 3, '1500000', 1),
+(3229, 90, 4, '1000000', 1),
+(3230, 90, 2, '1250000', 1),
+(3231, 90, 3, '1500000', 1),
+(3232, 90, 4, '1000000', 1),
+(3233, 90, 2, '1250000', 1),
+(3234, 90, 3, '1500000', 1),
+(3235, 90, 4, '1000000', 1),
+(3236, 90, 2, '1250000', 1),
+(3237, 90, 3, '1500000', 1),
+(3238, 90, 4, '1000000', 1),
+(3239, 90, 2, '1250000', 1),
+(3240, 90, 3, '1500000', 1),
+(3241, 90, 4, '1000000', 1),
+(3242, 90, 2, '1250000', 1),
+(3243, 90, 3, '1500000', 1),
+(3244, 90, 4, '1000000', 1),
+(3245, 90, 2, '1250000', 1),
+(3246, 90, 3, '1500000', 1),
+(3247, 90, 4, '1000000', 1),
+(3248, 90, 2, '1250000', 1),
+(3249, 90, 3, '1500000', 1),
+(3250, 90, 4, '1000000', 1),
+(3251, 90, 2, '1250000', 1),
+(3252, 90, 3, '1500000', 1),
+(3253, 90, 4, '1000000', 1),
+(3254, 90, 2, '1250000', 1),
+(3255, 90, 3, '1500000', 1),
+(3256, 90, 4, '1000000', 1),
+(3257, 90, 2, '1250000', 1),
+(3258, 90, 3, '1500000', 1),
+(3259, 90, 4, '1000000', 1),
+(3260, 90, 2, '1250000', 1),
+(3261, 90, 3, '1500000', 1),
+(3262, 91, 4, '1000000', 1),
+(3263, 91, 2, '1250000', 1),
+(3264, 91, 3, '1500000', 1),
+(3265, 91, 4, '1000000', 1),
+(3266, 91, 2, '1250000', 1),
+(3267, 91, 3, '1500000', 1),
+(3268, 91, 4, '1000000', 1),
+(3269, 91, 2, '1250000', 1),
+(3270, 91, 3, '1500000', 1),
+(3271, 91, 4, '1000000', 1),
+(3272, 91, 2, '1250000', 1),
+(3273, 91, 3, '1500000', 1),
+(3274, 91, 4, '1000000', 1),
+(3275, 91, 2, '1250000', 1),
+(3276, 91, 3, '1500000', 1),
+(3277, 91, 4, '1000000', 1),
+(3278, 91, 2, '1250000', 1),
+(3279, 91, 3, '1500000', 1),
+(3280, 91, 4, '1000000', 1),
+(3281, 91, 2, '1250000', 1),
+(3282, 91, 3, '1500000', 1),
+(3283, 91, 4, '1000000', 1),
+(3284, 91, 2, '1250000', 1),
+(3285, 91, 3, '1500000', 1),
+(3286, 91, 4, '1000000', 1),
+(3287, 91, 2, '1250000', 1),
+(3288, 91, 3, '1500000', 1),
+(3289, 91, 4, '1000000', 1),
+(3290, 91, 2, '1250000', 1),
+(3291, 91, 3, '1500000', 1),
+(3292, 91, 4, '1000000', 1),
+(3293, 91, 2, '1250000', 1),
+(3294, 91, 3, '1500000', 1),
+(3295, 91, 4, '1000000', 1),
+(3296, 91, 2, '1250000', 1),
+(3297, 91, 3, '1500000', 1),
+(3298, 91, 4, '1000000', 1),
+(3299, 91, 2, '1250000', 1),
+(3300, 91, 3, '1500000', 1),
+(3301, 91, 4, '1000000', 1),
+(3302, 91, 2, '1250000', 1),
+(3303, 91, 3, '1500000', 1),
+(3304, 91, 4, '1000000', 1),
+(3305, 91, 2, '1250000', 1),
+(3306, 91, 3, '1500000', 1),
+(3307, 91, 4, '1000000', 1),
+(3308, 91, 2, '1250000', 1),
+(3309, 91, 3, '1500000', 1),
+(3310, 91, 4, '1000000', 1),
+(3311, 91, 2, '1250000', 1),
+(3312, 91, 3, '1500000', 1),
+(3313, 91, 4, '1000000', 1),
+(3314, 91, 2, '1250000', 1),
+(3315, 91, 3, '1500000', 1),
+(3316, 92, 4, '1000000', 1),
+(3317, 92, 2, '1250000', 1),
+(3318, 92, 3, '1500000', 1),
+(3319, 92, 4, '1000000', 1),
+(3320, 92, 2, '1250000', 1),
+(3321, 92, 3, '1500000', 1),
+(3322, 92, 4, '1000000', 1),
+(3323, 92, 2, '1250000', 1),
+(3324, 92, 3, '1500000', 1),
+(3325, 92, 4, '1000000', 1),
+(3326, 92, 2, '1250000', 1),
+(3327, 92, 3, '1500000', 1),
+(3328, 92, 4, '1000000', 1),
+(3329, 92, 2, '1250000', 1),
+(3330, 92, 3, '1500000', 1),
+(3331, 92, 4, '1000000', 1),
+(3332, 92, 2, '1250000', 1),
+(3333, 92, 3, '1500000', 1),
+(3334, 92, 4, '1000000', 1),
+(3335, 92, 2, '1250000', 1),
+(3336, 92, 3, '1500000', 1),
+(3337, 92, 4, '1000000', 1),
+(3338, 92, 2, '1250000', 1),
+(3339, 92, 3, '1500000', 1),
+(3340, 92, 4, '1000000', 1),
+(3341, 92, 2, '1250000', 1),
+(3342, 92, 3, '1500000', 1),
+(3343, 92, 4, '1000000', 1),
+(3344, 92, 2, '1250000', 1),
+(3345, 92, 3, '1500000', 1),
+(3346, 92, 4, '1000000', 1),
+(3347, 92, 2, '1250000', 1),
+(3348, 92, 3, '1500000', 1),
+(3349, 92, 4, '1000000', 1),
+(3350, 92, 2, '1250000', 1),
+(3351, 92, 3, '1500000', 1),
+(3352, 92, 4, '1000000', 1),
+(3353, 92, 2, '1250000', 1),
+(3354, 92, 3, '1500000', 1),
+(3355, 92, 4, '1000000', 1),
+(3356, 92, 2, '1250000', 1),
+(3357, 92, 3, '1500000', 1),
+(3358, 92, 4, '1000000', 1),
+(3359, 92, 2, '1250000', 1),
+(3360, 92, 3, '1500000', 1),
+(3361, 92, 4, '1000000', 1),
+(3362, 92, 2, '1250000', 1),
+(3363, 92, 3, '1500000', 1),
+(3364, 92, 4, '1000000', 1),
+(3365, 92, 2, '1250000', 1),
+(3366, 92, 3, '1500000', 1),
+(3367, 92, 4, '1000000', 1),
+(3368, 92, 2, '1250000', 1),
+(3369, 92, 3, '1500000', 1),
+(3370, 92, 4, '1000000', 1),
+(3371, 92, 2, '1250000', 1),
+(3372, 92, 3, '1500000', 1),
+(3373, 92, 4, '1000000', 1),
+(3374, 92, 2, '1250000', 1),
+(3375, 92, 3, '1500000', 1),
+(3376, 92, 4, '1000000', 1),
+(3377, 92, 2, '1250000', 1),
+(3378, 92, 3, '1500000', 1),
+(3379, 92, 4, '1000000', 1),
+(3380, 92, 2, '1250000', 1),
+(3381, 92, 3, '1500000', 1),
+(3382, 92, 4, '1000000', 1),
+(3383, 92, 2, '1250000', 1),
+(3384, 92, 3, '1500000', 1),
+(3385, 92, 4, '1000000', 1),
+(3386, 92, 2, '1250000', 1),
+(3387, 92, 3, '1500000', 1),
+(3388, 92, 4, '1000000', 1),
+(3389, 92, 2, '1250000', 1),
+(3390, 92, 3, '1500000', 1),
+(3391, 92, 4, '1000000', 1),
+(3392, 92, 2, '1250000', 1),
+(3393, 92, 3, '1500000', 1),
+(3394, 92, 4, '1000000', 1),
+(3395, 92, 2, '1250000', 1),
+(3396, 92, 3, '1500000', 1),
+(3397, 93, 4, '1000000', 1),
+(3398, 93, 2, '1250000', 1),
+(3399, 93, 3, '1500000', 1),
+(3400, 93, 4, '1000000', 1),
+(3401, 93, 2, '1250000', 1),
+(3402, 93, 3, '1500000', 1),
+(3403, 93, 4, '1000000', 1),
+(3404, 93, 2, '1250000', 1),
+(3405, 93, 3, '1500000', 1),
+(3406, 93, 4, '1000000', 1),
+(3407, 93, 2, '1250000', 1),
+(3408, 93, 3, '1500000', 1),
+(3409, 93, 4, '1000000', 1),
+(3410, 93, 2, '1250000', 1),
+(3411, 93, 3, '1500000', 1),
+(3412, 93, 4, '1000000', 1),
+(3413, 93, 2, '1250000', 1),
+(3414, 93, 3, '1500000', 1),
+(3415, 93, 4, '1000000', 1),
+(3416, 93, 2, '1250000', 1),
+(3417, 93, 3, '1500000', 1),
+(3418, 93, 4, '1000000', 1),
+(3419, 93, 2, '1250000', 1),
+(3420, 93, 3, '1500000', 1),
+(3421, 93, 4, '1000000', 1),
+(3422, 93, 2, '1250000', 1),
+(3423, 93, 3, '1500000', 1),
+(3424, 93, 4, '1000000', 1),
+(3425, 93, 2, '1250000', 1),
+(3426, 93, 3, '1500000', 1),
+(3427, 93, 4, '1000000', 1),
+(3428, 93, 2, '1250000', 1),
+(3429, 93, 3, '1500000', 1),
+(3430, 93, 4, '1000000', 1),
+(3431, 93, 2, '1250000', 1),
+(3432, 93, 3, '1500000', 1),
+(3433, 93, 4, '1000000', 1),
+(3434, 93, 2, '1250000', 1),
+(3435, 93, 3, '1500000', 1),
+(3436, 93, 4, '1000000', 1),
+(3437, 93, 2, '1250000', 1),
+(3438, 93, 3, '1500000', 1),
+(3439, 93, 4, '1000000', 1),
+(3440, 93, 2, '1250000', 1),
+(3441, 93, 3, '1500000', 1),
+(3442, 93, 4, '1000000', 1),
+(3443, 93, 2, '1250000', 1),
+(3444, 93, 3, '1500000', 1),
+(3445, 93, 4, '1000000', 1),
+(3446, 93, 2, '1250000', 1),
+(3447, 93, 3, '1500000', 1),
+(3448, 93, 4, '1000000', 1),
+(3449, 93, 2, '1250000', 1),
+(3450, 93, 3, '1500000', 1),
+(3451, 93, 4, '1000000', 1),
+(3452, 93, 2, '1250000', 1),
+(3453, 93, 3, '1500000', 1),
+(3454, 93, 4, '1000000', 1),
+(3455, 93, 2, '1250000', 1),
+(3456, 93, 3, '1500000', 1),
+(3457, 93, 4, '1000000', 1),
+(3458, 93, 2, '1250000', 1),
+(3459, 93, 3, '1500000', 1),
+(3460, 93, 4, '1000000', 1),
+(3461, 93, 2, '1250000', 1),
+(3462, 93, 3, '1500000', 1),
+(3463, 93, 4, '1000000', 1),
+(3464, 93, 2, '1250000', 1),
+(3465, 93, 3, '1500000', 1),
+(3466, 93, 4, '1000000', 1),
+(3467, 93, 2, '1250000', 1),
+(3468, 93, 3, '1500000', 1),
+(3469, 93, 4, '1000000', 1),
+(3470, 93, 2, '1250000', 1),
+(3471, 93, 3, '1500000', 1),
+(3472, 93, 4, '1000000', 1),
+(3473, 93, 2, '1250000', 1),
+(3474, 93, 3, '1500000', 1),
+(3475, 93, 4, '1000000', 1),
+(3476, 93, 2, '1250000', 1),
+(3477, 93, 3, '1500000', 1),
+(3478, 94, 4, '1000000', 1),
+(3479, 94, 2, '1250000', 1),
+(3480, 94, 3, '1500000', 1),
+(3481, 94, 4, '1000000', 1),
+(3482, 94, 2, '1250000', 1),
+(3483, 94, 3, '1500000', 1),
+(3484, 94, 4, '1000000', 1),
+(3485, 94, 2, '1250000', 1),
+(3486, 94, 3, '1500000', 1),
+(3487, 94, 4, '1000000', 1),
+(3488, 94, 2, '1250000', 1),
+(3489, 94, 3, '1500000', 1),
+(3490, 94, 4, '1000000', 1),
+(3491, 94, 2, '1250000', 1),
+(3492, 94, 3, '1500000', 1),
+(3493, 94, 4, '1000000', 1),
+(3494, 94, 2, '1250000', 1),
+(3495, 94, 3, '1500000', 1),
+(3496, 94, 4, '1000000', 1),
+(3497, 94, 2, '1250000', 1),
+(3498, 94, 3, '1500000', 1),
+(3499, 94, 4, '1000000', 1),
+(3500, 94, 2, '1250000', 1),
+(3501, 94, 3, '1500000', 1),
+(3502, 94, 4, '1000000', 1),
+(3503, 94, 2, '1250000', 1),
+(3504, 94, 3, '1500000', 1),
+(3505, 94, 4, '1000000', 1),
+(3506, 94, 2, '1250000', 1),
+(3507, 94, 3, '1500000', 1),
+(3508, 94, 4, '1000000', 1),
+(3509, 94, 2, '1250000', 1),
+(3510, 94, 3, '1500000', 1),
+(3511, 94, 4, '1000000', 1),
+(3512, 94, 2, '1250000', 1),
+(3513, 94, 3, '1500000', 1),
+(3514, 94, 4, '1000000', 1),
+(3515, 94, 2, '1250000', 1),
+(3516, 94, 3, '1500000', 1),
+(3517, 94, 4, '1000000', 1),
+(3518, 94, 2, '1250000', 1),
+(3519, 94, 3, '1500000', 1),
+(3520, 94, 4, '1000000', 1),
+(3521, 94, 2, '1250000', 1),
+(3522, 94, 3, '1500000', 1),
+(3523, 94, 4, '1000000', 1),
+(3524, 94, 2, '1250000', 1),
+(3525, 94, 3, '1500000', 1),
+(3526, 94, 4, '1000000', 1),
+(3527, 94, 2, '1250000', 1),
+(3528, 94, 3, '1500000', 1),
+(3529, 94, 4, '1000000', 1),
+(3530, 94, 2, '1250000', 1),
+(3531, 94, 3, '1500000', 1),
+(3532, 94, 4, '1000000', 1),
+(3533, 94, 2, '1250000', 1),
+(3534, 94, 3, '1500000', 1),
+(3535, 94, 4, '1000000', 1),
+(3536, 94, 2, '1250000', 1),
+(3537, 94, 3, '1500000', 1),
+(3538, 94, 4, '1000000', 1),
+(3539, 94, 2, '1250000', 1),
+(3540, 94, 3, '1500000', 1),
+(3541, 94, 4, '1000000', 1),
+(3542, 94, 2, '1250000', 1),
+(3543, 94, 3, '1500000', 1),
+(3544, 94, 4, '1000000', 1),
+(3545, 94, 2, '1250000', 1),
+(3546, 94, 3, '1500000', 1),
+(3547, 94, 4, '1000000', 1),
+(3548, 94, 2, '1250000', 1),
+(3549, 94, 3, '1500000', 1),
+(3550, 94, 4, '1000000', 1),
+(3551, 94, 2, '1250000', 1),
+(3552, 94, 3, '1500000', 1),
+(3553, 94, 4, '1000000', 1),
+(3554, 94, 2, '1250000', 1),
+(3555, 94, 3, '1500000', 1),
+(3556, 94, 4, '1000000', 1),
+(3557, 94, 2, '1250000', 1),
+(3558, 94, 3, '1500000', 1),
+(3559, 95, 4, '1000000', 1),
+(3560, 95, 2, '1250000', 1),
+(3561, 95, 3, '1500000', 1),
+(3562, 95, 4, '1000000', 1),
+(3563, 95, 2, '1250000', 1),
+(3564, 95, 3, '1500000', 1),
+(3565, 95, 4, '1000000', 1),
+(3566, 95, 2, '1250000', 1),
+(3567, 95, 3, '1500000', 1),
+(3568, 95, 4, '1000000', 1),
+(3569, 95, 2, '1250000', 1),
+(3570, 95, 3, '1500000', 1),
+(3571, 95, 4, '1000000', 1),
+(3572, 95, 2, '1250000', 1),
+(3573, 95, 3, '1500000', 1),
+(3574, 95, 4, '1000000', 1),
+(3575, 95, 2, '1250000', 1),
+(3576, 95, 3, '1500000', 1),
+(3577, 95, 4, '1000000', 1),
+(3578, 95, 2, '1250000', 1),
+(3579, 95, 3, '1500000', 1),
+(3580, 95, 4, '1000000', 1),
+(3581, 95, 2, '1250000', 1),
+(3582, 95, 3, '1500000', 1),
+(3583, 95, 4, '1000000', 1),
+(3584, 95, 2, '1250000', 1),
+(3585, 95, 3, '1500000', 1),
+(3586, 95, 4, '1000000', 1),
+(3587, 95, 2, '1250000', 1),
+(3588, 95, 3, '1500000', 1),
+(3589, 95, 4, '1000000', 1),
+(3590, 95, 2, '1250000', 1),
+(3591, 95, 3, '1500000', 1),
+(3592, 95, 4, '1000000', 1),
+(3593, 95, 2, '1250000', 1),
+(3594, 95, 3, '1500000', 1),
+(3595, 95, 4, '1000000', 1),
+(3596, 95, 2, '1250000', 1),
+(3597, 95, 3, '1500000', 1),
+(3598, 95, 4, '1000000', 1),
+(3599, 95, 2, '1250000', 1),
+(3600, 95, 3, '1500000', 1),
+(3601, 95, 4, '1000000', 1),
+(3602, 95, 2, '1250000', 1),
+(3603, 95, 3, '1500000', 1),
+(3604, 95, 4, '1000000', 1),
+(3605, 95, 2, '1250000', 1),
+(3606, 95, 3, '1500000', 1),
+(3607, 95, 4, '1000000', 1),
+(3608, 95, 2, '1250000', 1),
+(3609, 95, 3, '1500000', 1),
+(3610, 95, 4, '1000000', 1),
+(3611, 95, 2, '1250000', 1),
+(3612, 95, 3, '1500000', 1),
+(3613, 95, 4, '1000000', 1),
+(3614, 95, 2, '1250000', 1),
+(3615, 95, 3, '1500000', 1),
+(3616, 95, 4, '1000000', 1),
+(3617, 95, 2, '1250000', 1),
+(3618, 95, 3, '1500000', 1),
+(3619, 95, 4, '1000000', 1),
+(3620, 95, 2, '1250000', 1),
+(3621, 95, 3, '1500000', 1),
+(3622, 95, 4, '1000000', 1),
+(3623, 95, 2, '1250000', 1),
+(3624, 95, 3, '1500000', 1),
+(3625, 95, 4, '1000000', 1),
+(3626, 95, 2, '1250000', 1),
+(3627, 95, 3, '1500000', 1),
+(3628, 95, 4, '1000000', 1),
+(3629, 95, 2, '1250000', 1),
+(3630, 95, 3, '1500000', 1),
+(3631, 95, 4, '1000000', 1),
+(3632, 95, 2, '1250000', 1),
+(3633, 95, 3, '1500000', 1),
+(3634, 95, 4, '1000000', 1),
+(3635, 95, 2, '1250000', 1),
+(3636, 95, 3, '1500000', 1),
+(3637, 95, 4, '1000000', 1),
+(3638, 95, 2, '1250000', 1),
+(3639, 95, 3, '1500000', 1),
+(3640, 96, 4, '1000000', 1),
+(3641, 96, 2, '1250000', 1),
+(3642, 96, 3, '1500000', 1),
+(3643, 96, 4, '1000000', 1),
+(3644, 96, 2, '1250000', 1),
+(3645, 96, 3, '1500000', 1),
+(3646, 96, 4, '1000000', 1),
+(3647, 96, 2, '1250000', 1),
+(3648, 96, 3, '1500000', 1),
+(3649, 96, 4, '1000000', 1),
+(3650, 96, 2, '1250000', 1),
+(3651, 96, 3, '1500000', 1),
+(3652, 96, 4, '1000000', 1),
+(3653, 96, 2, '1250000', 1),
+(3654, 96, 3, '1500000', 1),
+(3655, 96, 4, '1000000', 1),
+(3656, 96, 2, '1250000', 1),
+(3657, 96, 3, '1500000', 1),
+(3658, 96, 4, '1000000', 1),
+(3659, 96, 2, '1250000', 1),
+(3660, 96, 3, '1500000', 1),
+(3661, 96, 4, '1000000', 1),
+(3662, 96, 2, '1250000', 1),
+(3663, 96, 3, '1500000', 1),
+(3664, 96, 4, '1000000', 1),
+(3665, 96, 2, '1250000', 1),
+(3666, 96, 3, '1500000', 1),
+(3667, 96, 4, '1000000', 1),
+(3668, 96, 2, '1250000', 1),
+(3669, 96, 3, '1500000', 1),
+(3670, 96, 4, '1000000', 1),
+(3671, 96, 2, '1250000', 1),
+(3672, 96, 3, '1500000', 1),
+(3673, 96, 4, '1000000', 1),
+(3674, 96, 2, '1250000', 1),
+(3675, 96, 3, '1500000', 1),
+(3676, 96, 4, '1000000', 1),
+(3677, 96, 2, '1250000', 1),
+(3678, 96, 3, '1500000', 1),
+(3679, 96, 4, '1000000', 1),
+(3680, 96, 2, '1250000', 1),
+(3681, 96, 3, '1500000', 1),
+(3682, 96, 4, '1000000', 1),
+(3683, 96, 2, '1250000', 1),
+(3684, 96, 3, '1500000', 1),
+(3685, 96, 4, '1000000', 1),
+(3686, 96, 2, '1250000', 1),
+(3687, 96, 3, '1500000', 1),
+(3688, 96, 4, '1000000', 1),
+(3689, 96, 2, '1250000', 1),
+(3690, 96, 3, '1500000', 1),
+(3691, 96, 4, '1000000', 1),
+(3692, 96, 2, '1250000', 1),
+(3693, 96, 3, '1500000', 1),
+(3694, 96, 4, '1000000', 1),
+(3695, 96, 2, '1250000', 1),
+(3696, 96, 3, '1500000', 1),
+(3697, 96, 4, '1000000', 1),
+(3698, 96, 2, '1250000', 1),
+(3699, 96, 3, '1500000', 1),
+(3700, 96, 4, '1000000', 1),
+(3701, 96, 2, '1250000', 1),
+(3702, 96, 3, '1500000', 1),
+(3703, 96, 4, '1000000', 1),
+(3704, 96, 2, '1250000', 1),
+(3705, 96, 3, '1500000', 1),
+(3706, 96, 4, '1000000', 1),
+(3707, 96, 2, '1250000', 1),
+(3708, 96, 3, '1500000', 1),
+(3709, 96, 4, '1000000', 1),
+(3710, 96, 2, '1250000', 1),
+(3711, 96, 3, '1500000', 1),
+(3712, 96, 4, '1000000', 1),
+(3713, 96, 2, '1250000', 1),
+(3714, 96, 3, '1500000', 1),
+(3715, 96, 4, '1000000', 1),
+(3716, 96, 2, '1250000', 1),
+(3717, 96, 3, '1500000', 1),
+(3718, 96, 4, '1000000', 1),
+(3719, 96, 2, '1250000', 1),
+(3720, 96, 3, '1500000', 1),
+(3721, 98, 4, '1000000', 1),
+(3722, 98, 2, '1250000', 1),
+(3723, 98, 3, '1500000', 1),
+(3724, 98, 4, '1000000', 1),
+(3725, 98, 2, '1250000', 1),
+(3726, 98, 3, '1500000', 1),
+(3727, 98, 4, '1000000', 1),
+(3728, 98, 2, '1250000', 1),
+(3729, 98, 3, '1500000', 1),
+(3730, 98, 4, '1000000', 1),
+(3731, 98, 2, '1250000', 1),
+(3732, 98, 3, '1500000', 1),
+(3733, 98, 4, '1000000', 1),
+(3734, 98, 2, '1250000', 1),
+(3735, 98, 3, '1500000', 1),
+(3736, 98, 4, '1000000', 1),
+(3737, 98, 2, '1250000', 1),
+(3738, 98, 3, '1500000', 1),
+(3739, 98, 4, '1000000', 1),
+(3740, 98, 2, '1250000', 1),
+(3741, 98, 3, '1500000', 1),
+(3742, 98, 4, '1000000', 1),
+(3743, 98, 2, '1250000', 1),
+(3744, 98, 3, '1500000', 1),
+(3745, 98, 4, '1000000', 1),
+(3746, 98, 2, '1250000', 1),
+(3747, 98, 3, '1500000', 1),
+(3748, 99, 4, '1000000', 1),
+(3749, 99, 2, '1250000', 1),
+(3750, 99, 3, '1500000', 1),
+(3751, 99, 4, '1000000', 1),
+(3752, 99, 2, '1250000', 1),
+(3753, 99, 3, '1500000', 1),
+(3754, 99, 4, '1000000', 1),
+(3755, 99, 2, '1250000', 1),
+(3756, 99, 3, '1500000', 1),
+(3757, 99, 4, '1000000', 1),
+(3758, 99, 2, '1250000', 1),
+(3759, 99, 3, '1500000', 1),
+(3760, 99, 4, '1000000', 1),
+(3761, 99, 2, '1250000', 1),
+(3762, 99, 3, '1500000', 1),
+(3763, 99, 4, '1000000', 1),
+(3764, 99, 2, '1250000', 1),
+(3765, 99, 3, '1500000', 1),
+(3766, 99, 4, '1000000', 1),
+(3767, 99, 2, '1250000', 1),
+(3768, 99, 3, '1500000', 1),
+(3769, 99, 4, '1000000', 1),
+(3770, 99, 2, '1250000', 1),
+(3771, 99, 3, '1500000', 1),
+(3772, 99, 4, '1000000', 1),
+(3773, 99, 2, '1250000', 1),
+(3774, 99, 3, '1500000', 1),
+(3775, 100, 4, '1000000', 1),
+(3776, 100, 2, '1250000', 1),
+(3777, 100, 3, '1500000', 1),
+(3778, 100, 4, '1000000', 1),
+(3779, 100, 2, '1250000', 1),
+(3780, 100, 3, '1500000', 1),
+(3781, 100, 4, '1000000', 1),
+(3782, 100, 2, '1250000', 1),
+(3783, 100, 3, '1500000', 1),
+(3784, 100, 4, '1000000', 1),
+(3785, 100, 2, '1250000', 1),
+(3786, 100, 3, '1500000', 1),
+(3787, 100, 4, '1000000', 1),
+(3788, 100, 2, '1250000', 1),
+(3789, 100, 3, '1500000', 1),
+(3790, 100, 4, '1000000', 1),
+(3791, 100, 2, '1250000', 1),
+(3792, 100, 3, '1500000', 1),
+(3793, 100, 4, '1000000', 1),
+(3794, 100, 2, '1250000', 1),
+(3795, 100, 3, '1500000', 1),
+(3796, 100, 4, '1000000', 1),
+(3797, 100, 2, '1250000', 1),
+(3798, 100, 3, '1500000', 1),
+(3799, 100, 4, '1000000', 1),
+(3800, 100, 2, '1250000', 1),
+(3801, 100, 3, '1500000', 1),
+(3802, 101, 4, '1000000', 1),
+(3803, 101, 2, '1250000', 1),
+(3804, 101, 3, '1500000', 1),
+(3805, 101, 4, '1000000', 1),
+(3806, 101, 2, '1250000', 1),
+(3807, 101, 3, '1500000', 1),
+(3808, 101, 4, '1000000', 1),
+(3809, 101, 2, '1250000', 1),
+(3810, 101, 3, '1500000', 1),
+(3811, 101, 4, '1000000', 1),
+(3812, 101, 2, '1250000', 1),
+(3813, 101, 3, '1500000', 1),
+(3814, 101, 4, '1000000', 1),
+(3815, 101, 2, '1250000', 1),
+(3816, 101, 3, '1500000', 1),
+(3817, 101, 4, '1000000', 1),
+(3818, 101, 2, '1250000', 1),
+(3819, 101, 3, '1500000', 1),
+(3820, 101, 4, '1000000', 1),
+(3821, 101, 2, '1250000', 1),
+(3822, 101, 3, '1500000', 1),
+(3823, 101, 4, '1000000', 1),
+(3824, 101, 2, '1250000', 1),
+(3825, 101, 3, '1500000', 1),
+(3826, 101, 4, '1000000', 1),
+(3827, 101, 2, '1250000', 1),
+(3828, 101, 3, '1500000', 1),
+(3829, 102, 4, '1000000', 1),
+(3830, 102, 2, '1250000', 1),
+(3831, 102, 3, '1500000', 1),
+(3832, 102, 4, '1000000', 1),
+(3833, 102, 2, '1250000', 1),
+(3834, 102, 3, '1500000', 1),
+(3835, 102, 4, '1000000', 1),
+(3836, 102, 2, '1250000', 1),
+(3837, 102, 3, '1500000', 1),
+(3838, 102, 4, '1000000', 1),
+(3839, 102, 2, '1250000', 1),
+(3840, 102, 3, '1500000', 1),
+(3841, 102, 4, '1000000', 1),
+(3842, 102, 2, '1250000', 1),
+(3843, 102, 3, '1500000', 1),
+(3844, 102, 4, '1000000', 1),
+(3845, 102, 2, '1250000', 1),
+(3846, 102, 3, '1500000', 1),
+(3847, 102, 4, '1000000', 1),
+(3848, 102, 2, '1250000', 1),
+(3849, 102, 3, '1500000', 1),
+(3850, 102, 4, '1000000', 1),
+(3851, 102, 2, '1250000', 1),
+(3852, 102, 3, '1500000', 1),
+(3853, 102, 4, '1000000', 1),
+(3854, 102, 2, '1250000', 1),
+(3855, 102, 3, '1500000', 1),
+(3937, 104, 4, '1000000', 1),
+(3938, 104, 2, '1250000', 1),
+(3939, 104, 3, '1500000', 1),
+(3940, 104, 4, '1000000', 1),
+(3941, 104, 2, '1250000', 1),
+(3942, 104, 3, '1500000', 1),
+(3943, 104, 4, '1000000', 1),
+(3944, 104, 2, '1250000', 1),
+(3945, 104, 3, '1500000', 1),
+(3946, 104, 4, '1000000', 1),
+(3947, 104, 2, '1250000', 1),
+(3948, 104, 3, '1500000', 1),
+(3949, 104, 4, '1000000', 1),
+(3950, 104, 2, '1250000', 1),
+(3951, 104, 3, '1500000', 1),
+(3952, 104, 4, '1000000', 1),
+(3953, 104, 2, '1250000', 1),
+(3954, 104, 3, '1500000', 1),
+(3955, 104, 4, '1000000', 1),
+(3956, 104, 2, '1250000', 1),
+(3957, 104, 3, '1500000', 1),
+(3958, 104, 4, '1000000', 1),
+(3959, 104, 2, '1250000', 1),
+(3960, 104, 3, '1500000', 1),
+(3961, 104, 4, '1000000', 1),
+(3962, 104, 2, '1250000', 1),
+(3963, 104, 3, '1500000', 1),
+(3964, 104, 4, '1000000', 1),
+(3965, 104, 2, '1250000', 1),
+(3966, 104, 3, '1500000', 1),
+(3967, 104, 4, '1000000', 1),
+(3968, 104, 2, '1250000', 1),
+(3969, 104, 3, '1500000', 1),
+(3970, 104, 4, '1000000', 1),
+(3971, 104, 2, '1250000', 1),
+(3972, 104, 3, '1500000', 1),
+(3973, 104, 4, '1000000', 1),
+(3974, 104, 2, '1250000', 1),
+(3975, 104, 3, '1500000', 1),
+(3976, 104, 4, '1000000', 1),
+(3977, 104, 2, '1250000', 1),
+(3978, 104, 3, '1500000', 1),
+(3979, 104, 4, '1000000', 1),
+(3980, 104, 2, '1250000', 1),
+(3981, 104, 3, '1500000', 1),
+(3982, 104, 4, '1000000', 1),
+(3983, 104, 2, '1250000', 1),
+(3984, 104, 3, '1500000', 1),
+(3985, 104, 4, '1000000', 1),
+(3986, 104, 2, '1250000', 1),
+(3987, 104, 3, '1500000', 1),
+(3988, 104, 4, '1000000', 1),
+(3989, 104, 2, '1250000', 1),
+(3990, 104, 3, '1500000', 1),
+(3991, 104, 4, '1000000', 1),
+(3992, 104, 2, '1250000', 1),
+(3993, 104, 3, '1500000', 1),
+(3994, 104, 4, '1000000', 1),
+(3995, 104, 2, '1250000', 1),
+(3996, 104, 3, '1500000', 1),
+(3997, 104, 4, '1000000', 1),
+(3998, 104, 2, '1250000', 1),
+(3999, 104, 3, '1500000', 1),
+(4000, 104, 4, '1000000', 1),
+(4001, 104, 2, '1250000', 1),
+(4002, 104, 3, '1500000', 1),
+(4003, 104, 4, '1000000', 1),
+(4004, 104, 2, '1250000', 1),
+(4005, 104, 3, '1500000', 1),
+(4006, 104, 4, '1000000', 1),
+(4007, 104, 2, '1250000', 1),
+(4008, 104, 3, '1500000', 1),
+(4009, 104, 4, '1000000', 1),
+(4010, 104, 2, '1250000', 1),
+(4011, 104, 3, '1500000', 1),
+(4012, 104, 4, '1000000', 1),
+(4013, 104, 2, '1250000', 1),
+(4014, 104, 3, '1500000', 1),
+(4015, 104, 4, '1000000', 1),
+(4016, 104, 2, '1250000', 1),
+(4017, 104, 3, '1500000', 1),
+(4018, 105, 4, '1000000', 1),
+(4019, 105, 2, '1250000', 1),
+(4020, 105, 3, '1500000', 1),
+(4021, 105, 4, '1000000', 1),
+(4022, 105, 2, '1250000', 1),
+(4023, 105, 3, '1500000', 1),
+(4024, 105, 4, '1000000', 1),
+(4025, 105, 2, '1250000', 1),
+(4026, 105, 3, '1500000', 1),
+(4027, 105, 4, '1000000', 1),
+(4028, 105, 2, '1250000', 1),
+(4029, 105, 3, '1500000', 1),
+(4030, 105, 4, '1000000', 1),
+(4031, 105, 2, '1250000', 1),
+(4032, 105, 3, '1500000', 1),
+(4033, 105, 4, '1000000', 1),
+(4034, 105, 2, '1250000', 1),
+(4035, 105, 3, '1500000', 1),
+(4036, 105, 4, '1000000', 1),
+(4037, 105, 2, '1250000', 1),
+(4038, 105, 3, '1500000', 1),
+(4039, 105, 4, '1000000', 1),
+(4040, 105, 2, '1250000', 1),
+(4041, 105, 3, '1500000', 1);
+INSERT INTO `lh_baiviet_select_nhomgia` (`id`, `id_baiviet`, `id_nhomgia`, `id_val`, `showhi`) VALUES
+(4042, 105, 4, '1000000', 1),
+(4043, 105, 2, '1250000', 1),
+(4044, 105, 3, '1500000', 1),
+(4045, 105, 4, '1000000', 1),
+(4046, 105, 2, '1250000', 1),
+(4047, 105, 3, '1500000', 1),
+(4048, 105, 4, '1000000', 1),
+(4049, 105, 2, '1250000', 1),
+(4050, 105, 3, '1500000', 1),
+(4051, 105, 4, '1000000', 1),
+(4052, 105, 2, '1250000', 1),
+(4053, 105, 3, '1500000', 1),
+(4054, 105, 4, '1000000', 1),
+(4055, 105, 2, '1250000', 1),
+(4056, 105, 3, '1500000', 1),
+(4057, 105, 4, '1000000', 1),
+(4058, 105, 2, '1250000', 1),
+(4059, 105, 3, '1500000', 1),
+(4060, 105, 4, '1000000', 1),
+(4061, 105, 2, '1250000', 1),
+(4062, 105, 3, '1500000', 1),
+(4063, 105, 4, '1000000', 1),
+(4064, 105, 2, '1250000', 1),
+(4065, 105, 3, '1500000', 1),
+(4066, 105, 4, '1000000', 1),
+(4067, 105, 2, '1250000', 1),
+(4068, 105, 3, '1500000', 1),
+(4069, 105, 4, '1000000', 1),
+(4070, 105, 2, '1250000', 1),
+(4071, 105, 3, '1500000', 1),
+(4072, 105, 4, '1000000', 1),
+(4073, 105, 2, '1250000', 1),
+(4074, 105, 3, '1500000', 1),
+(4075, 105, 4, '1000000', 1),
+(4076, 105, 2, '1250000', 1),
+(4077, 105, 3, '1500000', 1),
+(4078, 105, 4, '1000000', 1),
+(4079, 105, 2, '1250000', 1),
+(4080, 105, 3, '1500000', 1),
+(4081, 105, 4, '1000000', 1),
+(4082, 105, 2, '1250000', 1),
+(4083, 105, 3, '1500000', 1),
+(4084, 105, 4, '1000000', 1),
+(4085, 105, 2, '1250000', 1),
+(4086, 105, 3, '1500000', 1),
+(4087, 105, 4, '1000000', 1),
+(4088, 105, 2, '1250000', 1),
+(4089, 105, 3, '1500000', 1),
+(4090, 105, 4, '1000000', 1),
+(4091, 105, 2, '1250000', 1),
+(4092, 105, 3, '1500000', 1),
+(4093, 105, 4, '1000000', 1),
+(4094, 105, 2, '1250000', 1),
+(4095, 105, 3, '1500000', 1),
+(4096, 105, 4, '1000000', 1),
+(4097, 105, 2, '1250000', 1),
+(4098, 105, 3, '1500000', 1),
+(4099, 106, 4, '1000000', 1),
+(4100, 106, 2, '1250000', 1),
+(4101, 106, 3, '1500000', 1),
+(4102, 106, 4, '1000000', 1),
+(4103, 106, 2, '1250000', 1),
+(4104, 106, 3, '1500000', 1),
+(4105, 106, 4, '1000000', 1),
+(4106, 106, 2, '1250000', 1),
+(4107, 106, 3, '1500000', 1),
+(4108, 106, 4, '1000000', 1),
+(4109, 106, 2, '1250000', 1),
+(4110, 106, 3, '1500000', 1),
+(4111, 106, 4, '1000000', 1),
+(4112, 106, 2, '1250000', 1),
+(4113, 106, 3, '1500000', 1),
+(4114, 106, 4, '1000000', 1),
+(4115, 106, 2, '1250000', 1),
+(4116, 106, 3, '1500000', 1),
+(4117, 106, 4, '1000000', 1),
+(4118, 106, 2, '1250000', 1),
+(4119, 106, 3, '1500000', 1),
+(4120, 106, 4, '1000000', 1),
+(4121, 106, 2, '1250000', 1),
+(4122, 106, 3, '1500000', 1),
+(4123, 106, 4, '1000000', 1),
+(4124, 106, 2, '1250000', 1),
+(4125, 106, 3, '1500000', 1),
+(4126, 106, 4, '1000000', 1),
+(4127, 106, 2, '1250000', 1),
+(4128, 106, 3, '1500000', 1),
+(4129, 106, 4, '1000000', 1),
+(4130, 106, 2, '1250000', 1),
+(4131, 106, 3, '1500000', 1),
+(4132, 106, 4, '1000000', 1),
+(4133, 106, 2, '1250000', 1),
+(4134, 106, 3, '1500000', 1),
+(4135, 106, 4, '1000000', 1),
+(4136, 106, 2, '1250000', 1),
+(4137, 106, 3, '1500000', 1),
+(4138, 106, 4, '1000000', 1),
+(4139, 106, 2, '1250000', 1),
+(4140, 106, 3, '1500000', 1),
+(4141, 106, 4, '1000000', 1),
+(4142, 106, 2, '1250000', 1),
+(4143, 106, 3, '1500000', 1),
+(4144, 106, 4, '1000000', 1),
+(4145, 106, 2, '1250000', 1),
+(4146, 106, 3, '1500000', 1),
+(4147, 106, 4, '1000000', 1),
+(4148, 106, 2, '1250000', 1),
+(4149, 106, 3, '1500000', 1),
+(4150, 106, 4, '1000000', 1),
+(4151, 106, 2, '1250000', 1),
+(4152, 106, 3, '1500000', 1),
+(4153, 106, 4, '1000000', 1),
+(4154, 106, 2, '1250000', 1),
+(4155, 106, 3, '1500000', 1),
+(4156, 106, 4, '1000000', 1),
+(4157, 106, 2, '1250000', 1),
+(4158, 106, 3, '1500000', 1),
+(4159, 106, 4, '1000000', 1),
+(4160, 106, 2, '1250000', 1),
+(4161, 106, 3, '1500000', 1),
+(4162, 106, 4, '1000000', 1),
+(4163, 106, 2, '1250000', 1),
+(4164, 106, 3, '1500000', 1),
+(4165, 106, 4, '1000000', 1),
+(4166, 106, 2, '1250000', 1),
+(4167, 106, 3, '1500000', 1),
+(4168, 106, 4, '1000000', 1),
+(4169, 106, 2, '1250000', 1),
+(4170, 106, 3, '1500000', 1),
+(4171, 106, 4, '1000000', 1),
+(4172, 106, 2, '1250000', 1),
+(4173, 106, 3, '1500000', 1),
+(4174, 106, 4, '1000000', 1),
+(4175, 106, 2, '1250000', 1),
+(4176, 106, 3, '1500000', 1),
+(4177, 106, 4, '1000000', 1),
+(4178, 106, 2, '1250000', 1),
+(4179, 106, 3, '1500000', 1),
+(4180, 107, 4, '1000000', 1),
+(4181, 107, 2, '1250000', 1),
+(4182, 107, 3, '1500000', 1),
+(4183, 107, 4, '1000000', 1),
+(4184, 107, 2, '1250000', 1),
+(4185, 107, 3, '1500000', 1),
+(4186, 107, 4, '1000000', 1),
+(4187, 107, 2, '1250000', 1),
+(4188, 107, 3, '1500000', 1),
+(4189, 107, 4, '1000000', 1),
+(4190, 107, 2, '1250000', 1),
+(4191, 107, 3, '1500000', 1),
+(4192, 107, 4, '1000000', 1),
+(4193, 107, 2, '1250000', 1),
+(4194, 107, 3, '1500000', 1),
+(4195, 107, 4, '1000000', 1),
+(4196, 107, 2, '1250000', 1),
+(4197, 107, 3, '1500000', 1),
+(4198, 107, 4, '1000000', 1),
+(4199, 107, 2, '1250000', 1),
+(4200, 107, 3, '1500000', 1),
+(4201, 107, 4, '1000000', 1),
+(4202, 107, 2, '1250000', 1),
+(4203, 107, 3, '1500000', 1),
+(4204, 107, 4, '1000000', 1),
+(4205, 107, 2, '1250000', 1),
+(4206, 107, 3, '1500000', 1),
+(4207, 107, 4, '1000000', 1),
+(4208, 107, 2, '1250000', 1),
+(4209, 107, 3, '1500000', 1),
+(4210, 107, 4, '1000000', 1),
+(4211, 107, 2, '1250000', 1),
+(4212, 107, 3, '1500000', 1),
+(4213, 107, 4, '1000000', 1),
+(4214, 107, 2, '1250000', 1),
+(4215, 107, 3, '1500000', 1),
+(4216, 107, 4, '1000000', 1),
+(4217, 107, 2, '1250000', 1),
+(4218, 107, 3, '1500000', 1),
+(4219, 107, 4, '1000000', 1),
+(4220, 107, 2, '1250000', 1),
+(4221, 107, 3, '1500000', 1),
+(4222, 107, 4, '1000000', 1),
+(4223, 107, 2, '1250000', 1),
+(4224, 107, 3, '1500000', 1),
+(4225, 107, 4, '1000000', 1),
+(4226, 107, 2, '1250000', 1),
+(4227, 107, 3, '1500000', 1),
+(4228, 107, 4, '1000000', 1),
+(4229, 107, 2, '1250000', 1),
+(4230, 107, 3, '1500000', 1),
+(4231, 107, 4, '1000000', 1),
+(4232, 107, 2, '1250000', 1),
+(4233, 107, 3, '1500000', 1),
+(4234, 107, 4, '1000000', 1),
+(4235, 107, 2, '1250000', 1),
+(4236, 107, 3, '1500000', 1),
+(4237, 107, 4, '1000000', 1),
+(4238, 107, 2, '1250000', 1),
+(4239, 107, 3, '1500000', 1),
+(4240, 107, 4, '1000000', 1),
+(4241, 107, 2, '1250000', 1),
+(4242, 107, 3, '1500000', 1),
+(4243, 107, 4, '1000000', 1),
+(4244, 107, 2, '1250000', 1),
+(4245, 107, 3, '1500000', 1),
+(4246, 107, 4, '1000000', 1),
+(4247, 107, 2, '1250000', 1),
+(4248, 107, 3, '1500000', 1),
+(4249, 107, 4, '1000000', 1),
+(4250, 107, 2, '1250000', 1),
+(4251, 107, 3, '1500000', 1),
+(4252, 107, 4, '1000000', 1),
+(4253, 107, 2, '1250000', 1),
+(4254, 107, 3, '1500000', 1),
+(4255, 107, 4, '1000000', 1),
+(4256, 107, 2, '1250000', 1),
+(4257, 107, 3, '1500000', 1),
+(4258, 107, 4, '1000000', 1),
+(4259, 107, 2, '1250000', 1),
+(4260, 107, 3, '1500000', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_baiviet_select_tinhnang`
+--
+
+CREATE TABLE `lh_baiviet_select_tinhnang` (
+  `id` int(11) NOT NULL,
+  `id_baiviet` int(11) NOT NULL DEFAULT '0',
+  `id_tinhnang` int(11) NOT NULL DEFAULT '0',
+  `id_val` varchar(255) DEFAULT NULL,
+  `id_tinhnang_2` int(11) NOT NULL DEFAULT '0',
+  `gia` int(11) NOT NULL DEFAULT '0',
+  `mota_vi` varchar(255) DEFAULT NULL,
+  `mota_en` varchar(255) DEFAULT NULL,
+  `loaihienthi` tinyint(4) NOT NULL DEFAULT '0',
+  `duongdantin` varchar(255) DEFAULT NULL,
+  `icon` varchar(255) DEFAULT NULL,
+  `showhi` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_baiviet_thuoctinh`
+--
+
+CREATE TABLE `lh_baiviet_thuoctinh` (
+  `id` bigint(20) NOT NULL,
+  `id_sp` int(11) NOT NULL DEFAULT '0',
+  `phien_ban` mediumtext,
+  `gia` int(11) NOT NULL DEFAULT '0',
+  `catasort` int(11) NOT NULL DEFAULT '0',
+  `showhi` tinyint(1) NOT NULL DEFAULT '1',
+  `key_update` varchar(255) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_baiviet_tinhnang`
+--
+
+CREATE TABLE `lh_baiviet_tinhnang` (
+  `id` int(11) NOT NULL,
+  `id_kietxuat` int(11) NOT NULL DEFAULT '0',
+  `id_parent` int(11) NOT NULL DEFAULT '0',
+  `tenbaiviet_vi` varchar(255) DEFAULT NULL,
+  `tenbaiviet_en` varchar(255) DEFAULT NULL,
+  `tenbaiviet_cn` varchar(255) DEFAULT NULL,
+  `tenbaiviet_jp` varchar(255) DEFAULT NULL,
+  `catasort` int(11) NOT NULL DEFAULT '0',
+  `loai_hienthi` tinyint(4) NOT NULL DEFAULT '0',
+  `ma_mau` varchar(255) DEFAULT NULL,
+  `showhi` tinyint(4) NOT NULL DEFAULT '1',
+  `step` int(11) NOT NULL DEFAULT '0',
+  `val_min` int(11) NOT NULL DEFAULT '0',
+  `val_max` int(11) NOT NULL DEFAULT '0',
+  `tieu_bieu` tinyint(4) NOT NULL DEFAULT '0',
+  `noi_bat` tinyint(4) NOT NULL DEFAULT '0',
+  `tim_kiem` tinyint(4) NOT NULL DEFAULT '0',
+  `only_timkiem` tinyint(4) NOT NULL DEFAULT '0',
+  `duongdantin` varchar(255) DEFAULT NULL,
+  `icon` varchar(255) DEFAULT NULL,
+  `opt` tinyint(4) NOT NULL DEFAULT '0',
+  `opt1` tinyint(4) NOT NULL DEFAULT '0',
+  `opt2` tinyint(4) NOT NULL DEFAULT '0',
+  `khong_xoa` tinyint(4) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_banner`
+--
+
+CREATE TABLE `lh_banner` (
+  `id` int(12) NOT NULL,
+  `id_danhmuc` int(11) NOT NULL DEFAULT '0',
+  `tenbaiviet_vi` varchar(255) DEFAULT NULL,
+  `tenbaiviet_en` varchar(255) DEFAULT NULL,
+  `tenbaiviet_cn` varchar(255) DEFAULT NULL,
+  `mota_vi` varchar(255) DEFAULT NULL,
+  `mota_en` varchar(255) DEFAULT NULL,
+  `mota_cn` mediumtext,
+  `noidung_vi` mediumtext,
+  `noidung_en` mediumtext,
+  `noidung_cn` mediumtext,
+  `id_parent` int(11) DEFAULT NULL,
+  `id_kietxuat` int(11) NOT NULL DEFAULT '0',
+  `seo_name` varchar(255) DEFAULT NULL,
+  `catasort` int(20) DEFAULT '0',
+  `icon` varchar(200) DEFAULT NULL,
+  `video` varchar(255) DEFAULT NULL,
+  `check_video` tinyint(1) NOT NULL DEFAULT '0',
+  `ngaydang` int(11) NOT NULL DEFAULT '0',
+  `showhi` tinyint(2) NOT NULL DEFAULT '1',
+  `duongdantin` varchar(200) DEFAULT NULL,
+  `p1` varchar(255) DEFAULT NULL,
+  `p2` varchar(255) DEFAULT NULL,
+  `blank` varchar(255) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COMMENT='Bang chua catalag News' ROW_FORMAT=DYNAMIC;
+
+--
+-- Đang đổ dữ liệu cho bảng `lh_banner`
+--
+
+INSERT INTO `lh_banner` (`id`, `id_danhmuc`, `tenbaiviet_vi`, `tenbaiviet_en`, `tenbaiviet_cn`, `mota_vi`, `mota_en`, `mota_cn`, `noidung_vi`, `noidung_en`, `noidung_cn`, `id_parent`, `id_kietxuat`, `seo_name`, `catasort`, `icon`, `video`, `check_video`, `ngaydang`, `showhi`, `duongdantin`, `p1`, `p2`, `blank`) VALUES
+(28, 0, 'Nhân sự', 'Personnel', '', '7000', '', '', '<p>Làm việc tại 4 quốc gia</p>', '', '', 41, 0, '', 2, NULL, NULL, 0, 1739267138, 1, 'datafiles', '', '', ''),
+(29, 0, 'Tỷ đồng', '', '', '9000', '', '', '<p>Nộp ngân sách Nhà nước năm 2024</p>', '', '', 41, 0, '', 1, NULL, NULL, 0, 1739267158, 1, 'datafiles', '', '', ''),
+(20, 0, 'Logo đối tác', '', '', '', '', '', '', '', '', 29, 0, 'https://google.com', 13, '1686709689_doi-tac-4.jpg', NULL, 0, 1686709758, 1, 'datafiles', '', '', ''),
+(6, 0, 'Logo đối tác', 'Partner logo', '', '', '', '', '', '', '', 29, 0, 'logo-doi-tac', 12, '1623990944_1.png', NULL, 0, 1623990949, 0, 'datafiles', '', '', ''),
+(7, 0, 'Logo đối tác', 'Partner logo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 29, 0, 'logo-doi-tac', 11, '1623990966_2.png', NULL, 0, 1623990949, 1, 'datafiles', NULL, NULL, NULL),
+(8, 0, 'Logo đối tác', 'Partner logo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 29, 0, 'logo-doi-tac', 10, '1623990966_3.png', NULL, 0, 1623990949, 1, 'datafiles', NULL, NULL, NULL),
+(9, 0, 'Logo đối tác', 'Partner logo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 29, 0, 'logo-doi-tac', 9, '1623990966_4.png', NULL, 0, 1623990949, 1, 'datafiles', NULL, NULL, NULL),
+(10, 0, 'Logo đối tác', 'Partner logo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 29, 0, 'logo-doi-tac', 8, '1623990966_5.png', NULL, 0, 1623990949, 1, 'datafiles', NULL, NULL, NULL),
+(11, 0, 'Logo đối tác', 'Partner logo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 29, 0, 'logo-doi-tac', 7, '1623990966_6.png', NULL, 0, 1623990949, 1, 'datafiles', NULL, NULL, NULL),
+(12, 0, 'Logo đối tác', 'Partner logo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 29, 0, 'logo-doi-tac', 6, '1623990966_7.png', NULL, 0, 1623990949, 1, 'datafiles', NULL, NULL, NULL),
+(13, 0, 'Logo đối tác', 'Partner logo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 29, 0, 'logo-doi-tac', 5, '1623990966_8.png', NULL, 0, 1623990949, 1, 'datafiles', NULL, NULL, NULL),
+(14, 0, 'Logo đối tác', 'Partner logo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 29, 0, 'logo-doi-tac', 4, '1623990966_9.png', NULL, 0, 1623990949, 1, 'datafiles', NULL, NULL, NULL),
+(15, 0, 'Logo đối tác', 'Partner logo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 29, 0, 'logo-doi-tac', 3, '1623990966_10.png', NULL, 0, 1623990949, 1, 'datafiles', NULL, NULL, NULL),
+(16, 0, 'Logo đối tác', 'Partner logo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 29, 0, 'logo-doi-tac', 2, '1623990966_11.png', NULL, 0, 1623990949, 1, 'datafiles', NULL, NULL, NULL),
+(17, 0, 'Logo đối tác', 'Partner logo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 29, 0, 'logo-doi-tac', 1, '1623990966_12.png', NULL, 0, 1623990949, 1, 'datafiles', NULL, NULL, NULL),
+(26, 0, 'Năm', 'Year', '', '23', '', '', '<p>H&igrave;nh th&agrave;nh v&agrave; ph&aacute;t triển</p>', '', '', 41, 0, '', 4, NULL, NULL, 0, 1739531984, 1, 'datafiles', '', '', ''),
+(27, 0, 'Lĩnh vực', 'Field', '', '3', '', '', '<p>Sản xuất và kinh doanh</p>', '', '', 41, 0, '', 3, NULL, NULL, 0, 1739267126, 1, 'datafiles', '', '', ''),
+(21, 0, 'banner 1', '', '', '', '', '', '', '', '', 16, 0, 'thu-vien-anh', 5, '1738812551_banner-1.jpg', NULL, 0, 1738826393, 1, 'datafiles', '', '', ''),
+(22, 0, 'banner 2', '', '', '', '', '', '', '', '', 16, 0, 'thu-vien-anh', 4, '1738812649_banner-2.jpg', NULL, 0, 1738826417, 1, 'datafiles', '', '', ''),
+(23, 0, 'banner 3', '', '', '', '', '', '', '', '', 16, 0, 'thu-vien-anh', 3, '1738812682_banner-3.jpg', NULL, 0, 1738826425, 1, 'datafiles', '', '', ''),
+(24, 0, 'banner 4', '', '', '', '', '', '', '', '', 16, 0, 'thu-vien-anh', 2, '1738812717_banner-4.jpg', NULL, 0, 1738826432, 1, 'datafiles', '', '', ''),
+(25, 0, 'banner 5', '', '', '', '', '', '', '', '', 16, 0, 'thu-vien-anh', 1, '1738812746_banner-5.jpg', NULL, 0, 1738826440, 1, 'datafiles', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_banner_danhmuc`
+--
+
+CREATE TABLE `lh_banner_danhmuc` (
+  `id` int(11) NOT NULL,
+  `tenbaiviet_vi` varchar(255) DEFAULT NULL,
+  `tenbaiviet_en` varchar(255) DEFAULT NULL,
+  `catasort` int(11) NOT NULL DEFAULT '0',
+  `showhi` tinyint(2) NOT NULL DEFAULT '1',
+  `ngaydang` int(15) NOT NULL DEFAULT '0',
+  `cao` varchar(255) DEFAULT NULL,
+  `rong` varchar(255) DEFAULT NULL,
+  `is_mota` tinyint(4) NOT NULL DEFAULT '0',
+  `is_noidung` tinyint(4) NOT NULL DEFAULT '0',
+  `is_lienket` tinyint(4) NOT NULL DEFAULT '0',
+  `is_video` tinyint(4) NOT NULL DEFAULT '0',
+  `is_hinhanh` tinyint(4) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+
+--
+-- Đang đổ dữ liệu cho bảng `lh_banner_danhmuc`
+--
+
+INSERT INTO `lh_banner_danhmuc` (`id`, `tenbaiviet_vi`, `tenbaiviet_en`, `catasort`, `showhi`, `ngaydang`, `cao`, `rong`, `is_mota`, `is_noidung`, `is_lienket`, `is_video`, `is_hinhanh`) VALUES
+(16, 'Slider trang chủ', '', 1, 1, 1597205274, '500', '1600', 1, 0, 0, 0, 1),
+(26, 'Hình ảnh bên phải', '', 17, 0, 1611048858, 'auto', '280', 0, 0, 1, 0, 1),
+(27, 'Hệ thống chi nhánh Footer', '', 18, 0, 1611127917, '200', '200', 0, 1, 1, 0, 0),
+(25, 'Ảnh năng lực trang chủ', '', 200, 0, 1619166283, 'auto45', '45', 1, 0, 0, 0, 1),
+(28, 'Background form đặt lịch hẹn', '', 19, 0, 1611128971, 'auto', 'auto', 0, 0, 0, 0, 1),
+(29, 'Logo đối tác', '', 21, 1, 1623990912, '60', '120', 0, 0, 1, 0, 1),
+(30, 'Bản đồ', '', 23, 0, 1600856462, 'auto', 'auto', 1, 0, 0, 0, 0),
+(32, 'Slider Thư Ngỏ', '', 14, 0, 1611106521, '350', '350', 0, 1, 0, 0, 1),
+(31, 'Sản phẩm tìm kiếm', '', 20, 0, 1595818964, '375', '573', 0, 0, 0, 0, 0),
+(33, 'Danh mục sản phẩm', '', 24, 0, 1594104225, '540', '390', 0, 0, 1, 0, 0),
+(34, 'Ảnh danh mục sản phẩm', '', 25, 0, 1577419053, '75', '1200', 0, 0, 0, 0, 0),
+(36, 'Liên kết khu vực', '', 26, 0, 1591687384, '100', '380', 0, 0, 1, 0, 0),
+(37, 'Khu vực', '', 27, 0, 1611127889, 'auto', 'auto', 0, 0, 0, 0, 0),
+(38, 'Ảnh menu danh muc', '', 28, 0, 1572593344, '320', '450', 0, 0, 0, 0, 0),
+(39, 'Banner video giới thiệu', NULL, 201, 0, 1619152482, '500', '1366', 1, 0, 1, 0, 1),
+(40, 'Đánh giá tracomeco', NULL, 202, 1, 1739256170, '', '', 1, 0, 0, 0, 0),
+(41, 'Thông số giới thiệu  tracomeco', NULL, 203, 1, 1739266464, '', '', 1, 0, 0, 0, 0),
+(42, 'Ảnh văn hóa công ty', NULL, 204, 1, 1739434022, '', '', 0, 0, 0, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_binhluan`
+--
+
+CREATE TABLE `lh_binhluan` (
+  `id` int(11) NOT NULL,
+  `id_sp` int(11) NOT NULL DEFAULT '0',
+  `id_parent` int(11) NOT NULL DEFAULT '0',
+  `tenbaiviet_vi` varchar(255) DEFAULT NULL,
+  `noidung_vi` mediumtext,
+  `ngay_dang` int(11) NOT NULL DEFAULT '0',
+  `luot_thich` int(11) NOT NULL DEFAULT '0',
+  `ip_gui` varchar(255) DEFAULT NULL,
+  `showhi` tinyint(1) NOT NULL DEFAULT '1',
+  `is_nuti` tinyint(1) NOT NULL DEFAULT '0',
+  `loai_binhluan` tinyint(4) NOT NULL DEFAULT '0',
+  `uid` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_clanguage`
+--
+
+CREATE TABLE `lh_clanguage` (
+  `id` int(11) NOT NULL,
+  `code_lang` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `lang_vi` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `lang_en` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `lang_cn` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `nhom` int(11) NOT NULL DEFAULT '0',
+  `showhi` tinyint(1) NOT NULL DEFAULT '1',
+  `lang_jp` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `lh_clanguage`
+--
+
+INSERT INTO `lh_clanguage` (`id`, `code_lang`, `lang_vi`, `lang_en`, `lang_cn`, `nhom`, `showhi`, `lang_jp`) VALUES
+(1, 'trang_chu', 'Trang chủ', 'Home', '', 0, 1, ''),
+(58, 'lien_he', 'Liên hệ', 'Contact', '联系我们', 0, 1, 'お問い合わせ'),
+(19, 'date', 'Ngày', 'Day', '天', 0, 1, '日'),
+(20, 'thu_hai', 'Thứ hai', 'Monday', '第二', 0, 1, '二番目'),
+(21, 'thu_ba', 'Thứ ba', 'Tuesday', '第三', 0, 1, '三番目'),
+(22, 'thu_tu', 'Thứ tư', 'Wednesday', '第四', 0, 1, '四番目'),
+(23, 'thu_nam', 'Thứ năm', 'Thursday', '星期四', 0, 1, '五番目'),
+(24, 'thu_sau', 'Thứ sáu', 'Friday', '星期五', 0, 1, '金曜日'),
+(25, 'thu_bay', 'Thứ bảy', 'Saturday', '第七', 0, 1, '土曜日'),
+(26, 'chu_nhat', 'Chủ nhật', 'Sunday', '星期天', 0, 1, '日曜日'),
+(28, 'thong_tin_bat_buoc', '(*) Thông tin bắt buộc', '(*) Required Information', '*）必填信息', 0, 1, '（*）必要な情報'),
+(29, 'ho_va_ten', 'Họ & tên', 'Full name', '名字和姓氏', 0, 1, '名前と姓'),
+(30, 'so_dien_thoai', 'Số điện thoại', 'Phone number', '电话号码', 0, 1, '電話番号'),
+(31, 'email', 'Email', 'Email', '电子邮件', 0, 1, 'メール'),
+(32, 'dia_chi', 'Địa chỉ', 'Address', '', 0, 1, ''),
+(33, 'tieu_de', 'Tiêu đề', 'Title', '标题', 0, 1, 'タイトル'),
+(34, 'noi_dung', 'DESCRIPTION', 'DESCRIPTION', '', 0, 1, ''),
+(35, 'ma_bao_ve', 'Mã bảo vệ', 'Security Code', '安全码', 0, 1, 'セキュリティコード'),
+(36, 'gui', 'Gửi', 'Submit', '', 0, 1, ''),
+(37, 'lam_lai', 'Làm lại', 'Rework, do it again', '翻拍', 0, 1, 'やり直し'),
+(38, 'nhap_so_dien_thoai', 'Vui lòng nhập số điện thoại!', 'Please enter the phone number!', '请输入电话号码！', 0, 1, '電話番号を入力してください！'),
+(39, 'nhap_ho_ten', 'Vui lòng nhập họ tên!', 'Please enter your full name!', '请输入名字！', 0, 1, '名前を入力してください！'),
+(40, 'dia_chi_email_khong_hop_le', 'Địa chỉ Email không hợp lệ!', 'Email address is not valid!', '电子邮件地址无效！', 0, 1, '無効なメールアドレス！'),
+(41, 'nhap_tieu_de', 'Vui lòng nhập tiêu đề!', 'Please enter a title!', '请输入标题！', 0, 1, 'タイトルを入力してください！'),
+(412, 'vui_long_nhap_ma_bao_ve', 'Vui lòng nhập mã bảo vệ!', 'Please enter the security code!', '请输入安全码！', 0, 1, 'セキュリティコードを入力してください！'),
+(43, 'yeu_cau_cua_ban_da_duoc_gui', 'Yêu cầu của bạn đã được gửi!', 'Your request has been sent!', '您的请求已发送！', 0, 1, 'あなたのリクエストは送信されました！'),
+(44, 've_trang_chu', 'Quay về trang chủ', 'Return to the homepage', '返回主页', 0, 1, 'ホームページに戻る'),
+(62, 'gia', 'Giá', 'Price', '价格:', 3, 0, ''),
+(67, 've_trang_truoc', 'về trang trước', 'Go to the previous page', '关于上一页', 0, 1, '前のページについて'),
+(74, 'xem_chi_tiet', 'Xem chi tiết', 'More info', '', 0, 1, ''),
+(78, 'dang_ky_nhan_ban_tin', 'Nhận chương trình và sự kiện', 'Get shows and events', '', 4, 1, ''),
+(79, 'test_dang_ky_nhan_ban_tin', 'VUI LÒNG ĐỂ LẠI THÔNG TIN ĐỂ CHÚNG TÔI CÓ THỂ TƯ VẤN RÕ HƠN !', 'PLEASE LEAVE THE INFORMATION so we can consult more clearly!', '', 4, 1, ''),
+(80, 'nhap_email_cua_ban', 'Nhập địa chỉ email...', 'Enter your email address...', '输入邮箱地址......', 4, 1, 'メールアドレスを入力してください...'),
+(81, 'dang_ky', 'Đăng ký', 'Registration', '', 1, 0, ''),
+(82, 'them_dia_chi_email_thanh_cong', 'Thêm địa chỉ Email thành công!', 'Add Successful Email Address!', '添加成功电邮地址！', 4, 1, '成功したメールアドレスを追加してください！'),
+(83, 'dia_chi_email_da_ton_tai', 'Địa chỉ Email đã tồn tại!', 'Email Address already exists!', 'メールアドレスは既に存在します！', 4, 1, '电子邮件地址已存在！'),
+(85, 'nhap_dia_chi', 'Vui lòng nhập địa chỉ của bạn!', 'Please enter your address!', '请输入你的地址！', 0, 1, ''),
+(86, 'nhap_noi_dung', 'Vui lòng nhập nội dung!', 'Please enter content!', '请输入内容！', 0, 1, '内容を入力してください！'),
+(89, 'luot_xem', 'lượt xem', 'view', '', 3, 0, ''),
+(146, 'dat_hang', 'Đặt hàng ngay', 'Order now', '', 2, 0, ''),
+(118, 'email_da_duoc_dang_ky', 'Rất tiết! Email này đã được đăng ký!', 'Sorry! This email is already registered!', '', 4, 1, ''),
+(1311, 'kiem_tra', 'Kiểm tra', 'Check', '', 0, 1, ''),
+(277, 'so_dien_thoai_khong_hop_le', 'Số điện thoại không hợp lệ!', 'Invalid phone number!', '无效的电话号码！', 0, 1, '電話番号が無効です！'),
+(183, 'alert_dat_hang', 'Dữ liệu không hợp lệ!', 'Invalid data!', '无效的数据！', 2, 0, ''),
+(180, 'so_luong', 'Số lượng', 'Amount', '数量', 2, 0, ''),
+(544, 'nhap_tu_khoa_tim_kiem', 'Nhập từ khóa tìm kiếm...', 'Enter search keywords...', '', 0, 1, ''),
+(187, 'cart_hinh', 'Hình ảnh', 'Image', '图片', 2, 0, ''),
+(188, 'cart_ten_sp', 'Tên sản phẩm', 'Product\'s name', '', 2, 0, ''),
+(189, 'cart_ma_sp', 'Mã sản phẩm', 'Product code', '', 2, 1, ''),
+(191, 'cart_dongia', 'Đơn giá (VNĐ)', 'Unit Price VND)', '单价（VND）', 2, 0, ''),
+(192, 'cart_thanhtien', 'Thành tiền (VNĐ)', 'Money (VND)', '金额（VND）', 2, 0, ''),
+(193, 'cart_thaotac', 'Thao tác', 'Manipulation', '操作', 2, 0, ''),
+(194, 'hien_chua_co_san_pham_nao_trong_gio_hang', 'Hiện chưa có sản phẩm nào trong giỏ hàng!', 'There are currently no products in the shopping cart!', '购物车中没有产品！', 2, 0, ''),
+(195, 'tiep_tuc_mua_hang', 'Tiếp tục mua hàng', 'Continue buying', '继续购物', 2, 0, ''),
+(196, 'gio_hang', 'Giỏ hàng', 'Cart', '购物车', 2, 0, ''),
+(197, 'cart_xoa', 'Xóa', 'Erase', '抹去', 2, 0, ''),
+(198, 'ban_that_su_muon_xoa', 'Bạn thật sự muốn xóa ?', 'Do you really want to delete?', '你真的想删除吗？', 2, 0, ''),
+(199, 'cart_tong_tien', 'Tổng tiền', 'Total money', '总金额', 2, 0, ''),
+(200, 'gui_don_hang', 'Gửi đơn hàng', 'Submit order', '提交订单', 2, 0, ''),
+(201, 'title_dat_hang', 'Đặt hàng', 'Order', '顺序', 2, 0, ''),
+(202, 'chinh_sua_don_hang', 'Chỉnh sửa đơn hàng', 'Edit orders', '编辑订单', 2, 0, ''),
+(203, 'thong_tin_nguoi_mua_hang', 'THÔNG TIN NGƯỜI MUA HÀNG', 'BUYER INFORMATION', '买方信息', 2, 0, ''),
+(204, 'cart_dia_chi', 'Địa chỉ giao hàng (*)', 'Delivery address (*)', '送货地址（*）', 2, 0, ''),
+(205, 'phuong_thuc_thanh_toan', 'Phương thức thanh toán', 'Payment methods', '付款方式', 2, 0, ''),
+(206, 'thanh_toan_tien_mat', 'Thanh toán khi nhận hàng', 'Payment on delivery', '现金付款（COD）', 2, 0, ''),
+(207, 'thanh_toan_chuyen_khoan', 'Thanh toán qua chuyển khoản', 'Payment via bank transfer', '通过银行转帐付款', 2, 0, ''),
+(208, 'cart_tieu_de', 'Tiêu đề', 'Title', '', 2, 0, ''),
+(209, 'cart_nhap_dia_chi', 'Vui lòng nhập địa chỉ giao hàng!', 'Please enter the shipping address!', '', 2, 0, ''),
+(210, 'thong_tin_dat_hang', 'THÔNG TIN ĐẶT HÀNG', 'ORDER INFORMATION', '订单信息', 2, 0, ''),
+(211, 'don_hang_cua_ban_da_duoc_gui', 'Đơn hàng của bạn đã được gửi!', 'Your order has been sent!', '您的订单已发送！', 2, 0, ''),
+(214, 'ma_dh', 'Mã đơn hàng', 'Code orders', '订购代码', 2, 0, ''),
+(216, 'thong_tin_don_hang', 'Thông tin đơn hàng', 'Information line', '订单信息', 2, 0, ''),
+(217, 'ngay_dat', 'Ngày đặt', 'Date set', '设定日期', 2, 0, ''),
+(218, 'trang_thai', 'Trạng thái', 'Status', '状态', 2, 0, ''),
+(220, 'don_hang_moi', 'Đơn hàng mới', 'New orders', '新订单', 2, 0, '新しい注文'),
+(223, 'da_giao_hang', 'Đã giao hàng', 'Delivered', '', 2, 0, ''),
+(224, 'huy_don_hang', 'Hủy đơn hàng', 'Cancel order', '', 2, 0, ''),
+(227, 'dang_nhap', 'Đăng Nhập', 'Log in', '', 1, 0, ''),
+(228, 'tai_khoan', 'Tài khoản', 'Account', '', 1, 0, ''),
+(229, 'title_dang_nhap', 'Đăng Nhập', 'Login', '', 1, 0, ''),
+(230, 'login_email', 'Email', 'Email', '', 1, 0, ''),
+(231, 'login_pass', 'Mật khẩu', 'password', '', 1, 0, ''),
+(232, 'chua_co_tai_khoan', 'Bạn chưa có tài khoản?', 'Do not have an account?', '', 1, 0, ''),
+(233, 'quen_mat_khau', 'Quên mật khẩu', 'Forgot password', '', 1, 0, ''),
+(234, 'login_nhap_mat_khau', 'Vui lòng nhập mật khẩu!', 'Please enter a password!', '', 1, 0, ''),
+(235, 'email_pass_khong_khong_dung', 'Email hoặc mật khẩu không chính xác!', 'Email or password is incorrect!', '', 1, 0, ''),
+(236, 'title_dang_ky', 'Đăng ký thành viên', 'sign up', '', 1, 0, ''),
+(237, 'register_repass', 'Nhập lại mật khẩu', 'Enter the password', '', 1, 0, ''),
+(240, 'dieu_khoan_dk_thanh_vien', 'Đồng ý với các điều khoản của chúng tôi?', 'Agree to our terms?', '', 1, 0, ''),
+(241, 'da_co_tai_khoan', 'Bạn đã có tài khoản?', 'Do you already have an account?', '', 1, 0, ''),
+(242, 'mat_khau_phai_8_ky_tu_tro_len', 'Mật khẩu phải 8 ký tự trở lên!', 'Password must be 8 characters or more!', '', 1, 0, ''),
+(244, 'vui_long_nhap_lai_mat_khau', 'Vui lòng nhập lại mật khẩu!', 'Please re-enter the password!', '', 1, 0, ''),
+(245, 'nhap_lai_mat_khau_khong_chinh_xac', 'Nhập lại mật khẩu không chính xác!', 'Re-enter the password incorrectly!', '', 1, 0, ''),
+(246, 'dang_ky_tai_khoan_thanh_cong', 'Đăng ký tài khoản thành công!', 'Sign up for a successful account!', '', 1, 0, ''),
+(248, 'text_quen_pass', 'Vui lòng nhập email mà bạn đã dùng đăng ký tài khoản để được hướng dẫn thay đổi mật khẩu!', 'Please enter the email you used to register your account for instructions on changing your password!', '', 1, 0, ''),
+(249, 'alert_forget_pass_error', 'Rất tiếc. Email không tồn tại trong hệ thống!', 'Sorry. Email does not exist in the system!', '', 1, 0, ''),
+(250, 'alert_forget_pass', 'Yêu cầu của bạn đã được gửi đến email', 'Your request has been sent to the email', '', 1, 0, ''),
+(251, 'alert_forget_pass2', 'Vui lòng kiểm tra email để thiết lập mật khẩu mới!', 'Please check your email to set up a new password!', '', 1, 0, ''),
+(252, 'guide_change_pass', 'Hướng dẫn thay đổi mật khẩu', 'Instructions for changing passwords', '', 1, 0, ''),
+(253, 'thong_tin_tai_khoan', 'Thông Tin Tài Khoản', 'Account information', '', 1, 0, ''),
+(258, 'luu_thay_doi', 'Lưu thay đổi', 'Save changes', '', 1, 0, ''),
+(259, 'thay_doi_mat_khau', 'Thay đổi mật khẩu', 'Change the password', '', 1, 0, ''),
+(260, 'cap_nhat_tai_khoan_thanh_cong', 'Cập nhật tài khoản thành công!', 'Update your account successfully!', '', 1, 0, ''),
+(261, 'mat_khau_cu', 'Mật khẩu cũ', 'old password', '', 1, 0, ''),
+(262, 'mat_khau_moi', 'Mật khẩu mới', 'A new password', '', 1, 0, ''),
+(263, 'nhap_mat_khau_cu', 'Nhập mật khẩu cũ', 'Enter the old password', '', 1, 0, ''),
+(264, 'nhap_mat_khau_moi', 'Nhập mật khẩu mới', 'Enter your new password', '', 1, 0, ''),
+(265, 'nhap_lai_mat_khau_moi', 'Nhập lại mật khẩu mới', 'Enter a new password', '', 1, 0, ''),
+(266, 'vui_long_nhap_mat_khau_cu', 'Vui lòng nhập mật khẩu cũ!', 'Please enter the old password!', '', 1, 0, ''),
+(267, 'mat_khau_cu_khong_dung', 'Mật khẩu cũ không đúng!', 'Old password is not correct!', '', 1, 0, ''),
+(268, 'doi_mat_khau_thanh_cong', 'Đổi mật khẩu thành công!', 'Change password successfully!', '', 1, 0, ''),
+(644, 'lien_ket_khong_hop_le_hoac_da_su_dung', 'Liên kết không hợp lệ hoặc đã được sử dụng', 'Invalid or used link', '', 0, 1, ''),
+(272, 'doi_mat_khau_moi', 'Đổi mật khẩu mới', 'Change new password', '', 1, 0, ''),
+(553, 'san_pham_lien_quan', 'Sản phẩm liên quan', 'Related products', '', 3, 1, ''),
+(282, 'chon_mua', 'Chọn mua', 'Choose to buy', '', 2, 0, ''),
+(283, 'mua_hang', 'Mua ngay', 'Buy now', '', 2, 0, ''),
+(545, 'san_pham_noi_bac', 'SẢN PHẨM CỦA CHÚNG TÔI', 'OUR PRODUCTS', '', 0, 1, ''),
+(546, 'gia_lienhe', 'Liên hệ', 'Contact', '联系我们', 3, 0, 'お問い合わせ'),
+(549, 'xem_tat_ca', 'Xem tất cả', 'See all', '查看全部', 0, 1, 'すべて見る'),
+(416, 'nhap_dia_chi_email', 'Nhập địa chỉ email...', 'Enter your email address...', '输入电邮地址...', 0, 1, 'メールアドレスを入力してください...'),
+(557, 'cart_qty', 'Số lượng', 'Amount', '数', 2, 0, ''),
+(413, 'nhap_ma_bao_ve_chua_dung', 'Mã bảo vệ chưa đúng!', 'Security code is not correct!', '无效的保护码！', 0, 1, '保護コードが無効です！'),
+(414, 'thongtin_lienhe', 'Thông tin liên hệ', 'Contact information', '联系信息', 0, 1, '連絡先情報'),
+(558, 'cap_nhat_so_luong', 'Cập nhật số lượng', 'Update quantity', '更新号码', 2, 0, ''),
+(559, 'xem_them', 'Xem thêm', 'See more', '', 0, 1, ''),
+(398, 'loi_dang_ky', 'Lỗi đăng ký', 'Registration error', '', 1, 1, ''),
+(407, 'ban_quyen_name', '© Bản quyền thuộc Công Ty Cổ Phần Cơ Khí - Xây Dựng Giao Thông.', '© Copyright of Mechanical and Construction Joint Stock Company.', '', 0, 1, ''),
+(1522, 'customer_support', 'DỊCH VỤ KHÁCH HÀNG', 'CUSTOMER SERVICE', '', 0, 1, ''),
+(1378, 'danh_gia', 'Đánh giá', 'Evaluate', '', 0, 1, ''),
+(1291, 'tiep_theo', 'Tiếp theo', 'Next', '', 0, 1, ''),
+(1125, 'san_pham', 'Sản phẩm', 'Products', '', 0, 1, ''),
+(433, 'khong_tim_thay_du_lieu_nao', 'Không tìm thấy dữ liệu nào!', 'No data found!', '找不到数据！', 0, 1, 'データが見つかりません！'),
+(554, 'chon_mua', 'Chọn mua', 'Choose buy', '选择购买', 2, 0, ''),
+(456, 'gui_di', 'Gửi đi', 'Send', '发送它', 0, 1, 'それを送る'),
+(552, 'chi_tiet_san_pham', 'Chi tiết sản phẩm', 'Product details', '', 3, 0, ''),
+(523, 'dvt', 'đ', 'đ', '', 3, 0, ''),
+(574, 'bai_viet_lien_quan', 'Bài viết liên quan', 'Related posts', '相关文章', 0, 1, '関連記事'),
+(677, 'gio_truoc', 'giờ trước', 'hours ago', '', 0, 1, ''),
+(676, 'phut_truoc', 'phút trước', 'minute ago', '', 0, 1, ''),
+(675, 'giay_truoc', 'giây trước', 'seconds ago', '', 0, 1, ''),
+(674, 'vua_xong', 'Vừa xong', 'Just finished', '', 0, 1, ''),
+(597, 'nhap_ma_bao_ve_chua_dung', 'Nhập mã bảo vệ chưa đúng!', 'Enter the security code is not correct!', '输入安全代码不正确！', 0, 1, 'セキュリティコードを間違って入力してください！'),
+(607, 'ngay_dang', 'Ngày đăng', 'Date Submitted', '发布日期', 0, 1, '投稿日'),
+(608, 'cap_nhat', 'Cập nhật', 'Update', '更新', 0, 1, '更新'),
+(611, 'gia_ban', 'Giá', 'Price', '', 3, 0, ''),
+(656, 'mo_ta_chi_tiet', 'Mô tả chi tiết', 'Detailed description', '详细说明', 0, 1, '詳細な説明'),
+(619, 'chua_nhap_dia_chi_email', 'Chưa nhập địa chỉ email', 'Email address not entered', '没有输入电子邮件地址', 0, 1, 'メールアドレスを入力しなかった'),
+(672, 'noi_dung_lien_he', 'Nội dung liên hệ', 'Contact content', '联系内容', 0, 1, '連絡先のコンテンツ'),
+(627, 'hotline', 'Hotline', 'Hotline', '', 0, 1, ''),
+(767, 'san_pham_khuyen_mai', 'Giải thưởng cao', 'High prize', '', 0, 1, ''),
+(768, 'them_vao_gio_hang', 'Thêm vào giỏ hàng', 'Add Cart', '', 2, 0, ''),
+(640, 'loi_xac_thuc_thu_lai_sau', 'Lỗi xác thực, vui lòng tại lại trang và thử lại!', 'Authentication error, please stay on the page and try again!', '認証エラーです、ページに戻ってもう一度お試しください！', 0, 1, '验证错误，请返回页面再试一次！'),
+(642, 'thong_tin_ca_nhan', 'Thông tin cá nhân', 'Personal information', '', 1, 0, ''),
+(643, 'thoat', 'Thoát', 'Exit', '', 1, 0, ''),
+(648, 'san_pham_moi', 'Sản phẩm phổ biến', 'Popular products', '', 0, 1, ''),
+(649, 'san_pham_ban_chay', 'Sản phẩm bán chạy', 'Best - selling product', '', 0, 1, ''),
+(683, 'ban_da_co_tai_khoan', 'Bạn đã có tài khoản? Vui lòng đăng nhập để sử dụng các tính năng của website!', 'Do you already have an account? Please login to use the website features!', '', 1, 0, ''),
+(684, 'lich_su_mua_hang', 'Lịch sử mua hàng', 'Purchase history', '', 2, 0, ''),
+(685, 'doi_mat_khau', 'Đổi mật khẩu', 'Change Password', '', 1, 0, ''),
+(704, 'thong_tin_nguoi_nhan_hang', 'Thông tin người nhận hàng', 'Consignee information', '', 2, 0, ''),
+(705, 'gui_den_nguoi_nhan_khac', 'Gửi đến người nhận khác', 'Send to other recipients', '', 2, 0, ''),
+(706, 'ma_khuyen_mai', 'Mã khuyến mãi', 'Promotion code', '', 2, 0, ''),
+(707, 'phuong_thuc_van_chuyen', 'Phương thức vận chuyển', 'Shipping method', '', 2, 0, ''),
+(709, 'ap_dung', 'Áp dụng', 'Apply', '', 2, 0, ''),
+(1146, 'y_kien_khach_hang', 'Ý kiến khách hàng', 'Customer reviews', '', 0, 1, ''),
+(1145, 'san_pham_cua_chung_toi', 'Sản phẩm chúng tôi', 'Our products', '', 0, 1, ''),
+(715, 'chon', 'Chọn', 'To choose', '选择', 2, 0, '選択'),
+(718, 'phi_van_chuyen', 'Phí vận chuyển', 'Transport fee', '', 5, 1, ''),
+(720, 'so_lan_su_dung_ma_giam_gia_da_het', 'Số lần sử dụng mã khuyến mãi đã hết!', 'The number of times the promotional code has been exhausted!', '', 5, 1, ''),
+(721, 'thoi_gian_ap_dung_ma_khuyen_mai_khong_hop_le', 'Thời gian áp dụng mã khuyến mãi không hợp lệ!', 'The time to apply promotion code is not valid!', '', 5, 1, ''),
+(722, 'ma_giam_gia_khong_hop_le', 'Mã khuyến mãi không hợp lệ!', 'Invalid promotional code!', '', 5, 1, ''),
+(723, 'khong_du_dieu_kien_ap_dung_khuyen_mai', 'Đơn hàng không đủ điều kiện áp dụng khuyến mãi!', 'Orders are not eligible for promotion!', '', 5, 1, ''),
+(724, 'tam_tinh', 'Tạm tính', 'Provisional', '', 2, 0, ''),
+(725, 'phi_van_chuyen_cod', 'Phí vận chuyển', 'Transport fee', '', 5, 1, ''),
+(726, 'khuyen_mai', 'Khuyến mãi', 'Promotion', '', 2, 0, ''),
+(727, 'thong_tin_thanh_toan', 'Thông tin thanh toán', 'Billing Information', '', 2, 0, ''),
+(728, 'stt', 'STT', 'No.', '', 0, 1, ''),
+(729, 'ngay_dat', 'Ngày đặt', 'Date set', '设定日期', 2, 0, '日付の設定'),
+(730, 'don_hang_dang_giao', 'Đơn hàng đang được giao', 'The order is being delivered', '', 2, 0, ''),
+(731, 'don_hang_da_hoan_thanh', 'Đơn hàng đã hoàn thành', 'Order completed', '', 2, 0, ''),
+(732, 'don_hang_da_bi_huy', 'Đơn hàng đã bị hủy', 'Order canceled', '', 2, 0, ''),
+(734, 'chi_tiet_don_hang', 'Chi tiết đơn hàng', 'Cart detail', '', 2, 0, ''),
+(735, 'ma_dh_khong_ton_tai', 'Mã đơn hàng không tồn tại trong hệ thống.', 'Unexpected item code in system.', '', 2, 0, ''),
+(736, 'nhap_ma_don_hang', 'Nhập mã đơn hàng', 'Enter the order code', '', 2, 0, ''),
+(737, 'hoac_so_dien_thoai_va_mail_dat_hang', 'Hoặc số điện thoại và email đặt hàng', 'Or phone number and email order', '', 0, 1, ''),
+(738, 'so_dien_thoai_dat_hang', 'Số điện thoại đặt hàng', 'Phone number ordered', '', 0, 1, ''),
+(739, 'email_dat_hang', 'Email đặt hàng', 'Email order', '', 0, 1, ''),
+(740, 'khong_tim_thay_don_hang_nao', 'Không tìm thấy đơn hàng nào !', 'No orders found!', '', 0, 1, ''),
+(741, 'don_hang_chua_duoc_thanh_toan', 'Đơn hàng chưa được thanh toán', 'The order has not yet been paid', '', 0, 1, ''),
+(742, 'don_hang_da_thanh_toan', 'Đơn hàng đã thanh toán', 'Order has been paid', '', 0, 1, ''),
+(743, 'thanh_toan_paypal_khong_thanh_cong', 'Thanh toán Paypal không thành công!', 'Payment Paypal failed!', '', 0, 1, ''),
+(744, 'thanh_toan_paypal_thanh_cong', 'Đơn hàng đã được thanh toán!', 'Order has been paid!', '', 0, 1, ''),
+(745, 'dien_thoai', 'Điện thoại', 'Phone', '电话', 0, 1, '電話番号'),
+(753, 'dang_ky_ngay', 'Đăng ký ngay', 'Sign up now', '', 1, 0, ''),
+(801, 'lien_he_ngay', 'Liên hệ ngay', 'Contact now', '现在联系', 0, 1, ''),
+(804, 'tat_ca_danh_muc', 'Tất cả danh mục', 'All of the files', '', 0, 1, ''),
+(811, 'san_pham_goi_y', 'Sản phẩm gợi ý', 'Suggested products', '', 0, 1, ''),
+(812, 'cam_on_danh_gia', 'Cảm ơn bạn đã đánh giá!', 'Thank you for rating!', '', 0, 1, ''),
+(816, 'danh_gia_ve_san_pham', 'Đánh giá của bạn về sản phẩm này', 'Your rating of this product', '', 0, 1, ''),
+(828, 'gui_yeu_cau', 'Gửi yêu cầu', 'Send require', '', 0, 1, ''),
+(832, 'kiem_tra_don_hang', 'Kiểm tra đơn hàng', 'Check the order', '', 0, 1, ''),
+(872, 'nhap_so_cmnd', 'Nhập số CMND', 'Enter the ID number', '', 1, 0, ''),
+(873, 'so_cmnd', 'Số CMND', 'ID number', '', 1, 0, ''),
+(886, 'thanh_tien', 'Thành tiền', 'into money', '', 2, 0, ''),
+(887, 'thanh_toan', 'Thanh toán', 'Pay', '', 2, 0, ''),
+(911, 'san_pham_noi_bat', 'Sản phẩm nổi bật', 'Featured Products', '', 0, 1, ''),
+(1027, 'tin_tuc_su_kien', 'Tin tức & Sự kiện', 'News & Events', '', 0, 1, ''),
+(1035, 'dang_online', 'Người online', 'People online', '', 0, 1, ''),
+(1036, 'tong_view', 'Tổng lượt truy cập', 'Total visits', '', 0, 1, ''),
+(1037, 'thong_ke_truy_cap', 'Thống kê truy cập', 'Access Statistical', '', 0, 1, ''),
+(1047, 'tim_kiem', 'Tìm kiếm', 'Search', '', 0, 1, ''),
+(1058, 'form_lien_he', 'Nhập thông tin liên hệ', 'Enter contact information', '', 0, 1, ''),
+(1081, 'danh_muc_san_pham', 'Danh mục sản phẩm', 'Product portfolio', '', 0, 1, ''),
+(1115, 'slugan_1', 'CÔNG TY ĐIỀU HÀNH DẦU KHÍ BIỂN ĐÔNG', 'DONG SEA OIL AND GAS MANAGEMENT COMPANY', '', 0, 1, ''),
+(1116, 'slugan_2', 'WTI Crude Oil 40.97 +1.98% Brent Crude Oil 43.30 +2.49%', 'WTI Crude Oil 40.97 +1.98% Brent Crude Oil 43.30 +2.49%', '', 0, 1, ''),
+(1117, 'doi_tac_khach_hang', 'Đối tác - khách hàng', 'Partners customers', '', 0, 1, ''),
+(1282, 'tat_ca', 'Tất cả', 'All', '', 0, 1, ''),
+(1118, 'ho_tro_247', 'Hỗ trợ 24/7', '24/7 support', '', 0, 1, ''),
+(1119, 'du_an_noi_bat', 'Dự án nổi bật', 'Outstanding project', '', 0, 1, ''),
+(1121, 'fanpage', '', '', '', 0, 1, ''),
+(1323, 'danh_muc_san_pham_mo_ta', 'Giấy in ấn & Bao bì, giấy đặc biệt, sản phẩm xanh (FSC), giấy an toàn thực phẩm', 'Printing & Packaging Paper, Special Paper, Green Products (FSC), Food Safety Paper', '', 0, 1, ''),
+(1123, 'tin_tuc_noi_bat', 'Tin tức Bài viết', 'News Articles', '', 0, 1, ''),
+(1124, 'tin_doc_nhieu', 'Tin đọc nhiều', 'Read a lot', '', 0, 1, ''),
+(1128, 'tin_nong', 'Bài viết mới', 'New Posts', '', 0, 1, ''),
+(1129, 'danh_gia', 'Đánh giá', 'Evaluate', '', 0, 1, ''),
+(1130, 'gia_tien', 'Giá tiền', 'Price', '', 0, 1, ''),
+(1131, 'binh_luan_danh_gia', 'Bình luận đánh giá', 'Review comment', '', 0, 1, ''),
+(1132, 'dang_binh_luan', 'Gửi đánh giá', 'Submit review', '', 6, 0, ''),
+(1133, 'viet_danh_gia', 'Viết đánh giá', 'Write a review', '', 6, 0, ''),
+(1134, 'viet_nhan_xet', '3. Viết nhận xét của bạn vào bên dưới', '3. Write your comment below', '', 6, 0, ''),
+(1135, 'tieu_de_cua_nhan_xet', '2. Tiêu đề của nhận xét', '2. The title of the comment', '', 6, 0, ''),
+(1136, 'danh_gia_sp_nay', '1. Đánh giá của bạn về sản phẩm này', '1. Your review of this product', '', 6, 0, ''),
+(1137, 'gui_nhan_xet_cua_ban', 'GỬI NHẬN XÉT CỦA BẠN', 'SEND YOUR COMMENT', '', 6, 0, ''),
+(1138, 'binh_luan_da_duoc_gui', 'Gửi nội dung bình luận thành công!', 'Send successful comment content!', '', 6, 0, ''),
+(1139, 'sao_chep_qua_thong_tin_nhan_hang', 'Sao chép qua thông tin nhận hàng!', 'Copy via delivery information!', '', 0, 1, ''),
+(1140, 'nhap_ma_giam_gia', 'Nhập mã giảm giá!', 'Enter discount code!', '', 0, 1, ''),
+(1141, 'ghi_chu', 'Ghi chú', 'Notes', '', 0, 1, ''),
+(1142, 'thoi_gian_nhan_hang', 'Thời gian nhận hàng', 'Time to receive goods', '', 0, 1, ''),
+(1143, 'zalo', 'Kết nối zalo', 'Zalo connection', '', 0, 1, ''),
+(1147, 'mang_xa_hoi', 'Kết nối với chúng tôi', 'Connect with us', '', 0, 1, ''),
+(1148, 'lien_he_dat_hang', 'Gọi để đặt ngay', 'Call to order now', '', 0, 1, ''),
+(1149, 'video_clip', 'Video', 'Video', '', 0, 1, ''),
+(1150, 'ban_chua_dong_y_thoa_thuan', 'Bạn chưa đồng ý điều khoản thỏa thuận của chúng tôi!', 'You have not agreed to the terms of our agreement!', '', 1, 0, ''),
+(1151, 'yeu_thich', 'Yêu thích', 'Favorite', '', 0, 1, ''),
+(1152, 'danh_sach_yeu_thich', 'Danh sách yêu thích', 'Favorites list', '', 0, 1, ''),
+(1177, 'fax', 'Fax', 'Fax', '', 0, 1, ''),
+(1185, 'ho_tro_truc_tuyen', 'Hỗ trợ trực tuyến', 'Online support', '', 0, 1, ''),
+(1189, 'mua_ngay', 'Mua ngay', 'Buy now', '', 0, 1, ''),
+(1190, 'giao_hang_toan_quoc', 'Giao hàng tận nơi trên toàn quốc', 'Delivery nationwide', '', 0, 1, ''),
+(1203, 'binh_luan_san_pham', 'Bình luận sản phẩm', 'Product comments', '', 0, 1, ''),
+(1202, 'thuong_hieu', 'Thương hiệu', 'Trademark', '', 0, 1, ''),
+(1211, 'thong_tin_lien_he', 'Thông tin liên hệ', 'Contact Info', '', 0, 1, ''),
+(1223, 'ban_chay_nhat', 'BÁN CHẠY NHẤT', 'BESTSELLER', '', 0, 1, ''),
+(1224, 'san_pham_da_xem', 'Sản phẩm đã xem', 'viewed products', '', 0, 1, ''),
+(1225, 'sap_xep_theo', 'Sắp xếp theo', 'Sorted by', '', 0, 1, ''),
+(1226, 'xem_nhieu_nhat', 'Xem nhiều nhất', 'Most view', '', 0, 1, ''),
+(1227, 'ban_chay', 'Bán chạy', 'Selling', '', 0, 1, ''),
+(1228, 'gia_thap_den_cao', 'Giá thấp đến cao', 'Price low to high', '', 0, 1, ''),
+(1229, 'gia_cao_den_thap', 'Giá cao đến thấp', 'Price high to low', '', 0, 1, ''),
+(1231, 'khach_hang_danh_gia', 'khách hàng đánh giá', 'customer reviews', '', 6, 0, ''),
+(1232, 'cau_hoi_duoc_tra_loi', 'câu hỏi được trả lời', 'questions are answered', '', 6, 0, ''),
+(1233, 'anh_360_do', 'Ảnh 360 độ', 'Photo 360 degrees', '', 0, 1, ''),
+(1234, 'xem_them_anh', 'Xem thêm ảnh', 'See more photos', '', 0, 1, ''),
+(1235, 'hinh_anh', 'Hình ảnh', 'Picture', '', 0, 1, ''),
+(1236, 'danh_gia_nhan_xet', 'Đánh giá & Nhận xét', 'Reviews & Comments', '', 6, 0, ''),
+(1238, 'san_pham_cung_hang', 'Sản Phẩm Cùng Hãngs', 'Products Of The Same Brands', '', 0, 1, ''),
+(1239, 'gia_cu', 'Giá cũ', 'Old price', '', 3, 0, ''),
+(1240, 'gia_ban', 'Giá sản phẩm', 'Product price', '', 3, 0, ''),
+(1241, 'gia_khuyen_mai', 'Giá khuyến mại', 'Promotional price', '', 3, 0, ''),
+(1242, 'dat_mua_ngay', 'Đặt mua ngay', 'Order now', '', 3, 0, ''),
+(1250, 'khach_hang_nhan_xet', 'Khách hàng nhận xét', 'Customer comment', '', 6, 0, ''),
+(1251, 'gui_cau_hoi_cua_ban', 'Gửi câu hỏi của bạn', 'Submit your question', '', 6, 0, ''),
+(1252, 'gui_cau_hoi', 'Gửi câu hỏi', 'Submit a question', '', 6, 0, ''),
+(1258, 'xem_ban_do', '[ Xem bản đồ ]', '[ View the map ]', '', 0, 1, ''),
+(1259, 'chon_tinh_tp', 'Chọn tỉnh / thành phố', 'Select province / city', '', 6, 0, ''),
+(1260, 'chon_quan_huyen', 'Chọn quận huyện', 'Select a district', '', 6, 0, ''),
+(1261, 'danh_gia_trung_binh', 'Đánh giá trung bình', 'Average rating', '', 6, 0, ''),
+(1262, 'trung_binh_diem_danh_gia', '[diem] trung bình dựa trên [luot] bài đánh giá', '[diem] average based on [luot] reviews', '', 6, 0, ''),
+(1263, 'sao', 'Sao', 'Start', '', 6, 0, ''),
+(1264, 'doc_them_binh_luan', 'Đọc thêm bình luận', 'Read more comments', '', 6, 0, ''),
+(1265, 'viet_binh_luan_cua_ban', 'Viết bình luận của bạn (Vui lòng gõ tiếng Việt có dấu)', 'Write your comment (Please type accented Vietnamese)', '', 6, 0, ''),
+(1267, 'nhap_ma_khuyen_mai', 'Nhập mã khuyến mãi', 'Enter the promotion code', '', 5, 1, ''),
+(1268, 'chon_tinh_thanh', 'Chọn Tỉnh / Thành', 'Select Province / City', '', 5, 1, ''),
+(1269, 'ma_giam_gia_hop_le', 'Kích hoạt mã giảm giá thành công!', 'Activate discount code successfully!', '', 5, 1, ''),
+(1283, 'registration', 'Đăng ký', 'Registration', '', 0, 1, ''),
+(1290, 'cac_bai_dang_moi_nhat', 'THỊNH HÀNH', 'The latest posts', '', 0, 1, ''),
+(1289, 'de_xuat', 'MỚI NHẤT', 'Offer', '', 0, 1, ''),
+(1288, 'khong_tim_thay_video', 'Không tìm thấy video!', 'No videos found!', '', 0, 1, ''),
+(1294, 'danh_sach_so_sanh', 'Danh sách so sánh', 'Comparison list', '', 0, 1, ''),
+(1295, 'san_pham_hot', 'Sản phẩm Hot', 'Hot products', '', 0, 1, ''),
+(1312, 'xem_tiep_san_pham', 'Xem tiếp sản phẩm', 'See more products', '', 0, 1, ''),
+(1302, 'thu_vien_anh_khac', 'Hình ảnh khác', 'Other images', '', 0, 1, ''),
+(1303, 'ten_file', 'Tên File', 'File Name', '', 0, 1, ''),
+(1304, 'tai_ve', 'Tải xuống', 'Download', '', 0, 1, ''),
+(1305, 'download', 'Download', 'Download', '', 0, 1, ''),
+(1307, 'dang_ky_bang_facebook', 'Đăng ký bằng Facebook', 'Sign up with Facebook', '', 0, 1, ''),
+(1308, 'dang_ky_bang_google', 'Đăng ký bằng Google', 'Sign up with Google', '', 0, 1, ''),
+(1309, 'dang_nhap_bang_facebook', 'Đăng nhập bằng Facebook', 'Login with Facebook', '', 0, 1, ''),
+(1310, 'dang_nhap_bang_google', 'Đăng nhập bằng Google', 'Sign in with Google', '', 0, 1, ''),
+(1319, 'bai_doc_nhieu', 'Bài đọc nhiều', 'Lots of reading', '', 0, 1, ''),
+(1322, 've_chung_toi', 'Về chúng tôi', 'About us', '', 0, 1, ''),
+(1324, 'link_google_map', 'https://www.google.com/maps/place/Khu+%C4%91%C3%B4+th%E1%BB%8B+Sala/@10.772277,106.722138,16z/data=!4m5!3m4!1s0x0:0x3a1f5c247c407f3e!8m2!3d10.7722768!4d106.7221381?hl=en', 'https://www.google.com/maps/place/Khu+%C4%91%C3%B4+th%E1%BB%8B+Sala/@10.772277,106.722138,16z/data=!4m5!3m4!1s0x0:0x3a1f5c247c407f3e!8m2!3d10.7722768!4d106.7221381?hl=en', '', 0, 1, ''),
+(1325, 'yeu_cau_bao_gia', 'Yêu cầu tư vấn & báo giá', 'Request advice & quotation', '', 0, 1, ''),
+(1326, 'gui_yeu_cau', 'Gửi Yêu Cầu', 'Send require', '', 0, 1, ''),
+(1327, 'san_pham_noi_bac_mo_ta', 'Chúng Tôi Phục Vụ Các Giải Pháp Tốt Nhất', 'We Serve The Best Solutions', '', 0, 1, ''),
+(1328, 'xem_them_san_pham', 'Xem thêm sản phẩm', 'See more products', '', 0, 1, ''),
+(1329, 'tai_lieu', 'Tài liệu', 'Document', '', 0, 1, ''),
+(1330, 'tu_van', 'Tư vấn', 'Advisory', '', 0, 1, ''),
+(1331, 'loai_file', 'Loại file', 'Type', '', 0, 1, ''),
+(1332, 'san_pham_ung_dung', 'Sản phẩm - Ứng dụng', 'Products - Application', '', 0, 1, ''),
+(1375, 'tinh_trang', 'Tình trạng', 'Status', '', 0, 1, ''),
+(1376, 'con_hang', 'Còn Hàng', 'Stocking', '', 0, 1, ''),
+(1377, 'het_hang', 'Hết Hàng', 'Out of stock', '', 0, 1, ''),
+(1398, 'yeu_cau_dat_hang', 'Yêu cầu & Đặt hàng', 'Order request', '', 0, 1, ''),
+(1373, 'danh_muc', 'Danh mục', 'Category', '', 0, 1, ''),
+(1399, 'thong_tin_san_pham', 'Thông tin sản phẩm', 'Product information', '', 0, 1, ''),
+(1467, 'da_xem', 'Đã xem', '', '', 0, 1, ''),
+(1401, 'cac_tai_lieu', 'Các tài liệu', 'Documents', '', 0, 1, ''),
+(1402, 'khac', 'Khác', 'Other', '', 0, 1, ''),
+(1403, 'bo_suu_tap', 'Bộ sưu tập', 'Collection', '', 0, 1, ''),
+(1363, 'san_pham_tim_kiem_nhieu_mo_ta', 'Nội dung mô tả sản phẩm tìm kiếm nhiều', 'The content describes many search products', '', 0, 1, ''),
+(1362, 'san_pham_tim_kiem_nhieu', 'Sản phẩm tìm kiếm nhiều nhất', 'Most searched products', '', 0, 1, ''),
+(1379, 'cua_hang_cua_chung_toi', 'CỬA HÀNG CỦA CHÚNG TÔI', 'OUR STORE', '', 0, 1, ''),
+(1380, 'theo_doi_cau_chuyen_cua_chung_toi', 'Theo Dõi Câu Chuyện Của Chúng Tôi', 'Follow Our Story', '', 0, 1, ''),
+(1381, 'theo_doi_chung_toi_tren_in', 'Theo dõi chúng tôi trên Instagram', 'Follow us on Instagram', '', 0, 1, ''),
+(1382, 'link_instagram', 'https://www.instagram.com/', 'https://www.instagram.com/', '', 0, 1, ''),
+(1397, 'vui_long_chon_chu_de', '- Vui lòng chọn một chủ đề -', '- Please select a theme -', '', 0, 1, ''),
+(1385, 'su_kien_tieu_bieu', 'Sự kiện tiêu biểu', 'Typical events', '', 0, 1, ''),
+(1386, 'su_kien_khac', 'Sự kiện khác', 'Other events', '', 0, 1, ''),
+(1387, 'dang_ky_thong_tin', 'Đăng ký thông tin', 'Registration information', '', 0, 1, ''),
+(1388, 'su_kien', 'Sự kiện', 'Event', '', 0, 1, ''),
+(1389, 'khach_hang_moi', 'Khách hàng mới', 'A new customer', '', 0, 1, ''),
+(1390, 'dang_ky_tai_khoan', 'Đăng ký tài khoản', 'Sign up for an account', '', 0, 1, ''),
+(1391, 'dang_ky_tai_khoan_mo_ta', 'Bằng cách tạo tài khoản, bạn sẽ có thể mua sắm nhanh hơn,  cập nhật trạng thái của đơn hàng và theo dõi các đơn hàng bạn đã thực hiện trước đó.', 'By creating an account, you\'ll be able to shop faster, update order status and keep track of orders you\'ve made before.', '', 0, 1, ''),
+(1392, 'tiep_tuc', 'Tiếp tục', 'Continue', '', 0, 1, ''),
+(1393, 'dang_nhap_tai_khoan', 'Đăng nhập tài khoản', 'Sign in to your account', '', 0, 1, ''),
+(1394, 'title_dang_ky_mo_ta', 'Nếu bạn đã có tài khoản với chúng tôi, vui lòng đăng nhập tại [link]trang đăng nhập.</link>', 'If you already have an account with us, please login at the  [link]login page. </link>', '', 0, 1, ''),
+(1395, 'tai_khoan_da_bi_khoa', 'Tài khoản đang bị khóa!', 'Account is locked!', '', 1, 0, ''),
+(1396, 'ruu_vang_khuyen_mai', 'Rựu vang khuyến mãi', 'Promotional wine', '', 0, 1, ''),
+(1404, 'gmail', 'Gmail', 'Gmail', '', 0, 1, ''),
+(1405, 'gui_tin_nhan_cho_chung_toi', 'GỬI TIN NHẮN CHO CHÚNG TÔI', 'SEND A MESSAGE TO US', '', 0, 1, ''),
+(1406, 'gui_thong_tin', 'Gửi thông tin', 'Send information', '', 0, 1, ''),
+(1465, 'tong_so', 'Tổng số', '', '', 0, 1, ''),
+(1412, 'san_pham_khuyen_mai', 'Sản phẩm khuyến mãi', 'Promotional products', '', 0, 1, ''),
+(1413, 'tin_tuc_moi', 'Tin tức mới', 'News', '', 0, 1, ''),
+(1414, 'khach_hang_cua_chung_toi', 'KHÁCH HÀNG CỦA CHÚNG TÔI', 'OUR CUSTOMER', '', 0, 1, ''),
+(1415, 'mota_khachhang', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident quas dolor, quidem quo delectus molestias sint? Molestiae est...', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident quas dolor, quidem quo delectus molestias sint? Molestiae est...', '', 0, 1, ''),
+(1416, 'dang_ky_nhan_ban_tin', 'Đăng ký nhận tin', 'Sign up for', '', 0, 1, ''),
+(1417, 'dang_ky_nhan_thong_tin_km', 'Đừng bỏ lỡ hàng ngàn sản phẩm và chương trình siêu hấp dẫn', 'Don\'t miss out on thousands of super cool products and programs', '', 0, 1, ''),
+(1418, 'ho_tro_khach_hang', 'Hỗ trợ khách hàng', 'Customer support', '', 0, 1, ''),
+(1462, 'ngay_cap_nhat', 'Ngày cập nhật', '', '', 0, 1, ''),
+(1459, 'toan_bo', '--Toàn bộ--', '', '', 0, 1, ''),
+(1461, 'den', 'Đến', '', '', 0, 1, ''),
+(1421, 'tin_moi_nhat', 'Tin tức mới nhất', 'Latest news', '', 0, 1, ''),
+(1422, 'doi_tac_cua_chung_toi', 'Đối tác của chúng tôi', 'STRATEGY PARTNER', '', 0, 1, ''),
+(1423, 'mota_doi_tac', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,', '', 0, 1, ''),
+(1424, 'mien_phi_van_chuyen', 'Miễn phí vận chuyển', 'Free shipping', '', 0, 1, ''),
+(1425, 'mota_mien_phi_van_chuyen', 'Bán kính 100 km', '100 km radius', '', 0, 1, ''),
+(1426, 'mua_hang', 'Mua hàng', 'Purchase', '', 0, 1, ''),
+(1428, 'huong_dan_su_dung', 'Hướng dẫn sử dụng', 'User manual', '', 0, 1, ''),
+(1429, 'san_pham_doc_dao', 'Sản phẩm độc đáo', 'Special product', '', 0, 1, ''),
+(1455, 'thong_tin_dang_nhap', 'Thông tin đăng nhập', '', '', 0, 1, ''),
+(1475, 'tin_tuc', 'Tin tức', 'News', '', 0, 1, ''),
+(1512, 'thongtin_tuvan', 'Thông tin tư vấn & báo giá', 'Consultation information & quotation', '', 0, 1, ''),
+(1441, 'goi_ngay', 'Gọi ngay', 'Call now', '', 0, 1, ''),
+(1454, 'chon_lien_ket', '-- Chọn liên kết Website--', '', '', 0, 1, ''),
+(1444, 'thiet_ke_va_phat_trien', 'Thiết kế và phát triển bởi', 'Designed and developed by', '', 0, 1, ''),
+(1453, 'lien_ket_website', 'Liên kết website', '', '', 0, 1, ''),
+(1452, 'so_luot_dang_online', 'Số lượt đang online', 'Number of times online', '', 0, 1, ''),
+(1451, 'so_luot_truy_cap', 'Số lượt truy cập', 'Number of visits', '', 0, 1, ''),
+(1468, 'tin_noi_bat', 'Tin nổi bật', '', '', 0, 1, ''),
+(1470, 'thoi_gian_lam_viec', '8:00 - 17:30 (Monday to Saturday)', '8:00 - 17:30 (Monday to Saturday)', '', 0, 1, ''),
+(1509, 'bai_viet_xem_nhieu', 'Bài viết xem nhiều', 'Articles viewed many', '', 0, 1, ''),
+(1507, 'dich_vu_lien_quan', 'Dịch vụ liên quan', 'Related services', '', 0, 1, ''),
+(1508, 'gui_thong_tin_lien_he', 'Gửi thông tin liên hệ', 'Send contact information', '', 0, 1, ''),
+(1473, 'tieu_diem', 'Tiêu điểm', 'Focus', '', 0, 1, ''),
+(1474, 'thong_bao', 'Thông báo', 'Notification', '', 0, 1, ''),
+(1477, 'hinh_anh_lien_quan', 'Hình ảnh liên quan', '', '', 0, 1, ''),
+(1478, 'tin_lien_quan', 'Tin liên quan', '', '', 0, 1, ''),
+(1482, 'thu_ngo', 'Thư Ngỏ', '', '', 0, 1, ''),
+(1514, 'tu_van_va_bao_gia', 'Tư vấn & báo giá', 'Consulting & quotation', '', 0, 1, ''),
+(1513, 'mota_nhan_bao_gia', 'NHẬN BÁO GIÁ BẤT KỲ LOẠI DỊCH VỤ NÀO TỪ ĐÂY.', 'GET A QUOTE OF ANY SERVICE FROM HERE.', '', 0, 1, ''),
+(1511, 'mota_dich_vu_chung_toi_cung_cap', 'Công ty cung cấp cho khách hàng giải pháp vận tải và logistics tổng hợp, sáng tạo với đầy đủ trách nhiệm từ việc sắp xếp vận chuyển an toàn cho từng kiện hàng đến dịch vụ hậu cần khác như đóng gói, lưu kho, phân phối.', 'The company provides customers with innovative, integrated logistics and transportation solutions with full responsibility from arranging safe shipping for each package to other logistics services such as packaging, storage, and distribution. .', '', 0, 1, ''),
+(1510, 'dich_vu_chung_toi_cung_cap', 'Dịch vụ chúng tôi cung cấp', 'Services we provide', '', 0, 1, ''),
+(1504, 'nhan_bao_gia', 'Nhận báo giá', 'Get a quote', '', 0, 1, ''),
+(1505, 'lien_he_ngay_voi_chung_toi', 'Liên Hệ Ngay Với Chúng Tôi', 'Contact Us Now', '', 0, 1, ''),
+(1506, 'tu_van_bao_gia', 'Tư vấn báo giá', 'Quotation consultation', '', 0, 1, ''),
+(1515, 'tin_moi', 'Tin mới', 'News', '', 0, 1, ''),
+(1516, 'thang', 'Tháng', 'Month', '', 0, 1, ''),
+(1517, 'dich_vu', 'LĨNH VỰC KINH DOANH', 'OUR BUSINESS', '', 0, 1, ''),
+(1518, 'mota_dich_vu', 'CHÚNG TÔI KINH DOANH CÁC NGÀNH', 'WE ARE BUSINESS IN THE FIELDS', '', 0, 1, ''),
+(1519, 'tuyen_dung', 'Tuyển dụng', 'Recruitment', '', 0, 1, ''),
+(1520, 'email_cua_chung_toi', 'VĂN PHÒNG HỒ CHÍ MINH', 'HO CHI MINH OFFICE', '', 0, 1, ''),
+(1521, 'lien_he_chung_toi', 'VĂN PHÒNG NHẬT BẢN', 'JAPAN OFFICE', '', 0, 1, ''),
+(1523, 'email_vi_lang', 'Add: Lầu 1, 261 - 263 Phan Xích Long, Phường 2, Quận Phú Nhuận, Tp. Hồ Chí Minh, 80000, Việt Nam <br /> Phone: +84-944-357539 <br /> Email: thomas@thienhoanggroup.com (Mr. Thomas)', 'Add: Floor 1, 261 - 263 Phan Xich Long, Ward 2, Phu Nhuan District, City. Ho Chi Minh, 80000, Vietnam <br /> Phone: +84-944-357539 <br /> Email: thomas@thienhoanggroup.com (Mr. Thomas)', '', 0, 1, ''),
+(1524, 'sodienthoai_vi_lang', 'Add: 2-8-23-2F, Hishiyanishi, Higashi, OsakaShi, Osaka, 577-0807, Japan <br /> Phone: +81-90-6980-0817 <br /> Email: sumito@thienhoanggroup.com (Mr. Sumito  Minami)', 'Add: 2-8-23-2F, Hishiyanishi, Higashi, OsakaShi, Osaka, 577-0807, Japan <br /> Phone: +81-90-6980-0817 <br /> Email: sumito@thienhoanggroup.com (Mr. Sumito  Minami)', '', 0, 1, ''),
+(1525, 'gioi-thieu', 'GIới thiệu', 'Introduce', '', 0, 1, ''),
+(1526, 'gioi_thieu', 'GIới thiệu', 'Introduce', '', 0, 1, ''),
+(1527, 'linh_vuc_hoat_dong', 'Lĩnh vực hoạt động', 'Operation field', '', 0, 1, ''),
+(1528, 'lien_he_bao_gia', 'Liên hệ báo giá', 'Contact quotation', '', 0, 1, ''),
+(1529, 'thu_vien_anh', 'Thư viện ảnh', 'Photo library', '', 0, 1, ''),
+(1530, 'thu_vien_video', 'Thư viện video', 'Video library', '', 0, 1, ''),
+(1531, 'khach_hang_noi_ve_tracomeco', 'Khách hàng nói vè tracomeco', 'Customers say Tracomeco', '', 0, 1, ''),
+(1532, 'tin_tuc_su_kien', 'TIN TỨC - SỰ KIỆN', 'News - Events', '', 0, 1, ''),
+(1533, 'tin_tuyen_dung', 'Tin tuyển dụng', 'Recruitment news', '', 0, 1, ''),
+(1534, 'dai_ly_cua_chung_toi', 'Đại lý của chúng tôi', 'Our agent', '', 0, 1, ''),
+(1535, 'co_cau_to_chuc', 'Cơ cấu tổ chức', 'Organizational structure', '', 0, 1, ''),
+(1536, 'mota_co_cau_to_chuc', 'Là một công ty cổ phần hoạt động có Hội đồng quản trị, Ban kiểm soát, Ban điều hành và các đơn vị thành viên phụ thuộc. Cơ cấu tổ chức như sau:', 'As an operating joint stock company with the Board of Directors, the Supervisory Board, the Executive Board and the dependent member units. The organizational structure is as follows:', '', 0, 1, ''),
+(1537, 'truyen_thong', 'Truyền thông', 'Media', '', 0, 1, '');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_clanguage_admin`
+--
+
+CREATE TABLE `lh_clanguage_admin` (
+  `id` int(11) NOT NULL,
+  `code_lang` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `lang_vi` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `lang_en` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `lang_cn` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `nhom` int(11) NOT NULL DEFAULT '0',
+  `showhi` tinyint(1) NOT NULL DEFAULT '1',
+  `lang_jp` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `lh_clanguage_admin`
+--
+
+INSERT INTO `lh_clanguage_admin` (`id`, `code_lang`, `lang_vi`, `lang_en`, `lang_cn`, `nhom`, `showhi`, `lang_jp`) VALUES
+(1325, 'Trang chủ', 'Trang chủ', 'Home', '', 0, 1, ''),
+(1326, 'CHỨC NĂNG HỆ THỐNG', 'CHỨC NĂNG HỆ THỐNG', 'SYSTEM FUNCTION', '', 0, 1, ''),
+(1327, 'Xem website', 'Xem website', 'View website', '', 0, 1, ''),
+(1328, 'Xóa cache', 'Xóa cache', 'Clear cache', '', 0, 1, ''),
+(1329, 'Thêm', 'Thêm', 'Add', '', 0, 1, ''),
+(1330, 'Danh sách', 'Danh sách', 'List', '', 0, 1, ''),
+(1331, 'Thêm chủ đề', 'Thêm chủ đề', 'More topics', '', 0, 1, ''),
+(1332, 'Danh sách chủ đề', 'Danh sách chủ đề', 'List of topics', '', 0, 1, ''),
+(1333, 'Danh sách tính năng', 'Danh sách tính năng', 'Feature list', '', 0, 1, ''),
+(1334, 'Thêm tính năng', 'Thêm tính năng', 'More features', '', 0, 1, ''),
+(1335, 'bài viết', 'bài viết', 'posts', '', 0, 1, ''),
+(1336, 'Quản lý website', 'Quản lý website', 'Website management', '', 0, 1, ''),
+(1337, 'Thiết lập website', 'Thiết lập website', 'Website setup', '', 0, 1, ''),
+(1338, 'Khóa website', 'Khóa website', 'Website lock', '', 0, 1, ''),
+(1339, 'Quản lý ngôn ngữ', 'Quản lý ngôn ngữ', 'Language management', '', 0, 1, ''),
+(1340, 'Danh sách email nhận tin', 'Danh sách email nhận tin', 'Receive email list', '', 0, 1, ''),
+(1341, 'Thiết lập tìm kiếm theo giá', 'Thiết lập tìm kiếm theo giá', 'Set up search by price', '', 0, 1, ''),
+(1342, 'Thiết lập tìm kiếm theo %', 'Thiết lập tìm kiếm theo %', 'Set up search by%', '', 0, 1, ''),
+(1343, 'Quản lý bình luận', 'Quản lý bình luận', 'Manage comments', '', 0, 1, ''),
+(1344, 'Khách hàng liên hệ', 'Khách hàng liên hệ', 'Customer contact', '', 0, 1, ''),
+(1345, 'Thiết lập menu', 'Thiết lập menu', 'Menu settings', '', 0, 1, ''),
+(1346, 'Nội dung khác', 'Nội dung khác', 'Other content', '', 0, 1, ''),
+(1347, 'sản phẩm', 'sản phẩm', 'product', '', 0, 1, ''),
+(1348, 'Quản lý hình ảnh', 'Quản lý hình ảnh', 'Image management', '', 0, 1, ''),
+(1349, 'Slider trang chủ', 'Slider trang chủ', 'Home slider', '', 0, 1, ''),
+(1350, 'Ảnh trang chủ', 'Ảnh trang chủ', 'Homepage image', '', 0, 1, ''),
+(1351, 'Ảnh danh mục trang chủ', 'Ảnh danh mục trang chủ', 'Home directory photo', '', 0, 1, ''),
+(1352, 'Logo chân trang', 'Logo chân trang', 'Footer logo', '', 0, 1, ''),
+(1353, 'Quản lý Đơn hàng', 'Quản lý Đơn hàng', 'Order Management', '', 0, 1, ''),
+(1354, 'Danh sách đơn hàng', 'Danh sách đơn hàng', 'List of orders', '', 0, 1, ''),
+(1355, 'Phương thức thanh toán', 'Phương thức thanh toán', 'Payment methods', '', 0, 1, ''),
+(1356, 'Thông tin thanh toán', 'Thông tin thanh toán', 'Billing Information', '', 0, 1, ''),
+(1357, 'Tài khoản quản trị', 'Tài khoản quản trị', 'Admin account', '', 0, 1, ''),
+(1358, 'Thông tin cá nhân', 'Thông tin cá nhân', 'Personal information', '', 0, 1, ''),
+(1359, 'Quản lý ngôn ngữ Admin', 'Quản lý ngôn ngữ Admin', 'Admin language management', '', 0, 1, ''),
+(1360, 'Danh sách thành viên', 'Danh sách thành viên', 'Members list', '', 0, 1, ''),
+(1361, 'Thêm thành viên', 'Thêm thành viên', 'Add members', '', 0, 1, ''),
+(1362, 'Email hệ thống', 'Email hệ thống', 'Email system', '', 0, 1, ''),
+(1363, 'Thêm email', 'Thêm email', 'Add email', '', 0, 1, ''),
+(1364, 'Danh sách email', 'Danh sách email', 'Email list', '', 0, 1, ''),
+(1365, 'Hỗ trợ 24/7', 'Hỗ trợ 24/7', '24/7 support', '', 0, 1, ''),
+(1366, 'Đăng xuất', 'Đăng xuất', 'Log out', '', 0, 1, ''),
+(1367, 'Đã xóa thành công!', 'Đã xóa thành công!', 'Successfully deleted!', '', 0, 1, ''),
+(1368, 'Dữ liệu không hợp lệ!', 'Dữ liệu không hợp lệ!', 'Invalid data!', '', 0, 1, ''),
+(1369, 'Cập nhật dữ liệu thành công!', 'Cập nhật dữ liệu thành công!', 'Update data successfully!', '', 0, 1, ''),
+(1370, 'Quản lý', 'Quản lý', 'Manage', '', 0, 1, ''),
+(1371, 'Tiêu đề', 'Tiêu đề', 'Title', '', 0, 1, ''),
+(1372, 'Hình ảnh', 'Hình ảnh', 'Picture', '', 0, 1, ''),
+(1373, 'Hiển thị', 'Hiển thị', 'Display', '', 0, 1, ''),
+(1374, 'Tác vụ', 'Tác vụ', 'Action', '', 0, 1, ''),
+(1375, 'Lưu lại', 'Lưu lại', 'Save', '', 0, 1, ''),
+(1376, 'Thêm mới', 'Thêm mới', 'Add new', '', 0, 1, ''),
+(1377, 'Thêm dữ liệu thành công!', 'Thêm dữ liệu thành công!', 'More successful data!', '', 0, 1, ''),
+(1378, 'Sửa', 'Sửa', 'Edit', '', 0, 1, ''),
+(1379, 'Thoát', 'Thoát', 'Exit', '', 0, 1, ''),
+(1380, 'Bạn chưa nhập', 'Bạn chưa nhập', 'You have not entered', '', 0, 1, ''),
+(1381, 'Mô tả', 'Mô tả', 'Description', '', 0, 1, ''),
+(1382, 'Lấy đường dẫn tự động', 'Lấy đường dẫn tự động', 'Get the link automatically', '', 0, 1, ''),
+(1383, 'Đường dẫn chuẩn bao gồm các ký tự [a-zA-Z0-9-].', 'Đường dẫn chuẩn bao gồm các ký tự [a-zA-Z0-9-].', 'The standard path includes the characters [a-zA-Z0-9-].', '', 0, 1, ''),
+(1384, 'Số lượng bài viết hiển thị trên 1 trang', 'Số lượng bài viết hiển thị trên 1 trang', 'Number of posts displayed on 1 page', '', 0, 1, ''),
+(1385, 'Số thứ tự', 'Số thứ tự', 'Numerical order', '', 0, 1, ''),
+(1386, 'Hiển thị', 'Hiển thị', 'Display', '', 0, 1, ''),
+(1387, 'Ẩn', 'Ẩn', 'Hide', '', 0, 1, ''),
+(1388, 'Thành công!', 'Thành công!', 'Success!', '', 0, 1, ''),
+(1389, 'Lỗi!', 'Lỗi!', 'Error!', '', 0, 1, ''),
+(1390, 'Cập nhật', 'Cập nhật', 'Update', '', 0, 1, ''),
+(1391, 'Tên công ty', 'Tên công ty', 'Company name', '', 0, 1, ''),
+(1392, 'Địa chỉ', 'Địa chỉ', 'Address', '', 0, 1, ''),
+(1393, 'Số điện thoại', 'Số điện thoại', 'Phone number', '', 0, 1, ''),
+(1394, 'Bật Https', 'Bật Https', 'Turn on Https', '', 0, 1, ''),
+(1395, 'Bật Comment Facebook', 'Bật Comment Facebook', 'Turn on Facebook Comments', '', 0, 1, ''),
+(1396, 'Bật ngôn ngữ', 'Bật ngôn ngữ', 'Turn on the language', '', 0, 1, ''),
+(1397, 'Chống sao chép', 'Chống sao chép', 'Copy protection', '', 0, 1, ''),
+(1398, 'Tiếng Việt (Mặc định)', 'Tiếng Việt (Mặc định)', 'Vietnamese (Default)', '', 0, 1, ''),
+(1399, 'Email gửi tin', 'Email gửi tin', 'Email sending message', '', 0, 1, ''),
+(1400, 'Mật khẩu', 'Mật khẩu', 'Password', '', 0, 1, ''),
+(1401, 'Dù website bị ĐÓNG, nhưng nếu bạn đăng nhập bằng tài khoản admin, bạn vẫn thấy như bình thường.', 'Dù website bị ĐÓNG, nhưng nếu bạn đăng nhập bằng tài khoản admin, bạn vẫn thấy như bình thường.', 'Although the website is CLOSE, but if you log in with an admin account, you still feel the same as usual.', '', 0, 1, ''),
+(1402, 'Khóa', 'Khóa', 'lock up', '', 0, 1, ''),
+(1403, 'Mở', 'Mở', 'Open', '', 0, 1, ''),
+(1404, 'Nội dung', 'Nội dung', 'Content', '', 0, 1, ''),
+(1405, 'Bạn thật sự muốn xóa?', 'Bạn thật sự muốn xóa?', 'Do you really want to delete?', '', 0, 1, ''),
+(1406, 'Ngôn ngữ', 'Ngôn ngữ', 'Language', '', 0, 1, ''),
+(1407, 'Mã ngôn ngữ', 'Mã ngôn ngữ', 'Language code', '', 0, 1, ''),
+(1408, 'Xóa', 'Xóa', 'Del', '', 0, 1, ''),
+(1409, 'Giá', 'Giá', 'Price', '', 0, 1, ''),
+(1410, 'Từ giá', 'Từ giá', 'From the price', '', 0, 1, ''),
+(1411, 'Đến giá', 'Đến giá', 'To the price', '', 0, 1, ''),
+(1412, 'Từ', 'Từ', 'From', '', 0, 1, ''),
+(1413, 'Đến', 'Đến', 'Come', '', 0, 1, ''),
+(1414, 'Xem bình luận', 'Xem bình luận', 'View comments', '', 0, 1, ''),
+(1415, 'Ngày đăng', 'Ngày đăng', 'Date Submitted', '', 0, 1, ''),
+(1416, 'Đã xem', 'Đã xem', 'Watched', '', 0, 1, ''),
+(1417, 'Chưa xem', 'Chưa xem', 'Not seen', '', 0, 1, ''),
+(1418, 'Xem chi tiết', 'Xem chi tiết', 'See details', '', 0, 1, ''),
+(1419, 'Trạng thái', 'Trạng thái', 'Status', '', 0, 1, ''),
+(1420, 'IP gửi', 'IP gửi', 'IP sent', '', 0, 1, ''),
+(1421, 'Ngày gửi', 'Ngày gửi', 'Sent date', '', 0, 1, ''),
+(1422, 'Nếu Link đến URL của Web khác thì phải có http:// ở đầu.', 'Nếu Link đến URL của Web khác thì phải có http:// ở đầu.', 'If you link to the URL of another Web site, you must have http: // at the beginning.', '', 0, 1, ''),
+(1423, 'Lấy Liên kết theo module chọn.', 'Lấy Liên kết theo module chọn.', 'Get Links according to the selected module.', '', 0, 1, ''),
+(1424, 'Loại menu', 'Loại menu', 'Menu type', '', 0, 1, ''),
+(1425, 'Nhập liên kế', 'Nhập liên kế', 'Enter succession', '', 0, 1, ''),
+(1426, 'Chọn module', 'Chọn module', 'Select the module', '', 0, 1, ''),
+(1427, 'Hiển thị cửa sổ mới', 'Hiển thị cửa sổ mới', 'Display a new window', '', 0, 1, ''),
+(1428, 'Nhập liên kết', 'Nhập liên kết', 'Enter the link', '', 0, 1, ''),
+(1429, 'Kiểu hiển thị', 'Kiểu hiển thị', 'Display type', '', 0, 1, ''),
+(1430, 'Tư động hiển thị các cấp con của danh mục hoặc danh sách bài viết của danh mục.', 'Tư động hiển thị các cấp con của danh mục hoặc danh sách bài viết của danh mục.', 'Automatically display subcategories of category or article list of category.', '', 0, 1, ''),
+(1431, 'Tự động theo bài viết', 'Tự động theo bài viết', 'Automatically follow posts', '', 0, 1, ''),
+(1432, 'Tự động theo danh mục ngang', 'Tự động theo danh mục ngang', 'Automatically follow horizontal menu', '', 0, 1, ''),
+(1433, 'Tự động theo danh mục', 'Tự động theo danh mục', 'Automatically by categories', '', 0, 1, ''),
+(1434, 'Chọn kiểu hiển thị', 'Chọn kiểu hiển thị', 'Select display type', '', 0, 1, ''),
+(1435, 'Chọn menu con', 'Chọn menu con', 'Select submenu', '', 0, 1, ''),
+(1436, 'Liên kết', 'Liên kết', 'Link', '', 0, 1, ''),
+(1437, 'Mặc định', 'Mặc định', 'Default', '', 0, 1, ''),
+(1438, 'Cửa sổ mới', 'Cửa sổ mới', 'New window', '', 0, 1, ''),
+(1439, 'Đơn hàng mới', 'Đơn hàng mới', 'New orders', '', 0, 1, ''),
+(1440, 'Đang xử lý', 'Đang xử lý', 'Processing', '', 0, 1, ''),
+(1441, 'Đã giao hàng', 'Đã giao hàng', 'Delivered', '', 0, 1, ''),
+(1442, 'Hủy đơn hàng', 'Hủy đơn hàng', 'Cancel order', '', 0, 1, ''),
+(1443, 'Mã đơn hàng', 'Mã đơn hàng', 'Code orders', '', 0, 1, ''),
+(1444, 'Địa chỉ giao hàng', 'Địa chỉ giao hàng', 'Delivery address', '', 0, 1, ''),
+(1445, 'Ghi chú', 'Ghi chú', 'Note', '', 0, 1, ''),
+(1446, 'Thông Tin nhận hàng', 'Thông Tin nhận hàng', 'Receiving Information', '', 0, 1, ''),
+(1447, 'Hình thức thanh toán', 'Hình thức thanh toán', 'Payments', '', 0, 1, ''),
+(1448, 'Đơn hàng chưa thanh toán', 'Đơn hàng chưa thanh toán', 'Unpaid order', '', 0, 1, ''),
+(1449, 'Đơn hàng đã thanh toán', 'Đơn hàng đã thanh toán', 'The order has paid', '', 0, 1, ''),
+(1450, 'Khách đã xóa đơn hàng này.', 'Khách đã xóa đơn hàng này.', 'Guest has deleted this order.', '', 0, 1, ''),
+(1451, 'Xem chi tiết', 'Xem chi tiết', 'See details', '', 0, 1, ''),
+(1452, 'Ngày đặt', 'Ngày đặt', 'Date of booking', '', 0, 1, ''),
+(1453, 'Thanh toán', 'Thanh toán', 'Pay', '', 0, 1, ''),
+(1454, 'Họ tên', 'Họ tên', 'Full name', '', 0, 1, ''),
+(1455, 'Thông tin đơn hàng', 'Thông tin đơn hàng', 'Information line', '', 0, 1, ''),
+(1456, 'Mã sản phẩm', 'Mã sản phẩm', 'Product code', '', 0, 1, ''),
+(1457, 'Đơn giá', 'Đơn giá', 'Unit price', '', 0, 1, ''),
+(1458, 'Số lượng', 'Số lượng', 'Amount', '', 0, 1, ''),
+(1459, 'Thành tiền', 'Thành tiền', 'into money', '', 0, 1, ''),
+(1460, 'Tổng tiền', 'Tổng tiền', 'Total money', '', 0, 1, ''),
+(1461, 'Thông Tin Mua Hàng', 'Thông Tin Mua Hàng', 'Purchase Information', '', 0, 1, ''),
+(1462, 'Thanh toán qua Paypal', 'Thanh toán qua Paypal', 'Payment via Paypal', '', 0, 1, ''),
+(1463, 'Email nhận tiền paypal', 'Email nhận tiền paypal', 'Email receive paypal', '', 0, 1, ''),
+(1464, 'Tỉ lệ VNĐ - USD', 'Tỉ lệ VNĐ - USD', 'VND - USD rate', '', 0, 1, ''),
+(1465, 'URL Paypal', 'URL Paypal', 'URL Paypal', '', 0, 1, ''),
+(1466, 'Thêm tài khoản', 'Thêm tài khoản', 'More account', '', 0, 1, ''),
+(1467, 'Danh sách tài khoản', 'Danh sách tài khoản', 'List of accounts', '', 0, 1, ''),
+(1468, 'Tên tài khoản đã tồn tại!', 'Tên tài khoản đã tồn tại!', 'This account has already existed!', '', 0, 1, ''),
+(1469, 'Email đã tồn tại trong hệ thống!', 'Email đã tồn tại trong hệ thống!', 'Email already exists in the system!', '', 0, 1, ''),
+(1470, 'Tên tài khoản đã tồn tại trong hệ thống!', 'Tên tài khoản đã tồn tại trong hệ thống!', 'The username already exists in the system!', '', 0, 1, ''),
+(1471, 'Địa chỉ email không hợp lệ. Vui lòng kiểm tra lại!', 'Địa chỉ email không hợp lệ. Vui lòng kiểm tra lại!', 'Email address is not valid. Please check again!', '', 0, 1, ''),
+(1472, 'Nhập địa chỉ email!', 'Nhập địa chỉ email!', 'Enter your email address!', '', 0, 1, ''),
+(1473, 'Mật khẩu nhập lại chưa đúng!', 'Mật khẩu nhập lại chưa đúng!', 'Retype password is not correct!', '', 0, 1, ''),
+(1474, 'Nhập mật khẩu', 'Nhập mật khẩu', 'Enter password', '', 0, 1, ''),
+(1482, 'Nhập mật khẩu cũ', 'Nhập mật khẩu cũ', 'Enter the old password', '', 0, 1, ''),
+(1476, 'Tên tài khoản không hợp lệ!', 'Tên tài khoản không hợp lệ!', 'Invalid account name!', '', 0, 1, ''),
+(1477, 'Nhập lại mật khẩu', 'Nhập lại mật khẩu', 'Enter the password', '', 0, 1, ''),
+(1478, 'Tên tài khoản', 'Tên tài khoản', 'Account name', '', 0, 1, ''),
+(1479, 'Loại tài khoản', 'Loại tài khoản', 'Account type', '', 0, 1, ''),
+(1480, 'Nhóm tài khoản', 'Nhóm tài khoản', 'Account group', '', 0, 1, ''),
+(1481, 'Mật khẩu cũ không đúng!', 'Mật khẩu cũ không đúng!', 'Old password is incorrect!', '', 0, 1, ''),
+(1483, 'Mật khẩu cũ', 'Mật khẩu cũ', 'old password', '', 0, 1, ''),
+(1484, 'Mật khẩu mới', 'Mật khẩu mới', 'A new password', '', 0, 1, ''),
+(1485, 'Nhập lại mật khẩu mới', 'Nhập lại mật khẩu mới', 'Enter a new password', '', 0, 1, ''),
+(1486, 'Nhập từ khóa tìm kiếm', 'Nhập từ khóa tìm kiếm', 'Enter search keywords', '', 0, 1, ''),
+(1487, 'Đăng bởi', 'Đăng bởi', 'Posted by', '', 0, 1, ''),
+(1488, 'Vui lòng nhập tiêu đề', 'Vui lòng nhập tiêu đề', 'Please enter a title', '', 0, 1, ''),
+(1489, 'Seo Name đã tồn tại. Seo Name được thêm tự động!', 'Seo Name đã tồn tại. Seo Name được thêm tự động!', 'Seo Name already exists. Seo Name is added automatically!', '', 0, 1, ''),
+(1490, 'Lọc thuộc tính', 'Lọc thuộc tính', 'Filter properties', '', 0, 1, ''),
+(1491, 'Khuyến mãi', 'Khuyến mãi', 'Promotion', '', 0, 1, ''),
+(1492, 'Bán chạy', 'Bán chạy', 'Selling', '', 0, 1, ''),
+(1493, 'Mới', 'Mới', 'New', '', 0, 1, ''),
+(1494, 'Tất cả chủ đề', 'Tất cả chủ đề', 'All topics', '', 0, 1, ''),
+(1495, 'Tối đa 3 thuộc tính (Ví dụ: Màu, dung lượng, tính năng)', 'Tối đa 3 thuộc tính (Ví dụ: Màu, dung lượng, tính năng)', 'Up to 3 properties (Example: Color, capacity, features)', '', 0, 1, ''),
+(1496, 'Thuộc tính đặt hàng', 'Thuộc tính đặt hàng', 'Order attribute', '', 0, 1, ''),
+(1497, 'Giá bán', 'Giá bán', 'Price', '', 0, 1, ''),
+(1498, 'Giá so sánh', 'Giá so sánh', 'Price comparable', '', 0, 1, ''),
+(1499, 'Giá thuộc tính chọn', 'Giá thuộc tính chọn', 'Price attribute select', '', 0, 1, ''),
+(1500, 'Phiên bản', 'Phiên bản', 'Version', '', 0, 1, ''),
+(1501, 'Ảnh thay đổi', 'Ảnh thay đổi', 'Photo change', '', 0, 1, ''),
+(1502, 'Ảnh chi tiết', 'Ảnh chi tiết', 'Detailed photos', '', 0, 1, ''),
+(1503, 'Thuộc chủ đề', 'Thuộc chủ đề', 'Subjected', '', 0, 1, ''),
+(1504, 'Tiêu biểu', 'Tiêu biểu', 'Representative', '', 0, 1, ''),
+(1505, 'chủ đề', 'chủ đề', 'theme', '', 0, 1, ''),
+(1506, 'Nằm trong', 'Nằm trong', 'Inside', '', 0, 1, ''),
+(1507, 'Option thuộc', 'Option thuộc', 'Option attached', '', 0, 1, ''),
+(1508, 'Đặt hàng', 'Đặt hàng', 'Order', '', 0, 1, ''),
+(1509, 'Thống kê lượt truy cập', 'Thống kê lượt truy cập', 'Counter statistics', '', 0, 1, ''),
+(1510, 'Thống kê lượt truy cập trong 10 ngày gần nhất', 'Thống kê lượt truy cập trong 10 ngày gần nhất', 'Statistics of visits in the last 10 days', '', 0, 1, ''),
+(1511, 'Tổng lượt truy cập', 'Tổng lượt truy cập', 'Total visits', '', 0, 1, '');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_counter`
+--
+
+CREATE TABLE `lh_counter` (
+  `id` int(11) NOT NULL,
+  `coonter` double NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `lh_counter`
+--
+
+INSERT INTO `lh_counter` (`id`, `coonter`) VALUES
+(1, 8510);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_count_date`
+--
+
+CREATE TABLE `lh_count_date` (
+  `id` int(11) NOT NULL,
+  `day` int(2) NOT NULL DEFAULT '0',
+  `month` int(2) NOT NULL DEFAULT '0',
+  `year` int(4) NOT NULL DEFAULT '0',
+  `count` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `lh_count_date`
+--
+
+INSERT INTO `lh_count_date` (`id`, `day`, `month`, `year`, `count`) VALUES
+(1, 15, 6, 2021, 8),
+(2, 16, 6, 2021, 11),
+(3, 17, 6, 2021, 14),
+(4, 18, 6, 2021, 17),
+(5, 21, 6, 2021, 1),
+(6, 22, 6, 2021, 2),
+(7, 29, 6, 2021, 11),
+(8, 1, 7, 2021, 1),
+(9, 3, 7, 2021, 1),
+(10, 4, 7, 2021, 1),
+(11, 11, 7, 2021, 1),
+(12, 12, 7, 2021, 12),
+(13, 13, 7, 2021, 13),
+(14, 14, 7, 2021, 1),
+(15, 16, 7, 2021, 1),
+(16, 28, 7, 2021, 3),
+(17, 2, 8, 2021, 1),
+(18, 3, 8, 2021, 2),
+(19, 9, 8, 2021, 13),
+(20, 12, 8, 2021, 1),
+(21, 13, 8, 2021, 1),
+(22, 14, 8, 2021, 4),
+(23, 15, 8, 2021, 66),
+(24, 16, 8, 2021, 112),
+(25, 17, 8, 2021, 55),
+(26, 18, 8, 2021, 2),
+(27, 19, 8, 2021, 17),
+(28, 20, 8, 2021, 14),
+(29, 21, 8, 2021, 9),
+(30, 22, 8, 2021, 1),
+(31, 23, 8, 2021, 16),
+(32, 24, 8, 2021, 1),
+(33, 25, 8, 2021, 24),
+(34, 26, 8, 2021, 33),
+(35, 27, 8, 2021, 109),
+(36, 28, 8, 2021, 8),
+(37, 29, 8, 2021, 2),
+(38, 30, 8, 2021, 12),
+(39, 31, 8, 2021, 46),
+(40, 1, 9, 2021, 54),
+(41, 2, 9, 2021, 80),
+(42, 3, 9, 2021, 6),
+(43, 4, 9, 2021, 4),
+(44, 5, 9, 2021, 7),
+(45, 6, 9, 2021, 8),
+(46, 7, 9, 2021, 25),
+(47, 8, 9, 2021, 86),
+(48, 9, 9, 2021, 95),
+(49, 10, 9, 2021, 54),
+(50, 11, 9, 2021, 53),
+(51, 12, 9, 2021, 8),
+(52, 13, 9, 2021, 20),
+(53, 14, 9, 2021, 3),
+(54, 15, 9, 2021, 7),
+(55, 18, 9, 2021, 29),
+(56, 19, 9, 2021, 23),
+(57, 20, 9, 2021, 69),
+(58, 21, 9, 2021, 32),
+(59, 22, 9, 2021, 29),
+(60, 23, 9, 2021, 47),
+(61, 24, 9, 2021, 32),
+(62, 25, 9, 2021, 83),
+(63, 26, 9, 2021, 6),
+(64, 27, 9, 2021, 99),
+(65, 28, 9, 2021, 12),
+(66, 29, 9, 2021, 61),
+(67, 30, 9, 2021, 27),
+(68, 1, 10, 2021, 2),
+(69, 2, 10, 2021, 21),
+(70, 3, 10, 2021, 1),
+(71, 4, 10, 2021, 1),
+(72, 5, 10, 2021, 1),
+(73, 6, 10, 2021, 1),
+(74, 7, 10, 2021, 25),
+(75, 7, 10, 2021, 25),
+(76, 7, 10, 2021, 25),
+(77, 7, 10, 2021, 25),
+(78, 7, 10, 2021, 25),
+(79, 8, 10, 2021, 2),
+(80, 9, 10, 2021, 8),
+(81, 11, 10, 2021, 1),
+(82, 12, 10, 2021, 2),
+(83, 20, 10, 2021, 2),
+(84, 25, 10, 2021, 1),
+(85, 25, 11, 2021, 2),
+(86, 25, 12, 2021, 1),
+(87, 30, 12, 2021, 1),
+(88, 8, 1, 2022, 1),
+(89, 25, 8, 2022, 2),
+(90, 28, 9, 2022, 1),
+(91, 29, 12, 2022, 2),
+(92, 10, 1, 2023, 1),
+(93, 17, 1, 2023, 1),
+(94, 7, 3, 2023, 1),
+(95, 8, 3, 2023, 1),
+(96, 18, 4, 2023, 1),
+(97, 15, 5, 2023, 1),
+(98, 18, 5, 2023, 1),
+(99, 23, 5, 2023, 8),
+(100, 6, 6, 2023, 189),
+(101, 7, 6, 2023, 154),
+(102, 8, 6, 2023, 283),
+(103, 13, 6, 2023, 111),
+(104, 14, 6, 2023, 94),
+(105, 26, 6, 2023, 2),
+(106, 3, 7, 2023, 1),
+(107, 5, 7, 2023, 3),
+(108, 10, 7, 2023, 47),
+(109, 12, 7, 2023, 2),
+(110, 14, 7, 2023, 5),
+(111, 17, 7, 2023, 2),
+(112, 18, 7, 2023, 4),
+(113, 20, 7, 2023, 1),
+(114, 22, 7, 2023, 1),
+(115, 24, 7, 2023, 1),
+(116, 25, 7, 2023, 1),
+(117, 26, 7, 2023, 2),
+(118, 27, 7, 2023, 1),
+(119, 28, 7, 2023, 1),
+(120, 1, 8, 2023, 1),
+(121, 3, 8, 2023, 1),
+(122, 5, 8, 2023, 1),
+(123, 9, 8, 2023, 6),
+(124, 15, 1, 2025, 2),
+(125, 4, 2, 2025, 11),
+(126, 5, 2, 2025, 121),
+(127, 6, 2, 2025, 55),
+(128, 7, 2, 2025, 48),
+(129, 10, 2, 2025, 35),
+(130, 11, 2, 2025, 275),
+(131, 12, 2, 2025, 50),
+(132, 13, 2, 2025, 164),
+(133, 14, 2, 2025, 35),
+(134, 15, 2, 2025, 8),
+(135, 17, 2, 2025, 62),
+(136, 18, 2, 2025, 33),
+(137, 19, 2, 2025, 8),
+(138, 20, 2, 2025, 8),
+(139, 21, 2, 2025, 33);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_danhmuc`
+--
+
+CREATE TABLE `lh_danhmuc` (
+  `id` int(11) NOT NULL,
+  `tenbaiviet_vi` varchar(255) DEFAULT NULL,
+  `tenbaiviet_en` varchar(255) DEFAULT NULL,
+  `tenbaiviet_cn` varchar(255) DEFAULT NULL,
+  `tenbaiviet_jp` varchar(255) DEFAULT NULL,
+  `p1_vi` varchar(255) DEFAULT NULL,
+  `p1_en` varchar(255) DEFAULT NULL,
+  `p1_cn` varchar(255) DEFAULT NULL,
+  `p1_jp` varchar(255) DEFAULT NULL,
+  `seo_name` varchar(250) DEFAULT NULL,
+  `lien_ket` varchar(255) DEFAULT NULL,
+  `id_parent` int(11) NOT NULL DEFAULT '0',
+  `icon` varchar(200) DEFAULT NULL,
+  `icon_hover` varchar(255) DEFAULT NULL,
+  `icon_home` varchar(255) DEFAULT NULL,
+  `mota_en` mediumtext,
+  `mota_vi` mediumtext,
+  `mota_cn` mediumtext,
+  `mota_jp` mediumtext,
+  `noidung_en` mediumtext,
+  `noidung_vi` mediumtext,
+  `noidung_cn` mediumtext,
+  `noidung_jp` mediumtext,
+  `duongdantin` varchar(200) DEFAULT NULL,
+  `step` int(11) DEFAULT NULL,
+  `id_step` int(11) NOT NULL DEFAULT '0',
+  `ngaydang` int(15) NOT NULL DEFAULT '0',
+  `seo_title_vi` varchar(255) DEFAULT NULL,
+  `seo_title_en` varchar(255) DEFAULT NULL,
+  `seo_title_cn` varchar(255) DEFAULT NULL,
+  `seo_title_jp` varchar(255) DEFAULT NULL,
+  `seo_description_vi` varchar(255) DEFAULT NULL,
+  `seo_description_en` varchar(255) DEFAULT NULL,
+  `seo_description_cn` varchar(255) DEFAULT NULL,
+  `seo_description_jp` varchar(255) DEFAULT NULL,
+  `seo_keywords_vi` varchar(255) DEFAULT NULL,
+  `seo_keywords_en` varchar(255) DEFAULT NULL,
+  `seo_keywords_cn` varchar(255) DEFAULT NULL,
+  `seo_keywords_jp` varchar(255) DEFAULT NULL,
+  `opt` tinyint(1) NOT NULL DEFAULT '0',
+  `opt1` tinyint(1) NOT NULL DEFAULT '0',
+  `mt_1_jp` varchar(255) DEFAULT NULL,
+  `catasort` int(11) DEFAULT NULL,
+  `showhi` tinyint(2) NOT NULL DEFAULT '1',
+  `num_1` int(11) NOT NULL DEFAULT '0',
+  `num_2` int(11) NOT NULL DEFAULT '0',
+  `nhom_sp` varchar(255) DEFAULT NULL,
+  `p_khuyenmai` tinyint(1) NOT NULL DEFAULT '0',
+  `p_banchay` tinyint(1) NOT NULL DEFAULT '0',
+  `p_noibat` tinyint(1) NOT NULL DEFAULT '0',
+  `p_spmoi` tinyint(1) NOT NULL DEFAULT '0',
+  `p_hethang` tinyint(1) NOT NULL DEFAULT '0',
+  `id_parent_muti` mediumtext,
+  `text_anh` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COMMENT='Bang chua catalag News' ROW_FORMAT=DYNAMIC;
+
+--
+-- Đang đổ dữ liệu cho bảng `lh_danhmuc`
+--
+
+INSERT INTO `lh_danhmuc` (`id`, `tenbaiviet_vi`, `tenbaiviet_en`, `tenbaiviet_cn`, `tenbaiviet_jp`, `p1_vi`, `p1_en`, `p1_cn`, `p1_jp`, `seo_name`, `lien_ket`, `id_parent`, `icon`, `icon_hover`, `icon_home`, `mota_en`, `mota_vi`, `mota_cn`, `mota_jp`, `noidung_en`, `noidung_vi`, `noidung_cn`, `noidung_jp`, `duongdantin`, `step`, `id_step`, `ngaydang`, `seo_title_vi`, `seo_title_en`, `seo_title_cn`, `seo_title_jp`, `seo_description_vi`, `seo_description_en`, `seo_description_cn`, `seo_description_jp`, `seo_keywords_vi`, `seo_keywords_en`, `seo_keywords_cn`, `seo_keywords_jp`, `opt`, `opt1`, `mt_1_jp`, `catasort`, `showhi`, `num_1`, `num_2`, `nhom_sp`, `p_khuyenmai`, `p_banchay`, `p_noibat`, `p_spmoi`, `p_hethang`, `id_parent_muti`, `text_anh`) VALUES
+(23, 'danh sách 1', 'List 1', NULL, NULL, '', '', '', NULL, 'danh-sach-1', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'datafiles', 6, 14, 1740109064, 'danh sách 1', 'List 1', '', NULL, 'danh sách 1', 'List 1', '', NULL, 'danh sách 1', 'List 1', '', NULL, 0, 0, NULL, 1, 1, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL),
+(7, 'liên hoan', '', NULL, NULL, '', '', '', NULL, 'lien-hoan', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'datafiles', 10, 6, 1686200179, 'liên hoan', '', '', NULL, 'liên hoan', '', '', NULL, 'liên hoan', '', '', NULL, 0, 0, NULL, 2, 1, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL),
+(6, 'khai trương', '', NULL, NULL, '', '', '', NULL, 'khai-truong', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'datafiles', 10, 6, 1686200149, 'khai trương', '', '', NULL, 'khai trương', '', '', NULL, 'khai trương', '', '', NULL, 0, 0, NULL, 1, 1, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL),
+(19, 'Tin tức', '', NULL, NULL, '', '', '', NULL, 'tin-tuc-96', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'datafiles', 5, 3, 1740130575, 'Tin tức', 'News', '', NULL, 'Tin tức', 'News', '', NULL, 'Tin tức', 'News', '', NULL, 0, 0, NULL, 1, 1, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL),
+(18, 'Thông tin cổ đông', 'Shareholder information', NULL, NULL, '', '', '', NULL, 'thong-tin-co-dong', NULL, 0, '1739268008_banner-tintuc.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'datafiles', 12, 7, 1738900389, 'Thông tin cổ đông', 'Shareholder information', '', NULL, 'Thông tin cổ đông', 'Shareholder information', '', NULL, 'Thông tin cổ đông', 'Shareholder information', '', NULL, 0, 0, NULL, 1, 1, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL),
+(15, 'Công Ngiệp Ô Tô', 'Automotive industry', NULL, NULL, '', '', '', NULL, 'cong-ngiep-o-to', NULL, 0, '1738821949_linhvuc-1.jpg', NULL, NULL, '', 'fa-light fa-car', NULL, NULL, NULL, NULL, NULL, NULL, 'datafiles', 9, 2, 1738822416, 'Công Ngiệp Ô Tô', 'Automotive industry', '', NULL, 'Công Ngiệp Ô Tô', 'Automotive industry', '', NULL, 'Công Ngiệp Ô Tô', 'Automotive industry', '', NULL, 0, 0, NULL, 6, 1, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL),
+(16, 'Dịch Vụ Cảng', 'Port service', NULL, NULL, '', '', '', NULL, 'dich-vu-cang', NULL, 0, '1738821949_linhvuc-2.jpg', NULL, NULL, '', 'fa-light fa-ship', NULL, NULL, NULL, NULL, NULL, NULL, 'datafiles', 9, 2, 1738822402, 'Dịch Vụ Cảng', 'Port service', '', NULL, 'Dịch Vụ Cảng', 'Port service', '', NULL, 'Dịch Vụ Cảng', 'Port service', '', NULL, 0, 0, NULL, 7, 1, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL),
+(17, 'Cơ Khí & Công Nghiệp Hỗ Trợ', 'Mechanical & supporting industry', NULL, NULL, '', '', '', NULL, 'co-khi-cong-nghiep-ho-tro', NULL, 0, '1738821949_linhvuc-3.jpg', NULL, NULL, '', 'fa-light fa-gear', NULL, NULL, NULL, NULL, NULL, NULL, 'datafiles', 9, 2, 1738822384, 'Cơ Khí & Công Nghiệp Hỗ Trợ', 'Mechanical & supporting industry', '', NULL, 'Cơ Khí & Công Nghiệp Hỗ Trợ', 'Mechanical & supporting industry', '', NULL, 'Cơ Khí & Công Nghiệp Hỗ Trợ', 'Mechanical & supporting industry', '', NULL, 0, 0, NULL, 8, 1, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL),
+(21, 'Công ty', 'Company', NULL, NULL, '', '', '', NULL, 'cong-ty', NULL, 0, NULL, NULL, NULL, '', '', NULL, NULL, '', '', NULL, NULL, 'datafiles', 1, 1, 1739244883, 'Công ty', 'Company', '', NULL, 'Công ty', 'Company', '', NULL, 'Công ty', 'Company', '', NULL, 0, 0, NULL, 1, 1, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL),
+(22, 'Văn hóa  công ty', '', NULL, NULL, '', '', '', NULL, 'van-hoa-cong-ty', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'datafiles', 1, 1, 1739241423, 'Văn hóa  công ty', '', '', NULL, 'Văn hóa  công ty', '', '', NULL, 'Văn hóa  công ty', '', '', NULL, 0, 0, NULL, 2, 1, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_du_lieu_sn`
+--
+
+CREATE TABLE `lh_du_lieu_sn` (
+  `id` int(11) NOT NULL,
+  `tenbaiviet_vi` varchar(255) DEFAULT NULL,
+  `tenbaiviet_en` varchar(255) DEFAULT NULL,
+  `mota_vi` varchar(255) DEFAULT NULL,
+  `mota_en` varchar(255) DEFAULT NULL,
+  `id_parent` int(11) NOT NULL DEFAULT '0',
+  `seo_name` varchar(255) DEFAULT NULL,
+  `val_1` varchar(255) DEFAULT NULL,
+  `val_2` varchar(255) DEFAULT NULL,
+  `blank` varchar(255) DEFAULT NULL,
+  `catasort` int(11) NOT NULL DEFAULT '0',
+  `opt` tinyint(1) NOT NULL DEFAULT '0',
+  `spchon` mediumtext,
+  `showhi` tinyint(4) NOT NULL DEFAULT '1'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `lh_du_lieu_sn`
+--
+
+INSERT INTO `lh_du_lieu_sn` (`id`, `tenbaiviet_vi`, `tenbaiviet_en`, `mota_vi`, `mota_en`, `id_parent`, `seo_name`, `val_1`, `val_2`, `blank`, `catasort`, `opt`, `spchon`, `showhi`) VALUES
+(55, 'Vận chuyển', 'Transport', '', '', 0, 'van-chuyen', '', '', '', 6, 0, '', 1),
+(54, 'Tin tức', 'News', '', '', 0, 'tin-tuc', '', '', '', 5, 0, '', 1),
+(53, 'Logistics', 'Logistics', '', '', 0, 'logistics', '', '', '', 4, 0, '', 1),
+(52, 'Dịch Vụ', 'Service', '', '', 0, 'dich-vu', '', '', '', 3, 0, '', 1),
+(51, 'Năng Lực Nhân Sự', 'Human Resources', '', '', 0, 'nang-luc-nhan-su', '', '', '', 2, 0, '', 1),
+(50, 'Giới Thiệu', 'Introduce', '', '', 0, 'gioi-thieu', '', '', '', 1, 0, '', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_email_config`
+--
+
+CREATE TABLE `lh_email_config` (
+  `id` int(11) NOT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `type` tinyint(1) NOT NULL DEFAULT '0',
+  `showhi` tinyint(1) NOT NULL DEFAULT '1'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `lh_email_config`
+--
+
+INSERT INTO `lh_email_config` (`id`, `email`, `type`, `showhi`) VALUES
+(7, 'phongnguyen@pavietnam.vn', 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_email_follow`
+--
+
+CREATE TABLE `lh_email_follow` (
+  `id` int(11) NOT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `v_name` varchar(255) DEFAULT NULL,
+  `v_phone` varchar(255) DEFAULT NULL,
+  `ddate` int(11) NOT NULL DEFAULT '0',
+  `icon` varchar(255) DEFAULT NULL,
+  `showhi` tinyint(1) NOT NULL DEFAULT '1'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_file_import_data`
+--
+
+CREATE TABLE `lh_file_import_data` (
+  `id` int(11) NOT NULL,
+  `ten_vi` varchar(255) DEFAULT NULL,
+  `duongdantin` varchar(255) DEFAULT NULL,
+  `file_excel` varchar(255) DEFAULT NULL,
+  `ngay_dang` int(11) NOT NULL DEFAULT '0',
+  `so_lan_import` int(11) NOT NULL DEFAULT '0',
+  `noidung_vi` mediumtext,
+  `import_cuoi` int(11) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_form_datlichhen`
+--
+
+CREATE TABLE `lh_form_datlichhen` (
+  `id` int(11) NOT NULL,
+  `tenbaiviet_vi` varchar(255) DEFAULT NULL,
+  `ip_gui` varchar(255) DEFAULT NULL,
+  `ngay_dang` int(11) NOT NULL DEFAULT '0',
+  `noi_dung_vn` longtext,
+  `showhi` tinyint(1) NOT NULL DEFAULT '1',
+  `loai` int(11) NOT NULL DEFAULT '0',
+  `nd_json` longtext,
+  `file_1` varchar(255) DEFAULT NULL,
+  `file_2` varchar(255) DEFAULT NULL,
+  `id_bv` int(11) NOT NULL DEFAULT '0',
+  `is_nuti` tinyint(4) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_form_lienhe`
+--
+
+CREATE TABLE `lh_form_lienhe` (
+  `id` int(11) NOT NULL,
+  `tenbaiviet_vi` varchar(255) DEFAULT NULL,
+  `ip_gui` varchar(255) DEFAULT NULL,
+  `ngay_dang` int(11) NOT NULL DEFAULT '0',
+  `noi_dung_vn` longtext,
+  `showhi` tinyint(1) NOT NULL DEFAULT '1',
+  `loai` int(11) NOT NULL DEFAULT '0',
+  `nd_json` longtext,
+  `file_1` varchar(255) DEFAULT NULL,
+  `file_2` varchar(255) DEFAULT NULL,
+  `id_bv` int(11) NOT NULL DEFAULT '0',
+  `is_nuti` tinyint(4) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `lh_form_lienhe`
+--
+
+INSERT INTO `lh_form_lienhe` (`id`, `tenbaiviet_vi`, `ip_gui`, `ngay_dang`, `noi_dung_vn`, `showhi`, `loai`, `nd_json`, `file_1`, `file_2`, `id_bv`, `is_nuti`) VALUES
+(1, 'Thông tin liên hệ', '112.213.95.30', 1686194188, '<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/>\n<table border=\'1\' cellspacing=\'0\' cellpadding=\'4\'\n       style=\'width:100%; border-collapse: collapse; font-family:Tahoma; font-size:11px;\' bordercolor=\'#cccccc\' class=\"table table-hover table-danhsach\">\n    <tr>\n        <td colspan=\"7\" style=\"text-align: left\">\n            <div style=\"display: table; width: 100%; float: left; text-align: left;\">\n                <img src=\"https://webdemo5.pavietnam.vn/2021_thienhoanggroup/datafiles/1629104964_Logo-THG-3.png\" alt=\"\" style=\"float: left;height: 80px\"> \n                <span style=\"font-size: 15px; padding-left: 20px; display: table-cell; vertical-align: middle; width: 100%; font-weight: 600; color: #333;\">CÔNG TY TNHH XÂY DỰNG VÀ THƯƠNG MẠI THIÊN HOÀNG</span>\n            </div>\n        </td>\n    </tr> \n    <tr> <td colspan=\"7\" style=\"text-align: left; color: #333; background: #cccccc; font-size: 13px;text-transform: uppercase;\"><b>Thông tin liên hệ</b></td> </tr><tr><td colspan=\"3\" style=\"width:160px; font-size: 13px\">Họ & tên</td><td colspan=\"4\" width=\"400\"><span style=\"display:block; padding-left:5px; font-size: 13px\">test</span></td></tr><tr><td colspan=\"3\" style=\"width:160px; font-size: 13px\">Số điện thoại</td><td colspan=\"4\" width=\"400\"><span style=\"display:block; padding-left:5px; font-size: 13px\">1234567890</span></td></tr><tr><td colspan=\"3\" style=\"width:160px; font-size: 13px\">Email</td><td colspan=\"4\" width=\"400\"><span style=\"display:block; padding-left:5px; font-size: 13px\">test@gmail.com</span></td></tr><tr><td colspan=\"3\" style=\"width:160px; font-size: 13px\">VĂN PHÒNG QUY NHƠN</td><td colspan=\"4\" width=\"400\"><span style=\"display:block; padding-left:5px; font-size: 13px\">hcm</span></td></tr><tr><td colspan=\"3\" style=\"width:160px; font-size: 13px\">Tiêu đề</td><td colspan=\"4\" width=\"400\"><span style=\"display:block; padding-left:5px; font-size: 13px\">hcm</span></td></tr><tr><td colspan=\"3\" style=\"width:160px; font-size: 13px\">Nội dung liên hệ</td><td colspan=\"4\" width=\"400\"><span style=\"display:block; padding-left:5px; font-size: 13px\">test</span></td></tr>\n    <tr>\n        <td colspan=\"7\" style=\" background-color: #cccccc; color: #333; padding: 10px !important; font-size: 13px;  padding-bottom: 5px !important;\"><p><b>CÔNG TY TNHH XÂY DỰNG VÀ THƯƠNG MẠI THIÊN HOÀNG</b></p><p>Số điện thoại: Add: 2-8-23-2F, Hishiyanishi, Higashi, OsakaShi, Osaka, 577-0807, Japan <br /> Phone: +81-90-6980-0817 <br /> Email: sumito@thienhoanggroup.com (Mr. Sumito  Minami)</p><p>Email: Add:  Lầu 1, 261 - 263 Phan Xích Long, Phường 2, Quận Phú Nhuận, Tp. Hồ Chí Minh, 80000, Việt Nam <br /> Phone: +84-944-357539 <br /> Email: thomas@thienhoanggroup.com (Mr. Thomas)</p><p>VĂN PHÒNG QUY NHƠN: Add: 982 Hùng Vương, Phường Nhơn Phú, Thành phố Quy Nhơn, Tỉnh Bình Định, 55000, Việt Nam <br /> Phone: +84-25-6354-8989 <br /> Email: info@thienhoanggroup.com</p>\n        </td>\n    </tr>\n</table>', 1, 0, 'a:7:{i:0;a:2:{s:1:\"k\";s:5:\"title\";s:1:\"v\";s:28:\"VGjDtG5nIHRpbiBsacOqbiBo4buH\";}i:1;a:2:{s:1:\"k\";s:16:\"SOG7jSAmIHTDqm4=\";s:1:\"v\";s:4:\"test\";}i:2;a:2:{s:1:\"k\";s:28:\"U+G7kSDEkWnhu4duIHRob+G6oWk=\";s:1:\"v\";s:10:\"1234567890\";}i:3;a:2:{s:1:\"k\";s:8:\"RW1haWw=\";s:1:\"v\";s:14:\"test@gmail.com\";}i:4;a:2:{s:1:\"k\";s:28:\"VsSCTiBQSMOSTkcgUVVZIE5IxqBO\";s:1:\"v\";s:3:\"hcm\";}i:5;a:2:{s:1:\"k\";s:16:\"VGnDqnUgxJHhu4E=\";s:1:\"v\";s:3:\"hcm\";}i:6;a:2:{s:1:\"k\";s:28:\"TuG7mWkgZHVuZyBsacOqbiBo4buH\";s:1:\"v\";s:4:\"test\";}}', NULL, NULL, 0, 1),
+(3, 'Thông tin liên hệ', '::1', 1738839924, '<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/>\n<table border=\'1\' cellspacing=\'0\' cellpadding=\'4\'\n       style=\'width:100%; border-collapse: collapse; font-family:Tahoma; font-size:11px;\' bordercolor=\'#cccccc\' class=\"table table-hover table-danhsach\">\n    <tr>\n        <td colspan=\"7\" style=\"text-align: left\">\n            <div style=\"display: table; width: 100%; float: left; text-align: left;\">\n                <img src=\"http://localhost/2025_tracomeco/datafiles/1738726638_logo.png\" alt=\"\" style=\"float: left;height: 80px\"> \n                <span style=\"font-size: 15px; padding-left: 20px; display: table-cell; vertical-align: middle; width: 100%; font-weight: 600; color: #333;\">Công Ty Cổ Phần Cơ Khí - Xây Dựng Giao Thông (Tracomeco)</span>\n            </div>\n        </td>\n    </tr> \n    <tr> <td colspan=\"7\" style=\"text-align: left; color: #333; background: #cccccc; font-size: 13px;text-transform: uppercase;\"><b>Thông tin liên hệ</b></td> </tr><tr><td colspan=\"3\" style=\"width:160px; font-size: 13px\">Họ & tên</td><td colspan=\"4\" width=\"400\"><span style=\"display:block; padding-left:5px; font-size: 13px\">minh</span></td></tr><tr><td colspan=\"3\" style=\"width:160px; font-size: 13px\">Số điện thoại</td><td colspan=\"4\" width=\"400\"><span style=\"display:block; padding-left:5px; font-size: 13px\">0792022883</span></td></tr><tr><td colspan=\"3\" style=\"width:160px; font-size: 13px\">Email</td><td colspan=\"4\" width=\"400\"><span style=\"display:block; padding-left:5px; font-size: 13px\">test1@gmail.com</span></td></tr><tr><td colspan=\"3\" style=\"width:160px; font-size: 13px\">Địa chỉ</td><td colspan=\"4\" width=\"400\"><span style=\"display:block; padding-left:5px; font-size: 13px\">123</span></td></tr><tr><td colspan=\"3\" style=\"width:160px; font-size: 13px\">Tiêu đề</td><td colspan=\"4\" width=\"400\"><span style=\"display:block; padding-left:5px; font-size: 13px\">151</span></td></tr><tr><td colspan=\"3\" style=\"width:160px; font-size: 13px\">Nội dung liên hệ</td><td colspan=\"4\" width=\"400\"><span style=\"display:block; padding-left:5px; font-size: 13px\">51615841</span></td></tr>\n    <tr>\n        <td colspan=\"7\" style=\" background-color: #cccccc; color: #333; padding: 10px !important; font-size: 13px;  padding-bottom: 5px !important;\"><p><b>Công Ty Cổ Phần Cơ Khí - Xây Dựng Giao Thông (Tracomeco)</b></p><p>Số điện thoại: 028 3896 5105</p><p>Email: tracomeco@tracomeco.com</p><p>Địa chỉ: 429/4 Đường Song hành Xa lộ Hà Nội - Khu phố 7 - Phường Trường Thọ - Thành phố Thủ Đức - Thành phố Hồ Chí Minh</p>\n        </td>\n    </tr>\n</table>', 1, 0, 'a:7:{i:0;a:2:{s:1:\"k\";s:5:\"title\";s:1:\"v\";s:28:\"VGjDtG5nIHRpbiBsacOqbiBo4buH\";}i:1;a:2:{s:1:\"k\";s:16:\"SOG7jSAmIHTDqm4=\";s:1:\"v\";s:4:\"minh\";}i:2;a:2:{s:1:\"k\";s:28:\"U+G7kSDEkWnhu4duIHRob+G6oWk=\";s:1:\"v\";s:10:\"0792022883\";}i:3;a:2:{s:1:\"k\";s:8:\"RW1haWw=\";s:1:\"v\";s:15:\"test1@gmail.com\";}i:4;a:2:{s:1:\"k\";s:16:\"xJDhu4thIGNo4buJ\";s:1:\"v\";s:3:\"123\";}i:5;a:2:{s:1:\"k\";s:16:\"VGnDqnUgxJHhu4E=\";s:1:\"v\";s:3:\"151\";}i:6;a:2:{s:1:\"k\";s:28:\"TuG7mWkgZHVuZyBsacOqbiBo4buH\";s:1:\"v\";s:8:\"51615841\";}}', NULL, NULL, 0, 1),
+(4, 'Thông tin liên hệ', '::1', 1738840020, '<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/>\n<table border=\'1\' cellspacing=\'0\' cellpadding=\'4\'\n       style=\'width:100%; border-collapse: collapse; font-family:Tahoma; font-size:11px;\' bordercolor=\'#cccccc\' class=\"table table-hover table-danhsach\">\n    <tr>\n        <td colspan=\"7\" style=\"text-align: left\">\n            <div style=\"display: table; width: 100%; float: left; text-align: left;\">\n                <img src=\"http://localhost/2025_tracomeco/datafiles/1738726638_logo.png\" alt=\"\" style=\"float: left;height: 80px\"> \n                <span style=\"font-size: 15px; padding-left: 20px; display: table-cell; vertical-align: middle; width: 100%; font-weight: 600; color: #333;\">Công Ty Cổ Phần Cơ Khí - Xây Dựng Giao Thông (Tracomeco)</span>\n            </div>\n        </td>\n    </tr> \n    <tr> <td colspan=\"7\" style=\"text-align: left; color: #333; background: #cccccc; font-size: 13px;text-transform: uppercase;\"><b>Thông tin liên hệ</b></td> </tr><tr><td colspan=\"3\" style=\"width:160px; font-size: 13px\">Họ & tên</td><td colspan=\"4\" width=\"400\"><span style=\"display:block; padding-left:5px; font-size: 13px\">21341234</span></td></tr><tr><td colspan=\"3\" style=\"width:160px; font-size: 13px\">Số điện thoại</td><td colspan=\"4\" width=\"400\"><span style=\"display:block; padding-left:5px; font-size: 13px\">0999999999</span></td></tr><tr><td colspan=\"3\" style=\"width:160px; font-size: 13px\">Email</td><td colspan=\"4\" width=\"400\"><span style=\"display:block; padding-left:5px; font-size: 13px\">test1@gmail.com</span></td></tr><tr><td colspan=\"3\" style=\"width:160px; font-size: 13px\">Địa chỉ</td><td colspan=\"4\" width=\"400\"><span style=\"display:block; padding-left:5px; font-size: 13px\">ádsa1</span></td></tr><tr><td colspan=\"3\" style=\"width:160px; font-size: 13px\">Tiêu đề</td><td colspan=\"4\" width=\"400\"><span style=\"display:block; padding-left:5px; font-size: 13px\">123</span></td></tr><tr><td colspan=\"3\" style=\"width:160px; font-size: 13px\">Nội dung liên hệ</td><td colspan=\"4\" width=\"400\"><span style=\"display:block; padding-left:5px; font-size: 13px\">123</span></td></tr>\n    <tr>\n        <td colspan=\"7\" style=\" background-color: #cccccc; color: #333; padding: 10px !important; font-size: 13px;  padding-bottom: 5px !important;\"><p><b>Công Ty Cổ Phần Cơ Khí - Xây Dựng Giao Thông (Tracomeco)</b></p><p>Số điện thoại: 028 3896 5105</p><p>Email: tracomeco@tracomeco.com</p><p>Địa chỉ: 429/4 Đường Song hành Xa lộ Hà Nội - Khu phố 7 - Phường Trường Thọ - Thành phố Thủ Đức - Thành phố Hồ Chí Minh</p>\n        </td>\n    </tr>\n</table>', 0, 0, 'a:7:{i:0;a:2:{s:1:\"k\";s:5:\"title\";s:1:\"v\";s:28:\"VGjDtG5nIHRpbiBsacOqbiBo4buH\";}i:1;a:2:{s:1:\"k\";s:16:\"SOG7jSAmIHTDqm4=\";s:1:\"v\";s:8:\"21341234\";}i:2;a:2:{s:1:\"k\";s:28:\"U+G7kSDEkWnhu4duIHRob+G6oWk=\";s:1:\"v\";s:10:\"0999999999\";}i:3;a:2:{s:1:\"k\";s:8:\"RW1haWw=\";s:1:\"v\";s:15:\"test1@gmail.com\";}i:4;a:2:{s:1:\"k\";s:16:\"xJDhu4thIGNo4buJ\";s:1:\"v\";s:6:\"ádsa1\";}i:5;a:2:{s:1:\"k\";s:16:\"VGnDqnUgxJHhu4E=\";s:1:\"v\";s:3:\"123\";}i:6;a:2:{s:1:\"k\";s:28:\"TuG7mWkgZHVuZyBsacOqbiBo4buH\";s:1:\"v\";s:3:\"123\";}}', NULL, NULL, 0, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_lienket`
+--
+
+CREATE TABLE `lh_lienket` (
+  `id` int(11) NOT NULL,
+  `tenbaiviet_vi` varchar(255) DEFAULT NULL,
+  `lien_ket` varchar(255) DEFAULT NULL,
+  `thuc_hien` int(11) NOT NULL DEFAULT '0',
+  `lan_cuoi` int(11) NOT NULL DEFAULT '0',
+  `showhi` tinyint(1) NOT NULL DEFAULT '1'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_lien_ket_nhanh`
+--
+
+CREATE TABLE `lh_lien_ket_nhanh` (
+  `id` int(11) NOT NULL,
+  `tenbaiviet_vi` varchar(255) DEFAULT NULL,
+  `tenbaiviet_en` varchar(255) DEFAULT NULL,
+  `gia_min` int(11) NOT NULL DEFAULT '0',
+  `gia_max` int(11) NOT NULL DEFAULT '0',
+  `catasort` int(11) NOT NULL DEFAULT '0',
+  `showhi` tinyint(1) NOT NULL DEFAULT '1'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_lien_ket_nhanh_phan_tram`
+--
+
+CREATE TABLE `lh_lien_ket_nhanh_phan_tram` (
+  `id` int(11) NOT NULL,
+  `tenbaiviet_vi` varchar(255) DEFAULT NULL,
+  `tenbaiviet_en` varchar(255) DEFAULT NULL,
+  `gia_min` int(11) NOT NULL DEFAULT '0',
+  `gia_max` int(11) NOT NULL DEFAULT '0',
+  `catasort` int(11) NOT NULL DEFAULT '0',
+  `showhi` tinyint(1) NOT NULL DEFAULT '1'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_magiamgia`
+--
+
+CREATE TABLE `lh_magiamgia` (
+  `id` int(11) NOT NULL,
+  `tenbaiviet_vi` varchar(255) DEFAULT NULL,
+  `so_lan_su_dung` int(11) NOT NULL DEFAULT '0',
+  `khong_gioi_han` tinyint(1) NOT NULL DEFAULT '0',
+  `loai_km` tinyint(1) NOT NULL DEFAULT '0',
+  `gia_tri_giam` int(11) NOT NULL DEFAULT '0',
+  `ap_dung_cho` int(11) NOT NULL DEFAULT '0',
+  `gia_tri_ap_dung` int(11) NOT NULL DEFAULT '0',
+  `ap_dung_khuyen_mail_tren_don_hang` tinyint(1) NOT NULL DEFAULT '0',
+  `bat_dau` int(11) NOT NULL DEFAULT '0',
+  `ket_thuc` int(11) NOT NULL DEFAULT '0',
+  `ngay_tao` int(11) NOT NULL DEFAULT '0',
+  `catasort` int(11) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_magiamgia_chitiet`
+--
+
+CREATE TABLE `lh_magiamgia_chitiet` (
+  `id` int(11) NOT NULL,
+  `id_parent` int(11) NOT NULL DEFAULT '0',
+  `ma_giam_gia` varchar(255) DEFAULT NULL,
+  `so_lan_su_dung` int(11) NOT NULL DEFAULT '0',
+  `tong_su_dung` int(11) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_mangxahoi`
+--
+
+CREATE TABLE `lh_mangxahoi` (
+  `id` int(11) NOT NULL,
+  `tenbaiviet_vi` varchar(255) DEFAULT NULL,
+  `tenbaiviet_en` varchar(255) DEFAULT NULL,
+  `tenbaiviet_cn` varchar(255) DEFAULT NULL,
+  `seo_name` varchar(255) DEFAULT NULL,
+  `icon` varchar(255) DEFAULT NULL,
+  `duongdantin` varchar(255) DEFAULT NULL,
+  `fontawesome` varchar(255) DEFAULT NULL,
+  `catasort` int(11) NOT NULL DEFAULT '1',
+  `showhi` tinyint(4) NOT NULL DEFAULT '1',
+  `background` varchar(255) DEFAULT NULL,
+  `is_top` tinyint(4) NOT NULL DEFAULT '0',
+  `is_foot` tinyint(4) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `lh_mangxahoi`
+--
+
+INSERT INTO `lh_mangxahoi` (`id`, `tenbaiviet_vi`, `tenbaiviet_en`, `tenbaiviet_cn`, `seo_name`, `icon`, `duongdantin`, `fontawesome`, `catasort`, `showhi`, `background`, `is_top`, `is_foot`) VALUES
+(1, 'Zalo', '', NULL, '', NULL, 'datafiles', 'fa-brands fa-facebook-f', 1, 1, '#39599c', 0, 0),
+(2, 'Youtube', '', NULL, '', NULL, 'datafiles', 'fa-brands fa-youtube', 2, 1, '#e82c2a', 0, 0),
+(3, 'Twitter', '', NULL, '', '1739359785_thumb_1686210290_MasterCard_Logo.png', 'datafiles', 'fa-brands fa-twitter', 3, 1, '#0fa6f7', 0, 0),
+(4, '', '', NULL, '', NULL, 'datafiles', '', 4, 1, '', 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_marketing`
+--
+
+CREATE TABLE `lh_marketing` (
+  `id` int(11) NOT NULL,
+  `tenbaiviet_vi` varchar(255) DEFAULT NULL,
+  `tenbaiviet_en` varchar(255) DEFAULT NULL,
+  `mota_vi` varchar(255) DEFAULT NULL,
+  `mota_en` varchar(255) DEFAULT NULL,
+  `noidung_vi` varchar(255) DEFAULT NULL,
+  `noidung_en` varchar(255) DEFAULT NULL,
+  `duongdantin` varchar(255) DEFAULT NULL,
+  `icon` varchar(255) DEFAULT NULL,
+  `catasort` int(11) NOT NULL DEFAULT '0',
+  `showhi` tinyint(1) NOT NULL DEFAULT '1'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `lh_marketing`
+--
+
+INSERT INTO `lh_marketing` (`id`, `tenbaiviet_vi`, `tenbaiviet_en`, `mota_vi`, `mota_en`, `noidung_vi`, `noidung_en`, `duongdantin`, `icon`, `catasort`, `showhi`) VALUES
+(27, 'Mới mua hàng', 'Mới mua hàng', 'diepnguyen928@gmail.com Ngọc Điệp', 'diepnguyen928@gmail.com Ngọc Điệp', 'Khách hàng [hoten] vừa mới mua hàng thành công!', 'Khách hàng [hoten] vừa mới mua hàng thành công!', 'datafiles', '1591753290_30.jpg', 11, 1),
+(28, 'Mới mua hàng', 'Mới mua hàng', 'diepnguyen928@gmail.com Ngọc Điệp', 'diepnguyen928@gmail.com Ngọc Điệp', 'Khách hàng [hoten] vừa mới mua hàng thành công!', 'Khách hàng [hoten] vừa mới mua hàng thành công!', 'datafiles', '1591753290_29.jpg', 10, 1),
+(29, 'Mới mua hàng', 'Mới mua hàng', 'diepnguyen928@gmail.com Ngọc Điệp', 'diepnguyen928@gmail.com Ngọc Điệp', 'Khách hàng [hoten] vừa mới mua hàng thành công!', 'Khách hàng [hoten] vừa mới mua hàng thành công!', 'datafiles', '1591753290_28.jpg', 9, 1),
+(30, 'Mới mua hàng', 'Mới mua hàng', 'diepnguyen928@gmail.com Ngọc Điệp', 'diepnguyen928@gmail.com Ngọc Điệp', 'Khách hàng [hoten] vừa mới mua hàng thành công!', 'Khách hàng [hoten] vừa mới mua hàng thành công!', 'datafiles', '1591753290_27.jpg', 8, 1),
+(31, 'Mới mua hàng', 'Mới mua hàng', 'diepnguyen928@gmail.com Ngọc Điệp', 'diepnguyen928@gmail.com Ngọc Điệp', 'Khách hàng [hoten] vừa mới mua hàng thành công!', 'Khách hàng [hoten] vừa mới mua hàng thành công!', 'datafiles', '1591753290_26.jpg', 7, 1),
+(32, 'Mới mua hàng', 'Mới mua hàng', 'diepnguyen928@gmail.com Ngọc Điệp', 'diepnguyen928@gmail.com Ngọc Điệp', 'Khách hàng [hoten] vừa mới mua hàng thành công!', 'Khách hàng [hoten] vừa mới mua hàng thành công!', 'datafiles', '1591753290_25.jpg', 6, 1),
+(33, 'Mới mua hàng', 'Mới mua hàng', 'diepnguyen928@gmail.com Ngọc Điệp', 'diepnguyen928@gmail.com Ngọc Điệp', 'Khách hàng [hoten] vừa mới mua hàng thành công!', 'Khách hàng [hoten] vừa mới mua hàng thành công!', 'datafiles', '1591753290_24.jpg', 5, 1),
+(34, 'Mới mua hàng', 'Mới mua hàng', 'diepnguyen928@gmail.com Ngọc Điệp', 'diepnguyen928@gmail.com Ngọc Điệp', 'Khách hàng [hoten] vừa mới mua hàng thành công!', 'Khách hàng [hoten] vừa mới mua hàng thành công!', 'datafiles', '1591753290_23.jpg', 4, 1),
+(35, 'Mới mua hàng', 'Mới mua hàng', 'diepnguyen928@gmail.com Ngọc Điệp', 'diepnguyen928@gmail.com Ngọc Điệp', 'Khách hàng [hoten] vừa mới mua hàng thành công!', 'Khách hàng [hoten] vừa mới mua hàng thành công!', 'datafiles', '1591753290_22.jpg', 3, 1),
+(36, 'Mới mua hàng', 'Mới mua hàng', 'diepnguyen928@gmail.com Ngọc Điệp', 'diepnguyen928@gmail.com Ngọc Điệp', 'Khách hàng [hoten] vừa mới mua hàng thành công!', 'Khách hàng [hoten] vừa mới mua hàng thành công!', 'datafiles', '1591753290_21.jpg', 2, 1),
+(26, 'Mới mua hàng', 'Mới mua hàng', 'diepnguyen928@gmail.com Ngọc Điệp', 'diepnguyen928@gmail.com Ngọc Điệp', 'Khách hàng [hoten] vừa mới mua hàng thành công!', 'Khách hàng [hoten] vừa mới mua hàng thành công!', 'datafiles', '1591753290_20.jpg', 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_marketing_setting`
+--
+
+CREATE TABLE `lh_marketing_setting` (
+  `id` int(11) NOT NULL,
+  `time_hien_thi` int(11) NOT NULL DEFAULT '0',
+  `time_cho` int(11) NOT NULL DEFAULT '0',
+  `mau_nen` varchar(255) DEFAULT NULL,
+  `mau_chu` varchar(255) DEFAULT NULL,
+  `mau_ten` varchar(255) DEFAULT NULL,
+  `mau_tim` varchar(255) DEFAULT NULL,
+  `time_load_lan` int(11) NOT NULL DEFAULT '0',
+  `is_vitri` tinyint(4) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `lh_marketing_setting`
+--
+
+INSERT INTO `lh_marketing_setting` (`id`, `time_hien_thi`, `time_cho`, `mau_nen`, `mau_chu`, `mau_ten`, `mau_tim`, `time_load_lan`, `is_vitri`) VALUES
+(1, 60, 10, 'rgb(44 62 80)', '#fff', '#ff0', '#f93b2f', 1, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_members`
+--
+
+CREATE TABLE `lh_members` (
+  `id` int(7) NOT NULL,
+  `tentruycap` varchar(100) DEFAULT NULL,
+  `matkhau` varchar(255) DEFAULT NULL,
+  `keypass` varchar(10) DEFAULT NULL,
+  `hoten` varchar(255) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `diachi` varchar(255) DEFAULT NULL,
+  `sodienthoai` varchar(255) DEFAULT NULL,
+  `gioitinh` tinyint(1) NOT NULL DEFAULT '0',
+  `ngaysinh` varchar(15) DEFAULT NULL,
+  `cmnd` varchar(255) DEFAULT NULL,
+  `idsp_view` mediumtext,
+  `active` varchar(255) DEFAULT NULL,
+  `phanquyen` int(11) NOT NULL DEFAULT '0',
+  `showhi` tinyint(1) NOT NULL DEFAULT '1',
+  `icon` varchar(255) DEFAULT NULL,
+  `id_facebook` int(11) NOT NULL DEFAULT '0',
+  `id_google` int(11) NOT NULL DEFAULT '0',
+  `google_icon` varchar(255) DEFAULT NULL,
+  `ip_login` varchar(255) DEFAULT NULL,
+  `ip_login_last` varchar(255) DEFAULT NULL,
+  `ip_login_time` int(11) NOT NULL DEFAULT '0',
+  `ip_login_last_time` int(11) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `lh_members`
+--
+
+INSERT INTO `lh_members` (`id`, `tentruycap`, `matkhau`, `keypass`, `hoten`, `email`, `diachi`, `sodienthoai`, `gioitinh`, `ngaysinh`, `cmnd`, `idsp_view`, `active`, `phanquyen`, `showhi`, `icon`, `id_facebook`, `id_google`, `google_icon`, `ip_login`, `ip_login_last`, `ip_login_time`, `ip_login_last_time`) VALUES
+(1, 'admin', '260276F70A68105D5511DD75815FC037E4DA1BA6AB2832180F82305AF072EF90909670B4', 'VBXRP', 'admin', 'info@thienhoanggroup.com', 'TpHCM', '', 0, '', NULL, '', '', 1, 1, '0', 0, 0, NULL, '::1', '::1', 1740107927, 1740107927),
+(117, 'phongnguyen', '668D77ADF3CEEFC20B84447150A191E90D46C2CFE9F3CA42D9E813216940335E946E8228', 'VCBDM', '', 'phongnguyen@pavietnam.vn', '', '', 0, NULL, NULL, NULL, NULL, 1, 1, NULL, 0, 0, NULL, '1.53.49.12', '1.53.49.12', 1628959549, 1628959549);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_members_log`
+--
+
+CREATE TABLE `lh_members_log` (
+  `id` int(20) NOT NULL,
+  `log` varchar(255) DEFAULT NULL,
+  `time_log` int(11) NOT NULL DEFAULT '0',
+  `id_user` int(11) NOT NULL DEFAULT '0',
+  `id_mb` int(11) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_members_nhom`
+--
+
+CREATE TABLE `lh_members_nhom` (
+  `id` int(11) NOT NULL,
+  `tenbaiviet_vi` varchar(255) DEFAULT NULL,
+  `phan_tram` float NOT NULL DEFAULT '0',
+  `catasort` int(11) NOT NULL DEFAULT '0',
+  `showhi` tinyint(1) NOT NULL DEFAULT '1'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_menu`
+--
+
+CREATE TABLE `lh_menu` (
+  `id` int(11) NOT NULL,
+  `id_parent` int(11) NOT NULL DEFAULT '0',
+  `tenbaiviet_vi` varchar(255) DEFAULT NULL,
+  `tenbaiviet_en` varchar(255) DEFAULT NULL,
+  `tenbaiviet_cn` varchar(255) DEFAULT NULL,
+  `tenbaiviet_jp` varchar(255) DEFAULT NULL,
+  `seo_name` varchar(255) DEFAULT NULL,
+  `step` int(11) NOT NULL DEFAULT '0',
+  `danhmuc` int(11) NOT NULL DEFAULT '0',
+  `kieu_hien_thi` tinyint(4) NOT NULL DEFAULT '0',
+  `kieu_chon` tinyint(1) NOT NULL DEFAULT '0',
+  `cua_so_moi` tinyint(4) NOT NULL DEFAULT '0',
+  `catasort` int(11) NOT NULL DEFAULT '1',
+  `showhi` tinyint(1) NOT NULL DEFAULT '1',
+  `icon` varchar(255) DEFAULT NULL,
+  `icon_hover` varchar(255) DEFAULT NULL,
+  `duongdantin` varchar(255) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `lh_menu`
+--
+
+INSERT INTO `lh_menu` (`id`, `id_parent`, `tenbaiviet_vi`, `tenbaiviet_en`, `tenbaiviet_cn`, `tenbaiviet_jp`, `seo_name`, `step`, `danhmuc`, `kieu_hien_thi`, `kieu_chon`, `cua_so_moi`, `catasort`, `showhi`, `icon`, `icon_hover`, `duongdantin`) VALUES
+(1, 0, 'Main Menu', 'Main Menu', '', '', '', 0, 0, 0, 1, 0, 1, 1, '1629009077_THG_ENRICH-YOUR-BUSSINESS.jpg', NULL, 'datafiles'),
+(2, 7, 'Trang chủ', 'Home', '', '', '', 0, 0, 0, 0, 0, 1, 1, NULL, NULL, 'datafiles'),
+(3, 1, 'Giới thiệu', 'Introduce', '', '', 'gioi-thieu', 1, 0, 1, 0, 0, 2, 1, NULL, NULL, 'datafiles'),
+(4, 1, 'LĨNH VỰC HOẠT ĐỘNG', 'Operation field', '', '', '', 9, 0, 1, 1, 0, 3, 1, NULL, NULL, 'datafiles'),
+(5, 7, 'Tin tức', 'News', '', '', 'tin-tuc', 5, 0, 1, 0, 0, 3, 1, NULL, NULL, 'datafiles'),
+(6, 1, 'Tuyển dụng', 'Recruitment', '', '', '', 6, 0, 0, 1, 0, 7, 0, NULL, NULL, 'datafiles'),
+(7, 0, 'Menu Top', 'Menu Right', '', '', '', 0, 0, 0, 1, 0, 8, 1, NULL, NULL, 'datafiles'),
+(8, 1, 'Liên hệ', 'Contact us', '', '', '', 8, 0, 0, 1, 0, 6, 1, NULL, NULL, 'datafiles'),
+(9, 1, 'Sản phẩm', 'Product', '', '', '', 9, 0, 1, 1, 0, 12, 0, NULL, NULL, 'datafiles'),
+(10, 7, 'Thư Viện Ảnh', 'Image Library', '', '', 'thu-vien', 10, 0, 1, 0, 0, 4, 1, NULL, NULL, 'datafiles'),
+(11, 9, 'test menu', '', '', '', '', 9, 0, 0, 0, 0, 11, 0, NULL, NULL, 'datafiles'),
+(12, 7, 'Giới thiệu', 'Introduce', '', '', '', 1, 22, 2, 1, 0, 2, 1, NULL, NULL, 'datafiles'),
+(17, 1, 'QUAN HÊ CỔ ĐÔNG', 'Shareholders', '', '', '', 12, 0, 1, 1, 0, 4, 1, NULL, NULL, 'datafiles'),
+(15, 7, 'Liên hệ', 'Contact', '', '', '', 8, 0, 0, 1, 0, 5, 1, NULL, NULL, 'datafiles'),
+(18, 1, 'Truyền thông', 'Media', '', '', '', 5, 0, 1, 0, 0, 5, 1, NULL, NULL, 'datafiles'),
+(19, 18, 'Tin tức', 'News', '', '', 'tin-tuc', 5, 0, 0, 1, 0, 13, 1, NULL, NULL, 'datafiles'),
+(20, 18, 'Thư viện ảnh và video', 'Photo and video library', '', '', 'thu-vien-anh-va-video', 0, 0, 0, 0, 0, 15, 1, NULL, NULL, 'datafiles'),
+(21, 18, 'Tin tuyển dụng', 'Recruitment news', '', '', 'tin-tuyen-dung', 6, 0, 0, 0, 0, 14, 1, NULL, NULL, 'datafiles'),
+(22, 3, 'Văn hóa công ty', 'Company culture', '', '', 'van-hoa-cong-ty', 1, 22, 0, 0, 0, 17, 1, NULL, NULL, 'datafiles'),
+(23, 3, 'Công ty', 'Company', '', '', '', 1, 21, 2, 1, 0, 16, 1, NULL, NULL, 'datafiles'),
+(24, 23, 'Công ty 1', 'Company 1', '', '', 've-chung-toi', 0, 0, 0, 0, 0, 18, 1, NULL, NULL, 'datafiles'),
+(25, 23, 'Công ty 2', 'Company 2', '', '', '', 0, 0, 0, 0, 0, 19, 1, NULL, NULL, 'datafiles');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_module_ngonngu`
+--
+
+CREATE TABLE `lh_module_ngonngu` (
+  `id` int(11) NOT NULL,
+  `code_lang` varchar(255) DEFAULT NULL,
+  `tenbaiviet` varchar(255) DEFAULT NULL,
+  `icon` varchar(255) DEFAULT NULL,
+  `duongdantin` varchar(255) DEFAULT NULL,
+  `showhi` tinyint(1) NOT NULL DEFAULT '1',
+  `sort` int(11) NOT NULL DEFAULT '0',
+  `khong_xoa` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `lh_module_ngonngu`
+--
+
+INSERT INTO `lh_module_ngonngu` (`id`, `code_lang`, `tenbaiviet`, `icon`, `duongdantin`, `showhi`, `sort`, `khong_xoa`) VALUES
+(1, 'vi', 'Tiếng Việt', '1599646978_vi.png', 'images/flag', 1, 1, 1),
+(2, 'en', 'English', '1599647108_en.png', 'images/flag', 1, 2, 0),
+(3, 'zh-CN', 'Chinese', '1599647120_cn.png', 'images/flag', 0, 3, 0),
+(4, 'jp', 'Japanese', NULL, 'images/flag', 0, 4, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_module_nhomtaikhoan`
+--
+
+CREATE TABLE `lh_module_nhomtaikhoan` (
+  `id` int(11) NOT NULL,
+  `ten_vi` varchar(255) DEFAULT NULL,
+  `sort` int(11) NOT NULL DEFAULT '1',
+  `showhi` tinyint(1) NOT NULL DEFAULT '1',
+  `phan_quyen` longtext
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `lh_module_nhomtaikhoan`
+--
+
+INSERT INTO `lh_module_nhomtaikhoan` (`id`, `ten_vi`, `sort`, `showhi`, `phan_quyen`) VALUES
+(7, 'Quản trị', 1, 0, '{\"tn_29\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":1},\"thiet-lap-website\":{\"xem\":1,\"them\":0,\"sua\":1,\"xoa\":0,\"menu\":1},\"tn_36\":{\"xem\":1,\"them\":0,\"sua\":1,\"xoa\":0,\"menu\":1},\"thiet-lap-menu\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"tn_41\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"nhom-quan-tri\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"tn_47\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"tn_30\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"khoa-website\":{\"xem\":1,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":1},\"tn_37\":{\"xem\":1,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":1},\"danh-sach-thanh-vien-quan-tri\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"tn_48\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"main-module\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":1},\"tn_31\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":1},\"quan-ly-ngon-ngu\":{\"xem\":1,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":1},\"tn_38\":{\"xem\":1,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":1},\"danh-sach-mail-nhan-tin\":{\"xem\":1,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":1},\"tn_39\":{\"xem\":1,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":1},\"danh-sach-hinh-anh\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"tn_33\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"danh-sach-mang-xa-hoi\":{\"xem\":1,\"them\":1,\"sua\":0,\"xoa\":1,\"menu\":1},\"tn_64\":{\"xem\":1,\"them\":1,\"sua\":0,\"xoa\":1,\"menu\":1},\"danh-sach-don-hang\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"tn_73\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"tn_34\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"danh-sach-thanh-vien\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"tn_49\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"danh-sach-mail-he-thong\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"tn_13\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"thiet-lap-tim-kiem-gia\":{\"xem\":1,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":1},\"tn_65\":{\"xem\":1,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":1},\"nhung-thong-tin-khac\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"tn_42\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"thong-tin-ca-nhan\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"tn_50\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"tn_84\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"tn_91\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"phuong-thuc-thanh-toan\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"tn_99\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"khach-hang-lien-he\":{\"xem\":1,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":1},\"tn_40\":{\"xem\":1,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":1},\"6\":{\"xem\":1,\"them\":1,\"sua\":1,\"xoa\":1,\"menu\":1},\"1\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"2\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"3\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"4\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"5\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0}}'),
+(8, 'Nhân viên', 2, 0, '{\"ql-website\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"tn_29\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"thiet-lap-website\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"tn_36\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"thiet-lap-menu\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"tn_41\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"nhom-quan-tri\":{\"xem\":1,\"them\":1,\"sua\":1,\"xoa\":1,\"menu\":1},\"tn_47\":{\"xem\":1,\"them\":1,\"sua\":1,\"xoa\":1,\"menu\":1},\"tn_102\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"m-menu\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"tn_30\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"khoa-website\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"tn_37\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"danh-sach-thanh-vien-quan-tri\":{\"xem\":1,\"them\":1,\"sua\":1,\"xoa\":1,\"menu\":1},\"tn_48\":{\"xem\":1,\"them\":1,\"sua\":1,\"xoa\":1,\"menu\":1},\"tn_91\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"main-module\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"tn_31\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"quan-ly-ngon-ngu\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"tn_38\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"ql-hinh-anh\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"tn_33\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"tk-quan-tri\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":1},\"tn_34\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":1},\"em-he-thong\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"tn_13\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"nhung-thong-tin-khac\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"tn_42\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"thong-tin-ca-nhan\":{\"xem\":1,\"them\":0,\"sua\":1,\"xoa\":0,\"menu\":1},\"tn_50\":{\"xem\":1,\"them\":0,\"sua\":1,\"xoa\":0,\"menu\":1},\"tn_99\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"khach-hang-lien-he\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"tn_40\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"tn_45\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"1\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"3\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"9\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"5\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"6\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"8\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0},\"10\":{\"xem\":0,\"them\":0,\"sua\":0,\"xoa\":0,\"menu\":0}}');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_module_page`
+--
+
+CREATE TABLE `lh_module_page` (
+  `id` int(11) NOT NULL,
+  `ten_vi` varchar(255) DEFAULT NULL,
+  `page` int(11) NOT NULL DEFAULT '0',
+  `sort` int(11) NOT NULL DEFAULT '0',
+  `showhi` tinyint(1) NOT NULL DEFAULT '1',
+  `mota` longtext,
+  `mota2` longtext,
+  `noidung` longtext,
+  `noidung2` longtext
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `lh_module_page`
+--
+
+INSERT INTO `lh_module_page` (`id`, `ten_vi`, `page`, `sort`, `showhi`, `mota`, `mota2`, `noidung`, `noidung2`) VALUES
+(1, 'Giới thiệu', 1, 1, 1, '<p>111</p>', '<p>22341</p>', '<p>11234</p>', '<p>21234</p>'),
+(2, 'Sản phẩm', 2, 2, 1, '<p>1</p>', '<p>2</p>', '<p>1</p>', '<p>2</p>'),
+(3, 'Tin tức', 3, 3, 1, NULL, NULL, NULL, NULL),
+(4, 'Dịch vụ', 4, 4, 0, NULL, NULL, NULL, NULL),
+(5, 'Liên hệ', 5, 5, 1, NULL, NULL, NULL, NULL),
+(6, 'Thư viện ảnh', 6, 6, 1, NULL, NULL, NULL, NULL),
+(7, 'Dowload File', 7, 7, 1, NULL, NULL, NULL, NULL),
+(8, 'Video', 8, 8, 1, NULL, NULL, NULL, NULL),
+(33, 'Hỏi đáp', 33, 33, 0, NULL, NULL, NULL, NULL),
+(32, 'Công ty', 32, 32, 1, NULL, NULL, NULL, NULL),
+(12, 'Hệ thống cửa hàng', 12, 12, 0, NULL, NULL, NULL, NULL),
+(13, 'Đối tác', 13, 13, 1, NULL, NULL, NULL, NULL),
+(34, 'Nhà cung cấp', 34, 34, 0, NULL, NULL, NULL, NULL),
+(35, 'Sự kiện trải nghiệm', 35, 35, 0, NULL, NULL, NULL, NULL),
+(14, 'Tuyển Dụng', 14, 14, 1, NULL, NULL, NULL, NULL),
+(15, 'Bản đồ', 15, 15, 0, NULL, NULL, NULL, NULL),
+(36, 'Văn bản tra cứu', 36, 36, 0, NULL, NULL, NULL, NULL),
+(16, 'Bảng Giá Tham Khảo', 16, 16, 0, NULL, NULL, NULL, NULL),
+(17, 'Nhận xét của khách hàng', 17, 17, 0, NULL, NULL, NULL, NULL),
+(18, 'Kinh Doanh', 18, 18, 1, NULL, NULL, NULL, NULL),
+(43, 'Danh sách ảnh và video', 0, 21, 1, NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_module_setting`
+--
+
+CREATE TABLE `lh_module_setting` (
+  `id` int(11) NOT NULL,
+  `ten_vi` varchar(255) DEFAULT NULL,
+  `ten_key` text,
+  `is_check` tinyint(4) NOT NULL DEFAULT '1',
+  `sort` int(11) NOT NULL DEFAULT '1'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `lh_module_setting`
+--
+
+INSERT INTO `lh_module_setting` (`id`, `ten_vi`, `ten_key`, `is_check`, `sort`) VALUES
+(6, 'Danh mục tiêu biểu', '', 1, 0),
+(10, 'Sản phẩm khuyến mãi', 'san-pham-khuyen-mai', 0, 8),
+(11, 'Hình ảnh hover', '', 1, 9),
+(12, 'Mã sản phẩm', 'ma-san-pham', 1, 10),
+(18, 'Ngôn ngữ Tiến Anh', 'ngon-ngu-tieng-anh', 0, 16),
+(46, 'Dowload file', '', 1, 0),
+(22, 'Mô tả main module', 'main-menu-mo-ta', 0, 20),
+(23, 'Main menu - Ảnh slider', 'main-menu-anh-slider', 0, 21),
+(52, 'Bài viết không mô tả', '14,16,10', 1, 0),
+(53, 'Bài viết không nội dung', '10', 1, 0),
+(28, 'Thêm ngôn ngữ thứ 3', 'them-ngon-ngu-thu-3', 0, 16),
+(29, 'Liên hệ nhóm con', 'lien-he-nhom-con', 1, 26),
+(36, 'Danh sách hình ảnh nội dung', 'danh-sach-hinh-anh-noidung', 1, 33),
+(37, 'Danh sách hình ảnh video', 'danh-sach-hinh-anh-video', 1, 34),
+(38, 'Hiển thị danh mục', '5,9,10,11,12,6,1', 1, 0),
+(39, 'Hiển thị tính năng', '', 1, 0),
+(42, 'Liên kết bài viết khác', 'lien-ket-bai-viet-khac', 0, 38),
+(43, 'Ảnh slider', '10,9,1', 1, 0),
+(45, 'Thêm ngôn ngữ thứ 4', 'them-ngon-ngu-thu-4', 0, 40),
+(47, 'Danh mục mô tả', '9,1', 1, 0),
+(48, 'Danh mục nội dung', '1', 1, 0),
+(49, 'Bài viết Opt', '5,8,6,1', 1, 0),
+(50, 'Bài viết Opt1', '5,6,1', 1, 0),
+(51, 'Bài viết Opt2', '3,1', 1, 0),
+(54, 'Ảnh menu', '0', 1, 41),
+(55, 'Ẩn nhóm bài viết', '', 1, 100),
+(57, 'Video', '3,10', 1, 99),
+(58, 'Danh sách hình ảnh mô tả', 'danh-sach-hinh-anh-mota', 0, 28),
+(59, 'Ảnh đại diện', '2,9,6,4,7,5,3,1,10,12', 1, 29),
+(60, 'Ảnh đại diện danh mục', '9,1,12', 1, 30),
+(61, 'Ảnh hover danh mục', '', 1, 31),
+(62, 'Tên option', '{\"1\":{\"op0\":\"Nổi bật\",\"op1\":\"Cơ cấu tổ chức\",\"op2\":\"Trang chủ\",\"op3\":\"Còn hàng\",\"op4\":\"Hoạt động của lãnh đạo\",\"op5\":\"Thông báo\"},\"2\":{\"op0\":\"Nổi bật\",\"op1\":\"Mới\",\"op2\":\"Trang chủ\",\"op3\":\"Còn hàng\",\"op4\":\"Hoạt động của lãnh đạo\",\"op5\":\"Thông báo\"},\"4\":{\"op0\":\"Tiêu biểu\",\"op1\":\"Khuyến mãi\",\"op2\":\"Trang chủ\",\"op4\":\"Nổi bật\"},\"3\":{\"op0\":\"Mới\",\"op1\":\"Khuyến mãi\",\"op2\":\"Trang chủ\",\"op4\":\"Nổi bật\"},\"5\":{\"op0\":\"Mới\",\"op1\":\"Trang chủ\",\"op2\":\"Hot\"},\"6\":{\"op0\":\"Mới\",\"op1\":\"Trang chủ\"},\"8\":{\"op0\":\"Liên hệ\"},\"7\":{\"op0\":\"Tiêu biểu\",\"op1\":\"Trang chủ\"},\"9\":{\"op0\":\"Nổi bật\",\"op1\":\"Trang chủ\",\"op2\":\"Hot\",\"op3\":\"Khuyến mãi\"}}', 1, 32),
+(63, 'Quản lý bài viết', '3', 1, 33),
+(64, 'Option tính năng', '{\"2\":{\"op0\":\"Chuyên dùng\",\"op1\":\"Tiêu biểu\",\"op2\":\"Tìm kiếm\"},\"3\":{\"op0\":\"Chuyên dùng\",\"op1\":\"Chân trang\",\"op2\":\"Tìm kiếm\"},\"4\":{\"op0\":\"Chuyên dùng\",\"op2\":\"Tìm kiếm\"},\"15\":{\"op0\":\"Trang chủ\"},\"5\":{\"op0\":\"Nổi bật\"}}', 1, 341),
+(65, 'Optiop tính năng 1', '', 1, 3500),
+(66, 'Optiop tính năng 2', '', 1, 3600),
+(67, 'Optiop tính năng 3', '3', 1, 3700),
+(68, 'Nhóm giá', '', 1, 421),
+(69, 'Bài viết Opt3', '', 1, 39),
+(70, 'Bài viết Opt4', '', 1, 40),
+(71, 'Bài viết Opt5', '', 1, 41),
+(72, 'Option p1', '8,1', 1, 422);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_module_tinhnang`
+--
+
+CREATE TABLE `lh_module_tinhnang` (
+  `id` int(11) NOT NULL,
+  `id_parent` int(11) NOT NULL DEFAULT '0',
+  `ten_vi` varchar(255) DEFAULT NULL,
+  `m_action` varchar(255) DEFAULT NULL,
+  `m_xem` tinyint(4) NOT NULL DEFAULT '0',
+  `m_them` tinyint(4) NOT NULL DEFAULT '0',
+  `m_sua` tinyint(4) NOT NULL DEFAULT '0',
+  `m_xoa` tinyint(4) NOT NULL DEFAULT '0',
+  `m_other` tinyint(4) NOT NULL DEFAULT '0',
+  `m_dev` tinyint(1) NOT NULL DEFAULT '0',
+  `sort` int(11) NOT NULL DEFAULT '0',
+  `icon` varchar(255) DEFAULT NULL,
+  `lien_ket` varchar(255) DEFAULT NULL,
+  `showhi` tinyint(1) NOT NULL DEFAULT '1',
+  `mota` longtext,
+  `noidung` longtext
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `lh_module_tinhnang`
+--
+
+INSERT INTO `lh_module_tinhnang` (`id`, `id_parent`, `ten_vi`, `m_action`, `m_xem`, `m_them`, `m_sua`, `m_xoa`, `m_other`, `m_dev`, `sort`, `icon`, `lien_ket`, `showhi`, `mota`, `noidung`) VALUES
+(73, 0, 'Quản lý Đơn hàng', 'ql-don-hang', 1, 0, 1, 1, 0, 0, 10, 'fa fa-shopping-cart', '', 0, NULL, NULL),
+(13, 0, 'Email hệ thống', 'em-he-thong', 1, 1, 1, 1, 0, 0, 17, 'fa fa-envelope', '', 1, NULL, NULL),
+(68, 66, 'Danh sách file', 'danh-sach-import-du-lieu', 0, 0, 0, 0, 1, 0, 40, '', '?module=quan-ly-import-du-lieu&action=danh-sach-import-du-lieu', 1, NULL, NULL),
+(64, 29, 'Danh sách mạng xã hội', 'danh-sach-mang-xa-hoi', 1, 1, 1, 1, 0, 0, 6, '', '?module=quan-ly-website&action=danh-sach-mang-xa-hoi', 1, NULL, NULL),
+(65, 29, 'Thiết lập tìm kiếm theo giá', 'thiet-lap-tim-kiem-gia', 1, 1, 1, 1, 0, 0, 37, '', '?module=quan-ly-website&action=thiet-lap-tim-kiem-gia', 0, NULL, NULL),
+(66, 0, 'Quản lý import dữ liệu', 'ql-import-du-lieu', 1, 1, 1, 1, 0, 0, 8, 'fa fa-download', '', 0, NULL, NULL),
+(67, 66, 'Thêm file', 'danh-sach-import-du-lieu', 0, 0, 0, 0, 1, 0, 39, '', '?module=quan-ly-import-du-lieu&action=danh-sach-import-du-lieu&them-moi=true', 1, NULL, NULL),
+(29, 0, 'Quản lý website', 'ql-website', 0, 0, 0, 0, 0, 0, 1, 'fa fa-tachometer', '', 1, '<p>1</p>', '<p>1</p>'),
+(30, 0, 'Main Menu', 'm-menu', 0, 0, 0, 0, 0, 0, 2, 'fa fa-sliders', '', 1, NULL, NULL),
+(31, 0, 'Main Module', 'main-module', 0, 0, 0, 0, 0, 0, 3, 'fa fa-bars', '', 1, NULL, NULL),
+(33, 0, 'Quản lý hình ảnh', 'ql-hinh-anh', 1, 1, 1, 1, 0, 0, 5, 'fa fa-image', '', 1, NULL, NULL),
+(34, 0, 'Tài khoản quản trị', 'tk-quan-tri', 0, 0, 0, 0, 0, 0, 16, 'fa fa-user-circle-o', '', 1, NULL, NULL),
+(36, 29, 'Thiết lập website', 'thiet-lap-website', 1, 0, 1, 0, 0, 0, 1, '', '?module=quan-ly-website&action=thiet-lap-website', 1, NULL, NULL),
+(37, 29, 'Khóa website', 'khoa-website', 1, 0, 1, 0, 0, 0, 2, '', '?module=quan-ly-website&action=khoa-website', 1, NULL, NULL),
+(38, 29, 'Quản lý ngôn ngữ', 'quan-ly-ngon-ngu', 1, 0, 1, 0, 0, 0, 3, '', '?module=quan-ly-website&action=quan-ly-ngon-ngu', 1, NULL, NULL),
+(39, 29, 'Danh sách email nhận tin', 'danh-sach-mail-nhan-tin', 1, 0, 0, 1, 0, 0, 4, '', '?module=quan-ly-website&action=danh-sach-mail-nhan-tin', 0, NULL, NULL),
+(40, 29, 'Khách hàng liên hệ', 'khach-hang-lien-he', 1, 0, 0, 1, 0, 0, 72, '', '?module=quan-ly-website&action=khach-hang-lien-he', 1, NULL, NULL),
+(41, 30, 'Thiết lập menu', 'thiet-lap-menu', 1, 1, 1, 1, 0, 0, 1, '', '?module=main-menu&action=thiet-lap-menu', 1, NULL, NULL),
+(42, 30, 'Nội dung khác', 'nhung-thong-tin-khac', 1, 0, 1, 0, 0, 0, 40, '', '?module=main-menu&action=nhung-thong-tin-khac', 1, NULL, NULL),
+(44, 73, 'Phí vận chuyển', 'thanh-toan-phuong-thuc-van-chuyen', 1, 1, 1, 1, 0, 0, 2, '', '?module=quan-ly-thanh-toan&action=thanh-toan-phuong-thuc-van-chuyen', 0, NULL, NULL),
+(45, 73, 'Thông tin thanh toán', 'thanh-toan-phuong-thuc-thanh-toan', 1, 1, 1, 1, 0, 0, 100, '', '?module=quan-ly-thanh-toan&action=thanh-toan-phuong-thuc-thanh-toan', 1, NULL, NULL),
+(46, 73, 'Mã giảm giá', 'danh-sach-ma-giam-gia', 1, 1, 1, 1, 0, 0, 4, '', '?module=quan-ly-thanh-toan&action=danh-sach-ma-giam-gia', 0, NULL, NULL),
+(47, 34, 'Nhóm quản trị', 'nhom-quan-tri', 1, 1, 1, 1, 0, 0, 1, '', '', 1, NULL, NULL),
+(48, 34, 'Tài khoản quản trị', 'danh-sach-thanh-vien-quan-tri', 1, 1, 1, 1, 0, 0, 2, '', '', 1, NULL, NULL),
+(49, 0, 'Danh sách thành viên', 'ds-thanh-vien', 1, 1, 1, 1, 0, 0, 16, 'fa fa-users', '', 0, NULL, NULL),
+(50, 34, 'Thông tin cá nhân', 'thong-tin-ca-nhan', 1, 0, 1, 0, 0, 0, 48, '', '?module=quan-ly-thanh-vien&action=thong-tin-ca-nhan', 1, NULL, NULL),
+(51, 33, 'Thêm hình ảnh', 'danh-sach-hinh-anh', 0, 0, 0, 0, 1, 0, 49, '', '?module=quan-ly-hinh-anh&action=danh-sach-hinh-anh&them-moi=true', 1, NULL, NULL),
+(52, 33, 'Danh sách hình ảnh', 'danh-sach-hinh-anh', 0, 0, 0, 0, 1, 0, 50, '', '?module=quan-ly-hinh-anh&action=danh-sach-hinh-anh', 1, NULL, NULL),
+(53, 33, 'Thêm loại hình ảnh', 'danh-sach-loai-hinh-anh', 0, 0, 0, 0, 1, 1, 51, '', '?module=quan-ly-hinh-anh&action=danh-sach-loai-hinh-anh&them-moi=true', 1, NULL, NULL),
+(54, 33, 'Danh sách loại hình ảnh', 'danh-sach-loai-hinh-anh', 0, 0, 0, 0, 1, 1, 52, '', '?module=quan-ly-hinh-anh&action=danh-sach-loai-hinh-anh', 1, NULL, NULL),
+(55, 47, 'Thêm nhóm quản trị', 'nhom-quan-tri', 0, 0, 0, 0, 1, 0, 53, '', '?module=quan-ly-thanh-vien&action=nhom-quan-tri&them-moi=true', 1, NULL, NULL),
+(56, 47, 'Danh sách nhóm quản trị', 'nhom-quan-tri', 0, 0, 0, 0, 1, 0, 54, '', '?module=quan-ly-thanh-vien&action=nhom-quan-tri', 1, NULL, NULL),
+(57, 48, 'Thêm tài khoản', 'danh-sach-thanh-vien-quan-tri', 0, 0, 0, 0, 1, 0, 55, '', '?module=quan-ly-thanh-vien&action=danh-sach-thanh-vien-quan-tri&them-moi=true', 1, NULL, NULL),
+(58, 48, 'Danh sách tài khoản', 'danh-sach-thanh-vien-quan-tri', 0, 0, 0, 0, 1, 0, 56, '', '?module=quan-ly-thanh-vien&action=danh-sach-thanh-vien-quan-tri', 1, NULL, NULL),
+(59, 49, 'Thêm thành viên', 'danh-sach-thanh-vien', 0, 0, 0, 0, 1, 0, 57, '', '?module=quan-ly-thanh-vien&action=danh-sach-thanh-vien&them-moi=true', 1, NULL, NULL),
+(60, 49, 'Danh sách thành viên', 'danh-sach-thanh-vien', 0, 0, 0, 0, 1, 0, 58, '', '?module=quan-ly-thanh-vien&action=danh-sach-thanh-vien', 1, NULL, NULL),
+(61, 13, 'Thêm email', 'danh-sach-mail-he-thong', 0, 0, 0, 0, 1, 0, 59, '', '?module=quan-ly-mail-he-thong&action=danh-sach-mail-he-thong&them-moi=true', 1, NULL, NULL),
+(62, 13, 'Danh sách email', 'danh-sach-mail-he-thong', 0, 0, 0, 0, 1, 0, 60, '', '?module=quan-ly-mail-he-thong&action=danh-sach-mail-he-thong', 1, NULL, NULL),
+(74, 73, 'Danh sách đơn hàng', 'danh-sach-don-hang', 0, 0, 0, 0, 1, 0, 46, '', '?module=quan-ly-don-hang&action=danh-sach-don-hang', 1, NULL, NULL),
+(75, 0, 'Quản lý Hỗ trợ online', 'ql-ho-tro-online', 1, 1, 1, 1, 0, 0, 11, 'fa fa-phone', '', 0, NULL, NULL),
+(76, 75, 'Thêm mới', 'danh-sach-ho-tro', 0, 0, 0, 0, 1, 0, 48, '', '?module=quan-ly-ho-tro&action=danh-sach-ho-tro&them-moi=true', 1, NULL, NULL),
+(77, 75, 'Danh sách hỗ trợ', 'danh-sach-ho-tro', 0, 0, 0, 0, 1, 0, 49, '', '?module=quan-ly-ho-tro&action=danh-sach-ho-tro', 1, NULL, NULL),
+(103, 29, 'Quản lý tag', 'du-lieu-sn', 1, 1, 1, 1, 0, 0, 74, '', '?module=du-lieu-sn&action=du-lieu-sn', 0, NULL, NULL),
+(79, 29, 'Quản lý bình luận', 'quan-ly-binh-luan', 1, 0, 1, 1, 0, 0, 51, '', '?module=module-he-thong&action=quan-ly-binh-luan', 0, NULL, NULL),
+(90, 0, 'Quản lý địa điểm', 'ql-dia-diem', 1, 1, 1, 1, 0, 0, 62, '', '', 0, NULL, NULL),
+(91, 90, 'Danh sách địa điểm', 'danh-sach-dia-diem', 1, 0, 1, 0, 0, 0, 2, '', '?module=quan-ly-dia-diem&action=danh-sach-dia-diem', 1, NULL, NULL),
+(92, 34, 'Nhóm thành viên', 'nhom-thanh-vien', 1, 1, 1, 1, 0, 0, 47, '', '?module=quan-ly-tai-khoan&action=nhom-thanh-vien', 0, NULL, NULL),
+(93, 92, 'Thêm nhóm thành viên', 'nhom-thanh-vien', 0, 0, 0, 0, 1, 0, 65, '', '?module=quan-ly-tai-khoan&action=nhom-thanh-vien&them-moi=true', 1, NULL, NULL),
+(94, 92, 'Danh sách nhóm thành viên', 'nhom-thanh-vien', 0, 0, 0, 0, 1, 0, 66, '', '?module=quan-ly-tai-khoan&action=nhom-thanh-vien', 1, NULL, NULL),
+(98, 49, 'Tin nhắn', 'tin-nhan', 1, 1, 1, 1, 0, 0, 70, '', '?module=danh-sach-thanh-vien&action=tin-nhan', 0, NULL, NULL),
+(99, 73, 'Phương thức thanh toán', 'phuong-thuc-thanh-toan', 1, 1, 1, 1, 0, 0, 70, '', '?module=quan-ly-don-hang&action=phuong-thuc-thanh-toan', 1, NULL, NULL),
+(100, 29, 'Quản lý link 301', 'quan-ly-link', 1, 1, 1, 1, 0, 0, 71, '', '?module=quan-ly-link&action=quan-ly-link', 0, NULL, NULL),
+(101, 29, 'Quản lý trang metro', 'lien-ket-sn', 1, 1, 1, 1, 0, 0, 222, '', '?module=lien-ket-sn&action=lien-ket-sn', 1, NULL, NULL),
+(102, 90, 'Thêm địa điểm', 'danh-sach-dia-diem', 1, 1, 1, 1, 0, 0, 1, '', '?module=danh-sach-dia-diem&action=danh-sach-dia-diem&them-moi=true', 1, NULL, NULL),
+(104, 29, 'Thiết lập tìm kiếm theo %', 'thiet-lap-tim-kiem-phan-tram', 1, 1, 1, 1, 0, 0, 38, '', '?module=thiet-lap-tim-kiem-phan-tram&action=thiet-lap-tim-kiem-phan-tram', 0, NULL, NULL),
+(105, 29, 'Quản lý ngôn ngữ admin', '', 1, 1, 1, 1, 0, 0, 560, '', '?module=quan-ly-ngon-ngu-admin&action=quan-ly-ngon-ngu-admin', 0, NULL, NULL),
+(106, 29, 'Backup dữ liệu', 'backup-data', 1, 1, 1, 1, 0, 0, 5700, '', '?module=backup-data&action=backup-data', 0, NULL, NULL),
+(107, 29, 'Khách hàng liên hệ tư vấn', 'lien-he-tu-van', 0, 0, 0, 0, 0, 0, 73, '', '?module=quan-ly-website&action=lien-he-tu-van', 0, NULL, NULL),
+(109, 0, 'Thư viện ảnh và video', '', 0, 0, 0, 0, 0, 0, 59, '', '', 0, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_online`
+--
+
+CREATE TABLE `lh_online` (
+  `uip` varchar(150) NOT NULL DEFAULT '',
+  `sidd` varchar(200) DEFAULT NULL,
+  `timer` varchar(10) DEFAULT NULL,
+  `uid` int(12) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `lh_online`
+--
+
+INSERT INTO `lh_online` (`uip`, `sidd`, `timer`, `uid`) VALUES
+('127.0.0.1', 'e5a0cd47fe68afb2d7728ed85d5650fd', '1740131098', 0),
+('127.0.0.1', 'f37992d295b5a141468f7784f9709875', '1740131098', 0),
+('::1', 'ac918655f2514107f02700bdb098321e', '1740131016', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_order`
+--
+
+CREATE TABLE `lh_order` (
+  `id` int(11) NOT NULL,
+  `madh` varchar(255) DEFAULT NULL,
+  `iduser` int(11) NOT NULL DEFAULT '0',
+  `ngaydat` int(11) NOT NULL DEFAULT '0',
+  `tam_tinh` int(11) NOT NULL DEFAULT '0',
+  `gia_km` int(11) NOT NULL DEFAULT '0',
+  `ma_giam_gia` varchar(255) DEFAULT NULL,
+  `phi_ship` int(11) NOT NULL DEFAULT '0',
+  `thanh_tien` int(11) NOT NULL DEFAULT '0',
+  `thanh_toan` tinyint(4) NOT NULL DEFAULT '0',
+  `thongtin_thanhtoan` longtext,
+  `id_sp` mediumtext,
+  `gia_tien` mediumtext,
+  `trangthai` tinyint(2) NOT NULL DEFAULT '1',
+  `cus_del` tinyint(4) NOT NULL DEFAULT '0',
+  `phieu_xuat_kho` int(11) NOT NULL DEFAULT '0',
+  `ma_paypal` varchar(255) DEFAULT NULL,
+  `hoten` varchar(255) DEFAULT NULL,
+  `sodienthoai` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `diachi` varchar(255) DEFAULT NULL,
+  `ghichu` varchar(255) DEFAULT NULL,
+  `don_vi` mediumtext,
+  `idsp` mediumtext,
+  `soluong` mediumtext,
+  `dongia` mediumtext,
+  `thanhtoan` int(11) NOT NULL DEFAULT '0',
+  `thanh_pho` int(11) NOT NULL DEFAULT '0',
+  `quan_huyen` int(11) NOT NULL DEFAULT '0',
+  `is_key` mediumtext,
+  `is_nuti` tinyint(4) NOT NULL DEFAULT '0',
+  `is_nhan` tinyint(1) NOT NULL DEFAULT '0',
+  `hoten_nhan` varchar(255) DEFAULT NULL,
+  `sodienthoai_nhan` varchar(255) DEFAULT NULL,
+  `email_nhan` varchar(255) DEFAULT NULL,
+  `diachi_nhan` varchar(255) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `lh_order`
+--
+
+INSERT INTO `lh_order` (`id`, `madh`, `iduser`, `ngaydat`, `tam_tinh`, `gia_km`, `ma_giam_gia`, `phi_ship`, `thanh_tien`, `thanh_toan`, `thongtin_thanhtoan`, `id_sp`, `gia_tien`, `trangthai`, `cus_del`, `phieu_xuat_kho`, `ma_paypal`, `hoten`, `sodienthoai`, `email`, `diachi`, `ghichu`, `don_vi`, `idsp`, `soluong`, `dongia`, `thanhtoan`, `thanh_pho`, `quan_huyen`, `is_key`, `is_nuti`, `is_nhan`, `hoten_nhan`, `sodienthoai_nhan`, `email_nhan`, `diachi_nhan`) VALUES
+(159, 'DH3166159', 111, 1597129913, 0, 0, '', 0, 0, 0, '<table class=\'tb-thongtin-tv\' border=\'1\' cellspacing=\'0\' cellpadding=\'4\' style=\'width:100%; border-collapse: collapse; font-family:Tahoma; font-size:11px;text-align: left;\' bordercolor=\'#cccccc\'><tr/><tr> <td colspan=\"7\" style=\"text-align: left; color: #333; background: #cccccc; font-size: 13px;text-transform: uppercase;\"><b>THÔNG TIN NGƯỜI MUA HÀNG</b></td> </tr><tr><td colspan=\"3\" style=\"width:160px; font-size: 13px\">Họ & tên</td><td colspan=\"4\" width=\"400\"><span style=\"display:block; padding-left:5px; font-size: 13px\">11</span></td></tr><tr><td colspan=\"3\" style=\"width:160px; font-size: 13px\">Số điện thoại</td><td colspan=\"4\" width=\"400\"><span style=\"display:block; padding-left:5px; font-size: 13px\">22</span></td></tr><tr><td colspan=\"3\" style=\"width:160px; font-size: 13px\">Email</td><td colspan=\"4\" width=\"400\"><span style=\"display:block; padding-left:5px; font-size: 13px\">linhhuynhpa@gmail.com</span></td></tr><tr><td colspan=\"3\" style=\"width:160px; font-size: 13px\">Địa chỉ</td><td colspan=\"4\" width=\"400\"><span style=\"display:block; padding-left:5px; font-size: 13px\">33</span></td></tr></tr></table><td colspan=\"7\" ><div id=\'cart_list\' class=\'tb_rps\'><table border=\'1\'  cellspacing=\'0\' cellpadding=\'4\' style=\'width:100%; border-collapse: collapse; font-family:Tahoma; font-size:11px;text-align: center;\' bordercolor=\'#cccccc\' class=\'tb-chitietdh-tv\'><tr> <th width=\"5%\" class=\"cls_cart_mb\">STT</th> <th>Tên sản phẩm</th> <th width=\"15%\">Số lượng</th> <th width=\"15%\">Đơn giá (VNĐ)</th> <th width=\"10%\">Thành tiền (VNĐ)</th> </tr><tr>\n                <td class=\"cls_cart_mb\">1</td>\n                <td title=\"Tên sản phẩm\" class=\"dv-anh-cart-sp\">\n                  <a href=\"http://localhost/2020_daloc/vin-de-pays-cp-513351595919662\"><img src=\"http://localhost/2020_daloc/datafiles/thumb_1595919684_sp2.png\" style=\"max-height: 100px\"/></a>\n                  <div class=\"dv-anh\">\n                  <a href=\"http://localhost/2020_daloc/vin-de-pays-cp-513351595919662\">Ain de Pays</a>\n                  <p class=\"p_mota_cart\"><span>Chai (75cl)</span></p>\n                  </div>\n                </td>\n                <td title=\"Số lượng\">2</td>\n                <td title=\"Đơn giá (VNĐ)\">1.000.000</td>\n                <td title=\"Thành tiền (VNĐ)\">2.000.000</td>\n              </tr><tr>\n                <td class=\"cls_cart_mb\">2</td>\n                <td title=\"Tên sản phẩm\" class=\"dv-anh-cart-sp\">\n                  <a href=\"http://localhost/2020_daloc/vin-de-pays-cp-513351595919662\"><img src=\"http://localhost/2020_daloc/datafiles/thumb_1595919684_sp2.png\" style=\"max-height: 100px\"/></a>\n                  <div class=\"dv-anh\">\n                  <a href=\"http://localhost/2020_daloc/vin-de-pays-cp-513351595919662\">Ain de Pays</a>\n                  <p class=\"p_mota_cart\"><span>Chai (100cl)</span></p>\n                  </div>\n                </td>\n                <td title=\"Số lượng\">3</td>\n                <td title=\"Đơn giá (VNĐ)\">1.250.000</td>\n                <td title=\"Thành tiền (VNĐ)\">3.750.000</td>\n              </tr><tr>\n                <td class=\"cls_cart_mb\">3</td>\n                <td title=\"Tên sản phẩm\" class=\"dv-anh-cart-sp\">\n                  <a href=\"http://localhost/2020_daloc/vin-de-pays-cp-513351595919662\"><img src=\"http://localhost/2020_daloc/datafiles/thumb_1595919684_sp2.png\" style=\"max-height: 100px\"/></a>\n                  <div class=\"dv-anh\">\n                  <a href=\"http://localhost/2020_daloc/vin-de-pays-cp-513351595919662\">Ain de Pays</a>\n                  <p class=\"p_mota_cart\"><span>Chai (150cl)</span></p>\n                  </div>\n                </td>\n                <td title=\"Số lượng\">4</td>\n                <td title=\"Đơn giá (VNĐ)\">1.500.000</td>\n                <td title=\"Thành tiền (VNĐ)\">6.000.000</td>\n              </tr><tr>\n                <td class=\"cls_cart_mb\">4</td>\n                <td title=\"Tên sản phẩm\" class=\"dv-anh-cart-sp\">\n                  <a href=\"http://localhost/2020_daloc/vin-de-pays-cp-969101595919662\"><img src=\"http://localhost/2020_daloc/datafiles/thumb_1595919673_sp7.png\" style=\"max-height: 100px\"/></a>\n                  <div class=\"dv-anh\">\n                  <a href=\"http://localhost/2020_daloc/vin-de-pays-cp-969101595919662\">Vin de Pays</a>\n                  <p class=\"p_mota_cart\"><span>Chai (100cl)</span></p>\n                  </div>\n                </td>\n                <td title=\"Số lượng\">4</td>\n                <td title=\"Đơn giá (VNĐ)\">1.250.000</td>\n                <td title=\"Thành tiền (VNĐ)\">5.000.000</td>\n              </tr><tr> <td colspan=\"4\" style=\"text-align:right;color:red;font-weight:bold;\">Tổng tiền:</td> <td colspan=\"2\" title=\"Tổng tiền\"><span id=\"pro_sum\"> <label style=\"color:red;font-weight:bold;\">16.750.000 đ</label> </span> </td> </tr></table></div></td>', NULL, NULL, 1, 0, 0, NULL, '11', '22', 'linhhuynhpa@gmail.com', '33', '', '', '38,38,38,37', '2,3,4,4', '1000000,1250000,1500000,1250000', 5, 0, 0, '4|2|3|2', 1, 0, NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_phuongthucthanhtoan`
+--
+
+CREATE TABLE `lh_phuongthucthanhtoan` (
+  `id` int(11) NOT NULL,
+  `tenbaiviet_vi` varchar(255) DEFAULT NULL,
+  `tenbaiviet_en` varchar(255) DEFAULT NULL,
+  `noidung_vi` mediumtext,
+  `noidung_en` mediumtext,
+  `icon` varchar(255) DEFAULT NULL,
+  `duongdantin` varchar(255) DEFAULT NULL,
+  `catasort` int(11) NOT NULL DEFAULT '1',
+  `showhi` tinyint(1) NOT NULL DEFAULT '1'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `lh_phuongthucthanhtoan`
+--
+
+INSERT INTO `lh_phuongthucthanhtoan` (`id`, `tenbaiviet_vi`, `tenbaiviet_en`, `noidung_vi`, `noidung_en`, `icon`, `duongdantin`, `catasort`, `showhi`) VALUES
+(4, 'Thanh toán bằng tiền mặt', 'Payment in cash', '<p>Thanh to&aacute;n bằng tiền mặt (COD)</p>', '<p>Cash payment (COD)</p>', NULL, 'datafiles/setone', 1, 1),
+(5, 'Thanh toán qua chuyển khoản', 'Payment via bank transfer', '<p>ND&nbsp;Thanh to&aacute;n qua chuyển khoản</p>', '<p>ND Payment via bank transfer</p>', NULL, 'datafiles/setone', 2, 1),
+(6, 'Thanh toán tại cửa hàng', 'Payment at the store', '<p>Thanh to&aacute;n tại cửa h&agrave;ng</p>', '<h3>Payment at the store</h3>', NULL, 'datafiles/setone', 3, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_seo`
+--
+
+CREATE TABLE `lh_seo` (
+  `id` int(11) NOT NULL,
+  `seo_title_vi` varchar(255) DEFAULT NULL,
+  `seo_description_vi` varchar(255) DEFAULT NULL,
+  `seo_keywords_vi` varchar(255) DEFAULT NULL,
+  `seo_title_en` varchar(255) DEFAULT NULL,
+  `seo_description_en` varchar(255) DEFAULT NULL,
+  `seo_keywords_en` varchar(255) DEFAULT NULL,
+  `seo_title_cn` varchar(255) DEFAULT NULL,
+  `seo_description_cn` varchar(255) DEFAULT NULL,
+  `seo_keywords_cn` varchar(255) DEFAULT NULL,
+  `duongdantin` varchar(255) DEFAULT NULL,
+  `icon` varchar(255) DEFAULT NULL,
+  `icon_hover` varchar(255) DEFAULT NULL,
+  `favico` varchar(255) DEFAULT NULL,
+  `robots` mediumtext,
+  `tenbaiviet_vi` varchar(255) DEFAULT NULL,
+  `tenbaiviet_en` varchar(255) DEFAULT NULL,
+  `tenbaiviet_cn` varchar(255) DEFAULT NULL,
+  `sodienthoai_vi` varchar(255) DEFAULT NULL,
+  `diachi_vi` varchar(255) DEFAULT NULL,
+  `diachi_en` varchar(255) DEFAULT NULL,
+  `diachi_cn` varchar(255) DEFAULT NULL,
+  `hotline_vi` varchar(255) DEFAULT NULL,
+  `email_vi` varchar(255) DEFAULT NULL,
+  `em_ip` varchar(255) DEFAULT NULL,
+  `em_taikhoan` varchar(255) DEFAULT NULL,
+  `em_pass` varchar(255) DEFAULT NULL,
+  `js_google_anilatic` longtext,
+  `js_google_anilatic_body` longtext,
+  `khoa_website` mediumtext,
+  `is_khoasite` tinyint(4) NOT NULL DEFAULT '0',
+  `is_https` tinyint(1) NOT NULL DEFAULT '0',
+  `is_intro` tinyint(4) NOT NULL DEFAULT '0',
+  `fb_app` varchar(255) DEFAULT NULL,
+  `fb_id` varchar(255) DEFAULT NULL,
+  `is_comment` tinyint(4) NOT NULL DEFAULT '0',
+  `is_lang` tinyint(4) NOT NULL DEFAULT '0',
+  `is_saochep` tinyint(1) NOT NULL DEFAULT '0',
+  `is_tiengviet` tinyint(1) NOT NULL DEFAULT '1',
+  `is_giamuti` tinyint(4) NOT NULL DEFAULT '0',
+  `menu_hinhanh` tinyint(4) NOT NULL DEFAULT '0',
+  `menu_hinhanh_size` varchar(50) DEFAULT NULL,
+  `menu_hinhanh_hv` tinyint(4) NOT NULL DEFAULT '0',
+  `menu_danhmuc` tinyint(4) NOT NULL DEFAULT '0',
+  `menu_kieuhienthi` tinyint(4) NOT NULL DEFAULT '0',
+  `is_login_fb` tinyint(4) NOT NULL DEFAULT '0',
+  `is_login_gg` tinyint(4) NOT NULL DEFAULT '0',
+  `fb_app_id` varchar(255) DEFAULT NULL,
+  `fb_app_secret` varchar(255) DEFAULT NULL,
+  `fb_url` varchar(255) DEFAULT NULL,
+  `gg_client_id` varchar(255) DEFAULT NULL,
+  `gg_client_secret` varchar(255) DEFAULT NULL,
+  `gg_url` varchar(255) DEFAULT NULL,
+  `lic_name` varchar(255) DEFAULT NULL,
+  `lic_key` varchar(255) DEFAULT NULL,
+  `mxh_is_anh` tinyint(4) NOT NULL DEFAULT '0',
+  `mxh_is_css` tinyint(4) NOT NULL DEFAULT '0',
+  `mxh_is_bg` tinyint(4) NOT NULL DEFAULT '0',
+  `bvct_noidung` tinyint(4) NOT NULL DEFAULT '0',
+  `bvct_hinhanh` tinyint(4) NOT NULL DEFAULT '0',
+  `bvct_file` tinyint(4) NOT NULL DEFAULT '0',
+  `zalo_url` varchar(255) DEFAULT NULL,
+  `youtube_url` varchar(255) DEFAULT NULL,
+  `twi_url` varchar(255) DEFAULT NULL,
+  `banner_gt` text NOT NULL,
+  `banner_gt_bg` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `lh_seo`
+--
+
+INSERT INTO `lh_seo` (`id`, `seo_title_vi`, `seo_description_vi`, `seo_keywords_vi`, `seo_title_en`, `seo_description_en`, `seo_keywords_en`, `seo_title_cn`, `seo_description_cn`, `seo_keywords_cn`, `duongdantin`, `icon`, `icon_hover`, `favico`, `robots`, `tenbaiviet_vi`, `tenbaiviet_en`, `tenbaiviet_cn`, `sodienthoai_vi`, `diachi_vi`, `diachi_en`, `diachi_cn`, `hotline_vi`, `email_vi`, `em_ip`, `em_taikhoan`, `em_pass`, `js_google_anilatic`, `js_google_anilatic_body`, `khoa_website`, `is_khoasite`, `is_https`, `is_intro`, `fb_app`, `fb_id`, `is_comment`, `is_lang`, `is_saochep`, `is_tiengviet`, `is_giamuti`, `menu_hinhanh`, `menu_hinhanh_size`, `menu_hinhanh_hv`, `menu_danhmuc`, `menu_kieuhienthi`, `is_login_fb`, `is_login_gg`, `fb_app_id`, `fb_app_secret`, `fb_url`, `gg_client_id`, `gg_client_secret`, `gg_url`, `lic_name`, `lic_key`, `mxh_is_anh`, `mxh_is_css`, `mxh_is_bg`, `bvct_noidung`, `bvct_hinhanh`, `bvct_file`, `zalo_url`, `youtube_url`, `twi_url`, `banner_gt`, `banner_gt_bg`) VALUES
+(1, 'Công Ty Cổ Phần Cơ Khí - Xây Dựng Giao Thông (Tracomeco)', 'Công Ty Cổ Phần Cơ Khí - Xây Dựng Giao Thông (Tracomeco)', 'Công Ty Cổ Phần Cơ Khí - Xây Dựng Giao Thông (Tracomeco)', 'Traffic Mechanical - Traffic Construction Joint Stock Company (Tracomeco)', 'Traffic Mechanical - Traffic Construction Joint Stock Company (Tracomeco)', 'Traffic Mechanical - Traffic Construction Joint Stock Company (Tracomeco)', '', '', '', 'datafiles', '1738726638_logo.png', '1602057332_logo-thanvien.jpg', '1740107989_favicon.png', 'User-agent: *\r\nDisallow: /myadmin/', 'Công Ty Cổ Phần Cơ Khí - Xây Dựng Giao Thông (Tracomeco)', 'Traffic Mechanical - Traffic Construction Joint Stock Company (Tracomeco)', '', '028 3896 5105', '429/4 Đường Song hành Xa lộ Hà Nội - Khu phố 7 - Phường Trường Thọ - Thành phố Thủ Đức - Thành phố Hồ Chí Minh', '429/4 Song Hanh Hanh Hanh Highway Hanoi - Quarter 7 - Truong Tho Ward - Thu Duc City - Ho Chi Minh City', '', '028 3896 1440', 'tracomeco@tracomeco.com', '112.213.89.161', 'no-reply@webdemo4.pavietnam.vn', 'qqhtV&lFs#RZ', '<style>\r\n\r\n.logo_top img {\r\n    height: 120px;\r\n}\r\n\r\n.menu > li > a {\r\n    display: block;\r\n    line-height: 24px;\r\n    position: relative;\r\n    z-index: 2;\r\n    font-size: 16px;\r\n    text-decoration: none;\r\n    text-transform: capitalize;\r\n    color: #000;\r\n    font-weight: normal;\r\n    padding: 27px 30px;\r\n}\r\n\r\n.flag-language li:first-child a {\r\n    color: #000;\r\n    font-weight: normal;\r\n}\r\n\r\nelement.style {\r\n    font-family: Acherus-Grotesque,sans-serif;\r\n}\r\n.dv-about1 .col-md-4 .heading_secondary {\r\n    margin-top: 5px;\r\n    margin-bottom: 15px;\r\n    text-align: center;\r\n    color: #f1c40f;\r\n    font-size: 23px;\r\n}\r\n</style>', '', '<p>Website is updating ...</p>', 0, 0, 0, '', '', 0, 1, 0, 0, 0, 1, '(200px x 220px)', 0, 1, 1, 0, 0, '', '', '', '', '', '', 'WEBDEMO5.PAVIETNAM.VN', 'J64Q-P793-K89Y-U84U-8K49-MG1D', 1, 1, 1, 1, 1, 0, '', '', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_seo_name`
+--
+
+CREATE TABLE `lh_seo_name` (
+  `id` int(11) NOT NULL,
+  `tenbaiviet_vi` varchar(255) DEFAULT NULL,
+  `noidung_vi` mediumtext,
+  `icon` varchar(255) DEFAULT NULL,
+  `icon_hover` varchar(255) DEFAULT NULL,
+  `duongdantin` varchar(255) DEFAULT 'datafiles/setone',
+  `seo_name` mediumtext,
+  `tenbaiviet_en` varchar(255) DEFAULT NULL,
+  `noidung_en` mediumtext,
+  `tenbaiviet_cn` mediumtext,
+  `noidung_cn` mediumtext,
+  `p1_cn` mediumtext,
+  `opt` tinyint(1) NOT NULL DEFAULT '0',
+  `p1_vi` mediumtext,
+  `p1_en` mediumtext,
+  `tenbaiviet_jp` varchar(255) DEFAULT NULL,
+  `noidung_jp` mediumtext,
+  `p1_jp` mediumtext,
+  `showhi` tinyint(1) NOT NULL DEFAULT '1',
+  `is_mota` tinyint(4) NOT NULL DEFAULT '0',
+  `is_hinhanh` tinyint(4) NOT NULL DEFAULT '0',
+  `is_hinhanh_hover` tinyint(4) NOT NULL DEFAULT '0',
+  `is_lienket` tinyint(4) NOT NULL DEFAULT '0',
+  `is_hinhanh_size` varchar(50) DEFAULT NULL,
+  `is_noidung` tinyint(4) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `lh_seo_name`
+--
+
+INSERT INTO `lh_seo_name` (`id`, `tenbaiviet_vi`, `noidung_vi`, `icon`, `icon_hover`, `duongdantin`, `seo_name`, `tenbaiviet_en`, `noidung_en`, `tenbaiviet_cn`, `noidung_cn`, `p1_cn`, `opt`, `p1_vi`, `p1_en`, `tenbaiviet_jp`, `noidung_jp`, `p1_jp`, `showhi`, `is_mota`, `is_hinhanh`, `is_hinhanh_hover`, `is_lienket`, `is_hinhanh_size`, `is_noidung`) VALUES
+(1, 'Lỗi 404 - Không Tìm Thấy Trang!', '<p>Ch&uacute;ng t&ocirc;i kh&ocirc;ng thể t&igrave;m thấy trang qu&yacute; kh&aacute;ch y&ecirc;u cầu hoặc trang y&ecirc;u cầu hiện tại kh&ocirc;ng c&oacute; sẵn. Nếu lỗi n&agrave;y xảy ra với mức độ thường xuy&ecirc;n, xin qu&yacute; kh&aacute;ch vui l&ograve;ng th&ocirc;ng b&aacute;o cho ch&uacute;ng t&ocirc;i biết về sự cố qu&yacute; kh&aacute;ch gặp.</p>\r\n\r\n<p><strong>[tencongty]&nbsp;</strong>h&acirc;n hạnh được phục vụ qu&yacute; kh&aacute;ch!</p>', '1519956201_404-Slider-Anzeige.png', NULL, 'datafiles', '', '404 error page Not Found!', '<p>We could not find the page you requested or the requested page is not currently available. If this error occurs on a regular basis, please inform us about the problem you are having.</p>\r\n\r\n<p><strong>[tencongty]&nbsp;&nbsp;</strong>is pleased to serve you!</p>', '', '', '', 1, '', '', '', '', '', 1, 0, 0, 0, 0, NULL, 0),
+(82, 'Công Ty Cổ Phần Cơ Khí - Xây Dựng Giao Thông (Tracomeco)', '<p><strong>C&ocirc;ng Ty Cổ Phần Cơ Kh&iacute; - X&acirc;y Dựng Giao Th&ocirc;ng (Tracomeco)</strong>&nbsp;được th&agrave;nh lập lại theo Quyết định số 2863/QĐ - BGTVT của Bộ Giao Th&ocirc;ng Vận Tải k&yacute; ng&agrave;y 10/9/2002 về việc chuyển Doanh nghiệp Nh&agrave; nước th&agrave;nh C&ocirc;ng ty Cổ phần.</p>\r\n\r\n<p>Tiền th&acirc;n của C&ocirc;ng ty l&agrave;&nbsp;<strong>H&atilde;ng thầu RMK</strong>&nbsp;do Mỹ th&agrave;nh lập từ năm 1962 v&agrave; l&agrave; một cơ sở đại tu xe m&aacute;y thi c&ocirc;ng c&ocirc;ng tr&igrave;nh v&agrave; sản xuất kết cấu th&eacute;p lớn nhất Đ&ocirc;ng Nam &Aacute; thời bấy giờ. Sau năm 1975, đứng trước nhu cầu cấp b&aacute;ch về x&acirc;y dựng v&agrave; ph&aacute;t triển ng&agrave;nh cơ kh&iacute; giao th&ocirc;ng ph&iacute;a Nam, tr&ecirc;n cơ sở h&atilde;ng thầu RMK tiếp quản sau giải ph&oacute;ng, Nh&agrave; nước v&agrave; Bộ Giao th&ocirc;ng vận tải đ&atilde; th&agrave;nh lập Nh&agrave; m&aacute;y Cơ kh&iacute; C&ocirc;ng tr&igrave;nh với chức năng sửa chữa lắp r&aacute;p xe m&aacute;y c&ocirc;ng tr&igrave;nh, &ocirc;t&ocirc; c&aacute;c loại, đ&oacute;ng v&agrave; sửa chữa t&agrave;u thủy...</p>\r\n\r\n<p>Từ đ&oacute; tới nay C&ocirc;ng ty đ&atilde; nhiều lần đổi t&ecirc;n v&agrave; t&aacute;ch ra th&agrave;nh lập c&aacute;c doanh nghiệp mới. Đến năm 1996 C&ocirc;ng ty Cơ kh&iacute; Giao th&ocirc;ng 2 được th&agrave;nh lập lại th&agrave;nh C&ocirc;ng ty c&oacute; Hội đồng quản trị. Thực hiện chủ trương cổ phần ho&aacute; c&aacute;c doanh nghiệp Nh&agrave; nước của Ch&iacute;nh phủ, th&aacute;ng 9/2003 C&ocirc;ng ty tiến h&agrave;nh cổ phần ho&aacute; th&agrave;nh lập C&ocirc;ng ty Cổ phần Cơ kh&iacute; - X&acirc;y dựng giao th&ocirc;ng (Tracomeco).</p>', '1631085067_500x300_4.jpg', '1631085090_500x300_3.jpg', 'datafiles', 'gioi-thieu', 'Traffic Mechanical - Traffic Construction Joint Stock Company (Tracomeco)', '<p>Established in 2013, <strong><span style=\"color:#f1c40f;\">THIEN HOANG GROUP</span></strong> has grown to become a multi-industry manufacturing and trading enterprise, with the main industry being the production and supply of wood pellets.</p>\r\n\r\n<p>Up to now, <strong><span style=\"color:#f1c40f;\">THIEN HOANG GROUP</span></strong> owns 5 member companies, 2 branches, 1 representative office and 4 factory systems in the Central and Central Highlands regions. Nearly 300 employees and systems Partner system spread throughout Vietnam as well as globally.&nbsp;THIEN HOANG wishes to find and cooperate with long-term partners, sustainable development for the future.</p>', '', '', '', 0, 'Về chúng tôi Tracomeco', 'ABOUT US', '', '', '', 0, 1, 0, 0, 0, '380px x 410px', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_ship_khuvuc`
+--
+
+CREATE TABLE `lh_ship_khuvuc` (
+  `id` int(11) NOT NULL,
+  `id_parent` int(11) NOT NULL DEFAULT '0',
+  `tenbaiviet_vi` varchar(255) DEFAULT NULL,
+  `tenbaiviet_en` varchar(255) DEFAULT NULL,
+  `tenbaiviet_cn` varchar(255) DEFAULT NULL,
+  `tenbaiviet_jp` varchar(255) DEFAULT NULL,
+  `id_shipchung` int(11) NOT NULL DEFAULT '0',
+  `id_giaohangnhanh` int(11) NOT NULL DEFAULT '0',
+  `catasort` int(11) NOT NULL DEFAULT '0',
+  `showhi` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `lh_ship_khuvuc`
+--
+
+INSERT INTO `lh_ship_khuvuc` (`id`, `id_parent`, `tenbaiviet_vi`, `tenbaiviet_en`, `tenbaiviet_cn`, `tenbaiviet_jp`, `id_shipchung`, `id_giaohangnhanh`, `catasort`, `showhi`) VALUES
+(1, 0, 'Hà Nội', 'Hà Nội', 'Hà Nội', 'Hà Nội', 18, 201, 1, 1),
+(2, 0, 'TP Hồ Chí Minh', 'TP Hồ Chí Minh', 'TP.Hồ Chí Minh', 'TP.Hồ Chí Minh', 52, 202, 3, 1),
+(3, 0, 'An Giang', 'An Giang', 'An Giang', 'An Giang', 56, 217, 4, 1),
+(4, 0, 'Bà Rịa - Vũng Tàu', 'Bà Rịa - Vũng Tàu', 'Bà Rịa - Vũng Tàu', 'Bà Rịa - Vũng Tàu', 54, 206, 5, 1),
+(5, 0, 'Bắc Giang', 'Bắc Giang', 'Bắc Giang', 'Bắc Giang', 19, 248, 6, 1),
+(6, 0, 'Bắc Kạn', 'Bắc Kạn', 'Bắc Kạn', 'Bắc Kạn', 6, 245, 7, 1),
+(7, 0, 'Bạc Liêu', 'Bạc Liêu', 'Bạc Liêu', 'Bạc Liêu', 65, 253, 8, 1),
+(8, 0, 'Bắc Ninh', 'Bắc Ninh', 'Bắc Ninh', 'Bắc Ninh', 2, 249, 9, 1),
+(9, 0, 'Bến Tre', 'Bến Tre', 'Bến Tre', 'Bến Tre', 60, 213, 10, 1),
+(10, 0, 'Bình Dương', 'Bình Dương', 'Bình Dương', 'Bình Dương', 49, 205, 11, 1),
+(11, 0, 'Bình Định', 'Bình Định', 'Bình Định', 'Bình Định', 39, 262, 12, 1),
+(12, 0, 'Bình Phước', 'Bình Phước', 'Bình Phước', 'Bình Phước', 45, 239, 13, 1),
+(13, 0, 'Bình Thuận', 'Bình Thuận', 'Bình Thuận', 'Bình Thuận', 51, 258, 14, 1),
+(14, 0, 'Cà Mau', 'Cà Mau', 'Cà Mau', 'Cà Mau', 68, 252, 15, 1),
+(15, 0, 'Cần Thơ', 'Cần Thơ', 'Cần Thơ', 'Cần Thơ', 59, 220, 16, 1),
+(16, 0, 'Cao Bằng', 'Cao Bằng', 'Cao Bằng', 'Cao Bằng', 1, 246, 17, 1),
+(17, 0, 'Đà Nẵng', 'Đà Nẵng', 'Đà Nẵng', 'Đà Nẵng', 35, 203, 18, 1),
+(18, 0, 'Đắk Lắk', 'Đắk Lắk', 'Đắk Lắk', 'Đắk Lắk', 42, 210, 19, 1),
+(19, 0, 'Đắk Nông', 'Đắk Nông', 'Đắk Nông', 'Đắk Nông', 44, 241, 20, 1),
+(20, 0, 'Điện Biên', 'Điện Biên', 'Điện Biên', 'Điện Biên', 10, 265, 21, 1),
+(21, 0, 'Đồng Nai', 'Đồng Nai', 'Đồng Nai', 'Đồng Nai', 50, 204, 22, 1),
+(22, 0, 'Đồng Tháp', 'Đồng Tháp', 'Đồng Tháp', 'Đồng Tháp', 57, 216, 23, 1),
+(23, 0, 'Gia Lai', 'Gia Lai', 'Gia Lai', 'Gia Lai', 40, 207, 24, 1),
+(24, 0, 'Hà Giang', 'Hà Giang', 'Hà Giang', 'Hà Giang', 3, 227, 25, 1),
+(25, 0, 'Hà Nam', 'Hà Nam', 'Hà Nam', 'Hà Nam', 25, 232, 26, 1),
+(26, 0, 'Hà Tĩnh', 'Hà Tĩnh', 'Hà Tĩnh', 'Hà Tĩnh', 31, 236, 27, 1),
+(27, 0, 'Hải Dương', 'Hải Dương', 'Hải Dương', 'Hải Dương', 22, 225, 28, 1),
+(28, 0, 'Hải Phòng', 'Hải Phòng', 'Hải Phòng', 'Hải Phòng', 24, 224, 29, 1),
+(29, 0, 'Hậu Giang', 'Hậu Giang', 'Hậu Giang', 'Hậu Giang', 63, 250, 30, 1),
+(30, 0, 'Hòa Bình', 'Hòa Bình', 'Hòa Bình', 'Hòa Bình', 23, 267, 31, 1),
+(31, 0, 'Hưng Yên', 'Hưng Yên', 'Hưng Yên', 'Hưng Yên', 8, 268, 32, 1),
+(32, 0, 'Khánh Hòa', 'Khánh Hòa', 'Khánh Hòa', 'Khánh Hòa', 43, 208, 33, 1),
+(33, 0, 'Kiên Giang', 'Kiên Giang', 'Kiên Giang', 'Kiên Giang', 62, 219, 34, 1),
+(34, 0, 'Kon Tum', 'Kon Tum', 'Kon Tum', 'Kon Tum', 38, 259, 35, 1),
+(35, 0, 'Lai Châu', 'Lai Châu', 'Lai Châu', 'Lai Châu', 4, 264, 36, 1),
+(36, 0, 'Lâm Đồng', 'Lâm Đồng', 'Lâm Đồng', 'Lâm Đồng', 46, 209, 37, 1),
+(37, 0, 'Lạng Sơn', 'Lạng Sơn', 'Lạng Sơn', 'Lạng Sơn', 14, 247, 38, 1),
+(38, 0, 'Lào Cai', 'Lào Cai', 'Lào Cai', 'Lào Cai', 5, 269, 39, 1),
+(39, 0, 'Long An', 'Long An', 'Long An', 'Long An', 53, 211, 40, 1),
+(40, 0, 'Nam Định', 'Nam Định', 'Nam Định', 'Nam Định', 28, 231, 41, 1),
+(41, 0, 'Nghệ An', 'Nghệ An', 'Nghệ An', 'Nghệ An', 30, 235, 42, 1),
+(42, 0, 'Ninh Bình', 'Ninh Bình', 'Ninh Bình', 'Ninh Bình', 27, 233, 43, 1),
+(43, 0, 'Ninh Thuận', 'Ninh Thuận', 'Ninh Thuận', 'Ninh Thuận', 47, 261, 44, 1),
+(44, 0, 'Phú Thọ', 'Phú Thọ', 'Phú Thọ', 'Phú Thọ', 17, 229, 45, 1),
+(45, 0, 'Phú Yên', 'Phú Yên', 'Phú Yên', 'Phú Yên', 9, 260, 46, 1),
+(46, 0, 'Quảng Bình', 'Quảng Bình', 'Quảng Bình', 'Quảng Bình', 32, 237, 47, 1),
+(47, 0, 'Quảng Nam', 'Quảng Nam', 'Quảng Nam', 'Quảng Nam', 36, 243, 48, 1),
+(48, 0, 'Quảng Ngãi', 'Quảng Ngãi', 'Quảng Ngãi', 'Quảng Ngãi', 37, 242, 49, 1),
+(49, 0, 'Quảng Ninh', 'Quảng Ninh', 'Quảng Ninh', 'Quảng Ninh', 20, 230, 50, 1),
+(50, 0, 'Quảng Trị', 'Quảng Trị', 'Quảng Trị', 'Quảng Trị', 33, 238, 51, 1),
+(51, 0, 'Sóc Trăng', 'Sóc Trăng', 'Sóc Trăng', 'Sóc Trăng', 13, 218, 52, 1),
+(52, 0, 'Sơn La', 'Sơn La', 'Sơn La', 'Sơn La', 16, 266, 53, 1),
+(53, 0, 'Tây Ninh', 'Tây Ninh', 'Tây Ninh', 'Tây Ninh', 48, 240, 54, 1),
+(54, 0, 'Thái Bình', 'Thái Bình', 'Thái Bình', 'Thái Bình', 26, 226, 55, 1),
+(55, 0, 'Thái Nguyên', 'Thái Nguyên', 'Thái Nguyên', 'Thái Nguyên', 12, 244, 56, 1),
+(56, 0, 'Thanh Hóa', 'Thanh Hóa', 'Thanh Hóa', 'Thanh Hóa', 29, 234, 57, 1),
+(57, 0, 'Thừa Thiên Huế', 'Thừa Thiên Huế', 'Thừa Thiên Huế', 'Thừa Thiên Huế', 34, 223, 58, 1),
+(58, 0, 'Tiền Giang', 'Tiền Giang', 'Tiền Giang', 'Tiền Giang', 58, 212, 59, 1),
+(59, 0, 'Trà Vinh', 'Trà Vinh', 'Trà Vinh', 'Trà Vinh', 64, 214, 60, 1),
+(60, 0, 'Tuyên Quang', 'Tuyên Quang', 'Tuyên Quang', 'Tuyên Quang', 7, 228, 61, 1),
+(61, 0, 'Vĩnh Long', 'Vĩnh Long', 'Vĩnh Long', 'Vĩnh Long', 61, 215, 62, 1),
+(62, 0, 'Vĩnh Phúc', 'Vĩnh Phúc', 'Vĩnh Phúc', 'Vĩnh Phúc', 15, 221, 63, 1),
+(63, 0, 'Yên Bái', 'Yên Bái', 'Yên Bái', 'Yên Bái', 11, 263, 64, 1),
+(64, 1, 'Thị Xã Sơn Tây', 'Thị Xã Sơn Tây', 'Thị Xã Sơn Tây', 'Thị Xã Sơn Tây', 183, 1711, 2, 1),
+(65, 1, 'Quận Thanh Xuân', 'Quận Thanh Xuân', 'Quận Thanh Xuân', 'Quận Thanh Xuân', 190, 1493, 3, 1),
+(66, 1, 'Quận Tây Hồ', 'Quận Tây Hồ', 'Quận Tây Hồ', 'Quận Tây Hồ', 174, 1492, 4, 1),
+(67, 1, 'Quận Nam Từ Liêm', 'Quận Nam Từ Liêm', 'Quận Nam Từ Liêm', 'Quận Nam Từ Liêm', 165, 3440, 5, 1),
+(68, 1, 'Quận Long Biên', 'Quận Long Biên', 'Quận Long Biên', 'Quận Long Biên', 186, 1491, 6, 1),
+(69, 1, 'Quận Hoàng Mai', 'Quận Hoàng Mai', 'Quận Hoàng Mai', 'Quận Hoàng Mai', 167, 1490, 7, 1),
+(70, 1, 'Quận Hoàn Kiếm', 'Quận Hoàn Kiếm', 'Quận Hoàn Kiếm', 'Quận Hoàn Kiếm', 163, 1489, 8, 1),
+(71, 1, 'Quận Hai Bà Trưng', 'Quận Hai Bà Trưng', 'Quận Hai Bà Trưng', 'Quận Hai Bà Trưng', 173, 1488, 9, 1),
+(72, 1, 'Quận Hà Đông', 'Quận Hà Đông', 'Quận Hà Đông', 'Quận Hà Đông', 170, 1542, 10, 1),
+(73, 1, 'Quận Đống Đa', 'Quận Đống Đa', 'Quận Đống Đa', 'Quận Đống Đa', 191, 1486, 11, 1),
+(74, 1, 'Quận Cầu Giấy', 'Quận Cầu Giấy', 'Quận Cầu Giấy', 'Quận Cầu Giấy', 178, 1485, 12, 1),
+(75, 1, 'Quận Bắc Từ Liêm', 'Quận Bắc Từ Liêm', 'Quận Bắc Từ Liêm', 'Quận Bắc Từ Liêm', 717, 1482, 13, 1),
+(76, 1, 'Quận Ba Đình', 'Quận Ba Đình', 'Quận Ba Đình', 'Quận Ba Đình', 189, 1484, 14, 1),
+(77, 1, 'Huyện Ứng Hòa', 'Huyện Ứng Hòa', 'Huyện Ứng Hòa', 'Huyện Ứng Hòa', 177, 1810, 15, 1),
+(78, 1, 'Huyện Thường Tín', 'Huyện Thường Tín', 'Huyện Thường Tín', 'Huyện Thường Tín', 181, 3303, 16, 1),
+(79, 1, 'Huyện Thanh Trì', 'Huyện Thanh Trì', 'Huyện Thanh Trì', 'Huyện Thanh Trì', 176, 1710, 17, 1),
+(80, 1, 'Huyện Thanh Oai', 'Huyện Thanh Oai', 'Huyện Thanh Oai', 'Huyện Thanh Oai', 180, 1809, 18, 1),
+(81, 1, 'Huyện Thạch Thất', 'Huyện Thạch Thất', 'Huyện Thạch Thất', 'Huyện Thạch Thất', 168, 1808, 19, 1),
+(82, 1, 'Huyện Sóc Sơn', 'Huyện Sóc Sơn', 'Huyện Sóc Sơn', 'Huyện Sóc Sơn', 171, 1583, 20, 1),
+(83, 1, 'Huyện Quốc Oai', 'Huyện Quốc Oai', 'Huyện Quốc Oai', 'Huyện Quốc Oai', 187, 2004, 21, 1),
+(84, 1, 'Huyện Phúc Thọ', 'Huyện Phúc Thọ', 'Huyện Phúc Thọ', 'Huyện Phúc Thọ', 179, 1807, 22, 1),
+(85, 1, 'Huyện Phú Xuyên', 'Huyện Phú Xuyên', 'Huyện Phú Xuyên', 'Huyện Phú Xuyên', 184, 3255, 23, 1),
+(86, 1, 'Huyện Mỹ Đức', 'Huyện Mỹ Đức', 'Huyện Mỹ Đức', 'Huyện Mỹ Đức', 182, 1806, 24, 1),
+(87, 1, 'Huyện Mê Linh', 'Huyện Mê Linh', 'Huyện Mê Linh', 'Huyện Mê Linh', 175, 1581, 25, 1),
+(88, 1, 'Huyện Hoài Đức', 'Huyện Hoài Đức', 'Huyện Hoài Đức', 'Huyện Hoài Đức', 166, 1805, 26, 1),
+(89, 1, 'Huyện Gia Lâm', 'Huyện Gia Lâm', 'Huyện Gia Lâm', 'Huyện Gia Lâm', 172, 1703, 27, 1),
+(90, 1, 'Huyện Đông Anh', 'Huyện Đông Anh', 'Huyện Đông Anh', 'Huyện Đông Anh', 188, 1582, 28, 1),
+(91, 1, 'Huyện Đan Phượng', 'Huyện Đan Phượng', 'Huyện Đan Phượng', 'Huyện Đan Phượng', 185, 1804, 29, 1),
+(92, 1, 'Huyện Chương Mỹ', 'Huyện Chương Mỹ', 'Huyện Chương Mỹ', 'Huyện Chương Mỹ', 169, 1915, 30, 1),
+(93, 1, 'Huyện Ba Vì', 'Huyện Ba Vì', 'Huyện Ba Vì', 'Huyện Ba Vì', 164, 1803, 31, 1),
+(94, 2, 'Quận Thủ Đức', 'Thu-Duc District', 'Thu Duc区', 'Thu Duc地区', 568, 1463, 2, 1),
+(95, 2, 'Quận Tân Phú', 'Tan Phu District', 'Tan Phu区', 'タンフー県', 552, 1456, 3, 1),
+(96, 2, 'Quận Tân Bình', 'Tan Binh district', 'Tan Binh区', 'タンビン地区', 551, 1455, 4, 1),
+(97, 2, 'Quận Phú Nhuận', 'Phu Nhuan district', 'Phu Nhuan区', 'Phu Nhuan地区', 570, 1457, 5, 1),
+(98, 2, 'Quận Gò Vấp', 'Go vap district', '去Vap区', 'Go Vap地区', 561, 1461, 6, 1),
+(99, 2, 'Quận Bình Thạnh', 'Binh thanh district', 'Binh Thanh区', 'ビンタン地区', 569, 1462, 7, 1),
+(100, 2, 'Quận Bình Tân', 'Binh Tan District', '平坦区', 'ビンタン地区', 564, 1458, 8, 1),
+(101, 2, 'Quận 9', 'District 9', '9区', '第9地区', 558, 1451, 9, 1),
+(102, 2, 'Quận 8', 'District 8', '8区', '第8地区', 565, 1450, 10, 1),
+(103, 2, 'Quận 7', 'District 7', '7区', '第7地区', 556, 1449, 11, 1),
+(104, 2, 'Quận 6', 'District 6', '6区', '第6地区', 548, 1448, 12, 1),
+(105, 2, 'Quận 5', 'District 5', '5区', '第5地区', 549, 1447, 13, 1),
+(106, 2, 'Quận 4', 'District 4', '4区', '第4地区', 566, 1446, 14, 1),
+(107, 2, 'Quận 3', 'District 3', '3区', '第3地区', 550, 1444, 15, 1),
+(108, 2, 'Quận 2', 'District 2', '2区', '第2地区', 571, 1443, 16, 1),
+(109, 2, 'Quận 12', 'District 12', '12区', '第12地区', 557, 1454, 17, 1),
+(110, 2, 'Quận 11', 'District 11', '11区', '第11地区', 562, 1453, 18, 1),
+(111, 2, 'Quận 10', 'District 10', '10区', '第10地区', 555, 1452, 19, 1),
+(112, 2, 'Quận 1', 'District 1', '1区', '第1地区', 560, 1442, 20, 1),
+(113, 2, 'Huyện Nhà Bè', 'Nha Be province', 'Nha Be区', 'ニャベ地区', 554, 1534, 21, 1),
+(114, 2, 'Huyện Hóc Môn', 'Hoc Mon province', 'Hoc Mon区', 'Hoc Mon地区', 563, 1459, 22, 1),
+(115, 2, 'Huyện Củ Chi', 'Cu Chi province', '铜池区', 'Cu Chi地区', 553, 1460, 23, 1),
+(116, 2, 'Huyện Cần Giờ', 'Can Gio province', '可吉奥区', '缶ジオ地区', 559, 2090, 24, 1),
+(117, 2, 'Huyện Bình Chánh', 'Binh Chanh province', 'Binh Chanh区', 'ビンチャン地区', 567, 1533, 25, 1),
+(118, 3, 'Thị Xã Tân Châu', 'Thị Xã Tân Châu', 'Thị Xã Tân Châu', 'Thị Xã Tân Châu', 601, 1755, 2, 1),
+(119, 3, 'Thị Xã Châu Đốc', 'Thị Xã Châu Đốc', 'Thị Xã Châu Đốc', 'Thị Xã Châu Đốc', 594, 1753, 3, 1),
+(120, 3, 'Thành Phố Long Xuyên', 'Thành Phố Long Xuyên', 'Thành Phố Long Xuyên', 'Thành Phố Long Xuyên', 597, 1566, 4, 1),
+(121, 3, 'Huyện Tri Tôn', 'Huyện Tri Tôn', 'Huyện Tri Tôn', 'Huyện Tri Tôn', 604, 1751, 5, 1),
+(122, 3, 'Huyện Tịnh Biên', 'Huyện Tịnh Biên', 'Huyện Tịnh Biên', 'Huyện Tịnh Biên', 602, 1752, 6, 1),
+(123, 3, 'Huyện Thoại Sơn', 'Huyện Thoại Sơn', 'Huyện Thoại Sơn', 'Huyện Thoại Sơn', 596, 1750, 7, 1),
+(124, 3, 'Huyện Phú Tân', 'Huyện Phú Tân', 'Huyện Phú Tân', 'Huyện Phú Tân', 595, 1756, 8, 1),
+(125, 3, 'Huyện Chợ Mới', 'Huyện Chợ Mới', 'Huyện Chợ Mới', 'Huyện Chợ Mới', 599, 1757, 9, 1),
+(126, 3, 'Huyện Châu Thành', 'Huyện Châu Thành', 'Huyện Châu Thành', 'Huyện Châu Thành', 603, 1718, 10, 1),
+(127, 3, 'Huyện Châu Phú', 'Huyện Châu Phú', 'Huyện Châu Phú', 'Huyện Châu Phú', 600, 1758, 11, 1),
+(128, 3, 'Huyện An Phú', 'Huyện An Phú', 'Huyện An Phú', 'Huyện An Phú', 598, 1754, 12, 1),
+(129, 4, 'Thành Phố Vũng Tàu', 'Thành Phố Vũng Tàu', 'Thành Phố Vũng Tàu', 'Thành Phố Vũng Tàu', 592, 1544, 2, 1),
+(130, 4, 'Thành Phố Bà Rịa', 'Thành Phố Bà Rịa', 'Thành Phố Bà Rịa', 'Thành Phố Bà Rịa', 586, 1667, 3, 1),
+(131, 4, 'Huyện Xuyên Mộc', 'Huyện Xuyên Mộc', 'Huyện Xuyên Mộc', 'Huyện Xuyên Mộc', 588, 1699, 4, 1),
+(132, 4, 'Huyện Tân Thành', 'Huyện Tân Thành', 'Huyện Tân Thành', 'Huyện Tân Thành', 587, 1701, 5, 1),
+(134, 4, 'Huyện Long điền', 'Huyện Long điền', 'Huyện Long điền', 'Huyện Long điền', 590, 1689, 7, 1),
+(135, 4, 'Huyện Đất Đỏ', 'Huyện Đất Đỏ', 'Huyện Đất Đỏ', 'Huyện Đất Đỏ', 593, 1690, 8, 1),
+(136, 4, 'Huyện Côn đảo', 'Huyện Côn đảo', 'Huyện Côn đảo', 'Huyện Côn đảo', 589, 2111, 9, 1),
+(137, 4, 'Huyện Châu đức', 'Huyện Châu đức', 'Huyện Châu đức', 'Huyện Châu đức', 591, 1709, 10, 1),
+(138, 5, 'Thành Phố Bắc Giang', 'Thành Phố Bắc Giang', 'Thành Phố Bắc Giang', 'Thành Phố Bắc Giang', 192, 1643, 2, 1),
+(139, 5, 'Huyện Yên Thế', 'Huyện Yên Thế', 'Huyện Yên Thế', 'Huyện Yên Thế', 196, 1765, 3, 1),
+(140, 5, 'Huyện Yên Dũng', 'Huyện Yên Dũng', 'Huyện Yên Dũng', 'Huyện Yên Dũng', 197, 1764, 4, 1),
+(141, 5, 'Huyện Việt Yên', 'Huyện Việt Yên', 'Huyện Việt Yên', 'Huyện Việt Yên', 194, 1763, 5, 1),
+(142, 5, 'Huyện Tân Yên', 'Huyện Tân Yên', 'Huyện Tân Yên', 'Huyện Tân Yên', 201, 1762, 6, 1),
+(143, 5, 'Huyện Sơn Động', 'Huyện Sơn Động', 'Huyện Sơn Động', 'Huyện Sơn Động', 195, 1761, 7, 1),
+(144, 5, 'Huyện Lục Ngạn', 'Huyện Lục Ngạn', 'Huyện Lục Ngạn', 'Huyện Lục Ngạn', 198, 1966, 8, 1),
+(145, 5, 'Huyện Lục Nam', 'Huyện Lục Nam', 'Huyện Lục Nam', 'Huyện Lục Nam', 199, 1965, 9, 1),
+(146, 5, 'Huyện Lạng Giang', 'Huyện Lạng Giang', 'Huyện Lạng Giang', 'Huyện Lạng Giang', 200, 1760, 10, 1),
+(147, 5, 'Huyện Hiệp Hòa', 'Huyện Hiệp Hòa', 'Huyện Hiệp Hòa', 'Huyện Hiệp Hòa', 193, 1759, 11, 1),
+(148, 6, 'Thành Phố Bắc Kạn', 'Thành Phố Bắc Kạn', 'Thành Phố Bắc Kạn', 'Thành Phố Bắc Kạn', 52, 1640, 2, 1),
+(149, 6, 'Huyện Pắc Nặm', 'Huyện Pắc Nặm', 'Huyện Pắc Nặm', 'Huyện Pắc Nặm', 53, 3249, 3, 1),
+(150, 6, 'Huyện Ngân Sơn', 'Huyện Ngân Sơn', 'Huyện Ngân Sơn', 'Huyện Ngân Sơn', 51, 3242, 4, 1),
+(151, 6, 'Huyện Na Rì', 'Huyện Na Rì', 'Huyện Na Rì', 'Huyện Na Rì', 54, 3232, 5, 1),
+(152, 6, 'Huyện Chợ Mới', 'Huyện Chợ Mới', 'Huyện Chợ Mới', 'Huyện Chợ Mới', 49, 1914, 6, 1),
+(153, 6, 'Huyện Chợ đồn', 'Huyện Chợ đồn', 'Huyện Chợ đồn', 'Huyện Chợ đồn', 50, 1913, 7, 1),
+(154, 6, 'Huyện Bạch Thông', 'Huyện Bạch Thông', 'Huyện Bạch Thông', 'Huyện Bạch Thông', 55, 1889, 8, 1),
+(155, 6, 'Huyện Ba Bể', 'Huyện Ba Bể', 'Huyện Ba Bể', 'Huyện Ba Bể', 56, 1887, 9, 1),
+(156, 7, 'Thành Phố Bạc Liêu', 'Thành Phố Bạc Liêu', 'Thành Phố Bạc Liêu', 'Thành Phố Bạc Liêu', 688, 1655, 2, 1),
+(157, 7, 'Huyện Vĩnh Lợi', 'Huyện Vĩnh Lợi', 'Huyện Vĩnh Lợi', 'Huyện Vĩnh Lợi', 690, 2050, 3, 1),
+(158, 7, 'Huyện Phước Long', 'Huyện Phước Long', 'Huyện Phước Long', 'Huyện Phước Long', 685, 1998, 4, 1),
+(159, 7, 'Huyện Hồng Dân', 'Huyện Hồng Dân', 'Huyện Hồng Dân', 'Huyện Hồng Dân', 691, 1946, 5, 1),
+(160, 7, 'Huyện Hòa Bình', 'Huyện Hòa Bình', 'Huyện Hòa Bình', 'Huyện Hòa Bình', 686, 1723, 6, 1),
+(161, 7, 'Huyện Giá Rai', 'Huyện Giá Rai', 'Huyện Giá Rai', 'Huyện Giá Rai', 689, 1935, 7, 1),
+(162, 7, 'Huyện Đông Hải', 'Huyện Đông Hải', 'Huyện Đông Hải', 'Huyện Đông Hải', 687, 1926, 8, 1),
+(163, 8, 'Thành Phố Bắc Ninh', 'Thành Phố Bắc Ninh', 'Thành Phố Bắc Ninh', 'Thành Phố Bắc Ninh', 15, 1644, 2, 1),
+(164, 8, 'Huyện Yên Phong', 'Huyện Yên Phong', 'Huyện Yên Phong', 'Huyện Yên Phong', 19, 1768, 3, 1),
+(165, 8, 'Huyện Từ Sơn', 'Huyện Từ Sơn', 'Huyện Từ Sơn', 'Huyện Từ Sơn', 21, 1730, 4, 1),
+(166, 8, 'Huyện Tiên Du', 'Huyện Tiên Du', 'Huyện Tiên Du', 'Huyện Tiên Du', 20, 1729, 5, 1),
+(167, 8, 'Huyện Thuận Thành', 'Huyện Thuận Thành', 'Huyện Thuận Thành', 'Huyện Thuận Thành', 17, 1767, 6, 1),
+(168, 8, 'Huyện Quế Võ', 'Huyện Quế Võ', 'Huyện Quế Võ', 'Huyện Quế Võ', 18, 1728, 7, 1),
+(169, 8, 'Huyện Lương Tài', 'Huyện Lương Tài', 'Huyện Lương Tài', 'Huyện Lương Tài', 14, 1969, 8, 1),
+(170, 8, 'Huyện Gia Bình', 'Huyện Gia Bình', 'Huyện Gia Bình', 'Huyện Gia Bình', 16, 1766, 9, 1),
+(171, 9, 'Thành Phố Bến Tre', 'Thành Phố Bến Tre', 'Thành Phố Bến Tre', 'Thành Phố Bến Tre', 644, 1558, 2, 1),
+(172, 9, 'Huyện Thạnh Phú', 'Huyện Thạnh Phú', 'Huyện Thạnh Phú', 'Huyện Thạnh Phú', 645, 2028, 3, 1),
+(173, 9, 'Huyện Mỏ Cày Nam', 'Huyện Mỏ Cày Nam', 'Huyện Mỏ Cày Nam', 'Huyện Mỏ Cày Nam', 642, 1975, 4, 1),
+(174, 9, 'Huyện Mỏ Cày Bắc', 'Huyện Mỏ Cày Bắc', 'Huyện Mỏ Cày Bắc', 'Huyện Mỏ Cày Bắc', 643, 1974, 5, 1),
+(175, 9, 'Huyện Giồng Trôm', 'Huyện Giồng Trôm', 'Huyện Giồng Trôm', 'Huyện Giồng Trôm', 646, 1937, 6, 1),
+(176, 9, 'Huyện Chợ Lách', 'Huyện Chợ Lách', 'Huyện Chợ Lách', 'Huyện Chợ Lách', 640, 3158, 7, 1),
+(177, 9, 'Huyện Châu Thành', 'Huyện Châu Thành', 'Huyện Châu Thành', 'Huyện Châu Thành', 639, 1742, 8, 1),
+(178, 9, 'Huyện Bình Đại', 'Huyện Bình Đại', 'Huyện Bình Đại', 'Huyện Bình Đại', 641, 1895, 9, 1),
+(179, 9, 'Huyện Ba Tri', 'Huyện Ba Tri', 'Huyện Ba Tri', 'Huyện Ba Tri', 638, 1888, 10, 1),
+(180, 10, 'Thành Phố Thủ Dầu Một', 'Thành Phố Thủ Dầu Một', 'Thành Phố Thủ Dầu Một', 'Thành Phố Thủ Dầu Một', 524, 1538, 2, 1),
+(181, 10, 'Huyện Thuận An', 'Huyện Thuận An', 'Huyện Thuận An', 'Huyện Thuận An', 525, 1541, 3, 1),
+(182, 10, 'Huyện Tân Uyên', 'Huyện Tân Uyên', 'Huyện Tân Uyên', 'Huyện Tân Uyên', 520, 1695, 4, 1),
+(183, 10, 'Huyện Phú Giáo', 'Huyện Phú Giáo', 'Huyện Phú Giáo', 'Huyện Phú Giáo', 526, 1992, 5, 1),
+(184, 10, 'Huyện Dĩ An', 'Huyện Dĩ An', 'Huyện Dĩ An', 'Huyện Dĩ An', 521, 1540, 6, 1),
+(185, 10, 'Huyện Dầu Tiếng', 'Huyện Dầu Tiếng', 'Huyện Dầu Tiếng', 'Huyện Dầu Tiếng', 523, 1746, 7, 1),
+(186, 10, 'Huyện Bến Cát', 'Huyện Bến Cát', 'Huyện Bến Cát', 'Huyện Bến Cát', 522, 1696, 8, 1),
+(187, 10, 'Huyện Bàu Bàng', 'Huyện Bàu Bàng', 'Huyện Bàu Bàng', 'Huyện Bàu Bàng', 708, 3132, 9, 1),
+(188, 10, 'Huyện Bắc Tân Uyên', 'Huyện Bắc Tân Uyên', 'Huyện Bắc Tân Uyên', 'Huyện Bắc Tân Uyên', 710, 3135, 10, 1),
+(189, 11, 'Thành Phố Quy Nhơn', 'Thành Phố Quy Nhơn', 'Thành Phố Quy Nhơn', 'Thành Phố Quy Nhơn', 430, 1662, 2, 1),
+(190, 11, 'Huyện Vĩnh Thạnh', 'Huyện Vĩnh Thạnh', 'Huyện Vĩnh Thạnh', 'Huyện Vĩnh Thạnh', 429, 2258, 3, 1),
+(191, 11, 'Huyện Vân Canh', 'Huyện Vân Canh', 'Huyện Vân Canh', 'Huyện Vân Canh', 424, 3312, 4, 1),
+(192, 11, 'Huyện Tuy Phước', 'Huyện Tuy Phước', 'Huyện Tuy Phước', 'Huyện Tuy Phước', 431, 2023, 5, 1),
+(193, 11, 'Huyên Tây Sơn', 'Huyên Tây Sơn', 'Huyên Tây Sơn', 'Huyên Tây Sơn', 422, 3279, 6, 1),
+(194, 11, 'Huyện Phù Mỹ', 'Huyện Phù Mỹ', 'Huyện Phù Mỹ', 'Huyện Phù Mỹ', 432, 3254, 7, 1),
+(195, 11, 'Huyện Phù Cát', 'Huyện Phù Cát', 'Huyện Phù Cát', 'Huyện Phù Cát', 427, 1770, 8, 1),
+(196, 11, 'Huyện Hoài Nhơn', 'Huyện Hoài Nhơn', 'Huyện Hoài Nhơn', 'Huyện Hoài Nhơn', 426, 1771, 9, 1),
+(197, 11, 'Huyện Hoài ân', 'Huyện Hoài ân', 'Huyện Hoài ân', 'Huyện Hoài ân', 423, 2140, 10, 1),
+(198, 11, 'Huyện An Nhơn', 'Huyện An Nhơn', 'Huyện An Nhơn', 'Huyện An Nhơn', 703, 1769, 11, 1),
+(199, 11, 'Huyện An Lão', 'Huyện An Lão', 'Huyện An Lão', 'Huyện An Lão', 425, 1886, 12, 1),
+(200, 12, 'Thị Xã Phước Long', 'Thị Xã Phước Long', 'Thị Xã Phước Long', 'Thị Xã Phước Long', 484, 1775, 2, 1),
+(201, 12, 'Thị Xã Đồng Xoài', 'Thị Xã Đồng Xoài', 'Thị Xã Đồng Xoài', 'Thị Xã Đồng Xoài', 485, 1625, 3, 1),
+(202, 12, 'Thị Xã Bình Long', 'Thị Xã Bình Long', 'Thị Xã Bình Long', 'Thị Xã Bình Long', 489, 1774, 4, 1),
+(203, 12, 'Huyện Phú Riềng', 'Huyện Phú Riềng', 'Huyện Phú Riềng', 'Huyện Phú Riềng', 722, 3444, 5, 1),
+(204, 12, 'Huyện Lộc Ninh', 'Huyện Lộc Ninh', 'Huyện Lộc Ninh', 'Huyện Lộc Ninh', 483, 1964, 6, 1),
+(205, 12, 'Huyện Hớn Quản', 'Huyện Hớn Quản', 'Huyện Hớn Quản', 'Huyện Hớn Quản', 488, 1773, 7, 1),
+(206, 12, 'Huyện Đồng Phú', 'Huyện Đồng Phú', 'Huyện Đồng Phú', 'Huyện Đồng Phú', 486, 1722, 8, 1),
+(207, 12, 'Huyện Chơn Thành', 'Huyện Chơn Thành', 'Huyện Chơn Thành', 'Huyện Chơn Thành', 490, 1772, 9, 1),
+(208, 12, 'Huyện Bù Gia Mập', 'Huyện Bù Gia Mập', 'Huyện Bù Gia Mập', 'Huyện Bù Gia Mập', 487, 3141, 10, 1),
+(209, 12, 'Huyện Bù đốp', 'Huyện Bù đốp', 'Huyện Bù đốp', 'Huyện Bù đốp', 482, 3140, 11, 1),
+(210, 12, 'Huyện Bù đăng', 'Huyện Bù đăng', 'Huyện Bù đăng', 'Huyện Bù đăng', 491, 1899, 12, 1),
+(211, 13, 'Thị Xã La Gi', 'Thị Xã La Gi', 'Thị Xã La Gi', 'Thị Xã La Gi', 543, 1778, 2, 1),
+(212, 13, 'Thành Phố Phan Thiết', 'Thành Phố Phan Thiết', 'Thành Phố Phan Thiết', 'Thành Phố Phan Thiết', 546, 1666, 3, 1),
+(213, 13, 'Huyện Tuy Phong', 'Huyện Tuy Phong', 'Huyện Tuy Phong', 'Huyện Tuy Phong', 540, 1781, 4, 1),
+(214, 13, 'Huyện Tánh Linh', 'Huyện Tánh Linh', 'Huyện Tánh Linh', 'Huyện Tánh Linh', 541, 2012, 5, 1),
+(215, 13, 'Huyện Hàm Thuận Nam', 'Huyện Hàm Thuận Nam', 'Huyện Hàm Thuận Nam', 'Huyện Hàm Thuận Nam', 547, 1776, 6, 1),
+(216, 13, 'Huyện Hàm Thuận Bắc', 'Huyện Hàm Thuận Bắc', 'Huyện Hàm Thuận Bắc', 'Huyện Hàm Thuận Bắc', 538, 1777, 7, 1),
+(217, 13, 'Huyện Hàm Tân', 'Huyện Hàm Tân', 'Huyện Hàm Tân', 'Huyện Hàm Tân', 545, 3196, 8, 1),
+(218, 13, 'Huyện Đức Linh', 'Huyện Đức Linh', 'Huyện Đức Linh', 'Huyện Đức Linh', 542, 1779, 9, 1),
+(219, 13, 'Huyện Đảo Phú Quý', 'Huyện Đảo Phú Quý', 'Huyện Đảo Phú Quý', 'Huyện Đảo Phú Quý', 539, 2116, 10, 1),
+(220, 13, 'Huyện Bắc Bình', 'Huyện Bắc Bình', 'Huyện Bắc Bình', 'Huyện Bắc Bình', 544, 1780, 11, 1),
+(221, 14, 'Thành Phố Cà Mau', 'Thành Phố Cà Mau', 'Thành Phố Cà Mau', 'Thành Phố Cà Mau', 698, 1654, 2, 1),
+(222, 14, 'Huyện U Minh', 'Huyện U Minh', 'Huyện U Minh', 'Huyện U Minh', 699, 2042, 3, 1),
+(223, 14, 'Huyện Trần Văn Thời', 'Huyện Trần Văn Thời', 'Huyện Trần Văn Thời', 'Huyện Trần Văn Thời', 700, 2038, 4, 1),
+(224, 14, 'Huyện Thới Bình', 'Huyện Thới Bình', 'Huyện Thới Bình', 'Huyện Thới Bình', 696, 1782, 5, 1),
+(225, 14, 'Huyện Phú Tân', 'Huyện Phú Tân', 'Huyện Phú Tân', 'Huyện Phú Tân', 697, 1883, 6, 1),
+(226, 14, 'Huyện Ngọc Hiển', 'Huyện Ngọc Hiển', 'Huyện Ngọc Hiển', 'Huyện Ngọc Hiển', 695, 2186, 7, 1),
+(227, 14, 'Huyện Năm Căn', 'Huyện Năm Căn', 'Huyện Năm Căn', 'Huyện Năm Căn', 693, 1783, 8, 1),
+(228, 14, 'Huyện Đầm Dơi', 'Huyện Đầm Dơi', 'Huyện Đầm Dơi', 'Huyện Đầm Dơi', 694, 1922, 9, 1),
+(229, 14, 'Huyện Cái Nước', 'Huyện Cái Nước', 'Huyện Cái Nước', 'Huyện Cái Nước', 692, 1901, 10, 1),
+(231, 15, 'Quận Thốt Nốt', 'Quận Thốt Nốt', 'Quận Thốt Nốt', 'Quận Thốt Nốt', 629, 1576, 3, 1),
+(232, 15, 'Quận Ô Môn', 'Quận Ô Môn', 'Quận Ô Môn', 'Quận Ô Môn', 626, 1575, 4, 1),
+(233, 15, 'Quận Ninh Kiều', 'Quận Ninh Kiều', 'Quận Ninh Kiều', 'Quận Ninh Kiều', 628, 1572, 5, 1),
+(234, 15, 'Quận Cái Răng', 'Quận Cái Răng', 'Quận Cái Răng', 'Quận Cái Răng', 636, 1574, 6, 1),
+(235, 15, 'Quận Bình Thủy', 'Quận Bình Thủy', 'Quận Bình Thủy', 'Quận Bình Thủy', 630, 1573, 7, 1),
+(236, 15, 'Huyện Vĩnh Thạnh', 'Huyện Vĩnh Thạnh', 'Huyện Vĩnh Thạnh', 'Huyện Vĩnh Thạnh', 632, 3317, 8, 1),
+(237, 15, 'Huyện Thới Lai', 'Huyện Thới Lai', 'Huyện Thới Lai', 'Huyện Thới Lai', 627, 3300, 9, 1),
+(239, 15, 'Huyện Phong điền', 'Huyện Phong điền', 'Huyện Phong điền', 'Huyện Phong điền', 634, 3250, 11, 1),
+(240, 15, 'Huyện Cờ Đỏ', 'Huyện Cờ Đỏ', 'Huyện Cờ Đỏ', 'Huyện Cờ Đỏ', 637, 3150, 12, 1),
+(242, 16, 'Thành Phố Cao Bằng', 'Thành Phố Cao Bằng', 'Thành Phố Cao Bằng', 'Thành Phố Cao Bằng', 12, 1641, 2, 1),
+(243, 16, 'Huyện Trùng Khánh', 'Huyện Trùng Khánh', 'Huyện Trùng Khánh', 'Huyện Trùng Khánh', 7, 2041, 3, 1),
+(244, 16, 'Huyện Trà Lĩnh', 'Huyện Trà Lĩnh', 'Huyện Trà Lĩnh', 'Huyện Trà Lĩnh', 2, 3305, 4, 1),
+(245, 16, 'Huyện Thông Nông', 'Huyện Thông Nông', 'Huyện Thông Nông', 'Huyện Thông Nông', 10, 3299, 5, 1),
+(246, 16, 'Huyện Thạch An', 'Huyện Thạch An', 'Huyện Thạch An', 'Huyện Thạch An', 1, 3289, 6, 1),
+(247, 16, 'Huyện Quảng Uyên', 'Huyện Quảng Uyên', 'Huyện Quảng Uyên', 'Huyện Quảng Uyên', 9, 3259, 7, 1),
+(248, 16, 'Huyện Phục Hòa', 'Huyện Phục Hòa', 'Huyện Phục Hòa', 'Huyện Phục Hòa', 6, 1997, 8, 1),
+(249, 16, 'Huyện Nguyên Bình', 'Huyện Nguyên Bình', 'Huyện Nguyên Bình', 'Huyện Nguyên Bình', 4, 3246, 9, 1),
+(250, 16, 'Huyện Hòa An', 'Huyện Hòa An', 'Huyện Hòa An', 'Huyện Hòa An', 8, 1943, 10, 1),
+(251, 16, 'Huyện Hà Quảng', 'Huyện Hà Quảng', 'Huyện Hà Quảng', 'Huyện Hà Quảng', 13, 1939, 11, 1),
+(252, 16, 'Huyện Hạ Lang', 'Huyện Hạ Lang', 'Huyện Hạ Lang', 'Huyện Hạ Lang', 3, 3194, 12, 1),
+(253, 16, 'Huyện Bảo Lâm', 'Huyện Bảo Lâm', 'Huyện Bảo Lâm', 'Huyện Bảo Lâm', 11, 1890, 13, 1),
+(254, 16, 'Huyện Bảo Lạc', 'Huyện Bảo Lạc', 'Huyện Bảo Lạc', 'Huyện Bảo Lạc', 5, 3130, 14, 1),
+(255, 17, 'Quận Thanh Khê', 'Quận Thanh Khê', 'Quận Thanh Khê', 'Quận Thanh Khê', 374, 1527, 2, 1),
+(256, 17, 'Quận Sơn Trà', 'Quận Sơn Trà', 'Quận Sơn Trà', 'Quận Sơn Trà', 377, 1528, 3, 1),
+(257, 17, 'Quận Ngũ Hành Sơn', 'Quận Ngũ Hành Sơn', 'Quận Ngũ Hành Sơn', 'Quận Ngũ Hành Sơn', 375, 1529, 4, 1),
+(258, 17, 'Quận Liên Chiểu', 'Quận Liên Chiểu', 'Quận Liên Chiểu', 'Quận Liên Chiểu', 379, 1530, 5, 1),
+(259, 17, 'Quận Hải Châu', 'Quận Hải Châu', 'Quận Hải Châu', 'Quận Hải Châu', 376, 1526, 6, 1),
+(260, 17, 'Quận Cẩm Lệ', 'Quận Cẩm Lệ', 'Quận Cẩm Lệ', 'Quận Cẩm Lệ', 373, 1531, 7, 1),
+(261, 17, 'Huyện Hoàng Sa', 'Huyện Hoàng Sa', 'Huyện Hoàng Sa', 'Huyện Hoàng Sa', 380, 2112, 8, 1),
+(262, 17, 'Huyện Hòa Vang', 'Huyện Hòa Vang', 'Huyện Hòa Vang', 'Huyện Hòa Vang', 378, 1687, 9, 1),
+(267, 18, 'Thị Xã Buôn Hồ', 'Thị Xã Buôn Hồ', 'Thị Xã Buôn Hồ', 'Thị Xã Buôn Hồ', 452, 1788, 2, 1),
+(268, 18, 'Thành Phố Buôn Ma Thuột', 'Thành Phố Buôn Ma Thuột', 'Thành Phố Buôn Ma Thuột', 'Thành Phố Buôn Ma Thuột', 455, 1552, 3, 1),
+(269, 18, 'Huyện M\'Đrắk', 'Huyện M\'Đrắk', 'Huyện M\'Đrắk', 'Huyện M\'Đrắk', 463, 3418, 4, 1),
+(270, 18, 'Huyện Lắk', 'Huyện Lắk', 'Huyện Lắk', 'Huyện Lắk', 458, 3217, 5, 1),
+(271, 18, 'Huyện Krông Pắk', 'Huyện Krông Pắk', 'Huyện Krông Pắk', 'Huyện Krông Pắk', 457, 1954, 6, 1),
+(272, 18, 'Huyện Krông Năng', 'Huyện Krông Năng', 'Huyện Krông Năng', 'Huyện Krông Năng', 451, 1787, 7, 1),
+(273, 18, 'Huyện Krông Búk', 'Huyện Krông Búk', 'Huyện Krông Búk', 'Huyện Krông Búk', 450, 2150, 8, 1),
+(274, 18, 'Huyện Krông Bông', 'Huyện Krông Bông', 'Huyện Krông Bông', 'Huyện Krông Bông', 462, 1789, 9, 1),
+(275, 18, 'Huyện Krông A Na', 'Huyện Krông A Na', 'Huyện Krông A Na', 'Huyện Krông A Na', 456, 1884, 10, 1),
+(276, 18, 'Huyện Ea Súp', 'Huyện Ea Súp', 'Huyện Ea Súp', 'Huyện Ea Súp', 461, 2131, 11, 1),
+(277, 18, 'Huyện Ea Kar', 'Huyện Ea Kar', 'Huyện Ea Kar', 'Huyện Ea Kar', 454, 1931, 12, 1),
+(278, 18, 'Huyện Ea H\'leo', 'Huyện Ea H\'leo', 'Huyện Ea H\'leo', 'Huyện Ea H\'leo', 464, 1786, 13, 1),
+(279, 18, 'Huyện Cư M\'gar', 'Huyện Cư M\'gar', 'Huyện Cư M\'gar', 'Huyện Cư M\'gar', 459, 1785, 14, 1),
+(280, 18, 'Huyện Cư Kuin', 'Huyện Cư Kuin', 'Huyện Cư Kuin', 'Huyện Cư Kuin', 453, 3153, 15, 1),
+(281, 18, 'Huyện Buôn đôn', 'Huyện Buôn đôn', 'Huyện Buôn đôn', 'Huyện Buôn đôn', 460, 1784, 16, 1),
+(282, 19, 'Thị Xã Gia Nghĩa', 'Thị Xã Gia Nghĩa', 'Thị Xã Gia Nghĩa', 'Thị Xã Gia Nghĩa', 477, 1627, 2, 1),
+(283, 19, 'Huyện Tuy đức', 'Huyện Tuy đức', 'Huyện Tuy đức', 'Huyện Tuy đức', 475, 2227, 3, 1),
+(284, 19, 'Huyện Krông Nô', 'Huyện Krông Nô', 'Huyện Krông Nô', 'Huyện Krông Nô', 479, 2151, 4, 1),
+(285, 19, 'Huyện Đắk Song', 'Huyện Đắk Song', 'Huyện Đắk Song', 'Huyện Đắk Song', 480, 2120, 5, 1),
+(286, 19, 'Huyện Đăk R\'lấp', 'Huyện Đăk R\'lấp', 'Huyện Đăk R\'lấp', 'Huyện Đăk R\'lấp', 476, 1790, 6, 1),
+(287, 19, 'Huyện Đắk Mil', 'Huyện Đắk Mil', 'Huyện Đắk Mil', 'Huyện Đắk Mil', 481, 1792, 7, 1),
+(288, 19, 'Huyện Đắk Glong', 'Huyện Đắk Glong', 'Huyện Đắk Glong', 'Huyện Đắk Glong', 474, 1791, 8, 1),
+(289, 19, 'Huyện Cư Jút', 'Huyện Cư Jút', 'Huyện Cư Jút', 'Huyện Cư Jút', 478, 3152, 9, 1),
+(290, 20, 'Thị Xã Mường Lay', 'Thị Xã Mường Lay', 'Thị Xã Mường Lay', 'Thị Xã Mường Lay', 85, 2060, 2, 1),
+(291, 20, 'Thành Phố Điện Biên Phủ', 'Thành Phố Điện Biên Phủ', 'Thành Phố Điện Biên Phủ', 'Thành Phố Điện Biên Phủ', 82, 1676, 3, 1),
+(292, 20, 'Huyện Tuần Giáo', 'Huyện Tuần Giáo', 'Huyện Tuần Giáo', 'Huyện Tuần Giáo', 90, 2022, 4, 1),
+(293, 20, 'Huyện Tủa Chùa', 'Huyện Tủa Chùa', 'Huyện Tủa Chùa', 'Huyện Tủa Chùa', 86, 2021, 5, 1),
+(294, 20, 'Huyện Nậm Pồ', 'Huyện Nậm Pồ', 'Huyện Nậm Pồ', 'Huyện Nậm Pồ', 704, 2179, 6, 1),
+(295, 20, 'Huyện Mường Nhé', 'Huyện Mường Nhé', 'Huyện Mường Nhé', 'Huyện Mường Nhé', 87, 1979, 7, 1),
+(296, 20, 'Huyện Mường Chà', 'Huyện Mường Chà', 'Huyện Mường Chà', 'Huyện Mường Chà', 88, 1978, 8, 1),
+(297, 20, 'Huyện Mường Áng', 'Huyện Mường Áng', 'Huyện Mường Áng', 'Huyện Mường Áng', 89, 2170, 9, 1),
+(298, 20, 'Huyện Điện Biên Đông', 'Huyện Điện Biên Đông', 'Huyện Điện Biên Đông', 'Huyện Điện Biên Đông', 84, 2123, 10, 1),
+(299, 20, 'Huyện Điện Biên', 'Huyện Điện Biên', 'Huyện Điện Biên', 'Huyện Điện Biên', 83, 1676, 11, 1),
+(300, 21, 'Thị Xã Long Khánh', 'Thị Xã Long Khánh', 'Thị Xã Long Khánh', 'Thị Xã Long Khánh', 528, 1692, 2, 1),
+(301, 21, 'Thành Phố Biên Hòa', 'Thành Phố Biên Hòa', 'Thành Phố Biên Hòa', 'Thành Phố Biên Hòa', 533, 1536, 3, 1),
+(302, 21, 'Huyện Xuân Lộc', 'Huyện Xuân Lộc', 'Huyện Xuân Lộc', 'Huyện Xuân Lộc', 535, 1704, 4, 1),
+(303, 21, 'Huyện Vĩnh Cửu', 'Huyện Vĩnh Cửu', 'Huyện Vĩnh Cửu', 'Huyện Vĩnh Cửu', 531, 2049, 5, 1),
+(304, 21, 'Huyện Trảng Bom', 'Huyện Trảng Bom', 'Huyện Trảng Bom', 'Huyện Trảng Bom', 527, 1691, 6, 1),
+(305, 21, 'Huyện Thống Nhất', 'Huyện Thống Nhất', 'Huyện Thống Nhất', 'Huyện Thống Nhất', 530, 1705, 7, 1),
+(306, 21, 'Huyện Tân Phú', 'Huyện Tân Phú', 'Huyện Tân Phú', 'Huyện Tân Phú', 529, 1693, 8, 1),
+(307, 21, 'Huyện Nhơn Trạch', 'Huyện Nhơn Trạch', 'Huyện Nhơn Trạch', 'Huyện Nhơn Trạch', 532, 1708, 9, 1),
+(308, 21, 'Huyện Long Thành', 'Huyện Long Thành', 'Huyện Long Thành', 'Huyện Long Thành', 537, 1694, 10, 1),
+(309, 21, 'Huyện Định Quán', 'Huyện Định Quán', 'Huyện Định Quán', 'Huyện Định Quán', 536, 1700, 11, 1),
+(310, 21, 'Huyện Cẩm Mỹ', 'Huyện Cẩm Mỹ', 'Huyện Cẩm Mỹ', 'Huyện Cẩm Mỹ', 534, 1702, 12, 1),
+(311, 22, 'Thị Xã Sa Đéc', 'Thị Xã Sa Đéc', 'Thị Xã Sa Đéc', 'Thị Xã Sa Đéc', 615, 1668, 2, 1),
+(312, 22, 'Thành Phố Cao Lãnh', 'Thành Phố Cao Lãnh', 'Thành Phố Cao Lãnh', 'Thành Phố Cao Lãnh', 609, 1564, 3, 1),
+(313, 22, 'Huyện Tháp Mười', 'Huyện Tháp Mười', 'Huyện Tháp Mười', 'Huyện Tháp Mười', 610, 2030, 4, 1),
+(314, 22, 'Huyện Thanh Bình', 'Huyện Thanh Bình', 'Huyện Thanh Bình', 'Huyện Thanh Bình', 606, 2026, 5, 1),
+(315, 22, 'Huyện Tân Hồng', 'Huyện Tân Hồng', 'Huyện Tân Hồng', 'Huyện Tân Hồng', 605, 2013, 6, 1),
+(316, 22, 'Huyện Tam Nông', 'Huyện Tam Nông', 'Huyện Tam Nông', 'Huyện Tam Nông', 608, 2011, 7, 1),
+(317, 22, 'Huyện Lấp Vò', 'Huyện Lấp Vò', 'Huyện Lấp Vò', 'Huyện Lấp Vò', 607, 1961, 8, 1),
+(318, 22, 'Huyện Lai Vung', 'Huyện Lai Vung', 'Huyện Lai Vung', 'Huyện Lai Vung', 611, 1725, 9, 1),
+(319, 22, 'Huyện Hồng Ngự', 'Huyện Hồng Ngự', 'Huyện Hồng Ngự', 'Huyện Hồng Ngự', 613, 3200, 10, 1),
+(321, 22, 'Huyện Cao Lãnh', 'Huyện Cao Lãnh', 'Huyện Cao Lãnh', 'Huyện Cao Lãnh', 614, 1724, 12, 1),
+(322, 23, 'Thị Xã Ayun Pa', 'Thị Xã Ayun Pa', 'Thị Xã Ayun Pa', 'Thị Xã Ayun Pa', 449, 1798, 2, 1),
+(323, 23, 'Thị Xã An Khê', 'Thị Xã An Khê', 'Thị Xã An Khê', 'Thị Xã An Khê', 448, 1800, 3, 1),
+(324, 23, 'Thành Phố Pleiku', 'Thành Phố Pleiku', 'Thành Phố Pleiku', 'Thành Phố Pleiku', 436, 1546, 4, 1),
+(325, 23, 'Huyện Phú Thiện', 'Huyện Phú Thiện', 'Huyện Phú Thiện', 'Huyện Phú Thiện', 435, 1797, 5, 1),
+(326, 23, 'Huyện Mang Yang', 'Huyện Mang Yang', 'Huyện Mang Yang', 'Huyện Mang Yang', 444, 2165, 6, 1),
+(327, 23, 'Huyện Krông Pa', 'Huyện Krông Pa', 'Huyện Krông Pa', 'Huyện Krông Pa', 434, 2152, 7, 1),
+(328, 23, 'Huyện Kông Chro', 'Huyện Kông Chro', 'Huyện Kông Chro', 'Huyện Kông Chro', 443, 2149, 8, 1),
+(329, 23, 'Huyện Kbang', 'Huyện Kbang', 'Huyện Kbang', 'Huyện Kbang', 442, 2144, 9, 1),
+(330, 23, 'Huyện Ia Pa', 'Huyện Ia Pa', 'Huyện Ia Pa', 'Huyện Ia Pa', 446, 1799, 10, 1),
+(331, 23, 'Huyện Ia Grai', 'Huyện Ia Grai', 'Huyện Ia Grai', 'Huyện Ia Grai', 439, 1793, 11, 1),
+(332, 23, 'Huyện Đức Cơ', 'Huyện Đức Cơ', 'Huyện Đức Cơ', 'Huyện Đức Cơ', 440, 1794, 12, 1),
+(333, 23, 'Huyện Đăk Pơ', 'Huyện Đăk Pơ', 'Huyện Đăk Pơ', 'Huyện Đăk Pơ', 438, 2119, 13, 1),
+(334, 23, 'Huyện Đăk Đoa', 'Huyện Đăk Đoa', 'Huyện Đăk Đoa', 'Huyện Đăk Đoa', 437, 2118, 14, 1),
+(335, 23, 'Huyện Chư Sê', 'Huyện Chư Sê', 'Huyện Chư Sê', 'Huyện Chư Sê', 441, 1796, 15, 1),
+(336, 23, 'Huyện Chư Pưh', 'Huyện Chư Pưh', 'Huyện Chư Pưh', 'Huyện Chư Pưh', 447, 2101, 16, 1),
+(337, 23, 'Huyện Chư Prông', 'Huyện Chư Prông', 'Huyện Chư Prông', 'Huyện Chư Prông', 433, 1795, 17, 1),
+(338, 23, 'Huyện Chư Păh', 'Huyện Chư Păh', 'Huyện Chư Păh', 'Huyện Chư Păh', 445, 1801, 18, 1),
+(339, 24, 'Thành Phố Hà Giang', 'Thành Phố Hà Giang', 'Thành Phố Hà Giang', 'Thành Phố Hà Giang', 30, 1600, 2, 1),
+(340, 24, 'Huyện Yên Minh', 'Huyện Yên Minh', 'Huyện Yên Minh', 'Huyện Yên Minh', 32, 2053, 3, 1),
+(341, 24, 'Huyện Xín Mần', 'Huyện Xín Mần', 'Huyện Xín Mần', 'Huyện Xín Mần', 28, 2052, 4, 1),
+(342, 24, 'Huyện Vị Xuyên', 'Huyện Vị Xuyên', 'Huyện Vị Xuyên', 'Huyện Vị Xuyên', 26, 2256, 5, 1),
+(343, 24, 'Huyện Quang Bình', 'Huyện Quang Bình', 'Huyện Quang Bình', 'Huyện Quang Bình', 24, 2001, 6, 1),
+(344, 24, 'Huyện Quản Bạ', 'Huyện Quản Bạ', 'Huyện Quản Bạ', 'Huyện Quản Bạ', 25, 1999, 7, 1),
+(345, 24, 'Huyện Mèo Vạc', 'Huyện Mèo Vạc', 'Huyện Mèo Vạc', 'Huyện Mèo Vạc', 23, 1973, 8, 1),
+(346, 24, 'Huyện Hoàng Su Phì', 'Huyện Hoàng Su Phì', 'Huyện Hoàng Su Phì', 'Huyện Hoàng Su Phì', 22, 1945, 9, 1),
+(347, 24, 'Huyện Đồng Văn', 'Huyện Đồng Văn', 'Huyện Đồng Văn', 'Huyện Đồng Văn', 31, 1928, 10, 1),
+(348, 24, 'Huyện Bắc Quang', 'Huyện Bắc Quang', 'Huyện Bắc Quang', 'Huyện Bắc Quang', 29, 1893, 11, 1),
+(349, 24, 'Huyện Bắc Mê', 'Huyện Bắc Mê', 'Huyện Bắc Mê', 'Huyện Bắc Mê', 27, 2075, 12, 1),
+(350, 25, 'Thành Phố Phủ Lý', 'Thành Phố Phủ Lý', 'Thành Phố Phủ Lý', 'Thành Phố Phủ Lý', 258, 1614, 2, 1),
+(351, 25, 'Huyện Thanh Liêm', 'Huyện Thanh Liêm', 'Huyện Thanh Liêm', 'Huyện Thanh Liêm', 259, 2027, 3, 1),
+(352, 25, 'Huyện Lý Nhân', 'Huyện Lý Nhân', 'Huyện Lý Nhân', 'Huyện Lý Nhân', 256, 1970, 4, 1),
+(353, 25, 'Huyện Kim Bảng', 'Huyện Kim Bảng', 'Huyện Kim Bảng', 'Huyện Kim Bảng', 255, 1952, 5, 1),
+(354, 25, 'Huyện Duy Tiên', 'Huyện Duy Tiên', 'Huyện Duy Tiên', 'Huyện Duy Tiên', 254, 1802, 6, 1),
+(355, 25, 'Huyện Bình Lục', 'Huyện Bình Lục', 'Huyện Bình Lục', 'Huyện Bình Lục', 257, 1897, 7, 1),
+(356, 26, 'Thị Xã Hồng Lĩnh', 'Thị Xã Hồng Lĩnh', 'Thị Xã Hồng Lĩnh', 'Thị Xã Hồng Lĩnh', 339, 1814, 2, 1),
+(357, 26, 'Thành Phố Hà Tĩnh', 'Thành Phố Hà Tĩnh', 'Thành Phố Hà Tĩnh', 'Thành Phố Hà Tĩnh', 345, 1618, 3, 1),
+(358, 26, 'Huyện Vũ Quang', 'Huyện Vũ Quang', 'Huyện Vũ Quang', 'Huyện Vũ Quang', 335, 3320, 4, 1),
+(359, 26, 'Huyện Thạch Hà', 'Huyện Thạch Hà', 'Huyện Thạch Hà', 'Huyện Thạch Hà', 346, 2024, 5, 1),
+(360, 26, 'Huyện Nghi Xuân', 'Huyện Nghi Xuân', 'Huyện Nghi Xuân', 'Huyện Nghi Xuân', 340, 1813, 6, 1),
+(361, 26, 'Huyện Lộc Hà', 'Huyện Lộc Hà', 'Huyện Lộc Hà', 'Huyện Lộc Hà', 338, 3220, 7, 1),
+(362, 26, 'Huyện Kỳ Anh', 'Huyện Kỳ Anh', 'Huyện Kỳ Anh', 'Huyện Kỳ Anh', 344, 1811, 8, 1),
+(363, 26, 'Huyện Hương Sơn', 'Huyện Hương Sơn', 'Huyện Hương Sơn', 'Huyện Hương Sơn', 341, 3201, 9, 1),
+(364, 26, 'Huyện Hương Khê', 'Huyện Hương Khê', 'Huyện Hương Khê', 'Huyện Hương Khê', 342, 1812, 10, 1),
+(365, 26, 'Huyện Đức Thọ', 'Huyện Đức Thọ', 'Huyện Đức Thọ', 'Huyện Đức Thọ', 336, 3188, 11, 1),
+(366, 26, 'Huyện Can Lộc', 'Huyện Can Lộc', 'Huyện Can Lộc', 'Huyện Can Lộc', 337, 3143, 12, 1),
+(367, 26, 'Huyện Cẩm Xuyên', 'Huyện Cẩm Xuyên', 'Huyện Cẩm Xuyên', 'Huyện Cẩm Xuyên', 343, 1815, 13, 1),
+(368, 27, 'Thị Xã Chí Linh', 'Thị Xã Chí Linh', 'Thị Xã Chí Linh', 'Thị Xã Chí Linh', 225, 2056, 2, 1),
+(369, 27, 'Thành Phố Hải Dương', 'Thành Phố Hải Dương', 'Thành Phố Hải Dương', 'Thành Phố Hải Dương', 216, 1598, 3, 1),
+(370, 27, 'Huyện Tứ Kỳ', 'Huyện Tứ Kỳ', 'Huyện Tứ Kỳ', 'Huyện Tứ Kỳ', 218, 3287, 4, 1),
+(371, 27, 'Huyện Thanh Miện', 'Huyện Thanh Miện', 'Huyện Thanh Miện', 'Huyện Thanh Miện', 222, 3294, 5, 1),
+(372, 27, 'Huyện Thanh Hà', 'Huyện Thanh Hà', 'Huyện Thanh Hà', 'Huyện Thanh Hà', 219, 3292, 6, 1),
+(373, 27, 'Huyện Ninh Giang', 'Huyện Ninh Giang', 'Huyện Ninh Giang', 'Huyện Ninh Giang', 217, 3238, 7, 1),
+(374, 27, 'Huyện Nam Sách', 'Huyện Nam Sách', 'Huyện Nam Sách', 'Huyện Nam Sách', 223, 1727, 8, 1),
+(375, 27, 'Huyện Kinh Môn', 'Huyện Kinh Môn', 'Huyện Kinh Môn', 'Huyện Kinh Môn', 224, 1818, 9, 1),
+(376, 27, 'Huyện Kim Thành', 'Huyện Kim Thành', 'Huyện Kim Thành', 'Huyện Kim Thành', 221, 1953, 10, 1),
+(377, 27, 'Huyện Gia Lộc', 'Huyện Gia Lộc', 'Huyện Gia Lộc', 'Huyện Gia Lộc', 227, 1934, 11, 1),
+(378, 27, 'Huyện Cẩm Giàng', 'Huyện Cẩm Giàng', 'Huyện Cẩm Giàng', 'Huyện Cẩm Giàng', 220, 1817, 12, 1),
+(379, 27, 'Huyện Bình Giang', 'Huyện Bình Giang', 'Huyện Bình Giang', 'Huyện Bình Giang', 226, 1816, 13, 1),
+(380, 28, 'Quận Ngô Quyền', 'Quận Ngô Quyền', 'Quận Ngô Quyền', 'Quận Ngô Quyền', 252, 1587, 2, 1),
+(381, 28, 'Quận Lê Chân', 'Quận Lê Chân', 'Quận Lê Chân', 'Quận Lê Chân', 241, 1588, 3, 1),
+(382, 28, 'Quận Kiến An', 'Quận Kiến An', 'Quận Kiến An', 'Quận Kiến An', 249, 1590, 4, 1),
+(383, 28, 'Quận Hồng Bàng', 'Quận Hồng Bàng', 'Quận Hồng Bàng', 'Quận Hồng Bàng', 239, 1589, 5, 1),
+(384, 28, 'Quận Hải An', 'Quận Hải An', 'Quận Hải An', 'Quận Hải An', 245, 1591, 6, 1),
+(385, 28, 'Quận Đồ Sơn', 'Quận Đồ Sơn', 'Quận Đồ Sơn', 'Quận Đồ Sơn', 240, 1707, 7, 1),
+(386, 28, 'Quận Dương Kinh', 'Quận Dương Kinh', 'Quận Dương Kinh', 'Quận Dương Kinh', 246, 1706, 8, 1),
+(387, 28, 'Huyện Vĩnh Bảo', 'Huyện Vĩnh Bảo', 'Huyện Vĩnh Bảo', 'Huyện Vĩnh Bảo', 248, 1822, 9, 1),
+(388, 28, 'Huyện Tiên Lãng', 'Huyện Tiên Lãng', 'Huyện Tiên Lãng', 'Huyện Tiên Lãng', 253, 1821, 10, 1),
+(389, 28, 'Huyện Thủy Nguyên', 'Huyện Thủy Nguyên', 'Huyện Thủy Nguyên', 'Huyện Thủy Nguyên', 251, 1726, 11, 1),
+(390, 28, 'Huyện Kiến Thụy', 'Huyện Kiến Thụy', 'Huyện Kiến Thụy', 'Huyện Kiến Thụy', 244, 3203, 12, 1),
+(391, 28, 'Huyện Đảo Cát Hải', 'Huyện Đảo Cát Hải', 'Huyện Đảo Cát Hải', 'Huyện Đảo Cát Hải', 250, 2108, 13, 1),
+(392, 28, 'Huyện Đảo Bạch Long Vĩ', 'Huyện Đảo Bạch Long Vĩ', 'Huyện Đảo Bạch Long Vĩ', 'Huyện Đảo Bạch Long Vĩ', 243, 2107, 14, 1),
+(393, 28, 'Huyện An Lão', 'Huyện An Lão', 'Huyện An Lão', 'Huyện An Lão', 247, 1820, 15, 1),
+(394, 28, 'Huyện An Dương', 'Huyện An Dương', 'Huyện An Dương', 'Huyện An Dương', 242, 1819, 16, 1),
+(395, 29, 'Thị Xã Ngã Bảy', 'Thị Xã Ngã Bảy', 'Thị Xã Ngã Bảy', 'Thị Xã Ngã Bảy', 675, 1823, 2, 1),
+(396, 29, 'Thành Phố Vị Thanh', 'Thành Phố Vị Thanh', 'Thành Phố Vị Thanh', 'Thành Phố Vị Thanh', 670, 1653, 3, 1),
+(397, 29, 'Huyện Vị Thủy', 'Huyện Vị Thủy', 'Huyện Vị Thủy', 'Huyện Vị Thủy', 674, 2048, 4, 1),
+(398, 29, 'Huyện Phụng Hiệp', 'Huyện Phụng Hiệp', 'Huyện Phụng Hiệp', 'Huyện Phụng Hiệp', 676, 1824, 5, 1),
+(399, 29, 'Huyện Long Mỹ', 'Huyện Long Mỹ', 'Huyện Long Mỹ', 'Huyện Long Mỹ', 672, 3445, 6, 1),
+(400, 29, 'Huyện Châu Thành A', 'Huyện Châu Thành A', 'Huyện Châu Thành A', 'Huyện Châu Thành A', 671, 1912, 7, 1),
+(401, 29, 'Huyện Châu Thành', 'Huyện Châu Thành', 'Huyện Châu Thành', 'Huyện Châu Thành', 673, 2096, 8, 1),
+(402, 30, 'Thành Phố Hòa Bình', 'Thành Phố Hòa Bình', 'Thành Phố Hòa Bình', 'Thành Phố Hòa Bình', 237, 1678, 2, 1),
+(403, 30, 'Huyện Yên Thủy', 'Huyện Yên Thủy', 'Huyện Yên Thủy', 'Huyện Yên Thủy', 236, 2270, 3, 1),
+(404, 30, 'Huyện Tân Lạc', 'Huyện Tân Lạc', 'Huyện Tân Lạc', 'Huyện Tân Lạc', 232, 2014, 4, 1),
+(405, 30, 'Huyện Mai Châu', 'Huyện Mai Châu', 'Huyện Mai Châu', 'Huyện Mai Châu', 235, 2163, 5, 1),
+(406, 30, 'Huyện Lương Sơn', 'Huyện Lương Sơn', 'Huyện Lương Sơn', 'Huyện Lương Sơn', 234, 1968, 6, 1),
+(407, 30, 'Huyện Lạc Thủy', 'Huyện Lạc Thủy', 'Huyện Lạc Thủy', 'Huyện Lạc Thủy', 230, 2157, 7, 1),
+(408, 30, 'Huyện Lạc Sơn', 'Huyện Lạc Sơn', 'Huyện Lạc Sơn', 'Huyện Lạc Sơn', 233, 2156, 8, 1),
+(409, 30, 'Huyện Kỳ Sơn', 'Huyện Kỳ Sơn', 'Huyện Kỳ Sơn', 'Huyện Kỳ Sơn', 228, 1955, 9, 1),
+(410, 30, 'Huyện Kim Bôi', 'Huyện Kim Bôi', 'Huyện Kim Bôi', 'Huyện Kim Bôi', 231, 2146, 10, 1),
+(411, 30, 'Huyện Đà Bắc', 'Huyện Đà Bắc', 'Huyện Đà Bắc', 'Huyện Đà Bắc', 229, 1916, 11, 1),
+(412, 30, 'Huyện Cao Phong', 'Huyện Cao Phong', 'Huyện Cao Phong', 'Huyện Cao Phong', 238, 2087, 12, 1),
+(413, 31, 'Thành Phố Hưng Yên', 'Thành Phố Hưng Yên', 'Thành Phố Hưng Yên', 'Thành Phố Hưng Yên', 68, 1680, 2, 1),
+(414, 31, 'Huyện Yên Mỹ', 'Huyện Yên Mỹ', 'Huyện Yên Mỹ', 'Huyện Yên Mỹ', 66, 1828, 3, 1),
+(415, 31, 'Huyện Văn Lâm', 'Huyện Văn Lâm', 'Huyện Văn Lâm', 'Huyện Văn Lâm', 64, 2046, 4, 1),
+(416, 31, 'Huyện Văn Giang', 'Huyện Văn Giang', 'Huyện Văn Giang', 'Huyện Văn Giang', 69, 2045, 5, 1),
+(417, 31, 'Huyện Tiên Lữ', 'Huyện Tiên Lữ', 'Huyện Tiên Lữ', 'Huyện Tiên Lữ', 72, 2018, 6, 1),
+(418, 31, 'Huyện Phù Cừ', 'Huyện Phù Cừ', 'Huyện Phù Cừ', 'Huyện Phù Cừ', 63, 2194, 7, 1),
+(419, 31, 'Huyện Mỹ Hào', 'Huyện Mỹ Hào', 'Huyện Mỹ Hào', 'Huyện Mỹ Hào', 70, 1827, 8, 1),
+(420, 31, 'Huyện Kim Động', 'Huyện Kim Động', 'Huyện Kim Động', 'Huyện Kim Động', 71, 0, 9, 1),
+(421, 31, 'Huyện Khoái Châu', 'Huyện Khoái Châu', 'Huyện Khoái Châu', 'Huyện Khoái Châu', 65, 1826, 10, 1),
+(422, 31, 'Huyện Ân Thi', 'Huyện Ân Thi', 'Huyện Ân Thi', 'Huyện Ân Thi', 67, 1825, 11, 1),
+(423, 32, 'Thành Phố Nha Trang', 'Thành Phố Nha Trang', 'Thành Phố Nha Trang', 'Thành Phố Nha Trang', 465, 1548, 2, 1),
+(424, 32, 'Thành Phố Cam Ranh', 'Thành Phố Cam Ranh', 'Thành Phố Cam Ranh', 'Thành Phố Cam Ranh', 468, 1664, 3, 1),
+(425, 32, 'Huyện Vạn Ninh', 'Huyện Vạn Ninh', 'Huyện Vạn Ninh', 'Huyện Vạn Ninh', 471, 1829, 4, 1),
+(426, 32, 'Huyện Ninh Hòa', 'Huyện Ninh Hòa', 'Huyện Ninh Hòa', 'Huyện Ninh Hòa', 466, 2061, 5, 1),
+(427, 32, 'Huyện Khánh Vĩnh', 'Huyện Khánh Vĩnh', 'Huyện Khánh Vĩnh', 'Huyện Khánh Vĩnh', 470, 3213, 6, 1),
+(428, 32, 'Huyện Khánh Sơn', 'Huyện Khánh Sơn', 'Huyện Khánh Sơn', 'Huyện Khánh Sơn', 467, 3212, 7, 1),
+(429, 32, 'Huyện Đảo Trường Sa', 'Huyện Đảo Trường Sa', 'Huyện Đảo Trường Sa', 'Huyện Đảo Trường Sa', 473, 2117, 8, 1),
+(430, 32, 'Huyện Diên Khánh', 'Huyện Diên Khánh', 'Huyện Diên Khánh', 'Huyện Diên Khánh', 469, 1739, 9, 1),
+(431, 32, 'Huyện Cam Lâm', 'Huyện Cam Lâm', 'Huyện Cam Lâm', 'Huyện Cam Lâm', 472, 1902, 10, 1),
+(432, 33, 'Thị Xã Hà Tiên', 'Thị Xã Hà Tiên', 'Thị Xã Hà Tiên', 'Thị Xã Hà Tiên', 665, 2058, 2, 1),
+(433, 33, 'Thành Phố Rạch Giá', 'Thành Phố Rạch Giá', 'Thành Phố Rạch Giá', 'Thành Phố Rạch Giá', 666, 1570, 3, 1),
+(434, 33, 'Huyện Vĩnh Thuận', 'Huyện Vĩnh Thuận', 'Huyện Vĩnh Thuận', 'Huyện Vĩnh Thuận', 664, 2260, 4, 1),
+(435, 33, 'Huyện U Minh Thượng', 'Huyện U Minh Thượng', 'Huyện U Minh Thượng', 'Huyện U Minh Thượng', 658, 2251, 5, 1),
+(436, 33, 'Huyện Tân Hiệp', 'Huyện Tân Hiệp', 'Huyện Tân Hiệp', 'Huyện Tân Hiệp', 667, 1831, 6, 1),
+(437, 33, 'Huyện Kiên Lương', 'Huyện Kiên Lương', 'Huyện Kiên Lương', 'Huyện Kiên Lương', 660, 1950, 7, 1),
+(438, 33, 'Huyện Kiên Hải', 'Huyện Kiên Hải', 'Huyện Kiên Hải', 'Huyện Kiên Hải', 668, 2113, 8, 1),
+(439, 33, 'Huyện Hòn Đất', 'Huyện Hòn Đất', 'Huyện Hòn Đất', 'Huyện Hòn Đất', 662, 1830, 9, 1),
+(440, 33, 'Huyện Gò Quao', 'Huyện Gò Quao', 'Huyện Gò Quao', 'Huyện Gò Quao', 655, 2132, 10, 1),
+(441, 33, 'Huyện Giồng Riềng', 'Huyện Giồng Riềng', 'Huyện Giồng Riềng', 'Huyện Giồng Riềng', 657, 1832, 11, 1),
+(442, 33, 'Huyên Giang Thành', 'Huyên Giang Thành', 'Huyên Giang Thành', 'Huyên Giang Thành', 663, 2134, 12, 1),
+(443, 33, 'Huyện Đảo Phú Quốc', 'Huyện Đảo Phú Quốc', 'Huyện Đảo Phú Quốc', 'Huyện Đảo Phú Quốc', 669, 2115, 13, 1),
+(444, 33, 'Huyện Châu Thành', 'Huyện Châu Thành', 'Huyện Châu Thành', 'Huyện Châu Thành', 661, 1719, 14, 1),
+(445, 33, 'Huyện An Minh', 'Huyện An Minh', 'Huyện An Minh', 'Huyện An Minh', 659, 3125, 15, 1),
+(446, 33, 'Huyện An Biên', 'Huyện An Biên', 'Huyện An Biên', 'Huyện An Biên', 656, 1833, 16, 1),
+(447, 34, 'Thành Phố Kon Tum', 'Thành Phố Kon Tum', 'Thành Phố Kon Tum', 'Thành Phố Kon Tum', 418, 1660, 2, 1),
+(448, 34, 'Huyện Tu Mơ Rông', 'Huyện Tu Mơ Rông', 'Huyện Tu Mơ Rông', 'Huyện Tu Mơ Rông', 416, 2225, 3, 1),
+(449, 34, 'Huyện Sa Thầy', 'Huyện Sa Thầy', 'Huyện Sa Thầy', 'Huyện Sa Thầy', 415, 2205, 4, 1),
+(450, 34, 'Huyện Ngọc Hồi', 'Huyện Ngọc Hồi', 'Huyện Ngọc Hồi', 'Huyện Ngọc Hồi', 420, 2187, 5, 1),
+(451, 34, 'Huyện Kon Rẫy', 'Huyện Kon Rẫy', 'Huyện Kon Rẫy', 'Huyện Kon Rẫy', 421, 2148, 6, 1),
+(452, 34, 'Huyện Kon Plông', 'Huyện Kon Plông', 'Huyện Kon Plông', 'Huyện Kon Plông', 417, 1834, 7, 1),
+(453, 34, 'Huyện Ia H\'Drai', 'Huyện Ia H\'Drai', 'Huyện Ia H\'Drai', 'Huyện Ia H\'Drai', 723, 3446, 8, 1),
+(454, 34, 'Huyện Đắk Tô', 'Huyện Đắk Tô', 'Huyện Đắk Tô', 'Huyện Đắk Tô', 419, 2121, 9, 1),
+(455, 34, 'Huyện Đắk Hà', 'Huyện Đắk Hà', 'Huyện Đắk Hà', 'Huyện Đắk Hà', 413, 1835, 10, 1),
+(456, 34, 'Huyện Đắk Glei', 'Huyện Đắk Glei', 'Huyện Đắk Glei', 'Huyện Đắk Glei', 414, 1921, 11, 1),
+(457, 35, 'Thành phố Lai Châu', 'Thành phố Lai Châu', 'Thành phố Lai Châu', 'Thành phố Lai Châu', 38, 1675, 2, 1),
+(458, 35, 'Huyện Than Uyên', 'Huyện Than Uyên', 'Huyện Than Uyên', 'Huyện Than Uyên', 36, 2025, 3, 1),
+(459, 35, 'Huyện Tân Uyên', 'Huyện Tân Uyên', 'Huyện Tân Uyên', 'Huyện Tân Uyên', 713, 2017, 4, 1),
+(460, 35, 'Huyện Tam Đường', 'Huyện Tam Đường', 'Huyện Tam Đường', 'Huyện Tam Đường', 33, 2010, 5, 1),
+(461, 35, 'Huyện Sìn Hồ', 'Huyện Sìn Hồ', 'Huyện Sìn Hồ', 'Huyện Sìn Hồ', 35, 2006, 6, 1),
+(462, 35, 'Huyện Phong Thổ', 'Huyện Phong Thổ', 'Huyện Phong Thổ', 'Huyện Phong Thổ', 34, 1989, 7, 1),
+(463, 35, 'Huyện Nậm Nhùn', 'Huyện Nậm Nhùn', 'Huyện Nậm Nhùn', 'Huyện Nậm Nhùn', 705, 1984, 8, 1),
+(464, 35, 'Huyện Mường Tè', 'Huyện Mường Tè', 'Huyện Mường Tè', 'Huyện Mường Tè', 37, 1980, 9, 1),
+(465, 36, 'Thị Xã Bảo Lộc', 'Thị Xã Bảo Lộc', 'Thị Xã Bảo Lộc', 'Thị Xã Bảo Lộc', 503, 1838, 2, 1),
+(466, 36, 'Thành Phố Đà Lạt', 'Thành Phố Đà Lạt', 'Thành Phố Đà Lạt', 'Thành Phố Đà Lạt', 499, 1550, 3, 1),
+(467, 36, 'Huyện Lâm Hà', 'Huyện Lâm Hà', 'Huyện Lâm Hà', 'Huyện Lâm Hà', 498, 1958, 4, 1),
+(468, 36, 'Huyện Lạc Dương', 'Huyện Lạc Dương', 'Huyện Lạc Dương', 'Huyện Lạc Dương', 493, 1956, 5, 1),
+(469, 36, 'Huyện Đức Trọng', 'Huyện Đức Trọng', 'Huyện Đức Trọng', 'Huyện Đức Trọng', 492, 1837, 6, 1),
+(470, 36, 'Huyện Đơn Dương', 'Huyện Đơn Dương', 'Huyện Đơn Dương', 'Huyện Đơn Dương', 501, 1836, 7, 1),
+(471, 36, 'Huyện Đam Rông', 'Huyện Đam Rông', 'Huyện Đam Rông', 'Huyện Đam Rông', 502, 1919, 8, 1),
+(472, 36, 'Huyện Đạ Tẻh', 'Huyện Đạ Tẻh', 'Huyện Đạ Tẻh', 'Huyện Đạ Tẻh', 500, 2106, 9, 1),
+(473, 36, 'Huyện Đạ Huoai', 'Huyện Đạ Huoai', 'Huyện Đạ Huoai', 'Huyện Đạ Huoai', 497, 2104, 10, 1),
+(474, 36, 'Huyện Di Linh', 'Huyện Di Linh', 'Huyện Di Linh', 'Huyện Di Linh', 496, 3160, 11, 1),
+(475, 36, 'Huyện Cát Tiên', 'Huyện Cát Tiên', 'Huyện Cát Tiên', 'Huyện Cát Tiên', 495, 3146, 12, 1),
+(476, 36, 'Huyện Bảo Lâm', 'Huyện Bảo Lâm', 'Huyện Bảo Lâm', 'Huyện Bảo Lâm', 494, 1839, 13, 1),
+(477, 37, 'Thành Phố Lạng Sơn', 'Thành Phố Lạng Sơn', 'Thành Phố Lạng Sơn', 'Thành Phố Lạng Sơn', 122, 1642, 2, 1),
+(478, 37, 'Huyện Văn Quan', 'Huyện Văn Quan', 'Huyện Văn Quan', 'Huyện Văn Quan', 119, 3311, 3, 1),
+(479, 37, 'Huyện Văn Lãng', 'Huyện Văn Lãng', 'Huyện Văn Lãng', 'Huyện Văn Lãng', 124, 3310, 4, 1),
+(480, 37, 'Huyện Tràng Định', 'Huyện Tràng Định', 'Huyện Tràng Định', 'Huyện Tràng Định', 126, 2036, 5, 1),
+(481, 37, 'Huyện Lộc Bình', 'Huyện Lộc Bình', 'Huyện Lộc Bình', 'Huyện Lộc Bình', 127, 1963, 6, 1),
+(482, 37, 'Huyện Hữu Lũng', 'Huyện Hữu Lũng', 'Huyện Hữu Lũng', 'Huyện Hữu Lũng', 120, 1948, 7, 1),
+(483, 37, 'Huyện Đình Lập', 'Huyện Đình Lập', 'Huyện Đình Lập', 'Huyện Đình Lập', 129, 3182, 8, 1),
+(484, 37, 'Huyện Chi Lăng', 'Huyện Chi Lăng', 'Huyện Chi Lăng', 'Huyện Chi Lăng', 121, 3156, 9, 1),
+(485, 37, 'Huyện Cao Lộc', 'Huyện Cao Lộc', 'Huyện Cao Lộc', 'Huyện Cao Lộc', 128, 1904, 10, 1),
+(486, 37, 'Huyện Bình Gia', 'Huyện Bình Gia', 'Huyện Bình Gia', 'Huyện Bình Gia', 125, 3138, 11, 1),
+(487, 37, 'Huyện Bắc Sơn', 'Huyện Bắc Sơn', 'Huyện Bắc Sơn', 'Huyện Bắc Sơn', 123, 3134, 12, 1),
+(488, 38, 'Thành Phố Lào Cai', 'Thành Phố Lào Cai', 'Thành Phố Lào Cai', 'Thành Phố Lào Cai', 40, 1682, 2, 1),
+(489, 38, 'Huyện Văn Bàn', 'Huyện Văn Bàn', 'Huyện Văn Bàn', 'Huyện Văn Bàn', 45, 2043, 3, 1),
+(490, 38, 'Huyện Si Ma Cai', 'Huyện Si Ma Cai', 'Huyện Si Ma Cai', 'Huyện Si Ma Cai', 47, 2264, 4, 1),
+(491, 38, 'Huyện Sa Pa', 'Huyện Sa Pa', 'Huyện Sa Pa', 'Huyện Sa Pa', 41, 2005, 5, 1),
+(492, 38, 'Huyện Mường Khương', 'Huyện Mường Khương', 'Huyện Mường Khương', 'Huyện Mường Khương', 42, 2171, 6, 1),
+(493, 38, 'Huyện Bát Xát', 'Huyện Bát Xát', 'Huyện Bát Xát', 'Huyện Bát Xát', 43, 1744, 7, 1),
+(494, 38, 'Huyện Bảo Yên', 'Huyện Bảo Yên', 'Huyện Bảo Yên', 'Huyện Bảo Yên', 48, 1891, 8, 1),
+(495, 38, 'Huyện Bảo Thắng', 'Huyện Bảo Thắng', 'Huyện Bảo Thắng', 'Huyện Bảo Thắng', 44, 2073, 9, 1),
+(496, 38, 'Huyện Bắc Hà', 'Huyện Bắc Hà', 'Huyện Bắc Hà', 'Huyện Bắc Hà', 46, 1892, 10, 1),
+(497, 39, 'Thị Xã Kiến Tường', 'Thị Xã Kiến Tường', 'Thị Xã Kiến Tường', 'Thị Xã Kiến Tường', 706, 3329, 2, 1),
+(498, 39, 'Thành Phố Tân An', 'Thành Phố Tân An', 'Thành Phố Tân An', 'Thành Phố Tân An', 576, 1554, 3, 1),
+(499, 39, 'Huyện Vĩnh Hưng', 'Huyện Vĩnh Hưng', 'Huyện Vĩnh Hưng', 'Huyện Vĩnh Hưng', 585, 3315, 4, 1),
+(500, 39, 'Huyện Thủ Thừa', 'Huyện Thủ Thừa', 'Huyện Thủ Thừa', 'Huyện Thủ Thừa', 577, 2031, 5, 1),
+(501, 39, 'Huyện Thạnh Hóa', 'Huyện Thạnh Hóa', 'Huyện Thạnh Hóa', 'Huyện Thạnh Hóa', 582, 3293, 6, 1),
+(502, 39, 'Huyện Tân Trụ', 'Huyện Tân Trụ', 'Huyện Tân Trụ', 'Huyện Tân Trụ', 572, 2016, 7, 1),
+(503, 39, 'Huyện Tân Thạnh', 'Huyện Tân Thạnh', 'Huyện Tân Thạnh', 'Huyện Tân Thạnh', 581, 3276, 8, 1),
+(504, 39, 'Huyện Tân Hưng', 'Huyện Tân Hưng', 'Huyện Tân Hưng', 'Huyện Tân Hưng', 578, 3273, 9, 1),
+(505, 39, 'Huyện Mộc Hóa', 'Huyện Mộc Hóa', 'Huyện Mộc Hóa', 'Huyện Mộc Hóa', 583, 3227, 10, 1),
+(506, 39, 'Huyện Đức Huệ', 'Huyện Đức Huệ', 'Huyện Đức Huệ', 'Huyện Đức Huệ', 573, 2129, 11, 1),
+(507, 39, 'Huyện Đức Hòa', 'Huyện Đức Hòa', 'Huyện Đức Hòa', 'Huyện Đức Hòa', 584, 1929, 12, 1),
+(508, 39, 'Huyện Châu Thành', 'Huyện Châu Thành', 'Huyện Châu Thành', 'Huyện Châu Thành', 579, 1909, 13, 1),
+(509, 39, 'Huyện Cần Guộc', 'Huyện Cần Guộc', 'Huyện Cần Guộc', 'Huyện Cần Guộc', 574, 1907, 14, 1),
+(510, 39, 'Huyện Cần đước', 'Huyện Cần đước', 'Huyện Cần đước', 'Huyện Cần đước', 575, 1906, 15, 1),
+(511, 39, 'Huyện Bến Lức', 'Huyện Bến Lức', 'Huyện Bến Lức', 'Huyện Bến Lức', 580, 1894, 16, 1),
+(512, 40, 'Thành Phố Nam định', 'Thành Phố Nam định', 'Thành Phố Nam định', 'Thành Phố Nam định', 285, 1613, 2, 1),
+(513, 40, 'Huyện Ý Yên', 'Huyện Ý Yên', 'Huyện Ý Yên', 'Huyện Ý Yên', 278, 1841, 3, 1),
+(514, 40, 'Huyện Xuân Trường', 'Huyện Xuân Trường', 'Huyện Xuân Trường', 'Huyện Xuân Trường', 282, 3323, 4, 1),
+(515, 40, 'Huyện Vụ Bản', 'Huyện Vụ Bản', 'Huyện Vụ Bản', 'Huyện Vụ Bản', 287, 3319, 5, 1),
+(516, 40, 'Huyện Trực Ninh', 'Huyện Trực Ninh', 'Huyện Trực Ninh', 'Huyện Trực Ninh', 280, 3308, 6, 1),
+(517, 40, 'Huyện Nghĩa Hưng', 'Huyện Nghĩa Hưng', 'Huyện Nghĩa Hưng', 'Huyện Nghĩa Hưng', 284, 3243, 7, 1),
+(518, 40, 'Huyện Nam Trực', 'Huyện Nam Trực', 'Huyện Nam Trực', 'Huyện Nam Trực', 279, 1983, 8, 1),
+(519, 40, 'Huyện Mỹ Lộc', 'Huyện Mỹ Lộc', 'Huyện Mỹ Lộc', 'Huyện Mỹ Lộc', 281, 1981, 9, 1),
+(520, 40, 'Huyện Hải Hậu', 'Huyện Hải Hậu', 'Huyện Hải Hậu', 'Huyện Hải Hậu', 286, 1840, 10, 1),
+(521, 40, 'Huyện Giao Thủy', 'Huyện Giao Thủy', 'Huyện Giao Thủy', 'Huyện Giao Thủy', 283, 3193, 11, 1),
+(522, 41, 'Thị Xã Thái Hòa', 'Thị Xã Thái Hòa', 'Thị Xã Thái Hòa', 'Thị Xã Thái Hòa', 322, 1850, 2, 1),
+(523, 41, 'Thị xã Hoàng Mai', 'Thị xã Hoàng Mai', 'Thị xã Hoàng Mai', 'Thị xã Hoàng Mai', 720, 1849, 3, 1),
+(524, 41, 'Thị Xã Cửa Lò', 'Thị Xã Cửa Lò', 'Thị Xã Cửa Lò', 'Thị Xã Cửa Lò', 324, 1842, 4, 1),
+(525, 41, 'Thành Phố Vinh', 'Thành Phố Vinh', 'Thành Phố Vinh', 'Thành Phố Vinh', 331, 1617, 5, 1),
+(526, 41, 'Huyện Yên Thành', 'Huyện Yên Thành', 'Huyện Yên Thành', 'Huyện Yên Thành', 334, 1846, 6, 1),
+(527, 41, 'Huyện Tương Dương', 'Huyện Tương Dương', 'Huyện Tương Dương', 'Huyện Tương Dương', 325, 3288, 7, 1),
+(528, 41, 'Huyện Thanh Chương', 'Huyện Thanh Chương', 'Huyện Thanh Chương', 'Huyện Thanh Chương', 316, 3291, 8, 1),
+(529, 41, 'Huyện Tân Kỳ', 'Huyện Tân Kỳ', 'Huyện Tân Kỳ', 'Huyện Tân Kỳ', 328, 1845, 9, 1),
+(530, 41, 'Huyện Quỳnh Lưu', 'Huyện Quỳnh Lưu', 'Huyện Quỳnh Lưu', 'Huyện Quỳnh Lưu', 317, 1848, 10, 1),
+(531, 41, 'Huyện Quỳ Hợp', 'Huyện Quỳ Hợp', 'Huyện Quỳ Hợp', 'Huyện Quỳ Hợp', 318, 1852, 11, 1);
+INSERT INTO `lh_ship_khuvuc` (`id`, `id_parent`, `tenbaiviet_vi`, `tenbaiviet_en`, `tenbaiviet_cn`, `tenbaiviet_jp`, `id_shipchung`, `id_giaohangnhanh`, `catasort`, `showhi`) VALUES
+(532, 41, 'Huyện Quỳ Châu', 'Huyện Quỳ Châu', 'Huyện Quỳ Châu', 'Huyện Quỳ Châu', 323, 3261, 12, 1),
+(533, 41, 'Huyện Quế Phong', 'Huyện Quế Phong', 'Huyện Quế Phong', 'Huyện Quế Phong', 326, 3260, 13, 1),
+(534, 41, 'Huyện Nghĩa Đàn', 'Huyện Nghĩa Đàn', 'Huyện Nghĩa Đàn', 'Huyện Nghĩa Đàn', 321, 1851, 14, 1),
+(535, 41, 'Huyện Nghi Lộc', 'Huyện Nghi Lộc', 'Huyện Nghi Lộc', 'Huyện Nghi Lộc', 333, 1854, 15, 1),
+(536, 41, 'Huyện Nam Đàn', 'Huyện Nam Đàn', 'Huyện Nam Đàn', 'Huyện Nam Đàn', 327, 3233, 16, 1),
+(537, 41, 'Huyện Kỳ Sơn', 'Huyện Kỳ Sơn', 'Huyện Kỳ Sơn', 'Huyện Kỳ Sơn', 330, 3211, 17, 1),
+(538, 41, 'Huyện Hưng Nguyên', 'Huyện Hưng Nguyên', 'Huyện Hưng Nguyên', 'Huyện Hưng Nguyên', 320, 1947, 18, 1),
+(539, 41, 'Huyện Đô Lương', 'Huyện Đô Lương', 'Huyện Đô Lương', 'Huyện Đô Lương', 332, 1843, 19, 1),
+(540, 41, 'Huyện Diễn Châu', 'Huyện Diễn Châu', 'Huyện Diễn Châu', 'Huyện Diễn Châu', 329, 1847, 20, 1),
+(541, 41, 'Huyện Con Cuông', 'Huyện Con Cuông', 'Huyện Con Cuông', 'Huyện Con Cuông', 319, 1853, 21, 1),
+(542, 41, 'Huyện Anh Sơn', 'Huyện Anh Sơn', 'Huyện Anh Sơn', 'Huyện Anh Sơn', 315, 1844, 22, 1),
+(543, 42, 'Thị Xã Tam điệp', 'Thị Xã Tam điệp', 'Thị Xã Tam điệp', 'Thị Xã Tam điệp', 270, 1713, 2, 1),
+(544, 42, 'Thành Phố Ninh Bình', 'Thành Phố Ninh Bình', 'Thành Phố Ninh Bình', 'Thành Phố Ninh Bình', 269, 1615, 3, 1),
+(545, 42, 'Huyện Yên Mô', 'Huyện Yên Mô', 'Huyện Yên Mô', 'Huyện Yên Mô', 275, 3327, 4, 1),
+(546, 42, 'Huyện Yên Khánh', 'Huyện Yên Khánh', 'Huyện Yên Khánh', 'Huyện Yên Khánh', 277, 1714, 5, 1),
+(547, 42, 'Huyện Nho Quan', 'Huyện Nho Quan', 'Huyện Nho Quan', 'Huyện Nho Quan', 272, 3247, 6, 1),
+(548, 42, 'Huyện Kim Sơn', 'Huyện Kim Sơn', 'Huyện Kim Sơn', 'Huyện Kim Sơn', 271, 3205, 7, 1),
+(549, 42, 'Huyện Hoa Lư', 'Huyện Hoa Lư', 'Huyện Hoa Lư', 'Huyện Hoa Lư', 274, 1944, 8, 1),
+(550, 42, 'Huyện Gia Viễn', 'Huyện Gia Viễn', 'Huyện Gia Viễn', 'Huyện Gia Viễn', 273, 3191, 9, 1),
+(551, 43, 'Thành phố Phan Rang - Tháp Chàm', 'Thành phố Phan Rang - Tháp Chàm', 'Thành phố Phan Rang - Tháp Chàm', 'Thành phố Phan Rang - Tháp Chàm', 510, 1665, 2, 1),
+(552, 43, 'Huyện Thuận Nam', 'Huyện Thuận Nam', 'Huyện Thuận Nam', 'Huyện Thuận Nam', 507, 3302, 3, 1),
+(553, 43, 'Huyện Thuận Bắc', 'Huyện Thuận Bắc', 'Huyện Thuận Bắc', 'Huyện Thuận Bắc', 509, 3301, 4, 1),
+(554, 43, 'Huyện Ninh Sơn', 'Huyện Ninh Sơn', 'Huyện Ninh Sơn', 'Huyện Ninh Sơn', 506, 1855, 5, 1),
+(555, 43, 'Huyện Ninh Phước', 'Huyện Ninh Phước', 'Huyện Ninh Phước', 'Huyện Ninh Phước', 505, 1986, 6, 1),
+(556, 43, 'Huyện Ninh Hải', 'Huyện Ninh Hải', 'Huyện Ninh Hải', 'Huyện Ninh Hải', 508, 1985, 7, 1),
+(557, 43, 'Huyện Bác Ái', 'Huyện Bác Ái', 'Huyện Bác Ái', 'Huyện Bác Ái', 504, 3129, 8, 1),
+(558, 44, 'Thi Xã Phú Thọ', 'Thi Xã Phú Thọ', 'Thi Xã Phú Thọ', 'Thi Xã Phú Thọ', 150, 2064, 2, 1),
+(559, 44, 'Thành Phố Việt Trì', 'Thành Phố Việt Trì', 'Thành Phố Việt Trì', 'Thành Phố Việt Trì', 152, 1602, 3, 1),
+(560, 44, 'Huyện Yên Lập', 'Huyện Yên Lập', 'Huyện Yên Lập', 'Huyện Yên Lập', 158, 2268, 4, 1),
+(561, 44, 'Huyện Thanh Thủy', 'Huyện Thanh Thủy', 'Huyện Thanh Thủy', 'Huyện Thanh Thủy', 154, 2237, 5, 1),
+(562, 44, 'Huyện Thanh Sơn', 'Huyện Thanh Sơn', 'Huyện Thanh Sơn', 'Huyện Thanh Sơn', 156, 2029, 6, 1),
+(563, 44, 'Huyện Thanh Ba', 'Huyện Thanh Ba', 'Huyện Thanh Ba', 'Huyện Thanh Ba', 151, 3290, 7, 1),
+(564, 44, 'Huyện Tân Sơn', 'Huyện Tân Sơn', 'Huyện Tân Sơn', 'Huyện Tân Sơn', 157, 2015, 8, 1),
+(565, 44, 'Huyện Tam Nông', 'Huyện Tam Nông', 'Huyện Tam Nông', 'Huyện Tam Nông', 160, 3272, 9, 1),
+(566, 44, 'Huyện Phù Ninh', 'Huyện Phù Ninh', 'Huyện Phù Ninh', 'Huyện Phù Ninh', 155, 1994, 10, 1),
+(567, 44, 'Huyện Lâm Thao', 'Huyện Lâm Thao', 'Huyện Lâm Thao', 'Huyện Lâm Thao', 161, 1959, 11, 1),
+(568, 44, 'Huyện Hạ Hòa', 'Huyện Hạ Hòa', 'Huyện Hạ Hòa', 'Huyện Hạ Hòa', 162, 1938, 12, 1),
+(569, 44, 'Huyện Đoan Hùng', 'Huyện Đoan Hùng', 'Huyện Đoan Hùng', 'Huyện Đoan Hùng', 153, 1925, 13, 1),
+(570, 44, 'Huyện Cẩm Khê', 'Huyện Cẩm Khê', 'Huyện Cẩm Khê', 'Huyện Cẩm Khê', 159, 1905, 14, 1),
+(571, 45, 'Thị Xã Sông Cầu', 'Thị Xã Sông Cầu', 'Thị Xã Sông Cầu', 'Thị Xã Sông Cầu', 74, 1856, 2, 1),
+(572, 45, 'Thành Phố Tuy Hòa', 'Thành Phố Tuy Hòa', 'Thành Phố Tuy Hòa', 'Thành Phố Tuy Hòa', 79, 1663, 3, 1),
+(573, 45, 'Huyện Tuy An', 'Huyện Tuy An', 'Huyện Tuy An', 'Huyện Tuy An', 75, 3284, 4, 1),
+(574, 45, 'Huyện Tây Hòa', 'Huyện Tây Hòa', 'Huyện Tây Hòa', 'Huyện Tây Hòa', 77, 3278, 5, 1),
+(575, 45, 'Huyện Sông Hinh', 'Huyện Sông Hinh', 'Huyện Sông Hinh', 'Huyện Sông Hinh', 76, 2206, 6, 1),
+(576, 45, 'Huyện Sơn Hòa', 'Huyện Sơn Hòa', 'Huyện Sơn Hòa', 'Huyện Sơn Hòa', 80, 2211, 7, 1),
+(577, 45, 'Huyện Phú Hòa', 'Huyện Phú Hòa', 'Huyện Phú Hòa', 'Huyện Phú Hòa', 73, 1993, 8, 1),
+(578, 45, 'Huyện Đồng Xuân', 'Huyện Đồng Xuân', 'Huyện Đồng Xuân', 'Huyện Đồng Xuân', 81, 3186, 9, 1),
+(579, 45, 'Huyện Đông Hòa', 'Huyện Đông Hòa', 'Huyện Đông Hòa', 'Huyện Đông Hòa', 78, 3184, 10, 1),
+(580, 46, 'Thị xã Ba Đồn', 'Thị xã Ba Đồn', 'Thị xã Ba Đồn', 'Thị xã Ba Đồn', 719, 1859, 2, 1),
+(581, 46, 'Thành Phố Đồng Hới', 'Thành Phố Đồng Hới', 'Thành Phố Đồng Hới', 'Thành Phố Đồng Hới', 349, 1619, 3, 1),
+(582, 46, 'Huyện Tuyên Hóa', 'Huyện Tuyên Hóa', 'Huyện Tuyên Hóa', 'Huyện Tuyên Hóa', 348, 3286, 4, 1),
+(583, 46, 'Huyện Quảng Trạch', 'Huyện Quảng Trạch', 'Huyện Quảng Trạch', 'Huyện Quảng Trạch', 351, 3258, 5, 1),
+(584, 46, 'Huyện Quảng Ninh', 'Huyện Quảng Ninh', 'Huyện Quảng Ninh', 'Huyện Quảng Ninh', 353, 2002, 6, 1),
+(585, 46, 'Huyện Minh Hóa', 'Huyện Minh Hóa', 'Huyện Minh Hóa', 'Huyện Minh Hóa', 352, 3224, 7, 1),
+(586, 46, 'Huyện Lệ Thủy', 'Huyện Lệ Thủy', 'Huyện Lệ Thủy', 'Huyện Lệ Thủy', 347, 1857, 8, 1),
+(587, 46, 'Huyện Bố Trạch', 'Huyện Bố Trạch', 'Huyện Bố Trạch', 'Huyện Bố Trạch', 350, 1858, 9, 1),
+(588, 47, 'Thành Phố Tam Kỳ', 'Thành Phố Tam Kỳ', 'Thành Phố Tam Kỳ', 'Thành Phố Tam Kỳ', 386, 1631, 2, 1),
+(589, 47, 'Thành Phố Hội An', 'Thành Phố Hội An', 'Thành Phố Hội An', 'Thành Phố Hội An', 391, 1632, 3, 1),
+(590, 47, 'Huyện Tiên Phước', 'Huyện Tiên Phước', 'Huyện Tiên Phước', 'Huyện Tiên Phước', 392, 2224, 4, 1),
+(591, 47, 'Huyện Thăng Bình', 'Huyện Thăng Bình', 'Huyện Thăng Bình', 'Huyện Thăng Bình', 385, 2239, 5, 1),
+(592, 47, 'Huyện Tây Giang', 'Huyện Tây Giang', 'Huyện Tây Giang', 'Huyện Tây Giang', 390, 2219, 6, 1),
+(593, 47, 'Huyện Quế Sơn', 'Huyện Quế Sơn', 'Huyện Quế Sơn', 'Huyện Quế Sơn', 396, 2003, 7, 1),
+(594, 47, 'Huyện Phước Sơn', 'Huyện Phước Sơn', 'Huyện Phước Sơn', 'Huyện Phước Sơn', 382, 2198, 8, 1),
+(595, 47, 'Huyện Phú Ninh', 'Huyện Phú Ninh', 'Huyện Phú Ninh', 'Huyện Phú Ninh', 381, 1995, 9, 1),
+(596, 47, 'Huyện Núi Thành', 'Huyện Núi Thành', 'Huyện Núi Thành', 'Huyện Núi Thành', 398, 1987, 10, 1),
+(597, 47, 'Huyện Nông Sơn', 'Huyện Nông Sơn', 'Huyện Nông Sơn', 'Huyện Nông Sơn', 397, 2182, 11, 1),
+(598, 47, 'Huyện Nam Trà My', 'Huyện Nam Trà My', 'Huyện Nam Trà My', 'Huyện Nam Trà My', 387, 2178, 12, 1),
+(599, 47, 'Huyện Nam Giang', 'Huyện Nam Giang', 'Huyện Nam Giang', 'Huyện Nam Giang', 384, 2177, 13, 1),
+(600, 47, 'Huyện Hiệp Đức', 'Huyện Hiệp Đức', 'Huyện Hiệp Đức', 'Huyện Hiệp Đức', 393, 2139, 14, 1),
+(601, 47, 'Huyện Đông Giang', 'Huyện Đông Giang', 'Huyện Đông Giang', 'Huyện Đông Giang', 388, 2125, 15, 1),
+(602, 47, 'Huyện Điện Bàn', 'Huyện Điện Bàn', 'Huyện Điện Bàn', 'Huyện Điện Bàn', 394, 1736, 16, 1),
+(603, 47, 'Huyện Đại Lộc', 'Huyện Đại Lộc', 'Huyện Đại Lộc', 'Huyện Đại Lộc', 383, 1917, 17, 1),
+(604, 47, 'Huyện Duy Xuyên', 'Huyện Duy Xuyên', 'Huyện Duy Xuyên', 'Huyện Duy Xuyên', 395, 1735, 18, 1),
+(605, 47, 'Huyện Bắc Trà My', 'Huyện Bắc Trà My', 'Huyện Bắc Trà My', 'Huyện Bắc Trà My', 389, 2078, 19, 1),
+(606, 48, 'Thành Phố Quảng Ngãi', 'Thành Phố Quảng Ngãi', 'Thành Phố Quảng Ngãi', 'Thành Phố Quảng Ngãi', 404, 1630, 2, 1),
+(607, 48, 'Huyện Tư Nghĩa', 'Huyện Tư Nghĩa', 'Huyện Tư Nghĩa', 'Huyện Tư Nghĩa', 400, 1738, 3, 1),
+(608, 48, 'Huyện Trà Bồng', 'Huyện Trà Bồng', 'Huyện Trà Bồng', 'Huyện Trà Bồng', 407, 3304, 4, 1),
+(609, 48, 'Huyện Tây Trà', 'Huyện Tây Trà', 'Huyện Tây Trà', 'Huyện Tây Trà', 408, 2222, 5, 1),
+(610, 48, 'Huyện Sơn Tịnh', 'Huyện Sơn Tịnh', 'Huyện Sơn Tịnh', 'Huyện Sơn Tịnh', 412, 1737, 6, 1),
+(611, 48, 'Huyện Sơn Tây', 'Huyện Sơn Tây', 'Huyện Sơn Tây', 'Huyện Sơn Tây', 406, 3270, 7, 1),
+(612, 48, 'Huyện Sơn Hà', 'Huyện Sơn Hà', 'Huyện Sơn Hà', 'Huyện Sơn Hà', 410, 2210, 8, 1),
+(613, 48, 'Huyện Nghĩa Hành', 'Huyện Nghĩa Hành', 'Huyện Nghĩa Hành', 'Huyện Nghĩa Hành', 399, 1988, 9, 1),
+(614, 48, 'Huyện Mộ đức', 'Huyện Mộ đức', 'Huyện Mộ đức', 'Huyện Mộ đức', 405, 3226, 10, 1),
+(615, 48, 'Huyện Minh Long', 'Huyện Minh Long', 'Huyện Minh Long', 'Huyện Minh Long', 402, 2167, 11, 1),
+(616, 48, 'Huyện Lý Sơn', 'Huyện Lý Sơn', 'Huyện Lý Sơn', 'Huyện Lý Sơn', 409, 2114, 12, 1),
+(617, 48, 'Huyện đức Phổ', 'Huyện đức Phổ', 'Huyện đức Phổ', 'Huyện đức Phổ', 411, 1930, 13, 1),
+(618, 48, 'Huyện Bình Sơn', 'Huyện Bình Sơn', 'Huyện Bình Sơn', 'Huyện Bình Sơn', 403, 1898, 14, 1),
+(619, 48, 'Huyện Ba Tơ', 'Huyện Ba Tơ', 'Huyện Ba Tơ', 'Huyện Ba Tơ', 401, 3127, 15, 1),
+(620, 49, 'Thị Xã Quảng Yên', 'Thị Xã Quảng Yên', 'Thị Xã Quảng Yên', 'Thị Xã Quảng Yên', 204, 2066, 2, 1),
+(621, 49, 'Thành phố Uông Bí', 'Thành phố Uông Bí', 'Thành phố Uông Bí', 'Thành phố Uông Bí', 203, 1686, 3, 1),
+(622, 49, 'Thành Phố Móng Cái', 'Thành Phố Móng Cái', 'Thành Phố Móng Cái', 'Thành Phố Móng Cái', 213, 1603, 4, 1),
+(623, 49, 'Thành Phố Hạ Long', 'Thành Phố Hạ Long', 'Thành Phố Hạ Long', 'Thành Phố Hạ Long', 215, 1604, 5, 1),
+(624, 49, 'Thành phố Cẩm Phả', 'Thành phố Cẩm Phả', 'Thành phố Cẩm Phả', 'Thành phố Cẩm Phả', 211, 1683, 6, 1),
+(625, 49, 'Huyện Vân Đồn', 'Huyện Vân Đồn', 'Huyện Vân Đồn', 'Huyện Vân Đồn', 210, 1920, 7, 1),
+(626, 49, 'Huyện Tiên Yên', 'Huyện Tiên Yên', 'Huyện Tiên Yên', 'Huyện Tiên Yên', 202, 2019, 8, 1),
+(627, 49, 'Huyện Hoành Bồ', 'Huyện Hoành Bồ', 'Huyện Hoành Bồ', 'Huyện Hoành Bồ', 209, 3199, 9, 1),
+(628, 49, 'Huyện Hải Hà', 'Huyện Hải Hà', 'Huyện Hải Hà', 'Huyện Hải Hà', 214, 1940, 10, 1),
+(629, 49, 'Huyện Đông Triều', 'Huyện Đông Triều', 'Huyện Đông Triều', 'Huyện Đông Triều', 205, 3185, 11, 1),
+(630, 49, 'Huyện Đầm Hà', 'Huyện Đầm Hà', 'Huyện Đầm Hà', 'Huyện Đầm Hà', 208, 3180, 12, 1),
+(631, 49, 'Huyện Cô Tô', 'Huyện Cô Tô', 'Huyện Cô Tô', 'Huyện Cô Tô', 212, 2109, 13, 1),
+(632, 49, 'Huyện Bình Liêu', 'Huyện Bình Liêu', 'Huyện Bình Liêu', 'Huyện Bình Liêu', 207, 1896, 14, 1),
+(633, 49, 'Huyện Ba Chẽ', 'Huyện Ba Chẽ', 'Huyện Ba Chẽ', 'Huyện Ba Chẽ', 206, 3126, 15, 1),
+(634, 50, 'Thị Xã Quảng Trị', 'Thị Xã Quảng Trị', 'Thị Xã Quảng Trị', 'Thị Xã Quảng Trị', 358, 1621, 2, 1),
+(635, 50, 'Thành Phố Đông Hà', 'Thành Phố Đông Hà', 'Thành Phố Đông Hà', 'Thành Phố Đông Hà', 355, 1620, 3, 1),
+(636, 50, 'Huyện Vĩnh Linh', 'Huyện Vĩnh Linh', 'Huyện Vĩnh Linh', 'Huyện Vĩnh Linh', 363, 1861, 4, 1),
+(637, 50, 'Huyện Triệu Phong', 'Huyện Triệu Phong', 'Huyện Triệu Phong', 'Huyện Triệu Phong', 354, 2040, 5, 1),
+(638, 50, 'Huyện Hướng Hóa', 'Huyện Hướng Hóa', 'Huyện Hướng Hóa', 'Huyện Hướng Hóa', 357, 1860, 6, 1),
+(639, 50, 'Huyện Hải Lăng', 'Huyện Hải Lăng', 'Huyện Hải Lăng', 'Huyện Hải Lăng', 362, 2137, 7, 1),
+(640, 50, 'Huyện Gio Linh', 'Huyện Gio Linh', 'Huyện Gio Linh', 'Huyện Gio Linh', 356, 1936, 8, 1),
+(641, 50, 'Huyện Đảo Cồn Cỏ', 'Huyện Đảo Cồn Cỏ', 'Huyện Đảo Cồn Cỏ', 'Huyện Đảo Cồn Cỏ', 360, 2110, 9, 1),
+(642, 50, 'Huyện Đa Krông', 'Huyện Đa Krông', 'Huyện Đa Krông', 'Huyện Đa Krông', 361, 2105, 10, 1),
+(643, 50, 'Huyện Cam Lộ', 'Huyện Cam Lộ', 'Huyện Cam Lộ', 'Huyện Cam Lộ', 359, 1903, 11, 1),
+(644, 51, 'Thị Xã Vĩnh Châu', 'Thị Xã Vĩnh Châu', 'Thị Xã Vĩnh Châu', 'Thị Xã Vĩnh Châu', 110, 2272, 2, 1),
+(645, 51, 'Thị trấn Trần Đề', 'Thị trấn Trần Đề', 'Thị trấn Trần Đề', 'Thị trấn Trần Đề', 707, 2037, 3, 1),
+(646, 51, 'Thành Phố Sóc Trăng', 'Thành Phố Sóc Trăng', 'Thành Phố Sóc Trăng', 'Thành Phố Sóc Trăng', 116, 1568, 4, 1),
+(647, 51, 'Huyện Thạnh Trị', 'Huyện Thạnh Trị', 'Huyện Thạnh Trị', 'Huyện Thạnh Trị', 111, 2238, 5, 1),
+(648, 51, 'Huyện Ngã Năm', 'Huyện Ngã Năm', 'Huyện Ngã Năm', 'Huyện Ngã Năm', 113, 2062, 6, 1),
+(649, 51, 'Huyện Mỹ Xuyên', 'Huyện Mỹ Xuyên', 'Huyện Mỹ Xuyên', 'Huyện Mỹ Xuyên', 117, 1743, 7, 1),
+(650, 51, 'Huyện Mỹ Tú', 'Huyện Mỹ Tú', 'Huyện Mỹ Tú', 'Huyện Mỹ Tú', 118, 2173, 8, 1),
+(651, 51, 'Huyện Long Phú', 'Huyện Long Phú', 'Huyện Long Phú', 'Huyện Long Phú', 109, 2161, 9, 1),
+(652, 51, 'Huyện Kế Sách', 'Huyện Kế Sách', 'Huyện Kế Sách', 'Huyện Kế Sách', 114, 1949, 10, 1),
+(653, 51, 'Huyện Cù Lao Dung', 'Huyện Cù Lao Dung', 'Huyện Cù Lao Dung', 'Huyện Cù Lao Dung', 115, 2093, 11, 1),
+(654, 51, 'Huyện Châu Thành', 'Huyện Châu Thành', 'Huyện Châu Thành', 'Huyện Châu Thành', 112, 1910, 12, 1),
+(655, 52, 'Thành phố Sơn La', 'Thành phố Sơn La', 'Thành phố Sơn La', 'Thành phố Sơn La', 142, 1677, 2, 1),
+(656, 52, 'Huyện Yên Châu', 'Huyện Yên Châu', 'Huyện Yên Châu', 'Huyện Yên Châu', 149, 2267, 3, 1),
+(657, 52, 'Huyện Vân Hồ', 'Huyện Vân Hồ', 'Huyện Vân Hồ', 'Huyện Vân Hồ', 714, 2255, 4, 1),
+(658, 52, 'Huyện Thuận Châu', 'Huyện Thuận Châu', 'Huyện Thuận Châu', 'Huyện Thuận Châu', 146, 2032, 5, 1),
+(659, 52, 'Huyện Sốp Cộp', 'Huyện Sốp Cộp', 'Huyện Sốp Cộp', 'Huyện Sốp Cộp', 145, 3266, 6, 1),
+(660, 52, 'Huyện Sông Mã', 'Huyện Sông Mã', 'Huyện Sông Mã', 'Huyện Sông Mã', 141, 2007, 7, 1),
+(661, 52, 'Huyện Quỳnh Nhai', 'Huyện Quỳnh Nhai', 'Huyện Quỳnh Nhai', 'Huyện Quỳnh Nhai', 139, 2204, 8, 1),
+(662, 52, 'Huyện Phù Yên', 'Huyện Phù Yên', 'Huyện Phù Yên', 'Huyện Phù Yên', 144, 1996, 9, 1),
+(663, 52, 'Huyện Mường La', 'Huyện Mường La', 'Huyện Mường La', 'Huyện Mường La', 140, 3230, 10, 1),
+(664, 52, 'Huyện Mộc Châu', 'Huyện Mộc Châu', 'Huyện Mộc Châu', 'Huyện Mộc Châu', 148, 1976, 11, 1),
+(665, 52, 'Huyện Mai Sơn', 'Huyện Mai Sơn', 'Huyện Mai Sơn', 'Huyện Mai Sơn', 143, 1971, 12, 1),
+(666, 52, 'Huyện Bắc Yên', 'Huyện Bắc Yên', 'Huyện Bắc Yên', 'Huyện Bắc Yên', 147, 2079, 13, 1),
+(667, 53, 'Thành Phố Tây Ninh', 'Thành Phố Tây Ninh', 'Thành Phố Tây Ninh', 'Thành Phố Tây Ninh', 514, 1626, 2, 1),
+(668, 53, 'Huyện Trảng Bàng', 'Huyện Trảng Bàng', 'Huyện Trảng Bàng', 'Huyện Trảng Bàng', 518, 2035, 3, 1),
+(669, 53, 'Huyện Tân Châu', 'Huyện Tân Châu', 'Huyện Tân Châu', 'Huyện Tân Châu', 511, 1863, 4, 1),
+(670, 53, 'Huyện Tân Biên', 'Huyện Tân Biên', 'Huyện Tân Biên', 'Huyện Tân Biên', 516, 1862, 5, 1),
+(671, 53, 'Huyện Hòa Thành', 'Huyện Hòa Thành', 'Huyện Hòa Thành', 'Huyện Hòa Thành', 515, 1721, 6, 1),
+(672, 53, 'Huyện Gò Dầu', 'Huyện Gò Dầu', 'Huyện Gò Dầu', 'Huyện Gò Dầu', 517, 1866, 7, 1),
+(673, 53, 'Huyện Dương Minh Châu', 'Huyện Dương Minh Châu', 'Huyện Dương Minh Châu', 'Huyện Dương Minh Châu', 519, 1864, 8, 1),
+(674, 53, 'Huyện Châu Thành', 'Huyện Châu Thành', 'Huyện Châu Thành', 'Huyện Châu Thành', 512, 1720, 9, 1),
+(675, 53, 'Huyện Bến Cầu', 'Huyện Bến Cầu', 'Huyện Bến Cầu', 'Huyện Bến Cầu', 513, 1865, 10, 1),
+(676, 54, 'Thành Phố Thái Bình', 'Thành Phố Thái Bình', 'Thành Phố Thái Bình', 'Thành Phố Thái Bình', 265, 1599, 2, 1),
+(677, 54, 'Huyện Vũ Thư', 'Huyện Vũ Thư', 'Huyện Vũ Thư', 'Huyện Vũ Thư', 261, 1716, 3, 1),
+(678, 54, 'Huyện Tiền Hải', 'Huyện Tiền Hải', 'Huyện Tiền Hải', 'Huyện Tiền Hải', 267, 3281, 4, 1),
+(679, 54, 'Huyện Thái Thụy', 'Huyện Thái Thụy', 'Huyện Thái Thụy', 'Huyện Thái Thụy', 260, 1869, 5, 1),
+(680, 54, 'Huyện Quỳnh Phụ', 'Huyện Quỳnh Phụ', 'Huyện Quỳnh Phụ', 'Huyện Quỳnh Phụ', 262, 1868, 6, 1),
+(681, 54, 'Huyện Quỳnh Côi', 'Huyện Quỳnh Côi', 'Huyện Quỳnh Côi', 'Huyện Quỳnh Côi', 264, 0, 7, 1),
+(682, 54, 'Huyện Kiến Xương', 'Huyện Kiến Xương', 'Huyện Kiến Xương', 'Huyện Kiến Xương', 268, 1951, 8, 1),
+(683, 54, 'Huyện Hưng Hà', 'Huyện Hưng Hà', 'Huyện Hưng Hà', 'Huyện Hưng Hà', 263, 1867, 9, 1),
+(684, 54, 'Huyện Đông Hưng', 'Huyện Đông Hưng', 'Huyện Đông Hưng', 'Huyện Đông Hưng', 266, 1715, 10, 1),
+(685, 55, 'Thị Xã Sông Công', 'Thị Xã Sông Công', 'Thị Xã Sông Công', 'Thị Xã Sông Công', 108, 1684, 2, 1),
+(686, 55, 'Thành Phố Thái Nguyên', 'Thành Phố Thái Nguyên', 'Thành Phố Thái Nguyên', 'Thành Phố Thái Nguyên', 103, 1639, 3, 1),
+(687, 55, 'Huyện Võ Nhai', 'Huyện Võ Nhai', 'Huyện Võ Nhai', 'Huyện Võ Nhai', 102, 2051, 4, 1),
+(688, 55, 'Huyện Phú Lương', 'Huyện Phú Lương', 'Huyện Phú Lương', 'Huyện Phú Lương', 101, 2195, 5, 1),
+(689, 55, 'Huyện Phú Bình', 'Huyện Phú Bình', 'Huyện Phú Bình', 'Huyện Phú Bình', 104, 1991, 6, 1),
+(690, 55, 'Huyện Phổ Yên', 'Huyện Phổ Yên', 'Huyện Phổ Yên', 'Huyện Phổ Yên', 100, 1990, 7, 1),
+(691, 55, 'Huyện Đồng Hỷ', 'Huyện Đồng Hỷ', 'Huyện Đồng Hỷ', 'Huyện Đồng Hỷ', 105, 1731, 8, 1),
+(692, 55, 'Huyện Định Hóa', 'Huyện Định Hóa', 'Huyện Định Hóa', 'Huyện Định Hóa', 107, 1924, 9, 1),
+(693, 55, 'Huyện Đại Từ', 'Huyện Đại Từ', 'Huyện Đại Từ', 'Huyện Đại Từ', 106, 1918, 10, 1),
+(694, 56, 'Thị Xã Sầm Sơn', 'Thị Xã Sầm Sơn', 'Thị Xã Sầm Sơn', 'Thị Xã Sầm Sơn', 293, 1712, 2, 1),
+(695, 56, 'Thị Xã Bỉm Sơn', 'Thị Xã Bỉm Sơn', 'Thị Xã Bỉm Sơn', 'Thị Xã Bỉm Sơn', 309, 1876, 3, 1),
+(696, 56, 'Thành Phố Thanh Hóa', 'Thành Phố Thanh Hóa', 'Thành Phố Thanh Hóa', 'Thành Phố Thanh Hóa', 299, 1616, 4, 1),
+(697, 56, 'Huyện Yên định', 'Huyện Yên định', 'Huyện Yên định', 'Huyện Yên định', 304, 1875, 5, 1),
+(698, 56, 'Huyện Vĩnh Lộc', 'Huyện Vĩnh Lộc', 'Huyện Vĩnh Lộc', 'Huyện Vĩnh Lộc', 297, 1881, 6, 1),
+(699, 56, 'Huyện Triệu Sơn', 'Huyện Triệu Sơn', 'Huyện Triệu Sơn', 'Huyện Triệu Sơn', 300, 2249, 7, 1),
+(700, 56, 'Huyện Tĩnh Gia', 'Huyện Tĩnh Gia', 'Huyện Tĩnh Gia', 'Huyện Tĩnh Gia', 302, 1870, 8, 1),
+(701, 56, 'Huyện Thường Xuân', 'Huyện Thường Xuân', 'Huyện Thường Xuân', 'Huyện Thường Xuân', 303, 1872, 9, 1),
+(702, 56, 'Huyện Thọ Xuân', 'Huyện Thọ Xuân', 'Huyện Thọ Xuân', 'Huyện Thọ Xuân', 291, 1873, 10, 1),
+(703, 56, 'Huyện Thiệu Hóa', 'Huyện Thiệu Hóa', 'Huyện Thiệu Hóa', 'Huyện Thiệu Hóa', 311, 3298, 11, 1),
+(704, 56, 'Huyện Thạch Thành', 'Huyện Thạch Thành', 'Huyện Thạch Thành', 'Huyện Thạch Thành', 292, 1880, 12, 1),
+(705, 56, 'Huyện Quảng Xương', 'Huyện Quảng Xương', 'Huyện Quảng Xương', 'Huyện Quảng Xương', 294, 1747, 13, 1),
+(706, 56, 'Huyện Quan Sơn', 'Huyện Quan Sơn', 'Huyện Quan Sơn', 'Huyện Quan Sơn', 290, 2000, 14, 1),
+(707, 56, 'Huyện Quan Hóa', 'Huyện Quan Hóa', 'Huyện Quan Hóa', 'Huyện Quan Hóa', 314, 1879, 15, 1),
+(708, 56, 'Huyện Nông Cống', 'Huyện Nông Cống', 'Huyện Nông Cống', 'Huyện Nông Cống', 301, 2181, 16, 1),
+(709, 56, 'Huyện Như Xuân', 'Huyện Như Xuân', 'Huyện Như Xuân', 'Huyện Như Xuân', 305, 1871, 17, 1),
+(710, 56, 'Huyện Như Thanh', 'Huyện Như Thanh', 'Huyện Như Thanh', 'Huyện Như Thanh', 308, 2190, 18, 1),
+(711, 56, 'Huyện Ngọc Lặc', 'Huyện Ngọc Lặc', 'Huyện Ngọc Lặc', 'Huyện Ngọc Lặc', 288, 1874, 19, 1),
+(712, 56, 'Huyện Nga Sơn', 'Huyện Nga Sơn', 'Huyện Nga Sơn', 'Huyện Nga Sơn', 295, 3241, 20, 1),
+(713, 56, 'Huyện Mường Lát', 'Huyện Mường Lát', 'Huyện Mường Lát', 'Huyện Mường Lát', 312, 1878, 21, 1),
+(714, 56, 'Huyện Lang Chánh', 'Huyện Lang Chánh', 'Huyện Lang Chánh', 'Huyện Lang Chánh', 298, 3216, 22, 1),
+(715, 56, 'Huyện Hoằng Hóa', 'Huyện Hoằng Hóa', 'Huyện Hoằng Hóa', 'Huyện Hoằng Hóa', 289, 1748, 23, 1),
+(716, 56, 'Huyện Hậu Lộc', 'Huyện Hậu Lộc', 'Huyện Hậu Lộc', 'Huyện Hậu Lộc', 307, 1942, 24, 1),
+(717, 56, 'Huyện Hà Trung', 'Huyện Hà Trung', 'Huyện Hà Trung', 'Huyện Hà Trung', 310, 1877, 25, 1),
+(718, 56, 'Huyện Đông Sơn', 'Huyện Đông Sơn', 'Huyện Đông Sơn', 'Huyện Đông Sơn', 296, 1927, 26, 1),
+(719, 56, 'Huyện Cẩm Thủy', 'Huyện Cẩm Thủy', 'Huyện Cẩm Thủy', 'Huyện Cẩm Thủy', 313, 3147, 27, 1),
+(720, 56, 'Huyện Bá Thước', 'Huyện Bá Thước', 'Huyện Bá Thước', 'Huyện Bá Thước', 306, 2070, 28, 1),
+(721, 57, 'Thị Xã Hương Thủy', 'Thị Xã Hương Thủy', 'Thị Xã Hương Thủy', 'Thị Xã Hương Thủy', 367, 1698, 2, 1),
+(722, 57, 'Thành Phố Huế', 'Thành Phố Huế', 'Thành Phố Huế', 'Thành Phố Huế', 371, 1585, 3, 1),
+(723, 57, 'Huyện Quảng Điền', 'Huyện Quảng Điền', 'Huyện Quảng Điền', 'Huyện Quảng Điền', 370, 3257, 4, 1),
+(724, 57, 'Huyện Phú Vang', 'Huyện Phú Vang', 'Huyện Phú Vang', 'Huyện Phú Vang', 365, 1749, 5, 1),
+(725, 57, 'Huyện Phú Lộc', 'Huyện Phú Lộc', 'Huyện Phú Lộc', 'Huyện Phú Lộc', 366, 1882, 6, 1),
+(726, 57, 'Huyện Phong Điền', 'Huyện Phong Điền', 'Huyện Phong Điền', 'Huyện Phong Điền', 369, 2193, 7, 1),
+(727, 57, 'Huyện Nam đông', 'Huyện Nam đông', 'Huyện Nam đông', 'Huyện Nam đông', 372, 3234, 8, 1),
+(728, 57, 'Huyện Hương Trà', 'Huyện Hương Trà', 'Huyện Hương Trà', 'Huyện Hương Trà', 364, 1697, 9, 1),
+(729, 57, 'Huyện A Lưới', 'Huyện A Lưới', 'Huyện A Lưới', 'Huyện A Lưới', 368, 1885, 10, 1),
+(730, 58, 'Thị Xã Gò Công', 'Thị Xã Gò Công', 'Thị Xã Gò Công', 'Thị Xã Gò Công', 616, 2057, 2, 1),
+(731, 58, 'Thị xã Cai Lậy', 'Thị xã Cai Lậy', 'Thị xã Cai Lậy', 'Thị xã Cai Lậy', 620, 2055, 3, 1),
+(732, 58, 'Thành Phố Mỹ Tho', 'Thành Phố Mỹ Tho', 'Thành Phố Mỹ Tho', 'Thành Phố Mỹ Tho', 619, 1556, 4, 1),
+(733, 58, 'Huyện Tân Phước', 'Huyện Tân Phước', 'Huyện Tân Phước', 'Huyện Tân Phước', 625, 3275, 5, 1),
+(734, 58, 'Huyện Tân Phú Đông', 'Huyện Tân Phú Đông', 'Huyện Tân Phú Đông', 'Huyện Tân Phú Đông', 617, 2216, 6, 1),
+(735, 58, 'Huyện Gò Công Tây', 'Huyện Gò Công Tây', 'Huyện Gò Công Tây', 'Huyện Gò Công Tây', 621, 1933, 7, 1),
+(736, 58, 'Huyện Gò Công Đông', 'Huyện Gò Công Đông', 'Huyện Gò Công Đông', 'Huyện Gò Công Đông', 623, 1932, 8, 1),
+(737, 58, 'Huyện Chợ Gạo', 'Huyện Chợ Gạo', 'Huyện Chợ Gạo', 'Huyện Chợ Gạo', 618, 1741, 9, 1),
+(738, 58, 'Huyện Châu Thành', 'Huyện Châu Thành', 'Huyện Châu Thành', 'Huyện Châu Thành', 624, 1740, 10, 1),
+(739, 58, 'Huyện Cái Bè', 'Huyện Cái Bè', 'Huyện Cái Bè', 'Huyện Cái Bè', 622, 1900, 11, 1),
+(740, 59, 'Thành Phố Trà Vinh', 'Thành Phố Trà Vinh', 'Thành Phố Trà Vinh', 'Thành Phố Trà Vinh', 683, 1560, 2, 1),
+(741, 59, 'Huyện Trà Cú', 'Huyện Trà Cú', 'Huyện Trà Cú', 'Huyện Trà Cú', 677, 2033, 3, 1),
+(742, 59, 'Huyện Tiểu Cần', 'Huyện Tiểu Cần', 'Huyện Tiểu Cần', 'Huyện Tiểu Cần', 684, 2020, 4, 1),
+(743, 59, 'Huyện Duyên Hải', 'Huyện Duyên Hải', 'Huyện Duyên Hải', 'Huyện Duyên Hải', 678, 2103, 5, 1),
+(744, 59, 'Huyện Châu Thành', 'Huyện Châu Thành', 'Huyện Châu Thành', 'Huyện Châu Thành', 681, 1911, 6, 1),
+(745, 59, 'Huyện Cầu Ngang', 'Huyện Cầu Ngang', 'Huyện Cầu Ngang', 'Huyện Cầu Ngang', 682, 1908, 7, 1),
+(746, 59, 'Huyện Cầu Kè', 'Huyện Cầu Kè', 'Huyện Cầu Kè', 'Huyện Cầu Kè', 679, 2091, 8, 1),
+(747, 59, 'Huyện Càng Long', 'Huyện Càng Long', 'Huyện Càng Long', 'Huyện Càng Long', 680, 2086, 9, 1),
+(748, 60, 'Thành phố Tuyên Quang', 'Thành phố Tuyên Quang', 'Thành phố Tuyên Quang', 'Thành phố Tuyên Quang', 57, 1601, 2, 1),
+(749, 60, 'Huyện Yên Sơn', 'Huyện Yên Sơn', 'Huyện Yên Sơn', 'Huyện Yên Sơn', 58, 1745, 3, 1),
+(750, 60, 'Huyện Sơn Dương', 'Huyện Sơn Dương', 'Huyện Sơn Dương', 'Huyện Sơn Dương', 60, 3267, 4, 1),
+(751, 60, 'Huyện Nà Hang', 'Huyện Nà Hang', 'Huyện Nà Hang', 'Huyện Nà Hang', 62, 1982, 5, 1),
+(752, 60, 'Huyện Lâm Bình', 'Huyện Lâm Bình', 'Huyện Lâm Bình', 'Huyện Lâm Bình', 702, 1957, 6, 1),
+(753, 60, 'Huyện Hàm Yên', 'Huyện Hàm Yên', 'Huyện Hàm Yên', 'Huyện Hàm Yên', 59, 1941, 7, 1),
+(754, 60, 'Huyện Chiêm Hóa', 'Huyện Chiêm Hóa', 'Huyện Chiêm Hóa', 'Huyện Chiêm Hóa', 61, 3157, 8, 1),
+(755, 61, 'Thành Phố Vĩnh Long', 'Thành Phố Vĩnh Long', 'Thành Phố Vĩnh Long', 'Thành Phố Vĩnh Long', 648, 1562, 2, 1),
+(756, 61, 'Huyện Vũng Liêm', 'Huyện Vũng Liêm', 'Huyện Vũng Liêm', 'Huyện Vũng Liêm', 653, 2263, 3, 1),
+(757, 61, 'Huyện Trà Ôn', 'Huyện Trà Ôn', 'Huyện Trà Ôn', 'Huyện Trà Ôn', 647, 2034, 4, 1),
+(758, 61, 'Huyện Tam Bình', 'Huyện Tam Bình', 'Huyện Tam Bình', 'Huyện Tam Bình', 650, 2008, 5, 1),
+(759, 61, 'Huyện Mang Thít', 'Huyện Mang Thít', 'Huyện Mang Thít', 'Huyện Mang Thít', 654, 2164, 6, 1),
+(760, 61, 'Huyện Long Hồ', 'Huyện Long Hồ', 'Huyện Long Hồ', 'Huyện Long Hồ', 651, 1962, 7, 1),
+(761, 61, 'Huyện Bình Tân', 'Huyện Bình Tân', 'Huyện Bình Tân', 'Huyện Bình Tân', 652, 2081, 8, 1),
+(762, 61, 'Huyện Bình Minh', 'Huyện Bình Minh', 'Huyện Bình Minh', 'Huyện Bình Minh', 649, 2054, 9, 1),
+(763, 62, 'Thị Xã Phúc Yên', 'Thị Xã Phúc Yên', 'Thị Xã Phúc Yên', 'Thị Xã Phúc Yên', 130, 2065, 2, 1),
+(764, 62, 'Thành Phố Vĩnh Yên', 'Thành Phố Vĩnh Yên', 'Thành Phố Vĩnh Yên', 'Thành Phố Vĩnh Yên', 132, 1578, 3, 1),
+(765, 62, 'Huyên Yên Lạc', 'Huyên Yên Lạc', 'Huyên Yên Lạc', 'Huyên Yên Lạc', 133, 1734, 4, 1),
+(766, 62, 'Huyện Vĩnh Tường', 'Huyện Vĩnh Tường', 'Huyện Vĩnh Tường', 'Huyện Vĩnh Tường', 131, 1733, 5, 1),
+(767, 62, 'Huỵên Tam Đảo', 'Huỵên Tam Đảo', 'Huỵên Tam Đảo', 'Huỵên Tam Đảo', 135, 3271, 6, 1),
+(768, 62, 'Huyện Tam Dương', 'Huyện Tam Dương', 'Huyện Tam Dương', 'Huyện Tam Dương', 136, 2009, 7, 1),
+(769, 62, 'Huyện Sông Lô', 'Huyện Sông Lô', 'Huyện Sông Lô', 'Huyện Sông Lô', 138, 3265, 8, 1),
+(770, 62, 'Huyện Lập Thạch', 'Huyện Lập Thạch', 'Huyện Lập Thạch', 'Huyện Lập Thạch', 134, 1960, 9, 1),
+(771, 62, 'Huyện Bình Xuyên', 'Huyện Bình Xuyên', 'Huyện Bình Xuyên', 'Huyện Bình Xuyên', 137, 1732, 10, 1),
+(772, 63, 'Thị Xã Nghĩa Lộ', 'Thị Xã Nghĩa Lộ', 'Thị Xã Nghĩa Lộ', 'Thị Xã Nghĩa Lộ', 97, 2063, 2, 1),
+(773, 63, 'Thành Phố Yên Bái', 'Thành Phố Yên Bái', 'Thành Phố Yên Bái', 'Thành Phố Yên Bái', 98, 1674, 3, 1),
+(774, 63, 'Huyện Yên Bình', 'Huyện Yên Bình', 'Huyện Yên Bình', 'Huyện Yên Bình', 94, 2266, 4, 1),
+(775, 63, 'Huyện Văn Yên', 'Huyện Văn Yên', 'Huyện Văn Yên', 'Huyện Văn Yên', 92, 2047, 5, 1),
+(776, 63, 'Huyện Văn Chấn', 'Huyện Văn Chấn', 'Huyện Văn Chấn', 'Huyện Văn Chấn', 91, 2044, 6, 1),
+(777, 63, 'Huyện Trấn Yên', 'Huyện Trấn Yên', 'Huyện Trấn Yên', 'Huyện Trấn Yên', 93, 2039, 7, 1),
+(778, 63, 'Huyện Trạm Tấu', 'Huyện Trạm Tấu', 'Huyện Trạm Tấu', 'Huyện Trạm Tấu', 95, 2248, 8, 1),
+(779, 63, 'Huyện Mù Căng Chải', 'Huyện Mù Căng Chải', 'Huyện Mù Căng Chải', 'Huyện Mù Căng Chải', 99, 1977, 9, 1),
+(780, 63, 'Huyện Lục Yên', 'Huyện Lục Yên', 'Huyện Lục Yên', 'Huyện Lục Yên', 96, 1967, 10, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_ship_thanhtoan_setup`
+--
+
+CREATE TABLE `lh_ship_thanhtoan_setup` (
+  `id` int(11) NOT NULL,
+  `check_tai_cong_ty` tinyint(1) NOT NULL DEFAULT '1',
+  `check_khi_nhan_hang` tinyint(1) NOT NULL DEFAULT '1',
+  `check_chuyen_khoan` tinyint(1) NOT NULL DEFAULT '1',
+  `check_ngan_luong` tinyint(1) NOT NULL DEFAULT '1',
+  `check_bao_kim` tinyint(1) NOT NULL DEFAULT '1',
+  `noidung_chuyenkhoan` mediumtext,
+  `url_nganluong` varchar(255) DEFAULT NULL,
+  `email_nganluong` varchar(255) DEFAULT NULL,
+  `maketnoi_nganluong` varchar(255) DEFAULT NULL,
+  `matkhau_nganluong` varchar(255) DEFAULT NULL,
+  `url_baokim` varchar(255) DEFAULT NULL,
+  `email_baokim` varchar(255) DEFAULT NULL,
+  `matkhau_baokim` varchar(255) DEFAULT NULL,
+  `ma_website_baokim` varchar(255) DEFAULT NULL,
+  `api_user_baokim` varchar(255) DEFAULT NULL,
+  `api_pass_baokim` varchar(255) DEFAULT NULL,
+  `private_key_baokim` mediumtext,
+  `email_paypal` varchar(255) DEFAULT NULL,
+  `url_paypal` varchar(255) DEFAULT NULL,
+  `ti_le_paypal` float NOT NULL DEFAULT '0',
+  `check_paypal` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `lh_ship_thanhtoan_setup`
+--
+
+INSERT INTO `lh_ship_thanhtoan_setup` (`id`, `check_tai_cong_ty`, `check_khi_nhan_hang`, `check_chuyen_khoan`, `check_ngan_luong`, `check_bao_kim`, `noidung_chuyenkhoan`, `url_nganluong`, `email_nganluong`, `maketnoi_nganluong`, `matkhau_nganluong`, `url_baokim`, `email_baokim`, `matkhau_baokim`, `ma_website_baokim`, `api_user_baokim`, `api_pass_baokim`, `private_key_baokim`, `email_paypal`, `url_paypal`, `ti_le_paypal`, `check_paypal`) VALUES
+(1, 1, 1, 1, 1, 1, '<p>Thông tin chuyển khoản</p>', 'https://sandbox.nganluong.vn:8088/nl30/micro_checkout_api.php?wsdl', 'hieutrinh@pavietnam.vn', '46234', '2f0fb87695890bde0cbccb285aba4ab0', 'https://sandbox.baokim.vn', 'dev.baokim@bk.vn', 'ae543c080ad91c23', '647', 'merchant', '1234', '-----BEGIN PRIVATE KEY-----\r\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDZZBAIQz1UZtVm\r\np0Jwv0SnoIkGYdHUs7vzdfXYBs1wvznuLp/SfC/MHzHVQw7urN8qv+ZDxzTMgu2Q\r\n3FhMOQ+LIoqYNnklm+5EFsE8hz01sZzg+uRBbyNEdcTa39I4X88OFr13KoJC6sBE\r\n397+5HG1HPjip8a83v8G4/IPcna5/3ydVbJ9ZeMSUXP6ZyKAKay4M22/Wli7PLrm\r\n1XNR9JgIuQLma74yCGkaXtCJQswjyYAmwDPpz4ZknSGuBYUmwaHMgrDOQsOXFW7/\r\n7M2KbjenwggAW98f0f97AR2DEq9Eb5r8vzyHURnHGD3/noZxl993lM2foPI3SKBO\r\n1KpSeXRzAgMBAAECggEANMINBgRTgQVH6xbSkAxLPCdAufTJeMZ56bcKB/h2qVMv\r\nWvejv/B1pSM489nHaPM5YeWam35f+PYZc5uWLkF23TxvyEsIEbGLHKktEmR73WkS\r\neqNI+/xd4cJ3GOtS2G2gEXpBVwdQ/657JPvz4YZNdjfmyxMOr02rNN/jIg6Uc8Tz\r\nvbpGdtP49nhqcOUpbKEyUxdDo6TgLVgmLAKkGJVW40kwvU9hTTo6GXledLNtL2kD\r\nl6gpVWAiT6xlTsD5m74YzsxCSjkh60NdYeUDYwMbv0WWH3kJq6qD063ac3i/i8H+\r\nB5nGf4KbKg1bBjPLNymUj7RRnKjHr301i2u8LUQYuQKBgQD15YCoa5uHd6DHUXEK\r\nkejU34Axznr3Gs6LqcisE7t0oQ9hB4s16U9f4DBHDOvnkLb0zkadwdEmwo/D/Tdf\r\n5c/JEk8q/aO9Wk8uV4Bswnx1OV9uKMzMOZbv/So1DQg1aW1MgvRnj3SiKpDUkNwr\r\nen4NT9tbH21SmVIO9Da5KpiFRwKBgQDiUrg1hp8EDaeZFTG9DvcwyTTrpD/YT9Wr\r\ns/NtEnPMjy0NXWcEXwGzx90P+qjJ+J29Hk89QHON6S7o0X2lUIer3uXokc86ce76\r\n5UIbR6u7R1T6TUNfwqwwNfIbgtFN4+7ybodPNZ5DWslKLqMr5wpwIOr7/U5ih7BH\r\nJK0cSriddQKBgGXzNZiepOlRrBN3rMqZHFPGJrx/w3PYZXJ6fnz54WrFrD6qhglg\r\nJky2As4yiUyFL5XoQFcAGNtdJ4Y24lKcUb4oHTLR3qWPX+zy0ohFSpy/oNVnjSHP\r\nbskpyeoc8R5UC8EBOpwFWnIx+8JmHSLZspGKXoQ1T3pDn0Yb8uRqyLnZAoGBAKdk\r\nNwqfvwzobIU0v8ztPLbAmnuOyAndQlP0jJ6nfy5U1yWDZ6Y7/q5RrJcc9aosT76I\r\npGLRQKY9SYy5JQ0YOsBL5A/XiEXZ7r9ywSocIFAruhZG/wXcni4qOB9Q6i2J4Dk+\r\ntqVHKv72LtrHE7hs8bNtJV+rQkZtxVtZLRA308PhAoGBALVEaYMRm97V+Tnsej6q\r\nfuT/6oKHPqZpur2rNfEKVn5Aq2kmFrvyUhvXi0IAWQ/XS3XJ7faQnprrWT6pYiSy\r\n2YQuaghlNG1SATVd5eUadq2pA8DuSzqWFa0Ac1IAyliBO2uLPL7LzuEKmmuQk0vI\r\nTU2Q8idAb77K7mvVguA3LDhN\r\n-----END PRIVATE KEY-----', 'trunghieu220994-buyer-2@gmail.com', 'https://www.sandbox.paypal.com/cgi-bin/webscr', 22000, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_ship_vanchuyen_khac`
+--
+
+CREATE TABLE `lh_ship_vanchuyen_khac` (
+  `id` int(11) NOT NULL,
+  `id_kv` int(11) NOT NULL DEFAULT '0',
+  `tenbaiviet_vi` varchar(255) DEFAULT NULL,
+  `tenbaiviet_en` varchar(255) DEFAULT NULL,
+  `toi_thieu` int(11) NOT NULL DEFAULT '0',
+  `toi_da` int(11) NOT NULL DEFAULT '0',
+  `loai` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0 //gia tri 1 //kg',
+  `phi_van_chuyen` int(11) NOT NULL DEFAULT '0',
+  `gia_dieu_chinh` longtext,
+  `du_kien` mediumtext
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `lh_ship_vanchuyen_khac`
+--
+
+INSERT INTO `lh_ship_vanchuyen_khac` (`id`, `id_kv`, `tenbaiviet_vi`, `tenbaiviet_en`, `toi_thieu`, `toi_da`, `loai`, `phi_van_chuyen`, `gia_dieu_chinh`, `du_kien`) VALUES
+(13, 2, 'Giao hàng tận nơi', 'Giao hàng tận nơi', 0, 0, 0, 40000, '{\"94\":\"0\",\"95\":\"0\",\"96\":\"0\",\"97\":\"0\",\"98\":\"0\",\"99\":\"0\",\"100\":\"0\",\"101\":\"0\",\"102\":\"0\",\"103\":\"0\",\"104\":\"0\",\"105\":\"0\",\"106\":\"0\",\"107\":\"0\",\"108\":\"0\",\"109\":\"0\",\"110\":\"0\",\"111\":\"0\",\"112\":\"0\",\"113\":\"0\",\"114\":\"0\",\"115\":\"0\",\"116\":\"0\",\"117\":\"0\"}', ''),
+(11, 0, 'Giao hàng tận nơi', 'Giao hàng tận nơi', 0, 0, 0, 40000, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_ship_vanchuyen_setup`
+--
+
+CREATE TABLE `lh_ship_vanchuyen_setup` (
+  `id` int(11) NOT NULL,
+  `loai_ship` tinyint(1) NOT NULL DEFAULT '1',
+  `url_shipchung` varchar(255) DEFAULT NULL,
+  `api_shipchung` varchar(255) DEFAULT NULL,
+  `url_giaohangnhanh` varchar(255) DEFAULT NULL,
+  `api_giaohangnhanh` varchar(255) DEFAULT NULL,
+  `kho_tinhthanh` int(11) NOT NULL DEFAULT '0',
+  `kho_quanhuyen` int(11) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `lh_ship_vanchuyen_setup`
+--
+
+INSERT INTO `lh_ship_vanchuyen_setup` (`id`, `loai_ship`, `url_shipchung`, `api_shipchung`, `url_giaohangnhanh`, `api_giaohangnhanh`, `kho_tinhthanh`, `kho_quanhuyen`) VALUES
+(1, 2, 'http://services.shipchung.vn/api/rest/courier/calculate', 'db985f6c7e02110182d27ea85f3f6894', 'https://console.ghn.vn/api/v1/apiv3/FindAvailableServices', '5b2a0ccf94c06b036d1f8eba', 2, 94);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_slug`
+--
+
+CREATE TABLE `lh_slug` (
+  `id` int(11) NOT NULL,
+  `bang` varchar(255) DEFAULT NULL,
+  `slug` varchar(255) DEFAULT NULL,
+  `id_bang` int(11) NOT NULL DEFAULT '0',
+  `step` int(11) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `lh_slug`
+--
+
+INSERT INTO `lh_slug` (`id`, `bang`, `slug`, `id_bang`, `step`) VALUES
+(1, 'step', 'gioi-thieu', 1, 1),
+(10, 'baiviet', 'biomass-energy-industry', 1, 3),
+(3, 'step', 'kinh-doanh', 3, 3),
+(11, 'baiviet', 'forestry-industry', 2, 3),
+(5, 'step', 'tin-tuc', 5, 5),
+(6, 'step', 'tin-tuyen-dung', 6, 6),
+(14, 'baiviet', 'what-is-the-procedure-for-importing-goods-in-vietnam', 5, 5),
+(8, 'step', 'lien-he', 8, 8),
+(12, 'baiviet', 'furniture-industry', 3, 3),
+(13, 'baiviet', 'supply-chain-and-logistics', 4, 3),
+(15, 'baiviet', 'what-is-the-procedure-for-importing-goods-in-vietnam-cp-294431623833887', 6, 5),
+(16, 'baiviet', 'what-is-the-procedure-for-importing-goods-in-vietnam-cp-626171623833887', 7, 5),
+(17, 'baiviet', 'what-is-the-procedure-for-importing-goods-in-vietnam-cp-794361623833887', 8, 5),
+(18, 'baiviet', 'what-is-the-procedure-for-importing-goods-in-vietnam-cp-447901623833887', 9, 5),
+(19, 'baiviet', 'what-is-the-procedure-for-importing-goods-in-vietnam-cp-153431623833887', 10, 5),
+(20, 'baiviet', 'what-is-the-procedure-for-importing-goods-in-vietnam-cp-817271623833968', 11, 5),
+(21, 'baiviet', 'what-is-the-procedure-for-importing-goods-in-vietnam-cp-153221623833968', 12, 5),
+(43, 'step', 'linh-vuc-hoat-dong', 9, 9),
+(23, 'baiviet', 'what-is-the-procedure-for-importing-goods-in-vietnam-cp-582141623833968', 14, 5),
+(24, 'baiviet', 'what-is-the-procedure-for-importing-goods-in-vietnam-cp-690191623833968', 15, 5),
+(25, 'baiviet', 'maritime-goods-inspection', 16, 6),
+(26, 'baiviet', 'maritime-goods-inspection-cp-223641623838702', 17, 6),
+(27, 'baiviet', 'maritime-goods-inspection-cp-673011623838702', 18, 6),
+(28, 'baiviet', 'maritime-goods-inspection-cp-658971623838702', 19, 6),
+(29, 'baiviet', 'maritime-goods-inspection-cp-966811623838712', 20, 6),
+(30, 'baiviet', 'maritime-goods-inspection-cp-932461623838712', 21, 6),
+(31, 'baiviet', 'maritime-goods-inspection-cp-516711623838712', 22, 6),
+(32, 'baiviet', 'maritime-goods-inspection-cp-219591623838712', 23, 6),
+(84, 'baiviet', '592add87821ec6ae576eca5fa39deb8e', 56, 8),
+(34, 'baiviet', 've-chung-toi', 25, 1),
+(40, 'baiviet', 'muc-tieu-tam-nhin', 31, 1),
+(38, 'baiviet', 'su-menh', 29, 1),
+(39, 'baiviet', 'our-bussiness', 30, 1),
+(41, 'baiviet', 'business-strategies', 32, 1),
+(42, 'baiviet', 'gia-tri-cot-loi', 33, 1),
+(46, 'baiviet', 'jkljkljkl', 36, 3),
+(45, 'baiviet', 'jkl', 35, 3),
+(47, 'step', 'thu-vien-anh', 10, 10),
+(115, 'danhmuc', 'danh-sach-1', 23, 6),
+(57, 'danhmuc', 'lien-hoan', 7, 10),
+(56, 'danhmuc', 'khai-truong', 6, 10),
+(53, 'baiviet', 'test-tin-tuc', 37, 5),
+(54, 'baiviet', 'test-tuyen-dung', 38, 6),
+(85, 'baiviet', '592add87821ec6ae576eca5fa39deb8e-cp-242631738891798', 57, 8),
+(58, 'baiviet', 'album-1', 40, 10),
+(59, 'baiviet', 'album-2', 41, 10),
+(60, 'baiviet', 'album-3', 42, 10),
+(61, 'baiviet', 'album-4', 43, 10),
+(89, 'baiviet', 'thong-bao-vv-chot-danh-sach-trai-chu-ma-trai-phieu-tcoch2328001-de-dang-ky-tap-trung-tai-tong-cong-ty-luu-ky-va-bu-tru-chung-khoan-viet-nam-vscd', 59, 12),
+(86, 'step', 'quan-he-co-dong', 12, 12),
+(87, 'danhmuc', 'thong-tin-co-dong', 18, 12),
+(88, 'baiviet', 'ca387fecf972ac4e95241b07ab74bb4b', 58, 12),
+(75, 'baiviet', 'test-kinh-doanh', 51, 3),
+(78, 'danhmuc', 'cong-ngiep-o-to', 15, 9),
+(79, 'danhmuc', 'dich-vu-cang', 16, 9),
+(80, 'danhmuc', 'co-khi-cong-nghiep-ho-tro', 17, 9),
+(81, 'baiviet', 'universe-noble-2-tang-giuong', 53, 9),
+(82, 'baiviet', 'universe-noble-2-tang-giuong-cp-758221738813375', 54, 9),
+(83, 'baiviet', '2438917e36c235d228798c14e1178630', 55, 8),
+(90, 'baiviet', 'universe-noble-2-tang-giuong-cp-459601738912789', 60, 9),
+(91, 'baiviet', 'universe-noble-2-tang-giuong-cp-684051738912877', 61, 9),
+(92, 'baiviet', 'universe-noble-2-tang-giuong-cp-633191738912877', 62, 9),
+(93, 'baiviet', 'universe-noble-2-tang-giuong-cp-461331738912877', 63, 9),
+(94, 'baiviet', 'universe-noble-2-tang-giuong-cp-951621738912881', 64, 9),
+(95, 'baiviet', 'universe-noble-2-tang-giuong-cp-354141738912881', 65, 9),
+(96, 'danhmuc', 'tin-tuc-96', 19, 5),
+(106, 'danhmuc', 'cong-ty', 21, 1),
+(98, 'step', 'thu-vien-video', 13, 13),
+(99, 'baiviet', 'san-pham', 66, 13),
+(100, 'step', 'thu-vien-anh-va-video', 14, 14),
+(101, 'baiviet', 'san-pham-cp-860371739237083', 67, 13),
+(102, 'baiviet', 'san-pham-cp-333781739237085', 68, 13),
+(103, 'baiviet', 'san-pham-cp-755531739237089', 69, 13),
+(104, 'baiviet', 'san-pham-cp-272691739237089', 70, 13),
+(105, 'baiviet', 'san-pham-cp-470301739237089', 71, 13),
+(107, 'danhmuc', 'van-hoa-cong-ty', 22, 1),
+(108, 'baiviet', 'co-cau-to-chuc', 72, 1),
+(109, 'baiviet', 'co-cau-to-chuc-109', 73, 1),
+(110, 'step', 'danh-gia-tracomeco', 15, 15),
+(111, 'baiviet', 'e13a07a08616ee650a7db6e171533932', 74, 15),
+(112, 'baiviet', '6abe7cfd61979254e3ad942ac51f3198', 75, 15),
+(113, 'baiviet', 'a1ce1a6d66406711bafdb1147828ca19', 76, 15),
+(114, 'baiviet', '2d39ab7f84f3cb5069b83c0089ec99cf', 77, 15);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_sponline`
+--
+
+CREATE TABLE `lh_sponline` (
+  `id` int(11) NOT NULL,
+  `tenbaiviet_vi` varchar(255) DEFAULT NULL,
+  `tenbaiviet_en` varchar(255) DEFAULT NULL,
+  `contact_link` varchar(255) DEFAULT NULL,
+  `type` tinyint(2) DEFAULT NULL,
+  `mota_vi` varchar(255) DEFAULT NULL,
+  `mota_en` varchar(255) DEFAULT NULL,
+  `phone` varchar(50) DEFAULT NULL,
+  `id_user` int(11) DEFAULT '0',
+  `note` varchar(255) DEFAULT NULL,
+  `opt` int(11) NOT NULL DEFAULT '0',
+  `ngaydang` int(11) DEFAULT NULL,
+  `catasort` int(11) NOT NULL DEFAULT '0',
+  `showhi` tinyint(1) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `duongdantin` varchar(255) DEFAULT NULL,
+  `icon` varchar(255) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_step`
+--
+
+CREATE TABLE `lh_step` (
+  `id` int(11) NOT NULL,
+  `tenbaiviet_vi` varchar(255) DEFAULT NULL,
+  `tenbaiviet_en` varchar(255) DEFAULT NULL,
+  `tenbaiviet_cn` varchar(255) DEFAULT NULL,
+  `p1_vi` varchar(255) DEFAULT NULL,
+  `p1_en` varchar(255) DEFAULT NULL,
+  `p1_cn` varchar(255) DEFAULT NULL,
+  `p2_vi` varchar(255) DEFAULT NULL,
+  `p2_en` varchar(255) DEFAULT NULL,
+  `p2_cn` varchar(255) DEFAULT NULL,
+  `p3_vi` mediumtext,
+  `p3_en` mediumtext,
+  `p3_cn` varchar(255) DEFAULT NULL,
+  `noidung_vi` mediumtext,
+  `noidung_en` mediumtext,
+  `noidung_cn` mediumtext,
+  `seo_name` varchar(255) DEFAULT NULL,
+  `catasort` int(11) DEFAULT '0',
+  `step` tinyint(4) NOT NULL DEFAULT '0',
+  `ngaydang` int(11) NOT NULL DEFAULT '0',
+  `duongdantin` varchar(255) DEFAULT NULL,
+  `icon` varchar(255) DEFAULT NULL,
+  `seo_title_vi` varchar(255) DEFAULT NULL,
+  `seo_title_en` varchar(255) DEFAULT NULL,
+  `seo_title_cn` varchar(255) DEFAULT NULL,
+  `seo_description_vi` varchar(255) DEFAULT NULL,
+  `seo_description_en` varchar(255) DEFAULT NULL,
+  `seo_description_cn` varchar(255) DEFAULT NULL,
+  `seo_keywords_vi` varchar(255) DEFAULT NULL,
+  `seo_keywords_en` varchar(255) DEFAULT NULL,
+  `seo_keywords_cn` varchar(255) DEFAULT NULL,
+  `num_view` int(11) NOT NULL DEFAULT '0',
+  `opt` tinyint(1) NOT NULL DEFAULT '0',
+  `opt1` tinyint(1) NOT NULL DEFAULT '0',
+  `showhi` tinyint(1) NOT NULL DEFAULT '1',
+  `size_img` varchar(255) DEFAULT NULL,
+  `size_img_dm` varchar(255) DEFAULT NULL,
+  `map_google` mediumtext,
+  `tenbaiviet_jp` varchar(255) DEFAULT NULL,
+  `p1_jp` varchar(255) DEFAULT NULL,
+  `p2_jp` varchar(255) DEFAULT NULL,
+  `p3_jp` varchar(255) DEFAULT NULL,
+  `noidung_jp` mediumtext,
+  `seo_title_jp` varchar(255) DEFAULT NULL,
+  `seo_description_jp` varchar(255) DEFAULT NULL,
+  `seo_keywords_jp` varchar(255) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `lh_step`
+--
+
+INSERT INTO `lh_step` (`id`, `tenbaiviet_vi`, `tenbaiviet_en`, `tenbaiviet_cn`, `p1_vi`, `p1_en`, `p1_cn`, `p2_vi`, `p2_en`, `p2_cn`, `p3_vi`, `p3_en`, `p3_cn`, `noidung_vi`, `noidung_en`, `noidung_cn`, `seo_name`, `catasort`, `step`, `ngaydang`, `duongdantin`, `icon`, `seo_title_vi`, `seo_title_en`, `seo_title_cn`, `seo_description_vi`, `seo_description_en`, `seo_description_cn`, `seo_keywords_vi`, `seo_keywords_en`, `seo_keywords_cn`, `num_view`, `opt`, `opt1`, `showhi`, `size_img`, `size_img_dm`, `map_google`, `tenbaiviet_jp`, `p1_jp`, `p2_jp`, `p3_jp`, `noidung_jp`, `seo_title_jp`, `seo_description_jp`, `seo_keywords_jp`) VALUES
+(1, 'Giới Thiệu', 'Introduce', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'gioi-thieu', 1, 1, 1739246034, 'datafiles', '1739267375_banner-about.jpg', 'Giới Thiệu', 'Introduce', '', 'Giới Thiệu', 'Introduce', '', 'Giới Thiệu', 'Introduce', '', 0, 0, 0, 1, '', '', NULL, NULL, NULL, NULL, NULL, NULL, '', '', ''),
+(3, 'Kinh Doanh', 'Our Business', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'kinh-doanh', 3, 5, 1738840884, 'datafiles', '1632377919_banner3-web.jpg', 'Kinh Doanh - Thien Hoang Group', 'Our Business', '', 'Kinh Doanh', 'Our Business', '', 'Kinh Doanh', 'Our Business', '', 0, 0, 1, 0, '', '', NULL, NULL, NULL, NULL, NULL, NULL, '', '', ''),
+(5, 'Tin Tức', 'News', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'tin-tuc', 5, 3, 1686120433, 'datafiles', '1739267533_banner-linhvuc.jpg', 'Tin tức - Thien Hoang Group', 'News', '', 'Tin tức', 'News', '', 'Tin tức', 'News', '', 0, 0, 1, 1, '', '', NULL, NULL, NULL, NULL, NULL, NULL, '', '', ''),
+(6, 'Tin Tuyển Dụng', 'Recruitment news', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'tin-tuyen-dung', 6, 14, 1739238957, 'datafiles', '1623838852_tuyen-dung-new.jpg', 'Tin Tuyển Dụng', 'Recruitment', '', 'Tin Tuyển Dụng', 'Recruitment', '', 'Tin Tuyển Dụng', 'Recruitment', '', 0, 0, 0, 1, '400x340', '', NULL, NULL, NULL, NULL, NULL, NULL, '', '', ''),
+(8, 'Liên Hệ', 'Contact', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'lien-he', 8, 5, 1738836922, 'datafiles', '1623903178_banner-detail.png', 'Liên hệ', 'Contact', '', 'Liên hệ', 'Contact', '', 'Liên hệ', 'Contact', '', 0, 0, 0, 1, '', '', 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15673.902458413477!2d106.777264!3d10.851384!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752773578cbb79%3A0x1e980136932d26d7!2zNDI5IFNvbmcgSMOgbmggWGEgTOG7mSBIw6AgTuG7mWksIEhp4buHcCBQaMO6LCBRdeG6rW4gOSwgSOG7kyBDaMOtIE1pbmgsIFZp4buHdCBOYW0!5e0!3m2!1svi!2sus!4v1736758810915!5m2!1svi!2sus\" allowfullscreen=\"\" loading=\"lazy\"', NULL, NULL, NULL, NULL, NULL, '', '', ''),
+(9, 'Lĩnh vực hoạt động', 'Operation field', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'linh-vuc-hoat-dong', 4, 2, 1740112882, 'datafiles', '1739267533_banner-linhvuc.jpg', 'LĨNH VỰC HOẠT ĐỘNG', 'Product', '', 'LĨNH VỰC HOẠT ĐỘNG', 'Product', '', 'LĨNH VỰC HOẠT ĐỘNG', 'Product', '', 0, 0, 0, 1, '', '', NULL, NULL, NULL, NULL, NULL, NULL, '', '', ''),
+(10, 'Thư Viện Ảnh', 'Image library', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'thu-vien-anh', 9, 6, 1686195612, 'datafiles', '1686120335_bg-breadcrum-1.jpg', 'Thư viện ảnh', 'Image library', '', 'Thư viện ảnh', 'Image library', '', 'Thư viện ảnh', 'Image library', '', 0, 0, 1, 1, '', '', NULL, NULL, NULL, NULL, NULL, NULL, '', '', ''),
+(12, 'Quan hệ cổ đông', 'Shareholder relationship', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'quan-he-co-dong', 10, 13, 1740108241, 'datafiles', '1739267533_banner-linhvuc.jpg', 'Quan hệ cổ đông', 'Shareholders', '', 'Quan hệ cổ đông', 'Shareholders', '', 'Quan hệ cổ đông', 'Shareholders', '', 0, 0, 0, 1, '', '', NULL, NULL, NULL, NULL, NULL, NULL, '', '', ''),
+(13, 'Thư viện Video', 'Video library', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'thu-vien-video', 11, 8, 1739237455, 'datafiles', '', 'Thư viện Video', 'Video library', '', 'Thư viện Video', 'Video library', '', 'Thư viện Video', 'Video library', '', 0, 0, 0, 1, '', '', NULL, NULL, NULL, NULL, NULL, NULL, '', '', ''),
+(14, 'Thư viện ảnh và video', 'Photo and video library', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'thu-vien-anh-va-video', 12, 43, 1739177040, 'datafiles', NULL, 'Thư viện ảnh và video', 'Photo and video library', '', 'Thư viện ảnh và video', 'Photo and video library', '', 'Thư viện ảnh và video', 'Photo and video library', '', 0, 0, 0, 0, '', '', NULL, NULL, NULL, NULL, NULL, NULL, '', '', ''),
+(15, 'Đánh giá tracomeco', 'Review Tracomeco', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'danh-gia-tracomeco', 13, 32, 1739256451, 'datafiles', NULL, 'Đánh giá tracomeco', 'Review Tracomeco', '', 'Đánh giá tracomeco', 'Review Tracomeco', '', 'Đánh giá tracomeco', 'Review Tracomeco', '', 0, 0, 0, 1, '', '', NULL, NULL, NULL, NULL, NULL, NULL, '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_subdomain`
+--
+
+CREATE TABLE `lh_subdomain` (
+  `id` int(11) NOT NULL,
+  `tenbaiviet_vi` varchar(255) DEFAULT NULL,
+  `keycode` varchar(255) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `lh_subdomain`
+--
+
+INSERT INTO `lh_subdomain` (`id`, `tenbaiviet_vi`, `keycode`) VALUES
+(1, '', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_thuoctinhchung`
+--
+
+CREATE TABLE `lh_thuoctinhchung` (
+  `id` int(11) NOT NULL,
+  `tenbaiviet_vi` varchar(255) DEFAULT NULL,
+  `tenbaiviet_en` varchar(255) DEFAULT NULL,
+  `noidung_vi` text,
+  `noidung_en` text,
+  `id_parent` int(11) NOT NULL DEFAULT '0',
+  `seo_name` varchar(255) DEFAULT NULL,
+  `seo_name_1` varchar(255) DEFAULT NULL,
+  `blank` varchar(255) DEFAULT NULL,
+  `blank_1` varchar(255) DEFAULT NULL,
+  `catasort` int(11) NOT NULL DEFAULT '0',
+  `duongdantin` varchar(255) DEFAULT NULL,
+  `icon` varchar(255) DEFAULT NULL,
+  `ma_quang_cao` text,
+  `num_1` int(11) NOT NULL DEFAULT '0',
+  `num_2` int(11) NOT NULL DEFAULT '0',
+  `showhi` tinyint(4) NOT NULL DEFAULT '1'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lh_yeuthich`
+--
+
+CREATE TABLE `lh_yeuthich` (
+  `id` int(11) NOT NULL,
+  `id_baiviet` int(11) NOT NULL DEFAULT '0',
+  `id_member` int(11) NOT NULL DEFAULT '0',
+  `showhi` tinyint(1) NOT NULL DEFAULT '1',
+  `the_loai` tinyint(4) NOT NULL DEFAULT '1'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Chỉ mục cho các bảng đã đổ
+--
+
+--
+-- Chỉ mục cho bảng `lh_backup`
+--
+ALTER TABLE `lh_backup`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_baiviet`
+--
+ALTER TABLE `lh_baiviet`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_parent` (`id_parent`);
+
+--
+-- Chỉ mục cho bảng `lh_baiviet_chitiet`
+--
+ALTER TABLE `lh_baiviet_chitiet`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_baiviet_img`
+--
+ALTER TABLE `lh_baiviet_img`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_baiviet_nhomgia`
+--
+ALTER TABLE `lh_baiviet_nhomgia`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_baiviet_sao`
+--
+ALTER TABLE `lh_baiviet_sao`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_baiviet_select_nhomgia`
+--
+ALTER TABLE `lh_baiviet_select_nhomgia`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_baiviet_select_tinhnang`
+--
+ALTER TABLE `lh_baiviet_select_tinhnang`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_baiviet_thuoctinh`
+--
+ALTER TABLE `lh_baiviet_thuoctinh`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_baiviet_tinhnang`
+--
+ALTER TABLE `lh_baiviet_tinhnang`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_banner`
+--
+ALTER TABLE `lh_banner`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_banner_danhmuc`
+--
+ALTER TABLE `lh_banner_danhmuc`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_binhluan`
+--
+ALTER TABLE `lh_binhluan`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_sp` (`id_sp`,`id_parent`);
+
+--
+-- Chỉ mục cho bảng `lh_clanguage`
+--
+ALTER TABLE `lh_clanguage`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_clanguage_admin`
+--
+ALTER TABLE `lh_clanguage_admin`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_counter`
+--
+ALTER TABLE `lh_counter`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_count_date`
+--
+ALTER TABLE `lh_count_date`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_danhmuc`
+--
+ALTER TABLE `lh_danhmuc`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_du_lieu_sn`
+--
+ALTER TABLE `lh_du_lieu_sn`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_email_config`
+--
+ALTER TABLE `lh_email_config`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_email_follow`
+--
+ALTER TABLE `lh_email_follow`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_file_import_data`
+--
+ALTER TABLE `lh_file_import_data`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_form_datlichhen`
+--
+ALTER TABLE `lh_form_datlichhen`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_form_lienhe`
+--
+ALTER TABLE `lh_form_lienhe`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_lienket`
+--
+ALTER TABLE `lh_lienket`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_lien_ket_nhanh`
+--
+ALTER TABLE `lh_lien_ket_nhanh`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_lien_ket_nhanh_phan_tram`
+--
+ALTER TABLE `lh_lien_ket_nhanh_phan_tram`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_magiamgia`
+--
+ALTER TABLE `lh_magiamgia`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_magiamgia_chitiet`
+--
+ALTER TABLE `lh_magiamgia_chitiet`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_mangxahoi`
+--
+ALTER TABLE `lh_mangxahoi`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_marketing`
+--
+ALTER TABLE `lh_marketing`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_marketing_setting`
+--
+ALTER TABLE `lh_marketing_setting`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_members`
+--
+ALTER TABLE `lh_members`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`),
+  ADD UNIQUE KEY `tentruycap` (`tentruycap`);
+
+--
+-- Chỉ mục cho bảng `lh_members_log`
+--
+ALTER TABLE `lh_members_log`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_members_nhom`
+--
+ALTER TABLE `lh_members_nhom`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_menu`
+--
+ALTER TABLE `lh_menu`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_module_ngonngu`
+--
+ALTER TABLE `lh_module_ngonngu`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_module_nhomtaikhoan`
+--
+ALTER TABLE `lh_module_nhomtaikhoan`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_module_page`
+--
+ALTER TABLE `lh_module_page`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_module_setting`
+--
+ALTER TABLE `lh_module_setting`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_module_tinhnang`
+--
+ALTER TABLE `lh_module_tinhnang`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_order`
+--
+ALTER TABLE `lh_order`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_phuongthucthanhtoan`
+--
+ALTER TABLE `lh_phuongthucthanhtoan`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_seo`
+--
+ALTER TABLE `lh_seo`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_seo_name`
+--
+ALTER TABLE `lh_seo_name`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_ship_khuvuc`
+--
+ALTER TABLE `lh_ship_khuvuc`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_ship_thanhtoan_setup`
+--
+ALTER TABLE `lh_ship_thanhtoan_setup`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_ship_vanchuyen_khac`
+--
+ALTER TABLE `lh_ship_vanchuyen_khac`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_ship_vanchuyen_setup`
+--
+ALTER TABLE `lh_ship_vanchuyen_setup`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_slug`
+--
+ALTER TABLE `lh_slug`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `slug` (`slug`(250));
+
+--
+-- Chỉ mục cho bảng `lh_sponline`
+--
+ALTER TABLE `lh_sponline`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_step`
+--
+ALTER TABLE `lh_step`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_subdomain`
+--
+ALTER TABLE `lh_subdomain`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_thuoctinhchung`
+--
+ALTER TABLE `lh_thuoctinhchung`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lh_yeuthich`
+--
+ALTER TABLE `lh_yeuthich`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT cho các bảng đã đổ
+--
+
+--
+-- AUTO_INCREMENT cho bảng `lh_backup`
+--
+ALTER TABLE `lh_backup`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_baiviet`
+--
+ALTER TABLE `lh_baiviet`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_baiviet_chitiet`
+--
+ALTER TABLE `lh_baiviet_chitiet`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_baiviet_img`
+--
+ALTER TABLE `lh_baiviet_img`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_baiviet_nhomgia`
+--
+ALTER TABLE `lh_baiviet_nhomgia`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_baiviet_sao`
+--
+ALTER TABLE `lh_baiviet_sao`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_baiviet_select_nhomgia`
+--
+ALTER TABLE `lh_baiviet_select_nhomgia`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4261;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_baiviet_select_tinhnang`
+--
+ALTER TABLE `lh_baiviet_select_tinhnang`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_baiviet_thuoctinh`
+--
+ALTER TABLE `lh_baiviet_thuoctinh`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_baiviet_tinhnang`
+--
+ALTER TABLE `lh_baiviet_tinhnang`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_banner`
+--
+ALTER TABLE `lh_banner`
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_banner_danhmuc`
+--
+ALTER TABLE `lh_banner_danhmuc`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_binhluan`
+--
+ALTER TABLE `lh_binhluan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_clanguage`
+--
+ALTER TABLE `lh_clanguage`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1538;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_clanguage_admin`
+--
+ALTER TABLE `lh_clanguage_admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1512;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_counter`
+--
+ALTER TABLE `lh_counter`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_count_date`
+--
+ALTER TABLE `lh_count_date`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_danhmuc`
+--
+ALTER TABLE `lh_danhmuc`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_du_lieu_sn`
+--
+ALTER TABLE `lh_du_lieu_sn`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_email_config`
+--
+ALTER TABLE `lh_email_config`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_email_follow`
+--
+ALTER TABLE `lh_email_follow`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_file_import_data`
+--
+ALTER TABLE `lh_file_import_data`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_form_datlichhen`
+--
+ALTER TABLE `lh_form_datlichhen`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_form_lienhe`
+--
+ALTER TABLE `lh_form_lienhe`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_lienket`
+--
+ALTER TABLE `lh_lienket`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_lien_ket_nhanh`
+--
+ALTER TABLE `lh_lien_ket_nhanh`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_lien_ket_nhanh_phan_tram`
+--
+ALTER TABLE `lh_lien_ket_nhanh_phan_tram`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_magiamgia`
+--
+ALTER TABLE `lh_magiamgia`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_magiamgia_chitiet`
+--
+ALTER TABLE `lh_magiamgia_chitiet`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_mangxahoi`
+--
+ALTER TABLE `lh_mangxahoi`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_marketing`
+--
+ALTER TABLE `lh_marketing`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_marketing_setting`
+--
+ALTER TABLE `lh_marketing_setting`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_members`
+--
+ALTER TABLE `lh_members`
+  MODIFY `id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_members_log`
+--
+ALTER TABLE `lh_members_log`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_members_nhom`
+--
+ALTER TABLE `lh_members_nhom`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_menu`
+--
+ALTER TABLE `lh_menu`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_module_ngonngu`
+--
+ALTER TABLE `lh_module_ngonngu`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_module_nhomtaikhoan`
+--
+ALTER TABLE `lh_module_nhomtaikhoan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_module_page`
+--
+ALTER TABLE `lh_module_page`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_module_setting`
+--
+ALTER TABLE `lh_module_setting`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_module_tinhnang`
+--
+ALTER TABLE `lh_module_tinhnang`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_order`
+--
+ALTER TABLE `lh_order`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=160;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_phuongthucthanhtoan`
+--
+ALTER TABLE `lh_phuongthucthanhtoan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_seo`
+--
+ALTER TABLE `lh_seo`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_seo_name`
+--
+ALTER TABLE `lh_seo_name`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_ship_khuvuc`
+--
+ALTER TABLE `lh_ship_khuvuc`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=781;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_ship_thanhtoan_setup`
+--
+ALTER TABLE `lh_ship_thanhtoan_setup`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_ship_vanchuyen_khac`
+--
+ALTER TABLE `lh_ship_vanchuyen_khac`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_ship_vanchuyen_setup`
+--
+ALTER TABLE `lh_ship_vanchuyen_setup`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_slug`
+--
+ALTER TABLE `lh_slug`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=116;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_sponline`
+--
+ALTER TABLE `lh_sponline`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_step`
+--
+ALTER TABLE `lh_step`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_subdomain`
+--
+ALTER TABLE `lh_subdomain`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_thuoctinhchung`
+--
+ALTER TABLE `lh_thuoctinhchung`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `lh_yeuthich`
+--
+ALTER TABLE `lh_yeuthich`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -31,7 +31,7 @@ if ($lay_all_kx != "") {
 }
 
 if ($is_search) {
-    $wh .= " AND (`tenbaiviet_" . $lang . "` LIKE '%" . $key . "%')";
+    $wh .= "AND (tenbaiviet_" . $lang . " LIKE '%" . $key . "%' OR tenbaiviet_vi LIKE '%" . $key . "%' OR tenbaiviet_en LIKE '%" . $key . "%')";
 
 }
 if ($is_search_year) {

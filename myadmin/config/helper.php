@@ -90,24 +90,62 @@
 
 
 
-function GET_text($rows, $field, $fallbacks = ['vi']) {
-    global $full_url, $lang;
-    $keyLang = $field . $lang; // Ví dụ: 'tenbaiviet_en'
-
-    // Kiểm tra nếu tồn tại dữ liệu theo ngôn ngữ yêu cầu
-    if (isset($rows[$keyLang]) && !empty($rows[$keyLang])) {
-        return $rows[$keyLang];
-    }
-
-    // Duyệt danh sách fallback để tìm dữ liệu thay thế
-    foreach ($fallbacks as $fallback) {
-        $keyFallback = $field . $fallback;
-        if (isset($rows[$keyFallback]) && !empty($rows[$keyFallback])) {
-            return $rows[$keyFallback];
+function GET_text($rows, $field, $fallbacks = "vi") {
+    global  $lang;
+    try{
+        if(empty($rows)){
+            throw new Exception("Dữ liệu đối tượng không hợp lệ",404);
         }
+        if(empty($field)){
+            throw new Exception("Không xác định được trường thông tin cần lấy",404);
+        }
+
+        return !empty($rows[$field.$lang])?$rows[$field.$lang]:$rows[$field.$fallbacks];
+
+
+    }catch (Exception $ex){
+        return  "";
     }
 
-    return ''; // Trả về chuỗi rỗng nếu không tìm thấy dữ liệu
+//
+//
+//
+//    $keyLang = $field . $lang; // Ví dụ: 'tenbaiviet_en'
+//
+//    // Kiểm tra nếu tồn tại dữ liệu theo ngôn ngữ yêu cầu
+//    if (isset($rows[$keyLang]) && !empty($rows[$keyLang])) {
+//        return $rows[$keyLang];
+//    }
+//
+//    // Duyệt danh sách fallback để tìm dữ liệu thay thế
+//    foreach ($fallbacks as $fallback) {
+//        $keyFallback = $field . $fallback;
+//        if (isset($rows[$keyFallback]) && !empty($rows[$keyFallback])) {
+//            return $rows[$keyFallback];
+//        }
+//    }
+//
+//    return ''; // Trả về chuỗi rỗng nếu không tìm thấy dữ liệu
+}
+
+function GET_text_new($field, $item=[], $fallbacks = "vi") {
+    global  $lang;
+    global  $rows;
+    $item = !empty($item)?$item:$rows;
+    try{
+        if(empty($rows)){
+            throw new Exception("Dữ liệu đối tượng không hợp lệ",404);
+        }
+        if(empty($field)){
+            throw new Exception("Không xác định được trường thông tin cần lấy",404);
+        }
+
+        return !empty($rows[$field.$lang])?$rows[$field.$lang]:$rows[$field.$fallbacks];
+
+
+    }catch (Exception $ex){
+        return  "";
+    }
 }
 
 
