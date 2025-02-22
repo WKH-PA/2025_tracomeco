@@ -25,7 +25,7 @@ $aboutHot = DB_fet("*",
             foreach ($aboutHot as $rows) {
                 if ($idFirst > 0)
                     continue;
-                $images = $full_url . '/datafiles/' . $rows['icon'];
+                $images = $fullpath . '/datafiles/' . $rows['icon'];
                 ?>
                 <div class="gt_left">
                     <img src="<?= $images ?>">
@@ -45,7 +45,7 @@ $aboutHot = DB_fet("*",
             foreach ($aboutHot as $rows) {
                 if ($rows['id'] == $idFirst)
                     continue;
-                $images = $full_url . '/datafiles/' . $rows['icon'];
+                $images = $fullpath . '/datafiles/' . $rows['icon'];
                 $class = $count % 2 == 0 ? "gt_left" : "gt_right";
                 ?>
                 <div class="<?= $class ?>">

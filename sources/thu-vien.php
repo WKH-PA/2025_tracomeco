@@ -64,6 +64,12 @@ include _source . "box-header.php";
                     <?php
                     $first = true;
                     foreach ($video_bv as $rows) {
+                    $youtube_url = $rows['p1'];
+                    if (preg_match('/watch\?v=([a-zA-Z0-9_-]+)/', $youtube_url, $matches)) {
+                        $youtube_embed_url = "https://www.youtube.com/embed/" . $matches[1];
+                    } else {
+                        $youtube_embed_url = $youtube_url;
+                    }
                     if ($first) {
                     ?>
                     <div class="col-md-8">
@@ -84,7 +90,10 @@ include _source . "box-header.php";
                                     <div class="close"><i class="fa-light fa-xmark"></i></div>
                                     <div class="content_croll" style="height: auto;">
                                         <h2 style="font-size: 23px;margin-bottom: 25px;text-align: center;"><?= GET_text('tenbaiviet_') ?></h2>
-                                        <iframe width="100%" height="650" src="<?= $rows['p1'] ?>"
+                                        <?php
+
+                                        ?>
+                                        <iframe width="100%" height="650" src="<?= htmlspecialchars($youtube_embed_url, ENT_QUOTES, 'UTF-8') ?>"
                                                 title="YouTube video player" frameborder="0"
                                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                                 referrerpolicy="strict-origin-when-cross-origin"
@@ -98,24 +107,37 @@ include _source . "box-header.php";
                         <?php
                         $first = false;
                         } else {
+                            // Lấy URL YouTube từ database
+                            $youtube_url = $rows['p1'];
+
+                            // Chuyển đổi sang dạng embed nếu cần
+                            if (preg_match('/watch\?v=([a-zA-Z0-9_-]+)/', $youtube_url, $matches)) {
+                                $youtube_embed_url = "https://www.youtube.com/embed/" . $matches[1];
+                            } else {
+                                $youtube_embed_url = $youtube_url;
+                            }
+
+                            // Tạo ID riêng cho mỗi bài viết
+                            $video_id = "video" . $rows['id'];
                             ?>
                             <div class="post_item new_id_bs" style="cursor: pointer; width: 100%; box-shadow: none;"
-                                 data-target="#video2">
+                                 data-target="#<?= $video_id ?>">
                                 <div class="post_img">
                                     <a><img src="<?= $fullpath . '/datafiles/' . $rows['icon'] ?>"
                                             class="isload isload_full isload_full_1"
                                             alt="<?= GET_text('tenbaiviet_') ?>"></a>
                                 </div>
                                 <div class="post_info">
-                                    <h3><a><i class="fa-light fa-circle-play"></i> <?= GET_text('tenbaiviet_') ?>
-                                        </a></h3>
+                                    <h3><a><i class="fa-light fa-circle-play"></i> <?= GET_text('tenbaiviet_') ?></a></h3>
                                 </div>
-                                <div id="video2" class="overlay-dark">
+                                <div id="<?= $video_id ?>" class="overlay-dark">
                                     <div class="popup-box">
                                         <div class="close"><i class="fa-light fa-xmark"></i></div>
                                         <div class="content_croll" style="height: auto;">
-                                            <h2 style="font-size: 23px;margin-bottom: 25px;text-align: center;"><?= GET_text('tenbaiviet_') ?></h2>
-                                            <iframe width="100%" height="650" src="<?= $rows['p1'] ?>"
+                                            <h2 style="font-size: 23px;margin-bottom: 25px;text-align: center;">
+                                                <?= GET_text('tenbaiviet_') ?>
+                                            </h2>
+                                            <iframe width="100%" height="650" src="<?= htmlspecialchars($youtube_embed_url, ENT_QUOTES, 'UTF-8') ?>"
                                                     title="YouTube video player" frameborder="0"
                                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                                     referrerpolicy="strict-origin-when-cross-origin"
@@ -129,6 +151,7 @@ include _source . "box-header.php";
                         }
                         ?>
                     </div>
+
                 </div>
             </div>
             <div class="clr"></div>

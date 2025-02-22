@@ -52,7 +52,7 @@ if ($templateId == 2 && $slug_table != 'danhmuc') {
                     $id = $rows['id'];
                     ?>
                     <button class="tracomeco-bar-item tracomeco-button tablink <?= $class ?>"
-                            onclick="openCity(event,'tab_<?= $id ?>')"><?= GET_text('tenbaiviet_') ?>
+                            onclick="openCity2(event,'tab_<?= $id ?>')"><?= GET_text('tenbaiviet_') ?>
                     </button>
                     <?php
                     $count++;
@@ -73,18 +73,18 @@ if ($templateId == 2 && $slug_table != 'danhmuc') {
         </div>
     </div>
 </section>
-<script>
-    function openCity(evt, cityName) {
-        var i, x, tablinks;
-        x = document.getElementsByClassName("city");
-        for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
-        }
-        tablinks = document.getElementsByClassName("tablink");
-        for (i = 0; i < x.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" tracomeco-red", "");
-        }
-        document.getElementById(cityName).style.display = "block";
-        evt.currentTarget.className += " tracomeco-red";
-    }
-</script>
+<!--<script>-->
+<!--    function openCity(evt, cityName) {-->
+<!--        var i, x, tablinks;-->
+<!--        x = document.getElementsByClassName("city");-->
+<!--        for (i = 0; i < x.length; i++) {-->
+<!--            x[i].style.display = "none";-->
+<!--        }-->
+<!--        tablinks = document.getElementsByClassName("tablink");-->
+<!--        for (i = 0; i < x.length; i++) {-->
+<!--            tablinks[i].className = tablinks[i].className.replace(" tracomeco-red", "");-->
+<!--        }-->
+<!--        document.getElementById(cityName).style.display = "block";-->
+<!--        evt.currentTarget.className += " tracomeco-red";-->
+<!--    }-->
+<!--</script>-->
