@@ -32,13 +32,13 @@ $bvlienquan = DB_fet("*", "#_baiviet", "`showhi` = 1 and `id` != " . $arr_runnin
     <div class="container-fluid">
         <div class="tin_left">
             <div class="title_news">
-                <h1><?= GET_text($arr_running,'tenbaiviet_') ?></h1>
+                <h1><?= GET_text('tenbaiviet_',$arr_running) ?></h1>
                 <p class="dated"><i
                             class="fa-regular fa-calendar-days"></i><?= date("d/m/Y", $arr_running['ngaydang']); ?></p>
             </div>
             <div class="showText">
-                <p class="mota"><?= GET_text($arr_running,'mota_') ?></p>
-                <?= GET_text($arr_running,'noidung_') ?>
+                <p class="mota"><?= GET_text('mota_',$arr_running) ?></p>
+                <?= GET_text('noidung_',$arr_running) ?>
             </div>
         </div>
 

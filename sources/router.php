@@ -89,6 +89,7 @@
     // else if($motty == "mat-khau-moi"){
     //     include _source."mat-khau-moi.php";
     // }
+
      else if($motty == "thu-vien-anh-va-video"){
          include _source."thu-vien.php";
      }

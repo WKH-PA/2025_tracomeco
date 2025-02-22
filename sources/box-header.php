@@ -8,8 +8,8 @@ $array_tags = array();
 $array_not_title = array();
 $danhmucname = "";
 foreach ($arr_sanphamall as $row) {
-    $tags = explode(',', $row['tags_' . $lang]);
-    $tags_seo = explode(',', $row['tags_seo_' . $lang]);
+    $tags = explode(',',GET_text('tags_') );
+    $tags_seo = explode(',', GET_text('tags_seo_'));
     $count = count($tags);
     for ($i = 0; $i < $count; $i++) {
         if (array_key_exists($tags_seo[$i], $array_tags))
@@ -42,7 +42,7 @@ if ($motty == '404') {
         "showhi=1 AND id_parent NOT IN (0, 7)" . $condition,
         "so_lan_xuat_hien DESC",
         "1",
-        "arr", 1
+        1, 1
     );
     $thongtin_menu = reset($thongtin_menu);
 
@@ -50,7 +50,7 @@ if ($motty == '404') {
         "*",
         "#_menu",
         "showhi=1 AND id_parent  not IN (0, 7) AND id = " . $thongtin_menu['id_parent'],
-        "", "", "arr", 1
+        "", "", 1, 1
     );
     $data_menucha = reset($data_menucha);
 
@@ -59,30 +59,31 @@ if ($motty == '404') {
     $condition = !empty($dieukien) ? " AND (" . implode(" OR ", $dieukien) . ")" : "";
 
     $seonamecha = $full_url . '/' . $data_menucha['seo_name'];
-    $nameseonamecha = $data_menucha['tenbaiviet_' . $lang];
+    $nameseonamecha = GET_text('tenbaiviet_',$data_menucha);
     $arraydata[$seonamecha] = $nameseonamecha;
 
-    $danhmucname = $datastep['tenbaiviet_' . $lang];
+    $danhmucname = GET_text('tenbaiviet_',$datastep);
     $images_background = $fullpath . '/' . $datastep['duongdantin'] . '/' . $datastep['icon'];
     $seonamestep = $full_url . '/' . $thongtin_menu['seo_name'];
-    $nameseonamestep = $thongtin_menu['tenbaiviet_' . $lang];
+    $nameseonamestep = GET_text('tenbaiviet_',$thongtin_menu);
     $arraydata[$seonamestep] = $nameseonamestep;
     $nametitle = $nameseonamestep;
+
     if ($slug_table == 'danhmuc') {
         if ($arr_running['id_parent'] != 0) {
             $datadanhmuc_cha = DB_fet("*", "#_danhmuc", 'showhi=1 AND id_parent = 0 and id=' . $arr_running['id_parent'], "", "1", "arr", 1);
             $datadanhmuc_cha = reset($datadanhmuc_cha);
             $seonamedanhmuc_cha = $full_url . '/' . $datadanhmuc_cha['seo_name'];
-            $nameseonamedanhmuc_cha = $datadanhmuc_cha['tenbaiviet_' . $lang];
-            $danhmuccha_name = $datadanhmuc_cha['tenbaiviet_' . $lang];
+            $nameseonamedanhmuc_cha = GET_text('tenbaiviet_',$datadanhmuc_cha);
+            $danhmuccha_name = GET_text('tenbaiviet_',$datadanhmuc_cha);
             $arraydata[$seonamedanhmuc_cha] = $nameseonamedanhmuc_cha;
             $nametitle = $nameseonamedanhmuc_cha;
         }
         $datadanhmuc = DB_fet("*", "#_danhmuc", 'showhi=1 and id=' . $slug_id, "", "1", "arr", 1);
         $datadanhmuc = reset($datadanhmuc);
         $seonamedanhmuc = $full_url . '/' . $datadanhmuc['seo_name'];
-        $nameseonamedanhmuc = $datadanhmuc['tenbaiviet_' . $lang];
-        $danhmucname = $datadanhmuc['tenbaiviet_' . $lang];
+        $nameseonamedanhmuc = GET_text('tenbaiviet_',$datadanhmuc);
+        $danhmucname = GET_text('tenbaiviet_',$datadanhmuc);
         $arraydata[$seonamedanhmuc] = $nameseonamedanhmuc;
         $nametitle = $nameseonamedanhmuc;
         if (!empty($datadanhmuc['icon'])) {
@@ -96,7 +97,7 @@ if ($motty == '404') {
             'showhi=1 and id=' . $slug_id, "", "1", "arr", 1, "");
         $databaiviet = reset($databaiviet);
         $seonamebaiviet = $full_url . '/' . $databaiviet['seo_name'];
-        $nameseonamebaiviet = $databaiviet['tenbaiviet_' . $lang];
+        $nameseonamebaiviet = GET_text('tenbaiviet_',$databaiviet);
 
         $datadanhmuc = DB_fet("*",
             "#_danhmuc",
@@ -107,10 +108,10 @@ if ($motty == '404') {
             1, "");
         $datadanhmuc = reset($datadanhmuc);
         if (!empty($databaiviet['id_parent'])) {
-            $danhmucname = !empty($datadanhmuc['tenbaiviet_' . $lang]) ? $datadanhmuc['tenbaiviet_' . $lang] : "";
+            $danhmucname = GET_text('tenbaiviet_',$datadanhmuc) ;
         }
         $seonamedanhmuc = !empty($datadanhmuc['seo_name']) ? $full_url . '/' . $datadanhmuc['seo_name'] : "";
-        $nameseonamedanhmuc = !empty($datadanhmuc['tenbaiviet_' . $lang]) ? $datadanhmuc['tenbaiviet_' . $lang] : "";
+        $nameseonamedanhmuc = GET_text('tenbaiviet_',$datadanhmuc);
 
         $arraydata[$seonamedanhmuc] = $nameseonamedanhmuc;
         $nametitle = $nameseonamebaiviet;

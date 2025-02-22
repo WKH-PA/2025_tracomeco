@@ -39,20 +39,20 @@ if ($templateId == 2 && $slug_table != 'danhmuc') {
     <div class="container-fluid">
         <?php if (!empty($dataAboutStyle)) { ?>
             <div class="tracomeco_title_main">
-                <h2 class="text-uppercase m-b-10"><?= $dataAboutStyle['mota_' . $lang] ?></h2>
-                <?= $dataAboutStyle['noidung_' . $lang] ?>
+                <h2 class="text-uppercase m-b-10"><?= GET_text('mota',$dataAboutStyle)?></h2>
+                <?= GET_text('noidung',$dataAboutStyle) ?>
             </div>
         <?php } ?>
         <div class="tracomeco-container">
             <div class="tracomeco-bar tracomeco-black">
                 <?php
                 $count = 1;
-                foreach ($aboutHot as $item) {
+                foreach ($aboutHot as $rows) {
                     $class = $count == 1 ? "tracomeco-red" : "";
-                    $id = $item['id'];
+                    $id = $rows['id'];
                     ?>
                     <button class="tracomeco-bar-item tracomeco-button tablink <?= $class ?>"
-                            onclick="openCity(event,'tab_<?= $id ?>')"><?= $item['tenbaiviet_' . $lang] ?>
+                            onclick="openCity(event,'tab_<?= $id ?>')"><?= GET_text('tenbaiviet_') ?>
                     </button>
                     <?php
                     $count++;
@@ -60,12 +60,12 @@ if ($templateId == 2 && $slug_table != 'danhmuc') {
             </div>
             <?php
             $count = 1;
-            foreach ($aboutHot as $item) {
-                $id = $item['id'];
+            foreach ($aboutHot as $rows) {
+                $id = $rows['id'];
                 $isFirst = $count == 1 ? "" : "hidden";
                 ?>
                 <div id='tab_<?= $id ?>' class="tracomeco-container tracomeco-border city <?= $isFirst ?>">
-                    <?= $item['noidung_' . $lang] ?>
+                    <?= GET_text('noidung') ?>
                 </div>
                 <?php
                 $count++;

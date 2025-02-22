@@ -3,9 +3,9 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xl-3 col-md-6">
-                    <h3 class="itemtitle"><?=$thongtin['tenbaiviet_'.$lang]?></h3>
+                    <h3 class="itemtitle"><?=GET_text('tenbaiviet_',$thongtin)?></h3>
                     <ul class="itemlist p-t-10">
-                        <li><?=$glo_lang['dia_chi']?>: <?=$thongtin['diachi_'.$lang]?></li>
+                        <li><?=$glo_lang['dia_chi']?>: <?=GET_text('diachi',$thongtin)?></li>
                         <li><?=$glo_lang['email']?>: <?=$thongtin['email_vi']?></li>
                         <li><?=$glo_lang['so_dien_thoai']?>: <?=$thongtin['sodienthoai_vi']?></li>
                         <li><?=$glo_lang['fax']?>: <?=$thongtin['hotline_vi']?></li>
@@ -17,7 +17,7 @@
                     <h3 class="itemtitle"><strong><?=$glo_lang['truyen_thong']?></strong></h3>
                     <ul class="itemlist p-t-10">
                         <?php foreach ($danhmuc as $rows) { ?>
-                            <li><a <?=full_href($rows) ?>><?=SHOW_text($rows['tenbaiviet_'.$lang]) ?></a></li>
+                            <li><a <?=full_href($rows) ?>><?=GET_text('tenbaiviet_') ?></a></li>
                         <?php } ?>
                     </ul>
                 </div>
@@ -26,7 +26,7 @@
                     <h3 class="itemtitle"><strong><?=$glo_lang['linh_vuc_hoat_dong']?></strong></h3>
                     <ul class="itemlist p-t-10">
                         <?php foreach ($danhmuc2 as $rows) { ?>
-                            <li><a <?=full_href($rows) ?>><?=SHOW_text($rows['tenbaiviet_'.$lang]) ?></a></li>
+                            <li><a <?=full_href($rows) ?>><?=GET_text('tenbaiviet_') ?></a></li>
                         <?php } ?>
                     </ul>
                 </div>

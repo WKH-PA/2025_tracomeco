@@ -7,7 +7,7 @@ $imggioithieu = LAY_baiviet_chitiet(25);
 ?>
 <?php include _source . "header_baiviet.php";?>
 
-<?php $danhmuc_menu = GET_danhmuc_menu("4", $lang, 3, 4); ?>
+<?php $danhmuc_menu = GET_danhmuc_menu("4", 3, 4); ?>
 <section class="tracomeco_home_linhvuc p-t-60 p-b-60">
     <div class="container-fluid">
         <div class="tracomeco_title_main">
@@ -57,7 +57,7 @@ $imggioithieu = LAY_baiviet_chitiet(25);
                 foreach ($nd_danhgia as $rows) {
                     ?>
                     <div class="khach_hang_box swiper-slide">
-                        <h3><?= $rows['tenbaiviet_' . $lang] ?></h3>
+                        <h3><?= GET_text('tenbaiviet_') ?></h3>
                         <?php
                         $rating = $rows['mota_vi'];
                         $total_stars = 4;
@@ -76,7 +76,7 @@ $imggioithieu = LAY_baiviet_chitiet(25);
                             }
                             ?>
                         </p>
-                        <?= $rows['noidung_' . $lang] ?>
+                        <?= GET_text('noidung') ?>
                     </div>
                 <?php } ?>
 
@@ -138,11 +138,11 @@ if (!empty($tintuc) || !empty($nd_tuyendung)) {
                                         <a <?= full_href($rows) ?>><?= full_img($rows, "") ?></a>
                                     </div>
                                     <div class="post_info">
-                                        <h3><a <?= full_href($rows) ?>><?= $rows['tenbaiviet_' . $lang] ?></a></h3>
+                                        <h3><a <?= full_href($rows) ?>><?= GET_text('tenbaiviet_') ?></a></h3>
                                         <p class="dated"><i
                                                     class="fa-regular fa-calendar-days"></i> <?= date("d/m/Y", $rows['ngaydang']); ?>
                                         </p>
-                                        <p style="margin-bottom: 0"><?= $rows['mota_' . $lang] ?></p>
+                                        <p style="margin-bottom: 0"><?= GET_text('mota') ?></p>
                                     </div>
                                 </div>
                             </div>
@@ -157,7 +157,7 @@ if (!empty($tintuc) || !empty($nd_tuyendung)) {
                                             <a <?= full_href($rows) ?>><?= full_img($rows, "") ?></a>
                                         </div>
                                         <div class="post_info">
-                                            <h3><a <?= full_href($rows) ?>><?= $rows['tenbaiviet_' . $lang] ?></a></h3>
+                                            <h3><a <?= full_href($rows) ?>><?= GET_text('tenbaiviet_') ?></a></h3>
                                             <p class="dated"><i
                                                         class="fa-regular fa-calendar-days"></i> <?= date("d/m/Y", $rows['ngaydang']); ?>
                                             </p>
@@ -182,7 +182,7 @@ if (!empty($tintuc) || !empty($nd_tuyendung)) {
                         <?php foreach ($nd_tuyendung as $rows) { ?>
                             <div class="post_item wow animate__fadeInDown">
                                 <div class="post_info">
-                                    <h3><a <?= full_href($rows) ?>><?= $rows['tenbaiviet_' . $lang] ?></a></h3>
+                                    <h3><a <?= full_href($rows) ?>><?= GET_text('tenbaiviet_') ?></a></h3>
                                     <p class="dated"><i class="fa-regular fa-calendar-days"></i> <?= date("d/m/Y", $rows['ngaydang']); ?></p>
                                 </div>
                             </div>
@@ -206,7 +206,7 @@ $banner = LAY_banner_new("id_parent =29");
                     foreach ($banner as $rows) { ?>
 
                         <li class="swiper-slide">
-                            <a <?= full_href($rows) ?> target="_blank" title="<?= $rows['tenbaiviet_' . $lang] ?>"
+                            <a <?= full_href($rows) ?> target="_blank" title="<?= GET_text('tenbaiviet_') ?>"
                                                        class="logo_bottom">
                                 <?= full_img($rows, "") ?>
                             </a>

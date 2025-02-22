@@ -118,13 +118,13 @@ if ($tn != "") {
     // $tn   = str_replace(".", ",", $tn);
     // $tn_c = explode(",", $tn);
     // $tn_c = count($tn_c);
-    // $wh .= " AND `id` IN (SELECT `id_baiviet`  
-    //       FROM `#_baiviet_select_tinhnang` 
-    //       WHERE `id_tinhnang` IN ($tn) 
+    // $wh .= " AND `id` IN (SELECT `id_baiviet`
+    //       FROM `#_baiviet_select_tinhnang`
+    //       WHERE `id_tinhnang` IN ($tn)
     //       GROUP BY `id_baiviet`
     //       HAVING COUNT(*) = $tn_c) ";
-    // $wh .= " AND `id` IN (SELECT `id_baiviet`  
-    //       FROM `#_baiviet_select_tinhnang` 
+    // $wh .= " AND `id` IN (SELECT `id_baiviet`
+    //       FROM `#_baiviet_select_tinhnang`
     //       WHERE `id_val` = '$tn' ) ";
 }
 if ($sort == 1) {
@@ -251,8 +251,8 @@ include _source . "box-header.php";
                     <div class="new_id_bs m-b-30">
                         <a <?= full_href($rows) ?>><?= full_img($rows) ?></a>
                         <div class="new_col">
-                            <h3><a <?= full_href($rows) ?>><?= GET_text($rows,'tenbaiviet_') ?></a></h3>
-                            <p><?= limitText(GET_text($rows,'mota_'),3) ?></p>
+                            <h3><a <?= full_href($rows) ?>><?= GET_text('tenbaiviet') ?></a></h3>
+                            <p><?= limitText(GET_text('mota'),3) ?></p>
                         </div>
                         <div class="clr"></div>
                     </div>

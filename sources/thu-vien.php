@@ -18,7 +18,7 @@ include _source . "box-header.php";
                 <div class="new_id_bs m-b-30" style="cursor: pointer;" data-target="#hinhanh<?= $key ?>">
                     <a href=""><?= full_img($rows) ?></a>
                     <div class="new_col">
-                        <h3><i class="fa-light fa-image"></i> <?= $rows['tenbaiviet_' . $lang] ?></h3>
+                        <h3><i class="fa-light fa-image"></i> <?= GET_text('tenbaiviet_') ?></h3>
                     </div>
                     <div class="clr"></div>
                     <!--- popup-box --->
@@ -31,7 +31,7 @@ include _source . "box-header.php";
                                 if (is_array($img_ct) && !empty($img_ct)) {
                                     ?>
                                     <h2 style="font-size: 23px; margin-bottom: 25px; text-align: center;">
-                                        <?= $rows['tenbaiviet_' . $lang] ?>
+                                        <?= GET_text('tenbaiviet_') ?>
                                     </h2>
                                     <div class="row m-0">
                                         <?php foreach ($img_ct as $rowss) { ?>
@@ -72,10 +72,10 @@ include _source . "box-header.php";
                             <div class="post_img">
                                 <a><img src="<?= $fullpath . '/datafiles/' . $rows['icon'] ?>"
                                         class="isload isload_full isload_full_1"
-                                        alt="<?= $rows['tenbaiviet_' . $lang] ?>"></a>
+                                        alt="<?= GET_text('tenbaiviet_') ?>"></a>
                             </div>
                             <div class="post_info">
-                                <h3><a><i class="fa-light fa-circle-play"></i> <?= $rows['tenbaiviet_' . $lang] ?></a>
+                                <h3><a><i class="fa-light fa-circle-play"></i> <?= GET_text('tenbaiviet_') ?></a>
                                 </h3>
                             </div>
                             <!--- popup-box --->
@@ -83,7 +83,7 @@ include _source . "box-header.php";
                                 <div class="popup-box">
                                     <div class="close"><i class="fa-light fa-xmark"></i></div>
                                     <div class="content_croll" style="height: auto;">
-                                        <h2 style="font-size: 23px;margin-bottom: 25px;text-align: center;"><?= $rows['tenbaiviet_' . $lang] ?></h2>
+                                        <h2 style="font-size: 23px;margin-bottom: 25px;text-align: center;"><?= GET_text('tenbaiviet_') ?></h2>
                                         <iframe width="100%" height="650" src="<?= $rows['p1'] ?>"
                                                 title="YouTube video player" frameborder="0"
                                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -104,17 +104,17 @@ include _source . "box-header.php";
                                 <div class="post_img">
                                     <a><img src="<?= $fullpath . '/datafiles/' . $rows['icon'] ?>"
                                             class="isload isload_full isload_full_1"
-                                            alt="<?= $rows['tenbaiviet_' . $lang] ?>"></a>
+                                            alt="<?= GET_text('tenbaiviet_') ?>"></a>
                                 </div>
                                 <div class="post_info">
-                                    <h3><a><i class="fa-light fa-circle-play"></i> <?= $rows['tenbaiviet_' . $lang] ?>
+                                    <h3><a><i class="fa-light fa-circle-play"></i> <?= GET_text('tenbaiviet_') ?>
                                         </a></h3>
                                 </div>
                                 <div id="video2" class="overlay-dark">
                                     <div class="popup-box">
                                         <div class="close"><i class="fa-light fa-xmark"></i></div>
                                         <div class="content_croll" style="height: auto;">
-                                            <h2 style="font-size: 23px;margin-bottom: 25px;text-align: center;"><?= $rows['tenbaiviet_' . $lang] ?></h2>
+                                            <h2 style="font-size: 23px;margin-bottom: 25px;text-align: center;"><?= GET_text('tenbaiviet_') ?></h2>
                                             <iframe width="100%" height="650" src="<?= $rows['p1'] ?>"
                                                     title="YouTube video player" frameborder="0"
                                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

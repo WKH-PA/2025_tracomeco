@@ -15,46 +15,46 @@ $aboutHot = DB_fet("*",
                 <img src="<?= $aboutBgBox ?>">
                 <ul class="uu-diem wow animate__fadeInLeft"
                     style="visibility: visible; animation-name: fadeInLeft;">
-                    <?php foreach ($dataCategoryStep9 as $item) { ?>
-                        <li><?= $item['tenbaiviet_' . $lang] ?></li>
+                    <?php foreach ($dataCategoryStep9 as $rows) { ?>
+                        <li><?= GET_text('tenbaiviet_') ?></li>
                     <?php } ?>
                 </ul>
             </div>
             <?php
             $idFirst = 0;
-            foreach ($aboutHot as $item) {
+            foreach ($aboutHot as $rows) {
                 if ($idFirst > 0)
                     continue;
-                $images = $full_url . '/datafiles/' . $item['icon'];
+                $images = $full_url . '/datafiles/' . $rows['icon'];
                 ?>
                 <div class="gt_left">
                     <img src="<?= $images ?>">
                     <div class="tracomeco_title_main">
-                        <h3><?= $item['tenbaiviet_' . $lang] ?></h3>
-                        <p><?= $item['mota_' . $lang] ?></p>
+                        <h3><?= GET_text('tenbaiviet_') ?></h3>
+                        <p><?= GET_text('mota') ?></p>
                     </div>
-                    <?= $item['noidung_' . $lang] ?>
+                    <?= GET_text('noidung') ?>
                 </div>
                 <?php
-                $idFirst = $item['id'];
+                $idFirst = $rows['id'];
             } ?>
         </div>
         <div class="row flex">
             <?php
             $count = 2;
-            foreach ($aboutHot as $item) {
-                if ($item['id'] == $idFirst)
+            foreach ($aboutHot as $rows) {
+                if ($rows['id'] == $idFirst)
                     continue;
-                $images = $full_url . '/datafiles/' . $item['icon'];
+                $images = $full_url . '/datafiles/' . $rows['icon'];
                 $class = $count % 2 == 0 ? "gt_left" : "gt_right";
                 ?>
                 <div class="<?= $class ?>">
                     <img src="<?= $images ?>">
                     <div class="tracomeco_title_main">
-                        <h3><?= $item['tenbaiviet_' . $lang] ?></h3>
-                        <p><?= $item['mota_' . $lang] ?></p>
+                        <h3><?= GET_text('tenbaiviet_') ?></h3>
+                        <p><?= GET_text('mota') ?></p>
                     </div>
-                    <?= $item['noidung_' . $lang] ?>
+                    <?= GET_text('noidung') ?>
                 </div>
                 <?php
                 $count++;

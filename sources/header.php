@@ -55,7 +55,7 @@ if (!empty($thongtin['banner_gt_bg'])) {
         <div class="row flex" style="align-items:center;">
             <div class="logo_top">
                 <a href="<?= $full_url . "/" ?>">
-                    <img src="<?= full_src($thongtin, '') ?>" alt="<?= $thongtin['tenbaiviet_' . $lang] ?>">
+                    <img src="<?= full_src($thongtin, '') ?>" alt="<?= GET_text('tenbaiviet_',$thongtin) ?>">
                 </a>
             </div>
             <div class="main_menu">

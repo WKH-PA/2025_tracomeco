@@ -1,6 +1,6 @@
 <?php
     // Get danh muc menu theo id
-    function GET_danhmuc_menu($id_menu, $lang = 'vi', $limit_danhmuc = 3, $limit_baiviet = 4)
+    function GET_danhmuc_menu($id_menu, $limit_danhmuc = 3, $limit_baiviet = 4)
     {
         global $fullpath;
         if (!$id_menu) return [];
@@ -19,15 +19,15 @@
 
         $grouped_baiviet = [];
         foreach ($tb_listbv as $bv) {
-            $grouped_baiviet[$bv['id_parent']][] = $bv['tenbaiviet_' .$lang];
+            $grouped_baiviet[$bv['id_parent']][] = GET_text('tenbaiviet_', $bv);
         }
         $data = [];
         foreach ($tb_danhmuc as $dm) {
             $data[] = [
-                'tenbaiviet_danhmuc' => $dm['tenbaiviet_' . $lang],
+                'tenbaiviet_danhmuc' => GET_text('tenbaiviet_',$dm),
                 'icon_danhmuc' => !empty($dm['icon']) ? full_src($dm, '') : '',
-                'mota_danhmuc' => !empty($dm['mota_'. $lang]) ? $dm['mota_'. $lang] : '',
-                'noidung_danhmuc' => !empty($dm['noidung_'. $lang]) ? $dm['noidung_'. $lang] : '',
+                'mota_danhmuc' => GET_text('mota',$dm),
+                'noidung_danhmuc' => GET_text('noidung',$dm),
                 'seo_name_danhmuc' => !empty($dm['seo_name']) ? $fullpath. "/". $dm['seo_name'] :'' ,
                 'tenbaiviet' => !empty($grouped_baiviet[$dm['id']]) ? $grouped_baiviet[$dm['id']] : []
             ];
@@ -47,7 +47,7 @@
     }
 
 
-    //==========>menu
+    //==========>document
         function shorten_text($text, $max_length) {
             return (strlen($text) > $max_length) ? substr($text, 0, $max_length) . '...' : $text;
         }
@@ -88,65 +88,36 @@
         }
     //======>
 
+/**
+ * @param string $field Tên trường dữ liệu cần lấy (sẽ tự động thêm "_" nếu chưa có).
+ * @param array $item Mảng dữ liệu đầu vào, nếu không truyền vào sẽ dùng biến toàn cục $rows.
+ * @param string $fallbacks Ngôn ngữ mặc định.
+ *
+ * @return string Giá trị của trường dữ liệu theo ngôn ngữ hiện tại hoặc ngôn ngữ mặc định.
+ *                Nếu có lỗi hoặc không tìm thấy dữ liệu, trả về chuỗi rỗng.
+ */
+function GET_text($field, $item = [], $fallbacks = "vi") {
+    global $lang;
+    global $rows;
+    $item = !empty($item) ? $item : $rows;
 
-
-function GET_text($rows, $field, $fallbacks = "vi") {
-    global  $lang;
-    try{
-        if(empty($rows)){
-            throw new Exception("Dữ liệu đối tượng không hợp lệ",404);
+    try {
+        if (empty($rows)) {
+            throw new Exception("Dữ liệu đối tượng không hợp lệ", 404);
         }
-        if(empty($field)){
-            throw new Exception("Không xác định được trường thông tin cần lấy",404);
+        if (empty($field)) {
+            throw new Exception("Không xác định được trường thông tin cần lấy", 404);
         }
-
-        return !empty($rows[$field.$lang])?$rows[$field.$lang]:$rows[$field.$fallbacks];
-
-
-    }catch (Exception $ex){
-        return  "";
-    }
-
-//
-//
-//
-//    $keyLang = $field . $lang; // Ví dụ: 'tenbaiviet_en'
-//
-//    // Kiểm tra nếu tồn tại dữ liệu theo ngôn ngữ yêu cầu
-//    if (isset($rows[$keyLang]) && !empty($rows[$keyLang])) {
-//        return $rows[$keyLang];
-//    }
-//
-//    // Duyệt danh sách fallback để tìm dữ liệu thay thế
-//    foreach ($fallbacks as $fallback) {
-//        $keyFallback = $field . $fallback;
-//        if (isset($rows[$keyFallback]) && !empty($rows[$keyFallback])) {
-//            return $rows[$keyFallback];
-//        }
-//    }
-//
-//    return ''; // Trả về chuỗi rỗng nếu không tìm thấy dữ liệu
-}
-
-function GET_text_new($field, $item=[], $fallbacks = "vi") {
-    global  $lang;
-    global  $rows;
-    $item = !empty($item)?$item:$rows;
-    try{
-        if(empty($rows)){
-            throw new Exception("Dữ liệu đối tượng không hợp lệ",404);
+        if (substr($field, -1) !== "_") {
+            $field .= "_";
         }
-        if(empty($field)){
-            throw new Exception("Không xác định được trường thông tin cần lấy",404);
-        }
+        return !empty($item[$field . $lang]) ? $item[$field . $lang] : $item[$field . $fallbacks];
 
-        return !empty($rows[$field.$lang])?$rows[$field.$lang]:$rows[$field.$fallbacks];
-
-
-    }catch (Exception $ex){
-        return  "";
+    } catch (Exception $ex) {
+        return "";
     }
 }
+
 
 
 

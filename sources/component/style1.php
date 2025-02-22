@@ -32,8 +32,8 @@ foreach ($dataImgChild as $imgChild) {
 </div>
 <div class="col-xl-6 col-txt">
     <div class="home_dichvu_text wow animate__fadeInRight">
-        <h2><?= $dataStep['tenbaiviet_' . $lang] ?></h2>
-        <h3>  <?= $aboutData['tenbaiviet_' . $lang] ?></h3>
+        <h2><?= GET_text('tenbaiviet_',$dataStep)  ?></h2>
+        <h3>  <?= GET_text('tenbaiviet_',$aboutData) ?></h3>
         <?= $contentAbout ?>
         <?php if ($hiddenLink) { ?>
             <p class="read-more">

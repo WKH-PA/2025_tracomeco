@@ -13,11 +13,11 @@
                     <div class="new_id_bs m-b-10 swiper-slide">
                         <a <?= full_href($rows) ?>><?= full_img($rows) ?></a>
                         <div class="new_col">
-                            <h3><a <?= full_href($rows) ?>><?= $rows['tenbaiviet_' . $lang] ?></a></h3>
+                            <h3><a <?= full_href($rows) ?>><?= GET_text('tenbaiviet_') ?></a></h3>
                             <?php if($thongtin_step= '5' ){ ?>
                             <p class="dated"><i class="fa-regular fa-calendar-days"></i> <?= date("d/m/Y", $rows['ngaydang'])?></p>
                             <?php } ?>
-                            <p><?= limitText($rows['mota_' . $lang],3) ?></p>
+                            <p><?= limitText(GET_text('mota'),3) ?></p>
                         </div>
                         <div class="clr"></div>
                     </div>

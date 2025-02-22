@@ -24,9 +24,9 @@ include _source . "box-header.php";
                         // if($i > 1) continue;
                         // full_img($rows, '')
                         ?>
-                        <h3><?=GET_text($rows,'tenbaiviet_')?></h3>
+                        <h3><?=GET_text('tenbaiviet')?></h3>
                     <ul>
-                        <p><?=GET_text($rows,'noidung_') ?></p>
+                        <p><?=GET_text('noidung') ?></p>
                     </ul>
 
                     <?php } ?>
@@ -62,10 +62,10 @@ include _source . "box-header.php";
                 ?>
                 <button class="tracomeco-bar-item tracomeco-button tablink <?= $activeClass ?>"
                         data-id="<?= $cityId ?>"
-                        data-title="<?= GET_text($rows,'tenbaiviet_') ?>"
-                        data-content="<?= htmlspecialchars(GET_text($rows,'noidung_')) ?>"
+                        data-title="<?= GET_text('tenbaiviet') ?>"
+                        data-content="<?= htmlspecialchars(GET_text('noidung')) ?>"
                         onclick="openCity(this, '<?= $cityId ?>')">
-                    <?= GET_text($rows,'tenbaiviet_') ?>
+                    <?= GET_text('tenbaiviet') ?>
                 </button>
                 <?php
                 $count++;
@@ -79,8 +79,8 @@ include _source . "box-header.php";
             $activeClass = ($count == 1) ? 'active' : '';
             ?>
             <div id="<?= $cityId ?>" class="tracomeco-container tracomeco-border city <?= $activeClass ?>">
-                <iframe src="<?= GET_text($rows,'mota_') ?>" width="100%" height="400" style="border:0;" allowfullscreen loading="lazy"></iframe>
-                <p><?= GET_text($rows,'noidung_') ?></p>
+                <iframe src="<?= GET_text('mota') ?>" width="100%" height="400" style="border:0;" allowfullscreen loading="lazy"></iframe>
+                <p><?= GET_text('noidung') ?></p>
             </div>
             <?php
             $count++;

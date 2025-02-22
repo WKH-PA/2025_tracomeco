@@ -1458,19 +1458,19 @@
 		global $full_url, $lang;
 		$target 	= $tb_menu[$id_menu]['cua_so_moi'] == 1 ? "target='_blank'" : '';
 		if($tb_menu[$id_menu]['kieu_chon']  == 0) {
-			return '<a class="'.$class_a.' active_mn_01" href="'.GET_link($full_url, SHOW_text($tb_menu[$id_menu]['seo_name'])).'" icons="&rsaquo;" '.$target.'>'.$img_1.$img_2.$tb_menu[$id_menu]['tenbaiviet_'.$lang].'</a>';
+			return '<a class="'.$class_a.' active_mn_01" href="'.GET_link($full_url, SHOW_text($tb_menu[$id_menu]['seo_name'])).'" icons="&rsaquo;" '.$target.'>'.$img_1.$img_2.GET_text('tenbaiviet_',$tb_menu[$id_menu]).'</a>';
 		}
 		else{
 			if($tb_menu[$id_menu]['step'] > 0){
 				if($tb_menu[$id_menu]['danhmuc'] != 0){
-					return '<a class="'.$class_a.' active_mn_'.$tb_menu[$id_menu]['step'].'" href="'.GET_link($full_url, SHOW_text($tb_danhmuc[$tb_menu[$id_menu]['danhmuc']]['seo_name'])).'" icons="&rsaquo;" '.$target.'>'.SHOW_text($tb_menu[$id_menu]['tenbaiviet_'.$lang]).'</a>';
+					return '<a class="'.$class_a.' active_mn_'.$tb_menu[$id_menu]['step'].'" href="'.GET_link($full_url, SHOW_text($tb_danhmuc[$tb_menu[$id_menu]['danhmuc']]['seo_name'])).'" icons="&rsaquo;" '.$target.'>'. GET_text('tenbaiviet_',$tb_menu[$id_menu]).'</a>';
 				}else{
-					return '<a class="'.$class_a.' active_mn_'.$tb_menu[$id_menu]['step'].'" href="'.GET_link($full_url, SHOW_text($tb_step[$tb_menu[$id_menu]['step']]['seo_name'])).'" icons="&rsaquo;" '.$target.'>'.SHOW_text($tb_menu[$id_menu]['tenbaiviet_'.$lang]).'</a>';
+					return '<a class="'.$class_a.' active_mn_'.$tb_menu[$id_menu]['step'].'" href="'.GET_link($full_url, SHOW_text($tb_step[$tb_menu[$id_menu]['step']]['seo_name'])).'" icons="&rsaquo;" '.$target.'>'.GET_text('tenbaiviet_',$tb_menu[$id_menu]).'</a>';
 				}
 
 			}
 		}
-		return '<a class="'.$class_a.' active_mn_0" href="'.GET_link($full_url, SHOW_text($tb_menu[$id_menu]['seo_name'])).'" icons="&rsaquo;" '.$target.'>'.SHOW_text($tb_menu[$id_menu]['tenbaiviet_'.$lang]).'</a>';
+		return '<a class="'.$class_a.' active_mn_0" href="'.GET_link($full_url, SHOW_text($tb_menu[$id_menu]['seo_name'])).'" icons="&rsaquo;" '.$target.'>'.GET_text('tenbaiviet_',$tb_menu[$id_menu]).'</a>';
 
 	}
 
@@ -1490,9 +1490,9 @@
 					}
 					$count++;
 					// if ($count % 4 == 0) {
-					// 	$return    .= '<li class="'.$class_li.'"><a class="'.$class_a.'" href="'.GET_link($full_url, $val['seo_name']).$them.'" icons="&rsaquo;">'.$val['tenbaiviet_'.$lang].'</a></li><br>';
+					// 	$return    .= '<li class="'.$class_li.'"><a class="'.$class_a.'" href="'.GET_link($full_url, $val['seo_name']).$them.'" icons="&rsaquo;">'.GET_text('tenbaiviet_', $val).'</a></li><br>';
 					// }
-					$return    .= '<li class="'.$class_li.'"><a class="'.$class_a.'" href="'.GET_link($full_url, $val['seo_name']).$them.'" icons="&rsaquo;">'.$val['tenbaiviet_'.$lang].'</a></li>';
+					$return    .= '<li class="'.$class_li.'"><a class="'.$class_a.'" href="'.GET_link($full_url, $val['seo_name']).$them.'" icons="&rsaquo;">'.GET_text('tenbaiviet_', $val).'</a></li>';
 					
 				}
 				return $return != "" ? "<ul class='".$class_ul."'>".$img_1.$return."</ul>" : $return;
@@ -1507,26 +1507,26 @@
 					if($dmuc['step'] 		!= $row['step']) 	continue; // khac step
 					if($dmuc['id_parent'] 	!= 0)  continue; // khac dm cha
 
-					$list_dm_sel .= '<li 11 1 class="is_step_'.$dmuc['step'].' '.$class_li.' hide_'.$dmuc['id'].'" ><a class="'.$class_a.'" href="'.GET_link($full_url, $dmuc['seo_name']).'" icons="&rsaquo;" dataid="'.$dmuc['id'].'">'.$dmuc['tenbaiviet_'.$lang].'</a>';
+					$list_dm_sel .= '<li 11 1 class="is_step_'.$dmuc['step'].' '.$class_li.' hide_'.$dmuc['id'].'" ><a class="'.$class_a.'" href="'.GET_link($full_url, $dmuc['seo_name']).'" icons="&rsaquo;" dataid="'.$dmuc['id'].'">'.GET_text('tenbaiviet_', $dmuc).'</a>';
 
 					//cap 2
 					$list_dm_sel_2 = "";
 					foreach ($tb_danhmuc as $dmuc_2) {
 						if($dmuc_2['id_parent'] != $dmuc['id'])  continue; // khac dm con
 
-						$list_dm_sel_2 .= '<li class="'.$class_li.' "><a class="'.$class_a.'" href="'.GET_link($full_url, $dmuc_2['seo_name']).'" icons="&rsaquo;">'.$dmuc_2['tenbaiviet_'.$lang].'</a>';
+						$list_dm_sel_2 .= '<li class="'.$class_li.' "><a class="'.$class_a.'" href="'.GET_link($full_url, $dmuc_2['seo_name']).'" icons="&rsaquo;">'.GET_text('tenbaiviet_', $dmuc_2).'</a>';
 						//cap 3
 						$list_dm_sel_3 = "";
 						foreach ($tb_danhmuc as $dmuc_3) {
 							if($dmuc_3['id_parent'] != $dmuc_2['id'])  continue; // khac dm con
 
-							$list_dm_sel_3 .= '<li class="'.$class_li.' "><a class="'.$class_a.'" href="'.GET_link($full_url, $dmuc_3['seo_name']).'" icons="&rsaquo;">'.$dmuc_3['tenbaiviet_'.$lang].'</a>';
+							$list_dm_sel_3 .= '<li class="'.$class_li.' "><a class="'.$class_a.'" href="'.GET_link($full_url, $dmuc_3['seo_name']).'" icons="&rsaquo;">'.GET_text('tenbaiviet_', $dmuc_3).'</a>';
 							//cap 4
 							$list_dm_sel_4 = "";
 							foreach ($tb_danhmuc as $dmuc_4) {
 								if($dmuc_4['id_parent'] != $dmuc_3['id'])  continue; // khac dm con
 
-								$list_dm_sel_4 .= '<li class="'.$class_li.' "><a class="'.$class_a.'" href="'.GET_link($full_url, $dmuc_4['seo_name']).'" icons="&rsaquo;">'.$dmuc_4['tenbaiviet_'.$lang].'</a></li>';
+								$list_dm_sel_4 .= '<li class="'.$class_li.' "><a class="'.$class_a.'" href="'.GET_link($full_url, $dmuc_4['seo_name']).'" icons="&rsaquo;">'.GET_text('tenbaiviet_', $dmuc_4).'</a></li>';
 							}
 							// end cap 4
 							$list_dm_sel_4 = $list_dm_sel_4 != "" ? "<ul class='".$class_ul."'>".$list_dm_sel_4."</ul>" : $list_dm_sel_4;
@@ -1552,25 +1552,25 @@
 					if($dmuc['step'] 		!= $row['step']) 	continue; // khac step
 					if($dmuc['id_parent'] 	!= $row['danhmuc'])  continue; // khac dm chon
 
-					$list_dm_sel .= '<li class="'.$class_li.' "><a class="'.$class_a.'" href="'.GET_link($full_url, $dmuc['seo_name']).'" icons="&rsaquo;">'.$dmuc['tenbaiviet_'.$lang].'</a>';
+					$list_dm_sel .= '<li class="'.$class_li.' "><a class="'.$class_a.'" href="'.GET_link($full_url, $dmuc['seo_name']).'" icons="&rsaquo;">'.GET_text('tenbaiviet_', $dmuc).'</a>';
 					//cap 2
 					$list_dm_sel_2 = "";
 					foreach ($tb_danhmuc as $dmuc_2) {
 						if($dmuc_2['id_parent'] != $dmuc['id'])  continue; // khac dm con
 
-						$list_dm_sel_2 .= '<li class="'.$class_li.' "><a class="'.$class_a.'" href="'.GET_link($full_url, $dmuc_2['seo_name']).'" icons="&rsaquo;">'.$dmuc_2['tenbaiviet_'.$lang].'</a>';
+						$list_dm_sel_2 .= '<li class="'.$class_li.' "><a class="'.$class_a.'" href="'.GET_link($full_url, $dmuc_2['seo_name']).'" icons="&rsaquo;">'.GET_text('tenbaiviet_', $dmuc_2).'</a>';
 						//cap 3
 						$list_dm_sel_3 = "";
 						foreach ($tb_danhmuc as $dmuc_3) {
 							if($dmuc_3['id_parent'] != $dmuc_2['id'])  continue; // khac dm con
 
-							$list_dm_sel_3 .= '<li class="'.$class_li.' "><a class="'.$class_a.'" href="'.GET_link($full_url, $dmuc_3['seo_name']).'" icons="&rsaquo;">'.$dmuc_3['tenbaiviet_'.$lang].'</a>';
+							$list_dm_sel_3 .= '<li class="'.$class_li.' "><a class="'.$class_a.'" href="'.GET_link($full_url, $dmuc_3['seo_name']).'" icons="&rsaquo;">'.GET_text('tenbaiviet_', $dmuc_3).'</a>';
 							//cap 4
 							$list_dm_sel_4 = "";
 							foreach ($tb_danhmuc as $dmuc_4) {
 								if($dmuc_4['id_parent'] != $dmuc_3['id'])  continue; // khac dm con
 
-								$list_dm_sel_4 .= '<li class="'.$class_li.' "><a class="'.$class_a.'" href="'.GET_link($full_url, $dmuc_4['seo_name']).'" icons="&rsaquo;">'.$dmuc_4['tenbaiviet_'.$lang].'</a></li>';
+								$list_dm_sel_4 .= '<li class="'.$class_li.' "><a class="'.$class_a.'" href="'.GET_link($full_url, $dmuc_4['seo_name']).'" icons="&rsaquo;">'.GET_text('tenbaiviet_', $dmuc_4).'</a></li>';
 							}
 							// end cap 4
 							$list_dm_sel_4 = $list_dm_sel_4 != "" ? "<ul class='".$class_ul."'>".$list_dm_sel_4."</ul>" : $list_dm_sel_4;
@@ -1611,13 +1611,13 @@
 				//exit();
 				//exit($row_1['kieu_hien_thi']);
 				if($row_1['kieu_hien_thi'] == 3 && $row_1['kieu_chon'] == 1) { //kieu ngang
-					$icon = $row_1['icon'] != "" ? '<img class="img-1" src="'.full_src($row_1, '').'" alt="'.SHOW_text($row_1['tenbaiviet_'.$lang]).'">' : "";
-					$icon_hover = $row_1['icon_hover'] != "" ? '<img class="img-2" src="'.full_src_muti($row_1, '', 'icon_hover').'" alt="'.SHOW_text($row_1['tenbaiviet_'.$lang]).'">' : "";
+					$icon = $row_1['icon'] != "" ? '<img class="img-1" src="'.full_src($row_1, '').'" alt="'.GET_text('tenbaiviet_',$row_1).'">' : "";
+					$icon_hover = $row_1['icon_hover'] != "" ? '<img class="img-2" src="'.full_src_muti($row_1, '', 'icon_hover').'" alt="'.GET_text('tenbaiviet_',$row_1).'">' : "";
 					$list_mb_1 .= check_chon_module_danhmuc($row_1, $class_ul, $class_li, $class_a, $tb_danhmuc);
 				}
 				else {
-					$icon = $row_1['icon'] != "" ? '<img class="img-1" src="'.full_src($row_1, '').'" alt="'.SHOW_text($row_1['tenbaiviet_'.$lang]).'">' : "";
-					$icon_hover = $row_1['icon_hover'] != "" ? '<img class="img-2" src="'.full_src_muti($row_1, '', 'icon_hover').'" alt="'.SHOW_text($row_1['tenbaiviet_'.$lang]).'">' : "";
+					$icon = $row_1['icon'] != "" ? '<img class="img-1" src="'.full_src($row_1, '').'" alt="'.GET_text('tenbaiviet_',$row_1).'">' : "";
+					$icon_hover = $row_1['icon_hover'] != "" ? '<img class="img-2" src="'.full_src_muti($row_1, '', 'icon_hover').'" alt="'.GET_text('tenbaiviet_',$row_1).'">' : "";
 
 					$list_mb_1 .= '<li class="is_step_'.$row_1['step'].' '.$class_li.' hide_'.$row_1['id'].'">'.MENU_return_link($class_a, $tb_menu, $tb_step, $tb_danhmuc, $row_1['id'], $icon, $icon_hover);
 				}

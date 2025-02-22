@@ -13,12 +13,12 @@
 
 
 <div class="box_right_pro_view">
-    <div class="title_right"><?= SHOW_text($thongtin_step['tenbaiviet_' . $lang]) ?></div>
+    <div class="title_right"><?= GET_text('tenbaiviet_',$thongtin_step) ?></div>
     <ul class="child_menu_right">
         <?php foreach ($danhmuc as $rows) {
             $active_class = ($rows['seo_name'] == $seo_name) ? 'class="active"' : '';
             ?>
-            <li ><a <?= full_href($rows) . $active_class ?>><?= SHOW_text($rows['tenbaiviet_' . $lang]) ?></a></li>
+            <li ><a <?= full_href($rows) . $active_class ?>><?= GET_text('tenbaiviet_') ?></a></li>
         <?php } ?>
     </ul>
     <div class="clr"></div>
@@ -32,7 +32,7 @@
             <div class="new_id_bs">
                 <li><a <?= full_href($rows) ?>><?= full_img($rows) ?></a></li>
                 <ul>
-                    <h3><a <?= full_href($rows) ?>><?= SHOW_text($rows['tenbaiviet_' . $lang]) ?></a></h3>
+                    <h3><a <?= full_href($rows) ?>><?= GET_text('tenbaiviet_') ?></a></h3>
                     <p class="dated"><i class="fa-regular fa-calendar-days"></i><?= date("d/m/Y", $rows['ngaydang']); ?>
                     </p>
                 </ul>

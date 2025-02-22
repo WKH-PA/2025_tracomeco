@@ -114,7 +114,7 @@ include _source . "box-header.php";
                                     <h3>
                                         <!-- Mở file khi nhấn vào tên -->
                                         <a <?= full_href($rows)?>>
-                                            <?= GET_text($rows,'tenbaiviet_') ?>
+                                            <?= GET_text('tenbaiviet_') ?>
                                         </a>
                                     </h3>
                                     <p>1 Files</p>
