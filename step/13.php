@@ -93,17 +93,17 @@ include _source . "box-header.php";
                             $day = date("d", $rows['ngaydang']);
                             $month_year = date("m/Y", $rows['ngaydang']);
 
-//                            $icon = '<i class="fa fa-file-excel-o"></i>';
-//                            $link = "";
-//                            $target = "";
+                            $icon = '<i class="fa fa-file-excel-o"></i>';
+                            $link = "";
+                            $target = "";
 
-//                            if ($rows['dowload_text'] != "") {
-//                                $link = $rows['dowload_text'];
-//                                $target = "target='_blank'";
-//                            } else if ($rows['dowload'] != "") {
-//                                $link = $fullpath . "/datafiles/files/" . $rows['dowload'];
-//                                $target = "download";
-//                            }
+                            if ($rows['dowload_text'] != "") {
+                                $link = $rows['dowload_text'];
+                                $target = "target='_blank'";
+                            } else if ($rows['dowload'] != "") {
+                                $link = $fullpath . "/datafiles/files/" . $rows['dowload'];
+                                $target = "download";
+                            }
                             ?>
                             <div class="info-item flex">
                                 <div class="info-left">
@@ -117,13 +117,17 @@ include _source . "box-header.php";
                                             <?= GET_text('tenbaiviet_') ?>
                                         </a>
                                     </h3>
-                                    <p>1 Files</p>
+                                <?php if (!empty($link)) { ?>
+                                        <p>1 Files</p>
+                                <?php } ?>
                                 </div>
-<!--                                <div class="download">-->
-<!--                                    <a href="--><?//= $link ?><!--" download class="post download">-->
-<!--                                        <i class="fal fa-arrow-to-bottom text-dark font28"></i>-->
-<!--                                    </a>-->
-<!--                                </div>-->
+                                <?php if (!empty($link)) { ?>
+                                    <div class="download">
+                                        <a href="<?= $link ?>" <?= $target ?> class="post download">
+                                            <i class="fal fa-arrow-to-bottom text-dark font28"></i>
+                                        </a>
+                                    </div>
+                                <?php } ?>
                             </div>
                             <?php
                         }
