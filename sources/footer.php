@@ -153,7 +153,7 @@
 
         var swiper = new Swiper(".myPartner", {
             loop: true,
-            slidesPerView: 5,
+            slidesPerView: 4,
             spaceBetween: 20,
             autoplay: {
                 delay: 5000,
@@ -173,7 +173,7 @@
                     spaceBetween: 20,
                 },
                 1024: {
-                    slidesPerView: 5,
+                    slidesPerView: 4,
                     spaceBetween: 20,
                 },
             },

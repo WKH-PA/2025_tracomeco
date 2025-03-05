@@ -111,7 +111,8 @@ function GET_text($field, $item = [], $fallbacks = "vi") {
         if (substr($field, -1) !== "_") {
             $field .= "_";
         }
-        return !empty($item[$field . $lang]) ? $item[$field . $lang] : $item[$field . $fallbacks];
+        return $item[$field . $lang] ?? $item[$field . $fallbacks] ?? "";
+
 
     } catch (Exception $ex) {
         return "";

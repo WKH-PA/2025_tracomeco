@@ -4,7 +4,9 @@
     if($motty == "") {
         include _source."home.php";
     }
-
+    else if($motty == "dai-ly" ) {
+        include _source . "daily.php";
+    }
     // else if($motty == "paypal"){
     //     include "paypal/index.php";
     // }

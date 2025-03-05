@@ -163,35 +163,13 @@ if ($motty == "search") {
     $datakhac = reset($datakhac);
     $images_background = $fullpath . '/' . $datakhac['duongdantin'] . '/' . $datakhac['icon'];
 }
-//if($slug_step == 2 && $motty != "search"){
-//    $images_background = $fullpath . '/' . $datastep['duongdantin'] . '/' . $datastep['icon'];
-//}
 if ($motty == "san-pham-noi-bat") {
     $strshort = '/ <a class="cl_active" href="' . $full_url . "/san-pham-noi-bat/" . '"> ' . $glo_lang['san_pham_noi_bat'] . '</a>';
 }
 ?>
 <?php if ($motty != "404") { ?>
-    <!--<div class="banner_detail" style="background-image: url('<?= $images_background ?>');">-->
-    <!--    <div class="banner_detail">-->
-    <!--        <div class="bannerimg">-->
-    <!--        <img style="width: 100%;height: 400px;object-fit: cover;" src="--><? //=$images_background?><!--">-->
-    <!--        </div>-->
-    <!--        <div class="content-page-title">-->
-    <!--            <h3 class="title">--><? //= $nametitle ?><!--</h3>-->
-    <!--        </div>-->
-    <!--        <div class="clr"></div>-->
-    <!--        <div class="link_page">-->
-    <!--            <div class="pagewrap">-->
-    <!--                <ul>-->
-    <!--                    <li><a href="--><? //=$full_url?><!--"><i class="fa fa-home"></i>--><? //=$glo_lang['trang_chu']?><!--</a> --><? //=$strshort?>
-    <!--                    </li>-->
-    <!--                </ul>-->
-    <!--                <div class="clr"></div>-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--    </div>-->
+
     <div class="banner_detail">
-        <!--            <img src="delete/gioithieu/banner-about.jpg">-->
         <img style="width: 100%;height: 400px;object-fit: cover;" src="<?= $images_background ?>">
     </div>
     <div class="link-direct">

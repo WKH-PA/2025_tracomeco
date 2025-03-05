@@ -54,16 +54,16 @@ p {
     color: #fff;
 }
 ::-webkit-selection {
- background-color:#f49020;
- color: #fff;
+   background-color:#f49020;
+   color: #fff;
 }
 -webkit-::selection {
     background-color: #f49020;
     color: #fff;
 }
 ::-moz-selection {
- background-color:#f49020;
- color: #fff;
+   background-color:#f49020;
+   color: #fff;
 }
 
 .container {
@@ -242,7 +242,7 @@ table, th, td {
     text-transform: capitalize;
     font-weight: 800;
     letter-spacing: 1px;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 .text-uppercase {
     text-transform: uppercase !important;
@@ -269,8 +269,8 @@ table, th, td {
     border-left-color:#dd1b5c;
 }
 100%{
-   opacity:1;
-   border-left-color:#dd1b5c;
+ opacity:1;
+ border-left-color:#dd1b5c;
 }
 }
 
@@ -592,9 +592,9 @@ to {
     margin-right: 30px;
 }
 .san-uudai>ul li a {
-   color: #fff;
-   font-size: 14px;
-   font-weight: 500;
+ color: #fff;
+ font-size: 14px;
+ font-weight: 500;
 }
 .san-uudai>span {
     margin: 0 10px 0 0;
@@ -1757,10 +1757,10 @@ menu nav li.mobile-lang .second-level a.active {
     transition: all 1000ms ease;
 }
 .linhvuc_col:hover:before {
- background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.5));
- -webkit-transition: all 0.7s ease;
- transition: all 0.7s ease;
- transform: scale(1.1);
+   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.5));
+   -webkit-transition: all 0.7s ease;
+   transition: all 0.7s ease;
+   transform: scale(1.1);
 }
 .linhvuc_col:hover .col_icon i {
     opacity: 0;
@@ -1897,7 +1897,9 @@ menu nav li.mobile-lang .second-level a.active {
     margin-right: 2px;
     font-size: 12px;
 }
-
+.tracomeco_home_khach_hang .khach_hang_box p.rate i:last-child {
+    background: #d2d3d5;
+}
 
 .swiper-pagination-bullet {
     width: 14px;
@@ -1921,9 +1923,9 @@ menu nav li.mobile-lang .second-level a.active {
     transition: all 0.5s;
 }
 .button_slide:hover {
- transition: all 0.5s;
- background: #ed1e24;
- color: #fff;
+   transition: all 0.5s;
+   background: #ed1e24;
+   color: #fff;
 }
 .button_slide i {
     margin-left: 7px;
@@ -2051,7 +2053,7 @@ menu nav li.mobile-lang .second-level a.active {
     object-fit: cover;
 }
 .myPartner li {
-    padding: 10px 3px;
+    padding: 5px 3px;
 }
 .myPartner li>a {
     display: flex;
@@ -2059,11 +2061,31 @@ menu nav li.mobile-lang .second-level a.active {
     background: #f6f6f7;
     box-shadow: rgba(0, 0, 0, 0.15) 1px 1px 4px;
     padding: 20px;
-    height: 110px;
+    height: auto;
     align-items: center;
+    flex-wrap: wrap;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+.myPartner li>a:hover h3 {
+    background: #bfbfbf;
+    color: #fff;
+    transition: all 0.3s;
+}
+.myPartner li>a h3 {
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin: 20px 0 0;
+    background: #ecf0f3;
+    padding: 10px;
+    color: #231F20;
+    text-transform: capitalize;
+    border-radius: 4px;
+    font-size: 17px;
 }
 .myPartner li>a img {
-    height: 45px;
+    height: 60px;
     object-fit: contain;
 }
 .maps {
@@ -2952,8 +2974,7 @@ a.pro_slide_prev.disabled, a.pro_slide_next.disabled {
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
     box-sizing: border-box;
-    /*text-transform: capitalize;*/
-    text-transform: none;
+    text-transform: capitalize;
     width: 100%;
     border-radius: 4px;
     background: #e5e5e5;
