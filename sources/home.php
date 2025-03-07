@@ -224,7 +224,7 @@ $doitac = DB_fet_rd("*", "`#_baiviet`", " `step` IN (" . 16 . ") ", "  ", 12, "i
 <section class="pa_boxcontent p-t-60 p-b-60">
     <div class="container-fluid">
         <div class="tracomeco_title_main">
-            <h2 class="text-uppercase wow animate__flipInX">Đại lý chính hãng</h2>
+            <h2 class="text-uppercase wow animate__flipInX"><?= $glo_lang['dai_ly_chinh_hang']?></h2>
         </div>
         <div class="row">
             <div class="swiper myPartner">
@@ -232,15 +232,12 @@ $doitac = DB_fet_rd("*", "`#_baiviet`", " `step` IN (" . 16 . ") ", "  ", 12, "i
                     <?php
                     foreach ($doitac as $rows) {?>
                         <li class="swiper-slide">
-
-                            <a href='<?=$fullpath. "/dai-ly/" . $rows['seo_name']  ?>' title="" class="logo_bottom">
+                            <a <?=full_href($rows) ?> title="" class="logo_bottom">
                                 <?= full_img($rows, "") ?>
                                 <h3><?= GET_text('tenbaiviet') ?></h3>
                             </a>
                         </li>
                     <?php } ?>
-
-
                 </ul>
             </div>
         </div>

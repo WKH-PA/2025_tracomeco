@@ -136,7 +136,6 @@ if ($motty == '404') {
 } else if ($motty == "tin-khuyen-mai") {
     $nametitle = $glo_lang['tin_khuyen_mai'];
     $arraydata[$full_url . '/tin-khuyen-mai/'] = $nametitle;
-
 } else {
     $nametitle = $glo_lang['tim_kiem'];
     $arraydata[$full_url . '/search/' . $haity] = $nametitle;
@@ -165,6 +164,9 @@ if ($motty == "search") {
 }
 if ($motty == "san-pham-noi-bat") {
     $strshort = '/ <a class="cl_active" href="' . $full_url . "/san-pham-noi-bat/" . '"> ' . $glo_lang['san_pham_noi_bat'] . '</a>';
+}
+if ($slug_step == 16) {
+    $strshort = '/  ' . $glo_lang['doi_tac'] ;
 }
 ?>
 <?php if ($motty != "404") { ?>
