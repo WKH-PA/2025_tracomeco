@@ -296,7 +296,7 @@ if ($banner_gt != '') {
                         <input type="text" class="form-control" name="sodienthoai_vi" value="<?= $sodienthoai_vi ?>">
                     </div>
                     <div class="form-group">
-                        <label>Hotine</label>
+                        <label>Fax</label>
                         <input type="text" class="form-control" name="hotline_vi" value="<?= $hotline_vi ?>">
                     </div>
                     <div class="form-group">

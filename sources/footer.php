@@ -5,10 +5,11 @@
                 <div class="col-xl-5 col-md-6">
                     <h3 class="itemtitle" style="text-align: center;"><?=GET_text('tenbaiviet_',$thongtin)?></h3>
                     <ul class="itemlist p-t-10">
-                        <li><?=$glo_lang['dia_chi']?>: <?=GET_text('diachi',$thongtin)?></li>
-                        <li><?=$glo_lang['email']?>: <?=$thongtin['email_vi']?></li>
-                        <li><?=$glo_lang['so_dien_thoai']?>: <?=$thongtin['sodienthoai_vi']?></li>
-                        <li><?=$glo_lang['fax']?>: <?=$thongtin['hotline_vi']?></li>
+
+                        <li class="<?=empty(GET_text('diachi',$thongtin))?"hidden":""?>"><?=$glo_lang['dia_chi']?>: <?=GET_text('diachi',$thongtin)?></li>
+                        <li class="<?=empty($thongtin['email_vi'])?"hidden":""?>"><?=$glo_lang['email']?>: <?=$thongtin['email_vi']?></li>
+                        <li class="<?=empty($thongtin['sodienthoai_vi'])?"hidden":""?>"><?=$glo_lang['so_dien_thoai']?>: <?=$thongtin['sodienthoai_vi']?></li>
+                        <li class="<?=empty($thongtin['hotline_vi'])?"hidden":""?>"><?=$glo_lang['fax']?>: <?=$thongtin['hotline_vi']?></li>
 
                     </ul>
                 </div>
